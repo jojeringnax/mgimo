@@ -25,3 +25,11 @@
 @section('script')
     <script src="js/media.js"></script>
 @endsection
+
+{{ Form::open(array('action' => 'PhotoController@show', 'files' => true)) }}
+
+{{ Form::file('photo') }}
+
+{{ Form::submit('Click Me!') }}
+
+{{ Form::close() }}
