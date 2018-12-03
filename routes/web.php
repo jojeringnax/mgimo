@@ -14,9 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('media', function () {
     return view('media');
+});
+Route::get('newss', function () {
+    return view('newss');
+});
+Route::get('events', function () {
+    return view('events');
 });
 
 Route::get('admin/news/create', function () {
