@@ -62,8 +62,10 @@ $(document).ready(function(){
     $(".next").click(function(){
         console.log('next');
         owl.trigger('next.owl');
-    })
+    });
     $(".prev").click(function(){
         owl.trigger('prev.owl');
-    })
+    });
+
+
 });

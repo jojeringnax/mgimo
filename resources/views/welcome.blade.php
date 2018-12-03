@@ -1,40 +1,10 @@
-@extends('header')
+@extends('layout')
 
-@section('nav')
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="logo col-1 d-flex justify-content-center align-items-center">
-                    <a class="navbar-brand" href="#">MGIMO</a>
-                </div>
-                <nav class=" navbar-main col-10" style="width:100%;">
-                    <ul class="nav nav-tabs d-flex justify-content-around">
-                        <li class="nav-item"><a class="nav-link" href="#">О юбилее</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Новости</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Мероприятия</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Поздравления</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Издательская программа</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Галерея</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Партнеры</a></li>
-                    </ul>
-                </nav>
-                <div class="soc-net col-1 d-flex align-items-center justify-content-between">
-                    <div class="">
-                        <i>VK</i>
-                    </div>
-                    <div class="">
-                        <i>IN</i>
-                    </div>
-                    <div class="">
-                        <i>FB</i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+@section('link')
+    <link rel="stylesheet" href="js/OwlCarousel2/dist/assets/owl.carousel.css">
 @endsection
 
-@section('banner')
+@section('content')
     <div class="container">
         <div class="row">
             <div class="banner">
@@ -45,9 +15,7 @@
             </div>
         </div>
     </div>
-@endsection
 
-@section('news')
     <div class="container">
         <div class="row">
             <div class="contents d-flex">
@@ -117,9 +85,7 @@
             </div>
         </div>
     </div>
-@endsection
 
-@section('media')
     <div id="media" class="container">
         <div class="row">
             <div class="content-media col-12">
@@ -153,9 +119,7 @@
             </div>
         </div>
     </div>
-@endsection
 
-@section('congratulations')
     <div id="congratulations" class="container">
         <div class="row">
             <div class="content-congratulations col-12">
@@ -208,9 +172,7 @@
             </div>
         </div>
     </div>
-@endsection
 
-@section('gallery')
     <div class="bg-gallery">
         <div class="container">
             <div class="row">
@@ -224,9 +186,7 @@
             </div>
         </div>
     </div>
-@endsection
 
-@section('partners')
     <div class="container">
         <div class="row">
             <div class="content-partners" style="width: 100%">
@@ -249,9 +209,12 @@
                             </div>
                         </div>
                     <?php } ?>
-
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/OwlCarousel2/dist/owl.carousel.min.js')}}"></script>
 @endsection
