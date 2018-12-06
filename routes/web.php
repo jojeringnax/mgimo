@@ -14,15 +14,47 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('media', function () {
     return view('media');
+});
+Route::get('newss', function () {
+    return view('newss');
+});
+
+Route::get('events', function () {
+    return view('events');
+});
+
+Route::get('publish', function () {
+    return view('publish');
+});
+
+Route::get('congratulations', function () {
+    return view('congratulations');
+});
+
+Route::get('partners', function () {
+    return view('partners');
+});
+
+Route::get('gallery', function () {
+    return view('gallery');
+});
+
+Route::get('news_layout', function () {
+    return view('news_layout');
+});
+
+Route::get('gallery_layout', function () {
+    return view('gallery_layout');
 });
 
 Route::get('admin/news/create', function () {
     return view('admin/news/create');
 });
+
 Route::post('admin/news/create', array('before' => 'csrf', 'uses' => 'AdminController@createNews'));
 
 Route::post( 'media', array('before' => 'csrf',  'uses' => 'PhotoController@show'));
+
 
