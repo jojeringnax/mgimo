@@ -19,10 +19,10 @@
                         <li class="nav-item"><a class="nav-link" href="#">О юбилее</a></li>
                         <li class="nav-item"><a class="nav-link" href="newss">Новости</a></li>
                         <li class="nav-item"><a class="nav-link" href="events">Мероприятия</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Поздравления</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Издательская программа</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Галерея</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Партнеры</a></li>
+                        <li class="nav-item"><a class="nav-link" href="congratulations">Поздравления</a></li>
+                        <li class="nav-item"><a class="nav-link" href="publish">Издательская программа</a></li>
+                        <li class="nav-item"><a class="nav-link" href="gallery">Галерея</a></li>
+                        <li class="nav-item"><a class="nav-link" href="partners">Партнеры</a></li>
                     </ul>
                 </nav>
                 <div class="soc-net col-1 d-flex align-items-center justify-content-between">
