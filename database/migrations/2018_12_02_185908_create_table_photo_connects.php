@@ -30,9 +30,7 @@ class CreateTablePhotoConnects extends Migration
      */
     public function down()
     {
-        Schema::table('news', function (Blueprint $table) {
-            $table->dropForeign('photo_connects_id_foreign');
-        });
+
         Schema::dropIfExists('photo_connects');
     }
 }

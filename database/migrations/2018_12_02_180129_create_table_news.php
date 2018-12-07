@@ -18,6 +18,7 @@ class CreateTableNews extends Migration
             $table->timestamps();
             $table->string('title');
             $table->text('content');
+            $table->boolean('moderated');
             $table->unsignedInteger('main_photo_id')->nullable();
             $table->foreign('main_photo_id')->references('id')->on('photos');
         });
