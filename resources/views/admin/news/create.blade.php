@@ -1,5 +1,5 @@
 
-{{ Form::open(array('action' => 'AdminController@createNews', 'files' => true)) }}
+{{ Form::open(array('action' => 'AdminController@createArticle', 'files' => true)) }}
 
 {{ Form::label('title', 'Заголовок') }}
     {{ Form::text('title') }}

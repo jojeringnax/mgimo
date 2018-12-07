@@ -18,7 +18,7 @@ class CreateTablePhotoConnects extends Migration
             $table->timestamps();
             $table->integer('connect_id');
             $table->smallInteger('type');
-            $table->foreign('id')->references('id')->on('photos');
+            $table->foreign('id')->references('id')->on('photos')->onDelete('cascade');
         });
 
     }

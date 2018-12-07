@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Storage;
 class AdminController extends Controller
 {
 
-    public function createNews(Request $request)
+    public function createArticle(Request $request)
     {
         $news = new News();
         $news->title = $request->post('title');
@@ -61,9 +61,21 @@ class AdminController extends Controller
         return 'aa';
     }
 
+    /**
+     * @param $articleId
+     * @return string
+     */
     public function deleteArticle($articleId)
     {
-        News::find();
+        $article = News::find($articleId);
+        $photos = $article->getPhotos();
+        $photo = $article->mainPhoto;
+        $article->delete();
+        $photo->delete();
+        foreach($photos as $photo) {
+            $photo->delete();
+        }
+        return 'Удалено';
     }
 
 

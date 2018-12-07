@@ -11,7 +11,7 @@
                     <span>{{ $article->title }}</span>
                 </div>
                 <div id="photos-news" class="col-4 d-flex flex-column">
-                    @foreach($article->getPhotos() as $photo)
+                    @foreach($articlePhotos as $photo)
                         <div class="item-img-news">
                             <img src="{{ $photo->path }}" alt="" style="width: 100%">
                         </div>

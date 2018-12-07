@@ -23,6 +23,8 @@ Route::get('news', 'NewsController@index');
 
 Route::get('news/show/{id}', 'NewsController@show');
 
+
+
 Route::get('events', function () {
     return view('events');
 });
@@ -55,8 +57,10 @@ Route::get('admin/news/create', function () {
     return view('admin/news/create');
 });
 
-Route::post('admin/news/create', array('before' => 'csrf', 'uses' => 'AdminController@createNews'));
+Route::post('admin/news/create', array('before' => 'csrf', 'uses' => 'AdminController@createArticle'));
 
 Route::post( 'media', array('before' => 'csrf',  'uses' => 'PhotoController@show'));
+
+Route::get('admin/news/delete/{id}', 'AdminController@deleteArticle');
 
 

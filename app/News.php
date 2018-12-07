@@ -22,7 +22,7 @@ class News extends Model
     }
 
     /**
-     * @return mixed
+     * @return Photo[]
      */
     public function getPhotos()
     {
