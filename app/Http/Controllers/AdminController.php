@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\News;
 use App\Photo;
+use App\PhotoConnect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -27,15 +28,42 @@ class AdminController extends Controller
             $photo = new Photo();
             $path = 'news/' . $news->id . '.' . $file->getClientOriginalExtension();
             Storage::put($path, file_get_contents($file->getPathname()));
-            $photo->type = PHOTO::NEWS;
+            $path = '/storage/photo/' . $path;
+            $photo->type = PhotoConnect::NEWS;
             $photo->sizeX = getimagesize($file->getPathname())[0];
             $photo->sizeY = getimagesize($file->getPathname())[1];
             $photo->path = $path;
             $photo->save();
+            $news->main_photo_id = $photo->id;
+            unset($file);
+            unset($path);
+            unset($photo);
         }
-        $news->main_photo_id = $photo->id;
         $news->save();
-        return var_dump($request);
+        for($i=1;$i<=3;$i++) {
+            if($file = $request->file('photo'.$i)) {
+                $photo = new Photo();
+                $path = '/news/' . $news->id . '_' . $i .'.' . $file->getClientOriginalExtension();
+                Storage::put($path, file_get_contents($file->getPathname()));
+                $path = '/storage/photo' . $path;
+                $photo->type = PhotoConnect::NEWS;
+                $photo->sizeX = getimagesize($file->getPathname())[0];
+                $photo->sizeY = getimagesize($file->getPathname())[1];
+                $photo->path = $path;
+                $photo->save();
+                $photoConnect = new PhotoConnect();
+                $photoConnect->id = $photo->id;
+                $photoConnect->connect_id = $news->id;
+                $photoConnect->type = PhotoConnect::NEWS;
+                $photoConnect->save();
+            }
+        }
+        return 'aa';
+    }
+
+    public function deleteArticle($articleId)
+    {
+        News::find();
     }
 
 

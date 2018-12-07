@@ -14,11 +14,13 @@ class CreateTablePhotoConnects extends Migration
     public function up()
     {
         Schema::create('photo_connects', function (Blueprint $table) {
-            $table->increments('id');
+            $table->unsignedInteger('id')->nullable();
             $table->timestamps();
             $table->integer('connect_id');
             $table->smallInteger('type');
+            $table->foreign('id')->references('id')->on('photos');
         });
+
     }
 
     /**
@@ -28,6 +30,9 @@ class CreateTablePhotoConnects extends Migration
      */
     public function down()
     {
+        Schema::table('news', function (Blueprint $table) {
+            $table->dropForeign('photo_connects_id_foreign');
+        });
         Schema::dropIfExists('photo_connects');
     }
 }

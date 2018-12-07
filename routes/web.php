@@ -14,12 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('media', function () {
     return view('media');
 });
-Route::get('newss', function () {
-    return view('newss');
-});
+
+Route::get('news', 'NewsController@index');
+
+Route::get('news/show/{id}', 'NewsController@show');
 
 Route::get('events', function () {
     return view('events');

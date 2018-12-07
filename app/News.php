@@ -11,4 +11,23 @@ class News extends Model
     protected $attributes = [
         'main_photo_id' => null,
     ];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function mainPhoto()
+    {
+        return $this->hasOne(Photo::class, 'id','main_photo_id');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhotos()
+    {
+        $photoConnects = PhotoConnect::article($this->id);
+        return Photo::whereIn('id', $photoConnects)->get();
+    }
+
 }

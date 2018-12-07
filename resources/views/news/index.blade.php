@@ -11,21 +11,21 @@
                 </div>
             </div>
             <div class="news d-flex flex-wrap justify-content-between">
-                <?php for ($i=0;$i<=7;$i++) { ?>
+                @foreach($news as $article)
                     <div class="item-card-news card">
-                        <img class="card-img-top" src="https://otakukart.com/wp-content/uploads/2017/08/one_piece_movie_z_luffy_by_exalmas-d61qk9b.png" alt="Card image cap">
+                        <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
                         <div class="card-body">
-                            <span class="title-card-news">Заголовок</span>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <span class="title-card-news">{{ $article->title }}</span>
+                            <p class="card-text">{{ $article->content }}</p>
                         </div>
-                        <a href="#" class="card-link">Читать</a>
+                        {{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link']) }}
                     </div>
-                <?php } ?>
+                @endforeach
                 <button id="btn-download-news" type="button" class="btn btn-raised btn-primary">Посмотреть еще новости</button>
             </div>
         </div>
     </div>
 @endsection
 @section('script')
-    <script src="js/news.js"></script>
+    <script src="{{ asset('js/news.js') }}"></script>
 @endsection
