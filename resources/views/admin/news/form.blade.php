@@ -1,12 +1,13 @@
 
-{{ Form::open(array('action' => 'AdminController@createArticle', 'files' => true)) }}
+{{ request()->route()->getActionMethod() !== 'updateArticle' ? Form::open(array('action' => 'AdminController@createArticle', 'files' => true)) : Form::model($article) }}
 
+{{ var_dump($article->getTags()) }}
 {{ Form::label('title', 'Заголовок') }}
-    {{ Form::text('title') }}
+    {{ Form::text('title', isset($article) ? $article->title : '',['class' => 'form-control']) }}
 {{ Form::label('content', 'Текст статьи') }}
     {{ Form::textarea('content') }}
 {{ Form::label('photo', 'Загрузите главное фото') }}
-    {{ Form::file('photo') }}
+    {{ Form::file('photo', ['class' => 'form-control']) }}
 
 {{ Form::label('photo1', 'Загрузите первое фото') }}
     {{ Form::file('photo1') }}
@@ -17,10 +18,9 @@
     {{ Form::file('photo3') }}
 
 {{ Form::label('tags', 'Тэги') }}
-    {{ Form::text('tags') }}
+    {{ Form::text('tags', isset($tags) ? implode(',', $tags) : '') }}
 
 {{ Form::submit('Сохранить') }}
-
 
 
 {{ Form::close() }}
