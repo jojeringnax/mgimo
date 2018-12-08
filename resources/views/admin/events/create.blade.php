@@ -1,4 +1,4 @@
-{{ Form::open(array('action' => 'AdminController@createEvent', 'files' => true)) }}
+{{ Form::open(array('action' => 'AdminController@createEvent')) }}
 
 {{ Form::label('title', 'Заголовок') }}
     {{ Form::text('title') }}

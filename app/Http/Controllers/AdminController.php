@@ -13,6 +13,8 @@ use App\Event;
 use App\News;
 use App\Photo;
 use App\PhotoConnect;
+use App\Smi;
+use App\Smis;
 use App\Tag;
 use App\TagConnect;
 use Illuminate\Http\Request;
@@ -134,6 +136,40 @@ class AdminController extends Controller
     {
         $event = Event::find($eventId);
         $event->delete();
+        return 1;
+    }
+
+
+    public function createSmi(Request $request)
+    {
+        $smi = new Smi();
+        $smi->link = $request->post('link');
+        $smi->link_view = $request->post('link_view');
+        $smi->title = $request->post('title');
+        $smi->save();
+        return 1;
+    }
+
+    public function updateSmi($smiId, Request $request)
+    {
+        if($request->isMethod('post')) {
+            $smi = Smi::find($smiId);
+            $smi->link = $request->post('link');
+            $smi->link_view = $request->post('link_view');
+            $smi->title = $request->post('title');
+            $smi->save();
+            return 1;
+        } elseif ($request->isMethod('get')) {
+            return view('admin.smis.update', [
+                'smi' => Smi::find($smiId)
+            ]);
+        };
+    }
+
+    public function deleteSmi($smiId)
+    {
+        $smi = Smi::find($smiId);
+        $smi->delete();
         return 1;
     }
 

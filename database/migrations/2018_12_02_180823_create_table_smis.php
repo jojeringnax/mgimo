@@ -17,8 +17,8 @@ class CreateTableSmis extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('link');
+            $table->string('link_view');
             $table->string('title');
-            $table->text('content');
         });
     }
 

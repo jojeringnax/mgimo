@@ -12,19 +12,19 @@
                 </div>
                 <div class="content-event-page">
                     <div class="tags-event-page">
-                        <?php for ($i=1;$i<=5;$i++) { ?>
-                            <span class="tag">РУБРИКА</span>
-                        <?php } ?>
+                        @foreach($events as $event)
+                        @foreach($event->getTags() as $tag)
+                            <span class="tag">{{ $tag }}</span>
+                        @endforeach
                     </div>
                     <div class="items-event-page d-flex flex-wrap justify-content-between">
-                        <?php for ($i=1;$i<=12;$i++) { ?>
                             <div class="item">
                                 <span class="title-item">
-                                    Встреча и награждение стипендиатов Международного Фонда Шодиева
+                                    {{ $event->content }}
                                 </span>
-                                <span class="date-item">19 Ноября</span>
+                                <span class="date-item">{{ $event->date }}</span>
                             </div>
-                        <?php } ?>
+                        @endforeach
                     </div>
                 </div>
             </div>

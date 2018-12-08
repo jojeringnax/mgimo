@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('media', function () {
-    return view('media');
-});
+Route::get('media', 'SmiController@index');
 
 Route::get('news', 'NewsController@index');
 
@@ -55,7 +53,6 @@ Route::get('gallery_layout', function () {
 
 
 
-Route::post( 'media', array('before' => 'csrf',  'uses' => 'PhotoController@show'));
 
 /**
  * Admin routes
@@ -63,15 +60,26 @@ Route::post( 'media', array('before' => 'csrf',  'uses' => 'PhotoController@show
 Route::get('admin/news/create', function () {
     return view('admin/news/create');
 });
+
 Route::get('admin/events/create', function () {
     return view('admin/events/create');
 });
 
+Route::get('admin/smis/create', function () {
+    return view('admin/smis/create');
+});
+
+
+
+Route::match(['get','post'], 'admin/smis/update/{id}', 'AdminController@updateSmi');
+
+Route::post('admin/smis/create', array('before' => 'csrf', 'uses' => 'AdminController@createSmi'));
 
 Route::post('admin/news/create', array('before' => 'csrf', 'uses' => 'AdminController@createArticle'));
 Route::get('admin/news/delete/{id}', 'AdminController@deleteArticle');
 
 Route::post('admin/events/create', array('before' => 'csrf', 'uses' => 'AdminController@createEvent'));
 Route::get('admin/events/delete/{id}', 'AdminController@deleteEvent');
+
 
 
