@@ -1,4 +1,4 @@
-{{ Form::open(array('action' => 'AdminController@createEvent')) }}
+{{ request()->route()->getActionMethod() !== 'updateEvent' ? Form::open(array('action' => 'AdminController@createEvent')) : Form::model($article) }}
 
 {{ Form::label('title', 'Заголовок') }}
     {{ Form::text('title') }}

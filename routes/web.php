@@ -57,28 +57,18 @@ Route::get('gallery_layout', function () {
 /**
  * Admin routes
  */
-Route::get('admin/news/create', function () {
-    return view('admin/news/create');
-});
-
-Route::get('admin/events/create', function () {
-    return view('admin/events/create');
-});
-
-Route::get('admin/smis/create', function () {
-    return view('admin/smis/create');
-});
 
 
 
+Route::match(['get','post'], 'admin/smis/create', 'AdminController@createSmi');
 Route::match(['get','post'], 'admin/smis/update/{id}', 'AdminController@updateSmi');
 
-Route::post('admin/smis/create', array('before' => 'csrf', 'uses' => 'AdminController@createSmi'));
-
-Route::post('admin/news/create', array('before' => 'csrf', 'uses' => 'AdminController@createArticle'));
+Route::match(['get','post'], 'admin/news/create', 'AdminController@createArticle');
+Route::match(['get','post'], 'admin/news/update/{id}', 'AdminController@updateArticle');
 Route::get('admin/news/delete/{id}', 'AdminController@deleteArticle');
 
-Route::post('admin/events/create', array('before' => 'csrf', 'uses' => 'AdminController@createEvent'));
+
+Route::match(['get','post'], 'admin/events/create', 'AdminController@createEvent');
 Route::get('admin/events/delete/{id}', 'AdminController@deleteEvent');
 
 
