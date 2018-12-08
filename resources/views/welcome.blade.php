@@ -9,9 +9,11 @@
         <div class="row">
             <div class="banner">
                 <div class="text-banner">
-                    <span style="">Заголовок <br> 75 лет МГИМО</span>
+                    <span style=""><span class="years">75</span> лет<br> МГИМО</span>
                 </div>
-                <div id="timer" class="timer d-flex justify-content-center"></div>
+                <div class="timer-lay">
+                    <div id="timer" class="timer d-flex justify-content-center"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -47,7 +49,7 @@
                         </div>
                     </div>
                     <div class="buttons-news">
-                        <button>Смотреть все новости</button>
+                        <button>Смотреть все новости <span></span></button>
                     </div>
                 </div>
                 <div class="item-contents events col-4 d-flex flex-column">
@@ -79,7 +81,7 @@
                         <span class="date-events">10 Ноября</span>
                     </div>
                     <div class="buttons-news">
-                        <button>Смотреть все мероприятия</button>
+                        <button>Смотреть все мероприятия <span></span></button>
                     </div>
                 </div>
             </div>

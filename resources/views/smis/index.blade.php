@@ -2,19 +2,19 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="media-page d-flex flex-column">
+            <div class="media-page d-flex flex-column" style="width:100%">
                 <div class="title-media">
                     <span>СМИ о нас</span>
                 </div>
                 @if(!$smis->isEmpty())
-                    <div class="media-page-content d-flex justify-content-between flex-wrap">
+                    <div class="media-page-content d-flex justify-content-between flex-wrap" style="width:100%">
                         @foreach($smis as $smi)
                             <div class="col-3 item-media-news d-flex">
-                                <span class="source-media-news">{{ $smi->link_view }}</span>
-                                <span class="title-media-news">
-                                    {{ $smi->title }}
-                                </span>
-                                @if ($loop->index%4) <hr> @endif
+                                <a href="{{ $smi->link }}">
+                                    <span class="source-media-news">{{ $smi->link_view }}</span>
+                                    <span class="title-media-news">{{ $smi->title }}</span>
+                                </a>
+                                @if (($loop->index + 1)%4) <hr> @endif
                             </div>
                         @endforeach
                     </div>
