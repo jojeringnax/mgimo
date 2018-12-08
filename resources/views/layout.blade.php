@@ -17,7 +17,7 @@
                 <nav class=" navbar-main col-10" style="width:100%;">
                     <ul class="nav nav-tabs d-flex justify-content-around">
                         <li class="nav-item"><a class="nav-link" href="#">О юбилее</a></li>
-                        <li class="nav-item"><a class="nav-link" href="newss">Новости</a></li>
+                        <li class="nav-item"><a class="nav-link" href="news">Новости</a></li>
                         <li class="nav-item"><a class="nav-link" href="events">Мероприятия</a></li>
                         <li class="nav-item"><a class="nav-link" href="congratulations">Поздравления</a></li>
                         <li class="nav-item"><a class="nav-link" href="publish">Издательская программа</a></li>

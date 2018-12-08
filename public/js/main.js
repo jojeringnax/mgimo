@@ -67,5 +67,5 @@ $(document).ready(function(){
         owl.trigger('prev.owl');
     });
 
-
+    $('body').css({"background-color":"white"});
 });
