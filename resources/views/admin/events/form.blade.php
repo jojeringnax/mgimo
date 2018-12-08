@@ -1,10 +1,8 @@
-{{ request()->route()->getActionMethod() !== 'updateEvent' ? Form::open(array('action' => 'AdminController@createEvent')) : Form::model($article) }}
+{{ request()->route()->getActionMethod() !== 'updateEvent' ? Form::open(array('action' => 'AdminController@createEvent')) : Form::model($event) }}
 
-{{ Form::label('title', 'Заголовок') }}
-    {{ Form::text('title') }}
-
-{{ Form::label('content', 'Текст Эвента') }}
+{{ Form::label('content', 'Заголовок') }}
     {{ Form::textarea('content') }}
+
 
 {{ Form::label('date', 'Дата') }}
     {{ Form::date('date',  \Carbon\Carbon::now()) }}

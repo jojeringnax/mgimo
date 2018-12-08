@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SiteController@index');
 
 Route::get('media', 'SmiController@index');
 
@@ -62,6 +60,7 @@ Route::get('gallery_layout', function () {
 
 Route::match(['get','post'], 'admin/smis/create', 'AdminController@createSmi');
 Route::match(['get','post'], 'admin/smis/update/{id}', 'AdminController@updateSmi');
+Route::get('admin/smis/delete/{id}', 'AdminController@deleteSmi');
 
 Route::match(['get','post'], 'admin/news/create', 'AdminController@createArticle');
 Route::match(['get','post'], 'admin/news/update/{id}', 'AdminController@updateArticle');
@@ -69,6 +68,7 @@ Route::get('admin/news/delete/{id}', 'AdminController@deleteArticle');
 
 
 Route::match(['get','post'], 'admin/events/create', 'AdminController@createEvent');
+Route::match(['get','post'], 'admin/events/update/{id}', 'AdminController@updateEvent');
 Route::get('admin/events/delete/{id}', 'AdminController@deleteEvent');
 
 

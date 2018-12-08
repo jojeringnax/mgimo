@@ -98,7 +98,6 @@ class AdminController extends Controller
             $article->title = $request->post('title');
             $article->content = $request->post('content');
             $article->moderated = true;
-            $article->save();
             if ($file = $request->file('photo')) {
                 if($article->main_photo_id !== null) {
                     $article->mainPhoto->delete();
@@ -118,14 +117,14 @@ class AdminController extends Controller
                 unset($photo);
             }
             $article->save();
-            if(!($photos = $article->getPhotos())->isEmpty()) {
-                foreach ($photos as $photo) {
-                    $photo->delete();
-                }
-                unset($photoConnect);
-            }
+            $photos = $article->getPhotos();
             for ($i = 1; $i <= 3; $i++) {
                 if ($file = $request->file('photo' . $i)) {
+                    if(!$photos->isEmpty() && $i = 1) {
+                        foreach ($photos as $photo) {
+                            $photo->delete();
+                        }
+                    }
                     $photo = new Photo();
                     $path = '/news/' . $article->id . '_' . $i . '.' . $file->getClientOriginalExtension();
                     Storage::put($path, file_get_contents($file->getPathname()));
@@ -219,6 +218,47 @@ class AdminController extends Controller
             }
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form');
+        }
+    }
+
+
+    public function updateEvent($eventId, Request $request)
+    {
+        if($request->isMethod('post')) {
+            $event = Event::find($eventId);
+            $event->title = $request->post('content');
+            $event->date = $request->post('date');
+            $event->main = $request->post('main') === null ? 0 : 1;
+            $event->save();
+            if ($tags = $request->post('tags')) {
+                $tagConnects = TagConnect::event($eventId);
+                foreach ($tagConnects as $tagConnect) {
+                    $tagConnect->tag->count_events -= 1;
+                    $tagConnect->delete();
+                }
+                $tags = preg_split('/,/', $tags);
+                foreach ($tags as $tag) {
+                    $tagModel = Tag::where('word', $tag)->first();
+                    if ($tagModel === null) {
+                        $tagModel = new Tag();
+                        $tagModel->word = $tag;
+                        $tagModel->count_events = 1;
+                        $tagModel->save();
+                    } else {
+                        $tagModel->count_events += 1;
+                        $tagModel->save();
+                    }
+                    $tagConnect = new TagConnect();
+                    $tagConnect->id = $tagModel->id;
+                    $tagConnect->connect_id = $event->id;
+                    $tagConnect->type = TagConnect::EVENTS;
+                    $tagConnect->save();
+                }
+            }
+        } elseif ($request->isMethod('get')) {
+            return view('admin.events.form', [
+                'event' => Event::find($eventId)
+            ]);
         }
     }
 

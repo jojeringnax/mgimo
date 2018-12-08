@@ -1,7 +1,6 @@
 
-{{ request()->route()->getActionMethod() !== 'updateArticle' ? Form::open(array('action' => 'AdminController@createArticle', 'files' => true)) : Form::model($article) }}
+{{ request()->route()->getActionMethod() !== 'updateArticle' ? Form::open(array('action' => 'AdminController@createArticle', 'files' => true)) : Form::model($article, ['files' => true]) }}
 
-{{ var_dump($article->getTags()) }}
 {{ Form::label('title', 'Заголовок') }}
     {{ Form::text('title', isset($article) ? $article->title : '',['class' => 'form-control']) }}
 {{ Form::label('content', 'Текст статьи') }}
