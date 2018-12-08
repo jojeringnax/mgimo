@@ -16,6 +16,11 @@
 {{ Form::label('photo3', 'Загрузите третье фото') }}
     {{ Form::file('photo3') }}
 
+{{ Form::label('tags', 'Тэги') }}
+    {{ Form::text('tags') }}
+
 {{ Form::submit('Сохранить') }}
+
+
 
 {{ Form::close() }}

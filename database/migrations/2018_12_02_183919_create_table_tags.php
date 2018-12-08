@@ -16,9 +16,10 @@ class CreateTableTags extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
             $table->string('word');
-            $table->integer('count_news');
-            $table->integer('count_photos');
-            $table->integer('count_events');
+            $table->timestamps();
+            $table->integer('count_news')->default(0);
+            $table->integer('count_photos')->default(0);
+            $table->integer('count_events')->default(0);
         });
     }
 

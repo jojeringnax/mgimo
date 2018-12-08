@@ -25,9 +25,7 @@ Route::get('news/show/{id}', 'NewsController@show');
 
 
 
-Route::get('events', function () {
-    return view('events');
-});
+Route::get('events', 'EventsController@index');
 
 Route::get('publish', function () {
     return view('publish');
@@ -53,14 +51,27 @@ Route::get('gallery_layout', function () {
     return view('gallery_layout');
 });
 
-Route::get('admin/news/create', function () {
-    return view('admin/news/create');
-});
 
-Route::post('admin/news/create', array('before' => 'csrf', 'uses' => 'AdminController@createArticle'));
+
+
 
 Route::post( 'media', array('before' => 'csrf',  'uses' => 'PhotoController@show'));
 
+/**
+ * Admin routes
+ */
+Route::get('admin/news/create', function () {
+    return view('admin/news/create');
+});
+Route::get('admin/events/create', function () {
+    return view('admin/events/create');
+});
+
+
+Route::post('admin/news/create', array('before' => 'csrf', 'uses' => 'AdminController@createArticle'));
 Route::get('admin/news/delete/{id}', 'AdminController@deleteArticle');
+
+Route::post('admin/events/create', array('before' => 'csrf', 'uses' => 'AdminController@createEvent'));
+Route::get('admin/events/delete/{id}', 'AdminController@deleteEvent');
 
 

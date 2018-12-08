@@ -14,10 +14,11 @@ class CreateTableTagConnects extends Migration
     public function up()
     {
         Schema::create('tag_connects', function (Blueprint $table) {
-            $table->increments('id');
+            $table->unsignedInteger('id')->nullable();
             $table->timestamps();
             $table->unsignedInteger('connect_id');
-            $table->smallInteger('type');
+            $table->tinyInteger('type');
+            $table->foreign('id')->references('id')->on('tags')->onDelete('cascade');
         });
     }
 
