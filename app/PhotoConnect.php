@@ -8,6 +8,8 @@ class PhotoConnect extends Model
 {
     protected $table = 'photo_connects';
 
+    public $timestamps = false;
+
     const NEWS = 1;
     const BOOK = 2;
     const CONGRATULATION = 3;

@@ -8,6 +8,8 @@ class TagConnect extends Model
 {
     protected $table = 'tag_connects';
 
+    public $timestamps = false;
+
     const NEWS = 1;
     const EVENTS = 2;
     const GALLERY = 3;

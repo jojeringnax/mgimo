@@ -52,10 +52,12 @@ Route::get('gallery_layout', function () {
 
 
 
+
 /**
  * Admin routes
  */
 
+Route::get('photo/delete/{id}', 'PhotoController@delete');
 
 
 Route::match(['get','post'], 'admin/smis/create', 'AdminController@createSmi');

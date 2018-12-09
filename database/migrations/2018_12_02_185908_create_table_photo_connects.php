@@ -15,7 +15,6 @@ class CreateTablePhotoConnects extends Migration
     {
         Schema::create('photo_connects', function (Blueprint $table) {
             $table->unsignedInteger('id')->nullable();
-            $table->timestamps();
             $table->integer('connect_id');
             $table->smallInteger('type');
             $table->foreign('id')->references('id')->on('photos')->onDelete('cascade');

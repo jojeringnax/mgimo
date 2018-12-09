@@ -15,7 +15,6 @@ class CreateTableTagConnects extends Migration
     {
         Schema::create('tag_connects', function (Blueprint $table) {
             $table->unsignedInteger('id')->nullable();
-            $table->timestamps();
             $table->unsignedInteger('connect_id');
             $table->tinyInteger('type');
             $table->foreign('id')->references('id')->on('tags')->onDelete('cascade');
