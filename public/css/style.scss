@@ -104,6 +104,7 @@ nav {
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
             &:after {
                 content: '';
 
@@ -190,10 +191,13 @@ nav {
             span {
                 font-size: 20px;
                 font-weight: bold;
+                margin-top: 30px;
+                display: block;
             }
         }
         .item-events {
-            border-bottom: 1px solid $mainColor;
+            //border-bottom: 1px solid $mainColor;
+            margin-top: 15px;
             article {
                 display: flex;
                 flex-direction: column;
