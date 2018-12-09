@@ -19,6 +19,7 @@ class CreateTablePhotos extends Migration
             $table->integer('sizeY');
             $table->string('path');
             $table->smallInteger('type');
+            $table->boolean('video')->default(false);
         });
     }
 

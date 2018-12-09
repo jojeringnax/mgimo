@@ -8,9 +8,7 @@ class News extends Model
 {
     protected $table = 'news';
 
-    protected $attributes = [
-        'main_photo_id' => null,
-    ];
+    public $fillable = ['main_photo_id'];
 
     public function delete()
     {
@@ -63,7 +61,7 @@ class News extends Model
     public function getTags()
     {
         $tagConnects = TagConnect::article($this->id);
-        if($tagConnects === null) {return [];}
+        if($tagConnects->isEmpty()) {return [];}
         foreach($tagConnects as $tagConnect) {
             $idsArray[] = $tagConnect->id;
         }

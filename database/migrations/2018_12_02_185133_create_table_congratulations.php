@@ -15,10 +15,10 @@ class CreateTableCongratulations extends Migration
     {
         Schema::create('congratulations', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('title');
             $table->text('content');
-            $table->unsignedInteger('main_photo_id');
+            $table->integer('date');
+            $table->unsignedInteger('main_photo_id')->nullable();
         });
 
         Schema::table('congratulations', function (Blueprint $table) {

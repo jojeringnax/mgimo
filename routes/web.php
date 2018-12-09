@@ -73,9 +73,20 @@ Route::match(['get','post'], 'admin/events/create', 'AdminController@createEvent
 Route::match(['get','post'], 'admin/events/update/{id}', 'AdminController@updateEvent');
 Route::get('admin/events/delete/{id}', 'AdminController@deleteEvent');
 
+Route::match(['get','post'], 'admin/congratulations/create', 'AdminController@createCongratulation');
+Route::match(['get','post'], 'admin/congratulations/update/{id}', 'AdminController@updateCongratulation');
+Route::get('admin/congratulations/delete/{id}', 'AdminController@deleteCongratulation');
+
+Route::get('phpinfo', function () {
+    phpinfo();
+});
 
 
 
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

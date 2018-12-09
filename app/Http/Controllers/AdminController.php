@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Congratulation;
 use App\Event;
 use App\News;
 use App\Photo;
@@ -49,11 +50,8 @@ class AdminController extends Controller
                 $photo->path = $path;
                 $photo->save();
                 $news->main_photo_id = $photo->id;
-                unset($file);
-                unset($path);
-                unset($photo);
+                $news->update(['main_photo_id' => $photo->id]);
             }
-            $news->save();
             for ($i = 1; $i <= 3; $i++) {
                 if ($file = $request->file('photo' . $i)) {
                     $photo = new Photo();
@@ -107,7 +105,9 @@ class AdminController extends Controller
             $article->moderated = true;
             if ($file = $request->file('photo')) {
                 if($article->main_photo_id !== null) {
-                    $article->mainPhoto->delete();
+                    $mainPhoto = Photo::find($article->main_photo_id);
+                    $article->update(['main_photo_id' => null]);
+                    $mainPhoto->delete();
                 }
                 $photo = new Photo();
                 $path = 'news/' . $article->id . '.' . $file->getClientOriginalExtension();
@@ -118,16 +118,12 @@ class AdminController extends Controller
                 $photo->sizeY = getimagesize($file->getPathname())[1];
                 $photo->path = $path;
                 $photo->save();
-                $article->main_photo_id = $photo->id;
-                unset($file);
-                unset($path);
-                unset($photo);
+                $article->update(['main_photo_id' => $photo->id]);
             }
-            $article->save();
             $photos = $article->getPhotos();
             for ($i = 1; $i <= 3; $i++) {
                 if ($file = $request->file('photo' . $i)) {
-                    if(!$photos->isEmpty() && $i = 1) {
+                    if(!$photos->isEmpty() && $i == 1) {
                         foreach ($photos as $photo) {
                             $photo->delete();
                         }
@@ -150,9 +146,10 @@ class AdminController extends Controller
             }
             if ($tags = $request->post('tags')) {
                 $tags = preg_split('/,/', $tags);
-                if(!($tagConnects = TagConnect::article($article->id))->isEmpty()) {
+                if(!($tagConnects = TagConnect::where('connect_id', $article->id)->where('type', TagConnect::NEWS))->isEmpty()) {
                     foreach ($tagConnects as $tagConnect) {
-                        $tagConnect->tag->count_news -= 1;
+                        $tag = $tagConnect->tag;
+                        $tagConnect->tag->update(['count_news' => $tag->count_news - 1]);
                         $tagConnect->delete();
                     }
                 };
@@ -179,7 +176,8 @@ class AdminController extends Controller
             $article = News::find($articleId);
             return view('admin.news.form', [
                 'article' => $article,
-                'tags' => $article->getTags()
+                'tags' => $article->getTags(),
+                'photos' => $article->getPhotos()
             ]);
         };
     }
@@ -319,5 +317,33 @@ class AdminController extends Controller
         return 1;
     }
 
+
+    public function createCongratulation(Request $request)
+    {
+
+        if($request->isMethod('post')) {
+            $congratulation = new Congratulation();
+            $congratulation->title = $request->post('title');
+            $congratulation->content = $request->post('content');
+            $congratulation->date = $request->post('date');
+            $congratulation->save();
+            if ($file = $request->file('file')) {
+                $photo = new Photo();
+                $path = 'congratulations/' . $congratulation->id . '.' . $file->getClientOriginalExtension();
+                Storage::put($path, file_get_contents($file->getPathname()));
+                $path = '/storage/photo/' . $path;
+                $photo->type = PhotoConnect::CONGRATULATION;
+                $photo->sizeX = getimagesize($file->getPathname())[0];
+                $photo->sizeY = getimagesize($file->getPathname())[1];
+                $photo->path = $path;
+                $photo->video = (boolean) strpos('video', $_FILES['file']['type']);
+                $photo->save();
+                $congratulation->update(['main_photo_id' => $photo->id]);
+            }
+            return 1;
+        } elseif ($request->isMethod('get')) {
+            return view('admin.congratulations.form');
+        }
+    }
 
 }

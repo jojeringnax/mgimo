@@ -19,7 +19,6 @@
 {{ Form::label('tags', 'Тэги') }}
     {{ Form::text('tags', isset($tags) ? implode(',', $tags) : '') }}
 @if(isset($article))
-    @php $photos = $article->getPhotos(); @endphp
     @if(!$photos->isEmpty())
         <div style="display: flex;align-items: center; justify-content: space-around;">
             @foreach($photos as $photo)
@@ -29,6 +28,9 @@
                 </div>
             @endforeach
         </div>
+    @endif
+    @if($photo = $article->mainPhoto)
+        <img src="{{$photo->path}}" />
     @endif
 @endif
 {{ Form::submit('Сохранить') }}
