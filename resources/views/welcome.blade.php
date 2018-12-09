@@ -56,30 +56,25 @@
                     <div class="title-events">
                         <span>БЛИЖАЙШИЕ МЕРОПРИЯТИЯ </span>
                     </div>
-                    <div class="item-events">
-                        <article>
-                            <span class="name-events">Собрание членов Попечительского совета и благотворителей Фонда имени Андрея Карлова</span>
-                        </article>
-                        <span class="date-events">10 Ноября</span>
-                    </div>
-                    <div class="item-events">
-                        <article>
-                            <span class="name-events">Посол Люксембурга Жан-Клод Кнебелер в МГИМО</span>
-                        </article>
-                        <span class="date-events">10 Ноября</span>
-                    </div>
-                    <div class="item-events">
-                        <article>
-                            <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
-                        </article>
-                        <span class="date-events">10 Ноября</span>
-                    </div>
-                    <div class="item-events">
+                    @for ($i = 0; $i < 3; $i++)
+                        <a href="" style="text-decoration: none">
+                            <div class="item-events">
+                                <article>
+                                    <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
+                                </article>
+                                <span class="date-events">10 Ноября</span>
+                                <span class="location"></span>
+                                <hr>
+                            </div>
+                        </a>
+                    @endfor
+{{--                    <div class="item-events">
                         <article>
                             <span class="name-events">Посол Люксембурга Жан-Клод Кнебелер в МГИМО</span>
                         </article>
                         <span class="date-events">10 Ноября</span>
-                    </div>
+                        <hr>
+                    </div>--}}
                     <div class="buttons-news">
                         <button>Смотреть все мероприятия <span></span></button>
                     </div>
