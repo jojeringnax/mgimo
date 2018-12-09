@@ -123,7 +123,7 @@ class AdminController extends Controller
             $photos = $article->getPhotos();
             for ($i = 1; $i <= 3; $i++) {
                 if ($file = $request->file('photo' . $i)) {
-                    if(!$photos->isEmpty() && $i == 1) {
+                    if(!($photos->isEmpty()) && $i == 1) {
                         foreach ($photos as $photo) {
                             $photo->delete();
                         }
@@ -146,10 +146,10 @@ class AdminController extends Controller
             }
             if ($tags = $request->post('tags')) {
                 $tags = preg_split('/,/', $tags);
-                if(!($tagConnects = TagConnect::where('connect_id', $article->id)->where('type', TagConnect::NEWS))->isEmpty()) {
+                if(!(($tagConnects = TagConnect::article($articleId))->isEmpty())) {
                     foreach ($tagConnects as $tagConnect) {
                         $tag = $tagConnect->tag;
-                        $tagConnect->tag->update(['count_news' => $tag->count_news - 1]);
+                        $tag->update(['count_news' => $tag->count_news - 1]);
                         $tagConnect->delete();
                     }
                 };
@@ -161,8 +161,7 @@ class AdminController extends Controller
                         $tagModel->count_news = 1;
                         $tagModel->save();
                     } else {
-                        $tagModel->count_news += 1;
-                        $tagModel->save();
+                        $tagModel->update(['count_news' => $tagModel->count_news + 1]);
                     }
                     $tagConnect = new TagConnect();
                     $tagConnect->id = $tagModel->id;
@@ -211,8 +210,7 @@ class AdminController extends Controller
                         $tagModel->count_events = 1;
                         $tagModel->save();
                     } else {
-                        $tagModel->count_events += 1;
-                        $tagModel->save();
+                        $tagModel->update(['count_event', $tagModel->count_event + 1]);
                     }
                     $tagConnect = new TagConnect();
                     $tagConnect->id = $tagModel->id;
@@ -238,7 +236,8 @@ class AdminController extends Controller
             if ($tags = $request->post('tags')) {
                 $tagConnects = TagConnect::event($eventId);
                 foreach ($tagConnects as $tagConnect) {
-                    $tagConnect->tag->count_events -= 1;
+                    $tag = $tagConnect->tag;
+                    $tag->update(['count_events' => $tag->count_events - 1]);
                     $tagConnect->delete();
                 }
                 $tags = preg_split('/,/', $tags);
@@ -250,8 +249,7 @@ class AdminController extends Controller
                         $tagModel->count_events = 1;
                         $tagModel->save();
                     } else {
-                        $tagModel->count_events += 1;
-                        $tagModel->save();
+                        $tagModel->update(['count_events' => $tagModel->count_events + 1]);
                     }
                     $tagConnect = new TagConnect();
                     $tagConnect->id = $tagModel->id;
@@ -320,7 +318,6 @@ class AdminController extends Controller
 
     public function createCongratulation(Request $request)
     {
-
         if($request->isMethod('post')) {
             $congratulation = new Congratulation();
             $congratulation->title = $request->post('title');
@@ -328,6 +325,38 @@ class AdminController extends Controller
             $congratulation->date = $request->post('date');
             $congratulation->save();
             if ($file = $request->file('file')) {
+                $photo = new Photo();
+                $path = 'congratulations/' . $congratulation->id . '.' . $file->getClientOriginalExtension();
+                $video = (boolean) strpos('video', $_FILES['file']['type']);
+                Storage::put($path, file_get_contents($file->getPathname()));
+                $path = '/storage/photo/' . $path;
+                $photo->type = PhotoConnect::CONGRATULATION;
+                $photo->sizeX = !$video ? getimagesize($file->getPathname())[0] : 0;
+                $photo->sizeY = !$video ? getimagesize($file->getPathname())[1] : 0;
+                $photo->path = $path;
+                $photo->video = $video;
+                $photo->save();
+                $congratulation->update(['main_photo_id' => $photo->id]);
+            }
+            return 1;
+        } elseif ($request->isMethod('get')) {
+            return view('admin.congratulations.form');
+        }
+    }
+
+    public function updateCongratulation(Request $request, $congratulationId)
+    {
+        if($request->isMethod('post')) {
+            $congratulation = Congratulation::find($congratulationId);
+            $congratulation->title = $request->post('title');
+            $congratulation->content = $request->post('content');
+            $congratulation->date = $request->post('date');
+            if ($file = $request->file('file')) {
+                if ($photo = $congratulation->mainPhoto) {
+                    $congratulation->update(['main_photo_id' => null]);
+                    $photo->delete();
+                    unset($photo);
+                }
                 $photo = new Photo();
                 $path = 'congratulations/' . $congratulation->id . '.' . $file->getClientOriginalExtension();
                 Storage::put($path, file_get_contents($file->getPathname()));
@@ -344,6 +373,19 @@ class AdminController extends Controller
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form');
         }
+    }
+
+
+    public function deleteCongratulations($congratulationId)
+    {
+        Congratulation::find($congratulationId)->delete();
+        return 1;
+    }
+
+
+    public function createBook(Request $request)
+    {
+
     }
 
 }

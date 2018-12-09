@@ -13,7 +13,6 @@ class PhotoConnect extends Model
     const NEWS = 1;
     const BOOK = 2;
     const CONGRATULATION = 3;
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -24,6 +23,6 @@ class PhotoConnect extends Model
 
     public static function article($id)
     {
-        return self::select('id')->where('type', PhotoConnect::NEWS)->where('connect_id', $id)->get();
+        return self::where('type', PhotoConnect::NEWS)->where('connect_id', $id)->get();
     }
 }

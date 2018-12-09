@@ -15,8 +15,8 @@ class CreateTablePhotos extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('sizeX');
-            $table->integer('sizeY');
+            $table->integer('sizeX')->nullable();
+            $table->integer('sizeY')->nullable();
             $table->string('path');
             $table->smallInteger('type');
             $table->boolean('video')->default(false);

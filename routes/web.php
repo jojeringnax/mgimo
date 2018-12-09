@@ -77,16 +77,10 @@ Route::match(['get','post'], 'admin/congratulations/create', 'AdminController@cr
 Route::match(['get','post'], 'admin/congratulations/update/{id}', 'AdminController@updateCongratulation');
 Route::get('admin/congratulations/delete/{id}', 'AdminController@deleteCongratulation');
 
-Route::get('phpinfo', function () {
-    phpinfo();
-});
+
 
 
 
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
