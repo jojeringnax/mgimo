@@ -75,3 +75,7 @@ Route::get('admin/events/delete/{id}', 'AdminController@deleteEvent');
 
 
 
+
+Auth::routes();
+
+Route::get('/admin', 'AdminController@index')->name('admin');

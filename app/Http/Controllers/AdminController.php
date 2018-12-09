@@ -18,6 +18,18 @@ use Illuminate\Support\Facades\Storage;
 class AdminController extends Controller
 {
 
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+    public function index()
+    {
+        return view('admin.index');
+    }
+
     public function createArticle(Request $request)
     {
         if($request->isMethod('post')) {
