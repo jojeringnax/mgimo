@@ -19,13 +19,12 @@ Route::get('news', 'NewsController@index');
 
 Route::get('news/show/{id}', 'NewsController@show');
 
+Route::get('books', 'BookController@index');
 
+Route::get('books/show/{id}', 'BookController@show');
 
 Route::get('events', 'EventsController@index');
 
-Route::get('publish', function () {
-    return view('publish');
-});
 
 Route::get('congratulations', function () {
     return view('congratulations');
@@ -77,7 +76,9 @@ Route::match(['get','post'], 'admin/congratulations/create', 'AdminController@cr
 Route::match(['get','post'], 'admin/congratulations/update/{id}', 'AdminController@updateCongratulation');
 Route::get('admin/congratulations/delete/{id}', 'AdminController@deleteCongratulation');
 
-
+Route::match(['get','post'], 'admin/books/create', 'AdminController@createBook');
+Route::match(['get','post'], 'admin/books/update/{id}', 'AdminController@updateBook');
+Route::get('admin/books/delete/{id}', 'AdminController@deleteBook');
 
 
 

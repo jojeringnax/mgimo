@@ -4,13 +4,13 @@
 namespace App\Http\Controllers;
 
 
+use App\Book;
 use App\Congratulation;
 use App\Event;
 use App\News;
 use App\Photo;
 use App\PhotoConnect;
 use App\Smi;
-use App\Smis;
 use App\Tag;
 use App\TagConnect;
 use Illuminate\Http\Request;
@@ -20,17 +20,28 @@ class AdminController extends Controller
 {
 
 
+    /**
+     * AdminController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         return view('admin.index');
     }
 
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
     public function createArticle(Request $request)
     {
         if($request->isMethod('post')) {
@@ -94,8 +105,15 @@ class AdminController extends Controller
         } elseif ($request->isMethod('get')) {
             return view('admin.news.form');
         }
+        return 0;
     }
 
+
+    /**
+     * @param $articleId
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
     public function updateArticle($articleId, Request $request)
     {
         if($request->isMethod('post')) {
@@ -179,19 +197,24 @@ class AdminController extends Controller
                 'photos' => $article->getPhotos()
             ]);
         };
+        return 0;
     }
 
     /**
      * @param $articleId
-     * @return string
+     * @return int
      */
     public function deleteArticle($articleId)
     {
-        $article = News::find($articleId);
-        $article->delete();
+        News::find($articleId)->delete();
         return 1;
     }
 
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
     public function createEvent(Request $request)
     {
         if($request->isMethod('post')) {
@@ -222,9 +245,15 @@ class AdminController extends Controller
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form');
         }
+        return 0;
     }
 
 
+    /**
+     * @param $eventId
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
     public function updateEvent($eventId, Request $request)
     {
         if($request->isMethod('post')) {
@@ -263,21 +292,25 @@ class AdminController extends Controller
                 'event' => Event::find($eventId)
             ]);
         }
+        return 0;
     }
 
 
     /**
      * @param $eventId
-     * @return mixed
+     * @return int
      */
     public function deleteEvent($eventId)
     {
-        $event = Event::find($eventId);
-        $event->delete();
+        Event::find($eventId)->delete();
         return 1;
     }
 
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
     public function createSmi(Request $request)
     {
         if($request->isMethod('post')) {
@@ -290,8 +323,15 @@ class AdminController extends Controller
         } elseif ($request->isMethod('get')) {
             return view('admin.smis.form');
         }
+        return 0;
     }
 
+
+    /**
+     * @param $smiId
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
     public function updateSmi($smiId, Request $request)
     {
         if($request->isMethod('post')) {
@@ -306,16 +346,24 @@ class AdminController extends Controller
                 'smi' => Smi::find($smiId),
             ]);
         };
+        return 0;
     }
 
+    /**
+     * @param $smiId
+     * @return int
+     */
     public function deleteSmi($smiId)
     {
-        $smi = Smi::find($smiId);
-        $smi->delete();
+        Smi::find($smiId)->delete();
         return 1;
     }
 
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
     public function createCongratulation(Request $request)
     {
         if($request->isMethod('post')) {
@@ -342,8 +390,14 @@ class AdminController extends Controller
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form');
         }
+        return 0;
     }
 
+    /**
+     * @param Request $request
+     * @param $congratulationId
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
     public function updateCongratulation(Request $request, $congratulationId)
     {
         if($request->isMethod('post')) {
@@ -373,9 +427,14 @@ class AdminController extends Controller
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form');
         }
+        return 0;
     }
 
 
+    /**
+     * @param $congratulationId
+     * @return int
+     */
     public function deleteCongratulations($congratulationId)
     {
         Congratulation::find($congratulationId)->delete();
@@ -383,9 +442,81 @@ class AdminController extends Controller
     }
 
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
     public function createBook(Request $request)
     {
+        if($request->isMethod('post')) {
+            $book = new Book();
+            $book->title = $request->post('title');
+            $book->description = $request->post('description');
+            $book->save();
+            if ($file = $request->file('photo')) {
+                $photo = new Photo();
+                $path = 'books/' . $book->id . '.' . $file->getClientOriginalExtension();
+                Storage::put($path, file_get_contents($file->getPathname()));
+                $path = '/storage/photo/' . $path;
+                $photo->type = PhotoConnect::BOOK;
+                $photo->sizeX = getimagesize($file->getPathname())[0];
+                $photo->sizeY = getimagesize($file->getPathname())[1];
+                $photo->path = $path;
+                $photo->save();
+                $book->cover_photo_id = $photo->id;
+                $book->update(['cover_photo_id' => $photo->id]);
+            }
+            return 1;
+        } elseif ($request->isMethod('get')) {
+            return view('admin.books.form');
+        }
+        return 0;
+    }
 
+    /**
+     * @param $bookId
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
+    public function updateBook($bookId, Request $request)
+    {
+        if($request->isMethod('post')) {
+            $book = Book::find($bookId);
+            $book->title = $request->post('title');
+            $book->description = $request->post('description');
+            if ($file = $request->file('photo')) {
+                if($book->cover_photo_id !== null) {
+                    $book->update(['main_photo_id' => null]);
+                    $book->coverPhoto->delete();
+                }
+                $photo = new Photo();
+                $path = 'news/' . $book->id . '.' . $file->getClientOriginalExtension();
+                Storage::put($path, file_get_contents($file->getPathname()));
+                $path = '/storage/photo/' . $path;
+                $photo->type = PhotoConnect::NEWS;
+                $photo->sizeX = getimagesize($file->getPathname())[0];
+                $photo->sizeY = getimagesize($file->getPathname())[1];
+                $photo->path = $path;
+                $photo->save();
+                $book->update(['main_photo_id' => $photo->id]);
+            }
+        } elseif ($request->isMethod('get')) {
+            $book = Book::find($bookId);
+            return view('admin.books.form', [
+                'book' => $book
+            ]);
+        };
+        return 0;
+    }
+
+    /**
+     * @param $bookId
+     * @return int
+     */
+    public function deleteBook($bookId)
+    {
+        Book::find($bookId)->delete();
+        return 1;
     }
 
 }

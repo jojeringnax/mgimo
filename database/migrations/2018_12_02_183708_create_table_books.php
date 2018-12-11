@@ -18,7 +18,7 @@ class CreateTableBooks extends Migration
             $table->timestamps();
             $table->string('title');
             $table->text('description');
-            $table->unsignedInteger('cover_photo_id');
+            $table->unsignedInteger('cover_photo_id')->nullable();
         });
         Schema::table('books', function (Blueprint $table) {
             $table->foreign('cover_photo_id')->references('id')->on('photos');

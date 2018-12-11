@@ -4,11 +4,23 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class News
+ * @package App
+ */
 class News extends Model
 {
+
+    /**
+     * @var string
+     */
     protected $table = 'news';
 
+    /**
+     * @var array
+     */
     public $fillable = ['main_photo_id'];
+
 
     public function delete()
     {
