@@ -35,6 +35,8 @@ class Event extends Model
         foreach($tagConnects as $tagConnect) {
             $idsArray[] = $tagConnect->id;
         }
+        if(!isset($idsArray))
+            return [];
         $tags = Tag::whereIn('id', $idsArray)->get();
         foreach($tags as $tag) {
             $resultArray[] = $tag->word;
