@@ -427,7 +427,9 @@ class AdminController extends Controller
             }
             return 1;
         } elseif ($request->isMethod('get')) {
-            return view('admin.congratulations.form');
+            return view('admin.congratulations.form', [
+                'congratulation' => Congratulation::find($congratulationId),
+            ]);
         }
         return 0;
     }
