@@ -488,7 +488,9 @@ class AdminController extends Controller
                 $book->cover_photo_id = $photo->id;
                 $book->update(['cover_photo_id' => $photo->id]);
             }
-            return 1;
+            return view('admin.books.index',[
+                'books' => Book::all()
+            ]);
         } elseif ($request->isMethod('get')) {
             return view('admin.books.form');
         }
@@ -522,6 +524,9 @@ class AdminController extends Controller
                 $photo->save();
                 $book->update(['main_photo_id' => $photo->id]);
             }
+            return view('admin.books.index',[
+                'books' => Book::all()
+            ]);
         } elseif ($request->isMethod('get')) {
             $book = Book::find($bookId);
             return view('admin.books.form', [
