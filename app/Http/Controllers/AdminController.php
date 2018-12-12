@@ -258,7 +258,7 @@ class AdminController extends Controller
     {
         if($request->isMethod('post')) {
             $event = Event::find($eventId);
-            $event->title = $request->post('content');
+            $event->content = $request->post('content');
             $event->date = $request->post('date');
             $event->main = $request->post('main') === null ? 0 : 1;
             $event->save();
