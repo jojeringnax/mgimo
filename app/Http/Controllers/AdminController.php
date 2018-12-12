@@ -190,6 +190,7 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
+            $article->save();
             return view('admin.news.form',[
                 'news' => News::all()
             ]);
@@ -439,8 +440,9 @@ class AdminController extends Controller
                 $photo->path = $path;
                 $photo->video = (boolean) strpos('video', $_FILES['file']['type']);
                 $photo->save();
-                $congratulation->update(['main_photo_id' => $photo->id]);
+                $congratulation->main_photo_id = $photo->id;
             }
+            $congratulation->save();
             return view('admin.congratulations.index',[
                 'congratulations' => Congratulation::all()
             ]);
@@ -522,8 +524,9 @@ class AdminController extends Controller
                 $photo->sizeY = getimagesize($file->getPathname())[1];
                 $photo->path = $path;
                 $photo->save();
-                $book->update(['main_photo_id' => $photo->id]);
+                $book->cover_photo_id = $photo->id;
             }
+            $book->save();
             return view('admin.books.index',[
                 'books' => Book::all()
             ]);
