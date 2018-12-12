@@ -101,7 +101,9 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
-            return 1;
+            return view('admin.news.form',[
+                'news' => News::all()
+            ]);
         } elseif ($request->isMethod('get')) {
             return view('admin.news.form');
         }
@@ -188,7 +190,9 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
-            return 1;
+            return view('admin.news.form',[
+                'news' => News::all()
+            ]);
         } elseif ($request->isMethod('get')) {
             $article = News::find($articleId);
             return view('admin.news.form', [
@@ -243,6 +247,9 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
+            return view('admin.events.form',[
+                'events' => Event::all()
+            ]);
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form');
         }
@@ -289,6 +296,9 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
+            return view('admin.events.form',[
+                'events' => Event::all()
+            ]);
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form', [
                 'event' => Event::find($eventId)
@@ -321,7 +331,9 @@ class AdminController extends Controller
             $smi->link_view = $request->post('link_view');
             $smi->title = $request->post('title');
             $smi->save();
-            return 1;
+            return view('admin.smis.index',[
+                'smis' => Smi::all()
+            ]);
         } elseif ($request->isMethod('get')) {
             return view('admin.smis.form');
         }
@@ -342,7 +354,9 @@ class AdminController extends Controller
             $smi->link_view = $request->post('link_view');
             $smi->title = $request->post('title');
             $smi->save();
-            return 1;
+            return view('admin.smis.index',[
+                'smis' => Smi::all()
+            ]);
         } elseif ($request->isMethod('get')) {
             return view('admin.smis.form', [
                 'smi' => Smi::find($smiId),
@@ -388,7 +402,9 @@ class AdminController extends Controller
                 $photo->save();
                 $congratulation->update(['main_photo_id' => $photo->id]);
             }
-            return 1;
+            return view('admin.congratulations.index',[
+                'congratulations' => Congratulation::all()
+            ]);
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form');
         }
@@ -425,7 +441,9 @@ class AdminController extends Controller
                 $photo->save();
                 $congratulation->update(['main_photo_id' => $photo->id]);
             }
-            return 1;
+            return view('admin.congratulations.index',[
+                'congratulations' => Congratulation::all()
+            ]);
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form', [
                 'congratulation' => Congratulation::find($congratulationId),
