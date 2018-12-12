@@ -221,6 +221,7 @@ class AdminController extends Controller
             $event = new Event();
             $event->content = $request->post('content');
             $event->date = $request->post('date');
+            $event->location = $request->post('location');
             $event->main = $request->post('main') === null ? 0 : 1;
             $event->save();
             if ($tags = $request->post('tags')) {
@@ -260,6 +261,7 @@ class AdminController extends Controller
             $event = Event::find($eventId);
             $event->content = $request->post('content');
             $event->date = $request->post('date');
+            $event->location = $request->post('location');
             $event->main = $request->post('main') === null ? 0 : 1;
             $event->save();
             if ($tags = $request->post('tags')) {
