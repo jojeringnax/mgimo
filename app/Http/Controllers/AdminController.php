@@ -457,7 +457,7 @@ class AdminController extends Controller
      * @param $congratulationId
      * @return int
      */
-    public function deleteCongratulations($congratulationId)
+    public function deleteCongratulation($congratulationId)
     {
         Congratulation::find($congratulationId)->delete();
         return 1;
