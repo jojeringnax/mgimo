@@ -7,6 +7,9 @@
 {{ Form::label('date', 'Дата') }}
     {{ Form::date('date',  \Carbon\Carbon::now()) }}
 
+{{ Form::label('location', 'Местоположение') }}
+    {{ Form::text('location') }}
+
 {{ Form::label('tags', 'Тэги') }}
     {{ Form::text('tags') }}
 

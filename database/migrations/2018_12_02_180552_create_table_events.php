@@ -19,6 +19,7 @@ class CreateTableEvents extends Migration
             $table->string('content');
             $table->date('date');
             $table->boolean('main');
+            $table->string('location');
         });
     }
 
