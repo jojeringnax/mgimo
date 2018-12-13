@@ -8,6 +8,7 @@ use App\Book;
 use App\Congratulation;
 use App\Event;
 use App\News;
+use App\Partner;
 use App\Photo;
 use App\PhotoConnect;
 use App\Smi;
@@ -546,6 +547,96 @@ class AdminController extends Controller
     public function deleteBook($bookId)
     {
         Book::find($bookId)->delete();
+        return 1;
+    }
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
+    public function createPartner(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $partner = new Partner();
+            $partner->link = $request->post('link');
+            $partner->name = $request->post('name');
+            $partner->priority = $request->post('priority');
+            $partner->save();
+            if ($file = $request->file('photo')) {
+                if($partner->cover_photo_id !== null) {
+                    $partner->update(['photo_id' => null]);
+                    $partner->photo->delete();
+                }
+                $photo = new Photo();
+                $path = 'partners/' . $partner->id . '.' . $file->getClientOriginalExtension();
+                Storage::put($path, file_get_contents($file->getPathname()));
+                $path = '/storage/photo/' . $path;
+                $photo->type = PhotoConnect::NEWS;
+                $photo->sizeX = getimagesize($file->getPathname())[0];
+                $photo->sizeY = getimagesize($file->getPathname())[1];
+                $photo->path = $path;
+                $photo->save();
+                $partner->update(['photo_id' => $photo->id]);
+            }
+            return view('admin.partners.index',[
+                'partners' => Partner::all()
+            ]);
+        } elseif ($request->isMethod('get')) {
+            return view('admin.partners.form');
+        }
+        return 0;
+    }
+
+
+    /**
+     * @param $partnerId
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
+    public function updatePartner($partnerId, Request $request)
+    {
+        if($request->isMethod('post')) {
+            $partner = Partner::find($partnerId);
+            $partner->link = $request->post('link');
+            $partner->name = $request->post('name');
+            $partner->priority = $request->post('priority');
+            if ($file = $request->file('photo')) {
+                if($partner->cover_photo_id !== null) {
+                    $partner->update(['photo_id' => null]);
+                    $partner->photo->delete();
+                }
+                $photo = new Photo();
+                $path = 'partners/' . $partner->id . '.' . $file->getClientOriginalExtension();
+                Storage::put($path, file_get_contents($file->getPathname()));
+                $path = '/storage/photo/' . $path;
+                $photo->type = PhotoConnect::NEWS;
+                $photo->sizeX = getimagesize($file->getPathname())[0];
+                $photo->sizeY = getimagesize($file->getPathname())[1];
+                $photo->path = $path;
+                $photo->save();
+                $partner->photo_id = $photo->id;
+            }
+            $partner->save();
+
+            return view('admin.partners.index',[
+                'partners' => Partner::all()
+            ]);
+        } elseif ($request->isMethod('get')) {
+            return view('admin.partners.form', [
+                'partner' => Partner::find($partnerId),
+            ]);
+        };
+        return 0;
+    }
+
+    /**
+     * @param $partnerId
+     * @return int
+     */
+    public function deletePartner($partnerId)
+    {
+        Partner::find($partnerId)->delete();
         return 1;
     }
 

@@ -80,6 +80,10 @@ Route::match(['get','post'], 'admin/books/update/{id}', 'AdminController@updateB
 Route::get('admin/books/delete/{id}', 'AdminController@deleteBook');
 
 
+Route::match(['get','post'], 'admin/partners/create', 'AdminController@createPartner');
+Route::match(['get','post'], 'admin/partners/update/{id}', 'AdminController@updatePartner');
+Route::get('admin/partners/delete/{id}', 'AdminController@deletePartner');
+
 
 Auth::routes();
 
