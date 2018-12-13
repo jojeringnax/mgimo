@@ -106,7 +106,7 @@ nav {
 
 /*===================SECTION-NEWS===================*/
 .contents {
-    height: 1240px;
+    min-height: 1240px;
     .buttons-news {
         position: absolute;
         bottom: 0;
@@ -137,9 +137,11 @@ nav {
         }
     }
     .news {
+        padding: 0 30px 0 30px;
         @include box-shadow;
         margin-left: -10px;
         .title-news {
+            margin-top: 30px;
             span {
                 font-size: 20px;
                 font-weight: bold;
@@ -168,6 +170,9 @@ nav {
                 padding: 0 0 25px 40px;
                 color: white;
                 z-index: 14;
+                h4 {
+                    font-size: 26px;
+                }
                 .tag {
                     font-size: 12px;
                     width: 123px;
@@ -230,12 +235,14 @@ nav {
                         align-items: start;
                         justify-content: center;
                         padding: 20px;
+                        font-family: "Playfair Display";
                         h4 {
-                            margin-top: 20px;
+                            margin-top: 10px;
                             font-weight: bold;
+                            font-size: 26px !important;
                         }
                         .tag {
-                            font-size: 12px;
+                            font-size: 14px;
                             width: 123px;
                             height: 35px;
                             border-radius: 18px;
@@ -256,7 +263,7 @@ nav {
                             }
                         }
                         .date-news {
-                            font-size: 12px;
+                            font-size: 14px;
                             /*text-align: center;*/
                         }
                     }
@@ -265,14 +272,17 @@ nav {
         }
     }
     .events {
+        padding: 0 20px 0 20px;
         @include box-shadow;
         margin-left: 10px;
         .title-events {
+
             span {
                 font-size: 20px;
                 font-weight: bold;
                 margin-top: 30px;
                 display: block;
+                font-family: "Playfair Display";
             }
         }
         .item-events {
@@ -283,14 +293,19 @@ nav {
                 flex-direction: column;
                 justify-content: center;
                 height: 70px;
+                margin-left: 10px;
+
                 .name-events {
                     font-weight: 900 !important;
+                    font-family: "Playfair Display";
+                    font-size: 18px;
                 }
             }
             .date-events {
-                font-size: 12px;
+                font-size: 14px;
                 margin: 15px 0 15px 0;
                 display: block;
+                margin-left: 10px;
             }
         }
     }
@@ -308,8 +323,10 @@ nav {
         font-weight: bold;
     }
     .media-news {
+        display: flex;
+        flex-wrap: wrap;
+
         .item-media-news {
-            display: flex;
             align-items: center;
             position: relative;
             height: 200px;
@@ -323,10 +340,11 @@ nav {
                 text-decoration: none;
             }
             .title-media-news {
-                font-size: 15px;
+                font-size: 18px;
                 font-weight: bold;
                 margin-left: 10px;
                 text-decoration: none;
+                font-family: "Playfair Display";
             }
             hr {
                 background-color: $mainColor;
@@ -376,7 +394,6 @@ nav {
     }
     .tags-congratulations {
         display: flex;
-
         position: relative;
         .title-tag-congr {
             position: absolute;
@@ -414,6 +431,7 @@ nav {
                 .title-item-congratulations {
                     font-size: 20px;
                     font-weight: bold;
+                    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
                 }
                 .text-item-congratulations {
 
@@ -499,6 +517,13 @@ nav {
     color: white !important;
 }
 
+@media screen and (max-width: 1200px) {
+    .item-congratulations {
+        height: 400px;
+        width: 100% !important;
+        margin-top: 2%;
+    }
+}
 /*===================GALLERY-CONTENT===================*/
 .bg-gallery {
     width: 100%;
@@ -510,8 +535,9 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 500px;
+    min-height: 500px;
     width: 100%;
+    flex-wrap: wrap;
     .big-photo {
         //width: 400px;
         //height: 400px;

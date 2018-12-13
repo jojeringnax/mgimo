@@ -20,8 +20,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="contents d-flex">
-                <div class="item-contents news col-8">
+            <div class="contents d-flex flex-wrap">
+                <div class="item-contents news col-xl-8 col-lg-8 col-md-12 col-12">
                     <div class="title-news">
                         <span>НОВОСТИ</span>
                     </div>
@@ -78,7 +78,7 @@
                         <button>Смотреть все новости <span></span></button>
                     </div>
                 </div>
-                <div class="item-contents events col-4 d-flex flex-column">
+                <div class="item-contents events col-xl-4 col-lg-4 col-md-12 d-flex flex-column">
                     <div class="title-events">
                         <span>БЛИЖАЙШИЕ МЕРОПРИЯТИЯ </span>
                     </div>
@@ -120,17 +120,17 @@
                             Собрание членов Попечительского совета и благотворителей Фонда имени Андрея Карлова
                         </span>
                     </div>
-                    <div class="col-3 item-media-news d-flex">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
                         <hr>
                         <span class="source-media-news">Yandex</span>
                         <span class="title-media-news">Посол Люксембурга Жан-Клод Кнебелер в МГИМО</span>
                     </div>
-                    <div class="col-3 item-media-news d-flex">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
                         <hr>
                         <span class="source-media-news">Rambler</span>
                         <span class="title-media-news">Международный экономический форум «Каспийский диалог 2018»</span>
                     </div>
-                    <div class="col-3 item-media-news d-flex">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
                         <hr>
                         <span class="source-media-news">Lenta.ru</span>
                         <span class="title-media-news">Собрание членов Попечительского совета и благотворителей Фонда имени Андрея Карлова</span>
