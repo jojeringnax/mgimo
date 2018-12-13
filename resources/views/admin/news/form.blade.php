@@ -1,39 +1,99 @@
+@extends('layouts.admin')
 
-{{ !isset($article) ? Form::open(array('action' => 'AdminController@createArticle', 'files' => true)) : Form::model($article, ['files' => true]) }}
+@section('link')
+    <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+@endsection
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                {{ !isset($article) ? Form::open(array('action' => 'AdminController@createArticle', 'files' => true, 'class'=>'news-form')) : Form::model($article, ['files' => true, 'class'=>'news-form']) }}
 
-{{ Form::label('title', 'Заголовок') }}
-    {{ Form::text('title', isset($article) ? $article->title : '',['class' => 'form-control']) }}
-{{ Form::label('content', 'Текст статьи') }}
-    {{ Form::textarea('content', isset($article) ? $article->content : '') }}
-{{ Form::label('photo', 'Загрузите главное фото') }}
-    {{ Form::file('photo', ['class' => 'form-control']) }}
+                {{ Form::label('title', 'Заголовок') }}
+                {{ Form::text('title', isset($article) ? $article->title : '',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
 
-{{ Form::label('photo1', 'Загрузите первое фото') }}
-    {{ Form::file('photo1') }}
-
-{{ Form::label('photo2', 'Загрузите второе фото') }}
-    {{ Form::file('photo2') }}
-{{ Form::label('photo3', 'Загрузите третье фото') }}
-    {{ Form::file('photo3') }}
-
-{{ Form::label('tags', 'Тэги') }}
-    {{ Form::text('tags', isset($tags) ? implode(',', $tags) : '') }}
-@if(isset($article))
-    @if(!$photos->isEmpty())
-        <div style="display: flex;align-items: center; justify-content: space-around;">
-            @foreach($photos as $photo)
-                <div style="position: relative; width: 500px; height: 375px;">
-                    <img src="{{ $photo->path }}" style="position: absolute; width: 100%;"/>
-                    <a href="{{ action('PhotoController@delete', ['id' => $photo->id]) }}" style="width: 50px; height: 50px; position: absolute;right:10px;top:10px;font-size: 50px;color: white;">X</a>
+                <div id="editor" class="col-12 item-form-news-add">
+                    {!! isset($article) ? html_entity_decode($article->content) : '' !!}
                 </div>
-            @endforeach
+                <input type="hidden" name="content" id="content-news"/>
+                {{--{{ Form::label('content', 'Текст статьи') }}
+                    {{ Form::textarea('content', isset($article) ? $article->content : '') }}--}}
+
+                <div class="d-flex col-12 flex-wrap item-form-news-add justify-content-between" style="margin-top: 25px">
+                    <div class="input-group col-xl-5 item-form-news-add">
+                        <div class="input-group-prepend clear">
+                            <span class="input-group-text" id="photo_area" data-file="главное">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            {{ Form::file('photo', ['class' => 'input-default-js', 'area-describedby' => 'photo_area', 'id' => 'photo']) }}
+                            <label class="custom-file-label" for="photo">Загрузите первое фото</label>
+                        </div>
+                    </div>
+
+                    <div class="input-group col-xl-5 item-form-news-add">
+                        <div class="input-group-prepend clear">
+                            <span class="input-group-text" id="photo1_area" data-file="первое">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            {{ Form::file('photo1', ['class' => 'input-default-js', 'area-describedby' => 'photo1_area', 'id' => 'photo1']) }}
+                            <label class="custom-file-label" for="photo1">Загрузите первое фото</label>
+                        </div>
+                    </div>
+                    <div class="input-group col-xl-5 item-form-news-add">
+                        <div class="input-group-prepend clear">
+                            <span class="input-group-text" id="photo2_area" data-file="второе">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            {{ Form::file('photo2', ['class' => 'input-default-js', 'area-describedby' => 'photo2_area', 'id' => 'photo2']) }}
+                            <label class="custom-file-label" for="photo2">Загрузите второе фото</label>
+                        </div>
+                    </div>
+                    <div class="input-group col-xl-5 item-form-news-add">
+                        <div class="input-group-prepend clear">
+                            <span class="input-group-text" id="photo3_area" data-file="третье">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            {{ Form::file('photo3', ['class' => 'input-default-js', 'area-describedby' => 'photo3_area', 'id' => 'photo3'])}}
+                            <label class="custom-file-label" for="photo3">Загрузите третье фото</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                {{ Form::label('tags', 'Тэги') }}
+                {{ Form::text('tags', isset($tags) ? implode(',', $tags) : '',['class' => 'form-control item-form-news-add','placeholder' => 'Культура'] ) }}
+                @if(isset($article))
+                    @if(!$photos->isEmpty())
+                        <div style="display: flex;align-items: center; justify-content: space-around;">
+                            @foreach($photos as $photo)
+                                <div style="position: relative; width: 500px; height: 375px;">
+                                    <img src="{{ $photo->path }}" style="position: absolute; width: 100%;"/>
+                                    <a href="{{ action('PhotoController@delete', ['id' => $photo->id]) }}" style="width: 50px; height: 50px; position: absolute;right:10px;top:10px;font-size: 50px;color: white;">X</a>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+                    @if($photo = $article->mainPhoto)
+                        <div class="col-12">
+                            <div class="card col-3">
+                                <div class="card-head">
+                                    <img src="{{$photo->path}}" style="width:100%"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    @endif
+                @endif
+                {{ Form::submit('Сохранить',['class' => 'btn btn-primary item-form-news-add-btn'] ) }}
+
+
+                {{ Form::close() }}
+            </div>
         </div>
-    @endif
-    @if($photo = $article->mainPhoto)
-        <img src="{{$photo->path}}" />
-    @endif
-@endif
-{{ Form::submit('Сохранить') }}
+    </div>
 
-
-{{ Form::close() }}
+@endsection
+@section('script')
+    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+    <script src="{{asset('js/news.js')}}"></script>
+@endsection

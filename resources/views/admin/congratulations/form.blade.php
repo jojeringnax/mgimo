@@ -1,25 +1,54 @@
+@extends('layouts.admin')
+@section('content')
 
-{{ !isset($congratulation) ? Form::open(array('action' => 'AdminController@createCongratulation', 'files' => true)) : Form::model($congratulation, ['files' => true]) }}
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-8 d-flex flex-column" style="height:100%">
+                {{ !isset($congratulation) ? Form::open(array('action' => 'AdminController@createCongratulation', 'files' => true)) : Form::model($congratulation, ['files' => true]) }}
+                <div class="item-form-congratulation">
+                    {{ Form::label('title', 'Заголовок') }}
+                    {{ Form::text('title', isset($congratulation) ? $congratulation->title : '',['class' => 'form-control']) }}
+                </div>
+                <div class="item-form-congratulation">
+                    {{ Form::label('content', 'Текст поздравления') }}
+                    {{ Form::textarea('content', isset($congratulation) ? $congratulation->content : '',['class' => 'form-control']) }}
+                </div>
+                <div class="item-form-congratulation">
+                    {{ Form::label('date', 'Выберите дату') }}
+                    {{--{{ Form::select('date',\App\Congratulation::getDatesArray()), array('class' => 'form-control') }}--}}
+                    {{  Form::select('date', \App\Congratulation::getDatesArray(),  null, ['class' => 'form-control' ]) }}
+                </div>
+                <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
+                    <div class="input-group-prepend clear">
+                        <span class="input-group-text" id="photo2_area" data-file="второе">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        {{ Form::file('file', ['class' => 'form-control','area-describedby' => 'photo2_area','id' => 'photo'])}}
+                        <label class="custom-file-label" for="photo">Загрузите фото или видео</label>
+                    </div>
+                </div>
+                @if(isset($congratulation))
+                    @if($photo = $congratulation->mainPhoto)
+                        <div class="col-12">
+                            <div class="card col-3">
+                                <div class="card-head">
+                                    <img src="{{$photo->path}}"  style="width: 100%"/>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endif
+                {{ Form::submit('Сохранить', ['class' => 'btn btn-raised btn-primary']) }}
+            </div>
+        </div>
+    </div>
 
-{{ Form::label('title', 'Заголовок') }}
-{{ Form::text('title', isset($congratulation) ? $congratulation->title : '',['class' => 'form-control']) }}
-
-{{ Form::label('content', 'Текст поздравления') }}
-{{ Form::textarea('content', isset($congratulation) ? $congratulation->content : '') }}
-
-{{ Form::label('date', 'Выберите дату') }}
-{{ Form::select('date', \App\Congratulation::getDatesArray()) }}
-
-{{ Form::label('file', 'Загрузите фото или видео') }}
-{{ Form::file('file', ['class' => 'form-control']) }}
 
 
-@if(isset($congratulation))
-    @if($photo = $article->mainPhoto)
-        <img src="{{$photo->path}}" />
-    @endif
-@endif
-{{ Form::submit('Сохранить') }}
 
+    {{ Form::close() }}
 
-{{ Form::close() }}
+@endsection
+@section('script')
+    <script src="{{asset('js/congratulation_form.js')}}"></script>
+@endsection
