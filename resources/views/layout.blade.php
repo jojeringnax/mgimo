@@ -4,18 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MGIMO75</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('mdb/assets/css/docs.css') }}">
+    {{--<link rel="stylesheet" href="{{ asset('mdb/assets/css/docs.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/mdb.css') }}">
     @yield('link')
 </head>
 <body>
-    <header>
+    <header class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar" style="box-shadow: none">
         <div class="container">
-            <div class="row">
+            <div class="row" style="width:100%">
                 <div class="logo col-1 d-flex justify-content-center align-items-center">
                     <a class="navbar-brand" href="/public">MGIMO</a>
                 </div>
-                <nav class=" navbar-main col-10" style="width:100%;">
-                    <ul class="nav nav-tabs d-flex justify-content-around">
+                <nav class="navbar-main col-10 " style="width:100%;">
+                    <ul class="navbar-nav mr-auto mt-lg-0 d-flex justify-content-around">
                         <li class="nav-item"><a class="nav-link" href="#">О юбилее</a></li>
                         <li class="nav-item"><a class="nav-link" href="news">Новости</a></li>
                         <li class="nav-item"><a class="nav-link" href="events">Мероприятия</a></li>
@@ -42,10 +44,15 @@
 
     @yield('content')
     <script src="{{asset('js/jquery-3.3.1.js')}}"></script>
-    <script src="{{asset('js/popper.min.js')}}"></script>
-    <script src="{{asset('js/tooltip.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap-material-design.js')}}"></script>
+    <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/mdb.js')}}"></script>
+    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+    {{--<script src="{{asset('js/popper.min.js')}}"></script>--}}
+    {{--<script src="{{asset('js/tooltip.min.js')}}"></script>--}}
+    {{--<script src="{{asset('js/bootstrap-material-design.js')}}"></script>--}}
     @yield('script')
+    <footer>
 
+    </footer>
 </body>
 </html>

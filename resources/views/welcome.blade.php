@@ -26,25 +26,51 @@
                         <span>НОВОСТИ</span>
                     </div>
                     <div id="3" class="big-news col-12">
+                        <div class="layout-big-new"></div>
                         <article>
-                            <span class="tag">РУБРИКА</span>
+                            <div class="tag">
+                                <i></i>
+                                <span>РУБРИКА</span>
+                            </div>
                             <h3>В МГИМО открыли бюст Имадеддина Насими</h3>
-                            <span class="date-news">10 Ноября</span>
+                            <span class="date-news">10 Ноября 2018</span>
                         </article>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <div id="2" class="small-new col-6">
-                            <article>
-                                <span class="tag">РУБРИКА</span>
-                                <h4>Студентка МГИМО — победитель Young Tax Professional of the Year 2018</h4>
-                                <span class="date-news">10 Ноября</span>
+                    <div class="small-news">
+                        <div id="2" class="small-new col-12">
+                            <article class="d-flex flex-wrap">
+                                <div class="img-small-new">
+                                    <img src="img/new_test/Mask_Group_20.png" alt="">
+                                </div>
+                                <div class="content-small-new">
+                                    <div class="tag">
+                                        <i></i>
+                                        <span>РУБРИКА</span>
+                                    </div>
+                                    <h4>Студентка МГИМО — победитель Young Tax Professional of the Year 2018</h4>
+                                    <div class="date-link d-flex justify-content-between" style="width: 100%">
+                                        <span class="date-news">10 Ноября 2018</span>
+                                        <a href="">Читать новость</a>
+                                    </div>
+                                </div>
                             </article>
                         </div>
-                        <div id="1" class="small-new col-6">
-                            <article>
-                                <span class="tag">РУБРИКА</span>
-                                <h4>Встреча и награждение стипендиатов Международного Фонда Шодиева</h4>
-                                <span class="date-news">10 Ноября</span>
+                        <div id="1" class="small-new col-12">
+                            <article class="d-flex flex-wrap">
+                                <div class="img-small-new">
+                                    <img src="img/new_test/Mask_Group_18.png" alt="">
+                                </div>
+                                <div class="content-small-new">
+                                    <div class="tag">
+                                        <i></i>
+                                        <span>РУБРИКА</span>
+                                    </div>
+                                    <h4>Встреча и награждение стипендиатов Международного Фонда Шодиева</h4>
+                                    <div class="date-link d-flex justify-content-between" style="width: 100%">
+                                        <span class="date-news">10 Ноября 2018</span>
+                                        <a href="">Читать новость</a>
+                                    </div>
+                                </div>
                             </article>
                         </div>
                     </div>
@@ -56,7 +82,7 @@
                     <div class="title-events">
                         <span>БЛИЖАЙШИЕ МЕРОПРИЯТИЯ </span>
                     </div>
-                    @for ($i = 0; $i < 3; $i++)
+                    @for ($i = 0; $i < 7; $i++)
                         <a href="" style="text-decoration: none">
                             <div class="item-events">
                                 <article>
@@ -112,8 +138,9 @@
                 </div>
             </div>
             <div class="btn-media">
-                <button type="button">Смотреть все новости СМИ</button>
+                <button>Смотреть все новости СМИ<span></span></button>
             </div>
+            <hr class="section-hr">
         </div>
     </div>
 
@@ -123,7 +150,7 @@
                 <div class="title-congratulations">
                     <span>Поздравления</span>
                 </div>
-                <div class="tags-congratulations col-12">
+{{--                <div class="tags-congratulations col-12">
                     <span class="title-tag-congr">Год выпуска</span>
                     <div class="item-tags-congratulation">1960-70</div>
                     <div class="item-tags-congratulation">1970-80</div>
@@ -131,16 +158,22 @@
                     <div class="item-tags-congratulation active-item-tags-congratulations" >1990-00</div>
                     <div class="item-tags-congratulation">2000-10</div>
                     <div class="item-tags-congratulation">2010-18</div>
-                </div>
+                </div>--}}
+
                 <div class="d-flex flex-wrap justify-content-between">
-                    <div class="item-congratulations">
+                    @for ($i = 0; $i < 4; $i++)
+                    <div class="item-congratulations card">
                         <img class="img-item-congratulations img-thumbnail" src="http://img.over-blog-kiwi.com/1/54/00/21/20160804/ob_83b112_025pikachu-xy-anime-3.png" alt="">
                         <div class="content-item-congratulations">
+                            <div class="tag"><i></i><span>1940-70</span></div>
                             <span class="title-item-congratulations">Заголовок заголовок Заголовок заголовок<br></span>
                             <span class="text-item-congratulations">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda doloribus minus necessitatibus quibusdam quidem repellendus repudiandae.</span>
                         </div>
                     </div>
-                    <div class="item-congratulations">
+                    @endfor
+                </div>
+
+{{--                    <div class="item-congratulations">
                         <img class="img-item-congratulations img-thumbnail" src="http://img.over-blog-kiwi.com/1/54/00/21/20160804/ob_83b112_025pikachu-xy-anime-3.png" alt="">
                         <div class="content-item-congratulations">
                             <span class="title-item-congratulations">Заголовок заголовок Заголовок заголовок<br></span>
@@ -161,10 +194,10 @@
                             <span class="text-item-congratulations">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nisi perspiciatis quod voluptas voluptatum. Magni, minima, sequi.</span>
                         </div>
                     </div>
-                </div>
+                </div>--}}
                 <div class="btns-congratulations d-flex justify-content-between">
-                    <button type="button" class="btn btn-raised btn-success">Смотреть все поздравления</button>
-                    <button type="button" class="btn btn-raised btn-primary">Поздравить Alma Mater</button>
+                    <button type="button" class="btn-watch-congr">Смотреть все поздравления <span class="congr_watch"></span></button>
+                    <button type="button" class="btn-congr"><span class="congr_icon"></span>Поздравить Alma Mater</button>
                 </div>
             </div>
         </div>
@@ -174,10 +207,10 @@
         <div class="container">
             <div class="row">
                 <div class="gallery-content">
-                    <div class="big-photo"></div>
+                    <div class="big-photo"><img src="img/new_test/collage.png" alt=""></div>
                     <div class="text-gallery">
-                        <span class="title-text-gallery">Какой-то заголовок про галерею</span>
-                        <button type="button" class="btn btn-raised btn-success">Смотреть фото</button>
+                        <span class="title-text-gallery">Мы собрали самые сокровенные моменты из жизни Эрнеста</span>
+                        <button type="button" class="">Смотреть фото <span></span></button>
                     </div>
                 </div>
             </div>
@@ -196,18 +229,19 @@
                     <?php for ($i=0;$i<=19;$i++) { ?>
                         <div class="item">
                             <div class="item-partner">
-
+                                <img src="img/partners/partner1.svg" alt="">
                             </div>
                             <div class="item-partner">
-
+                                <img src="img/partners/partner2.svg" alt="">
                             </div>
                             <div class="item-partner">
-
+                                <img src="img/partners/partner3.svg" alt="">
                             </div>
                         </div>
                     <?php } ?>
                 </div>
             </div>
+            <button type="button" class="btn-partners">Смотреть всех партнеров <span></span></button>
         </div>
     </div>
 @endsection

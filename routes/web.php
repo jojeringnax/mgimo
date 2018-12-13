@@ -46,9 +46,9 @@ Route::get('gallery_layout', function () {
     return view('gallery_layout');
 });
 
-
-
-
+Route::get('admin/news', function () {
+    return view('news');
+});
 
 
 
@@ -67,7 +67,6 @@ Route::match(['get','post'], 'admin/news/create', 'AdminController@createArticle
 Route::match(['get','post'], 'admin/news/update/{id}', 'AdminController@updateArticle');
 Route::get('admin/news/delete/{id}', 'AdminController@deleteArticle');
 
-
 Route::match(['get','post'], 'admin/events/create', 'AdminController@createEvent');
 Route::match(['get','post'], 'admin/events/update/{id}', 'AdminController@updateEvent');
 Route::get('admin/events/delete/{id}', 'AdminController@deleteEvent');
@@ -85,3 +84,24 @@ Route::get('admin/books/delete/{id}', 'AdminController@deleteBook');
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
+
+
+Route::get('admin/news', function() {
+    return view('admin.news.index', ['news' => \App\News::all()]);
+});
+
+Route::get('admin/events', function() {
+    return view('admin.events.index', ['events' => \App\Event::all()]);
+});
+
+Route::get('admin/congratulations', function() {
+    return view('admin.congratulations.index', ['congratulations' => \App\Congratulation::all()]);
+});
+
+Route::get('admin/books', function() {
+    return view('admin.books.index', ['books' => \App\Book::all()]);
+});
+
+Route::get('admin/smis', function() {
+    return view('admin.smis.index', ['smis' => \App\Smi::all()]);
+});

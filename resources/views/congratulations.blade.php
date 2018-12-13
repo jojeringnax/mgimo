@@ -38,8 +38,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('script')
-
-@endsection
+3

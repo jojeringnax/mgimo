@@ -3,16 +3,16 @@ $(document).ready(function () {
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
         ['blockquote', 'code-block'],
 
-        [{ 'size': [] }],
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-        [{ 'direction': 'rtl' }],                         // text direction
+        [{'size': []}],
+        [{'list': 'ordered'}, {'list': 'bullet'}],
+        [{'script': 'sub'}, {'script': 'super'}],      // superscript/subscript
+        [{'indent': '-1'}, {'indent': '+1'}],          // outdent/indent
+        [{'direction': 'rtl'}],                         // text direction
 
 
-        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-        [{ 'font': [] }],
-        [{ 'align': [] }],
+        [{'color': []}, {'background': []}],          // dropdown with defaults from theme
+        [{'font': []}],
+        [{'align': []}],
 
         ['clean']                                         // remove formatting button
     ];
@@ -30,17 +30,16 @@ $(document).ready(function () {
         $(this).parent().parent().children('.clear').children('span').css({"cursor":"pointer"});
         $(this).parent().parent().children('.clear').click(function(){
             input.attr('value', '');
-            input.parent().children('label').html('Загрузите ' + input.parent().parent().children('.clear').children('span').data('file') + ' фото');
+            input.parent().children('label').html('Загрузите фото');
             input.parent().parent().children('.clear').children('span').html('Upload');
             input.parent().parent().children('.clear').children('span').css({'cursor':'default'});
         });
     });
 
-
-    $('.news-form').submit(function(){
-        $('#content-news').attr('value', $('#editor > .ql-editor').html());
-        alert($('#content-news').val())
-        console.log($('#content-news').val(), 'asd', $('#editor > .ql-editor').html())
+    $('.form-book').submit(function(){
+        $('#description').attr('value', $('#editor > .ql-editor').html());
+        alert($('#description').val());
+        console.log($('#description').val(), 'asd', $('#editor > .ql-editor').html());
         return true;
     });
 });

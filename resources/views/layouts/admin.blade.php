@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {{--<link rel="stylesheet" href="{{ asset('mdb/assets/css/docs.css') }}">--}}
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/mdb.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/open-iconic-bootstrap.css')}}">
+        @yield('link')
+    </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
@@ -76,5 +81,11 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{asset('js/jquery-3.3.1.js')}}"></script>
+    <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{asset('bootstrap/js/mdb.js')}}"></script>
+    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/admin.js')}}"></script>
+    @yield('script')
 </body>
 </html>
