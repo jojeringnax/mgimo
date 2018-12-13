@@ -68,7 +68,7 @@ nav ul li a {
 
 /*===================SECTION-NEWS===================*/
 .contents {
-  height: 1240px; }
+  min-height: 1240px; }
   .contents .buttons-news {
     position: absolute;
     bottom: 0;
@@ -94,11 +94,14 @@ nav ul li a {
         top: calc(40% - 9px);
         right: 25px; }
   .contents .news {
+    padding: 0 30px 0 30px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
     margin-left: -10px; }
-    .contents .news .title-news span {
-      font-size: 20px;
-      font-weight: bold; }
+    .contents .news .title-news {
+      margin-top: 30px; }
+      .contents .news .title-news span {
+        font-size: 20px;
+        font-weight: bold; }
     .contents .news .big-news {
       position: relative;
       height: 395px;
@@ -120,6 +123,8 @@ nav ul li a {
         padding: 0 0 25px 40px;
         color: white;
         z-index: 14; }
+        .contents .news .big-news article h4 {
+          font-size: 26px; }
         .contents .news .big-news article .tag {
           font-size: 12px;
           width: 123px;
@@ -166,12 +171,14 @@ nav ul li a {
             flex-direction: column;
             align-items: start;
             justify-content: center;
-            padding: 20px; }
+            padding: 20px;
+            font-family: "Playfair Display"; }
             .contents .news .small-news .small-new article .content-small-new h4 {
-              margin-top: 20px;
-              font-weight: bold; }
+              margin-top: 10px;
+              font-weight: bold;
+              font-size: 26px !important; }
             .contents .news .small-news .small-new article .content-small-new .tag {
-              font-size: 12px;
+              font-size: 14px;
               width: 123px;
               height: 35px;
               border-radius: 18px;
@@ -190,29 +197,35 @@ nav ul li a {
                 margin-right: 9px;
                 margin-top: -1px; }
             .contents .news .small-news .small-new article .content-small-new .date-news {
-              font-size: 12px;
+              font-size: 14px;
               /*text-align: center;*/ }
   .contents .events {
+    padding: 0 20px 0 20px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
     margin-left: 10px; }
     .contents .events .title-events span {
       font-size: 20px;
       font-weight: bold;
       margin-top: 30px;
-      display: block; }
+      display: block;
+      font-family: "Playfair Display"; }
     .contents .events .item-events {
       margin-top: 15px; }
       .contents .events .item-events article {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 70px; }
+        height: 70px;
+        margin-left: 10px; }
         .contents .events .item-events article .name-events {
-          font-weight: 900 !important; }
+          font-weight: 900 !important;
+          font-family: "Playfair Display";
+          font-size: 18px; }
       .contents .events .item-events .date-events {
-        font-size: 12px;
+        font-size: 14px;
         margin: 15px 0 15px 0;
-        display: block; }
+        display: block;
+        margin-left: 10px; }
 
 /*===================MEDIA===================*/
 #media {
@@ -222,28 +235,31 @@ nav ul li a {
   font-size: 20px;
   text-transform: uppercase;
   font-weight: bold; }
-.content-media .media-news .item-media-news {
+.content-media .media-news {
   display: flex;
-  align-items: center;
-  position: relative;
-  height: 200px;
-  text-decoration: none; }
-  .content-media .media-news .item-media-news .source-media-news {
-    font-size: 14px;
-    position: absolute;
-    top: 10px;
-    margin-left: 10px;
+  flex-wrap: wrap; }
+  .content-media .media-news .item-media-news {
+    align-items: center;
+    position: relative;
+    height: 200px;
     text-decoration: none; }
-  .content-media .media-news .item-media-news .title-media-news {
-    font-size: 15px;
-    font-weight: bold;
-    margin-left: 10px;
-    text-decoration: none; }
-  .content-media .media-news .item-media-news hr {
-    background-color: #1F1F1F;
-    opacity: 0.2;
-    height: 180px;
-    width: 3px; }
+    .content-media .media-news .item-media-news .source-media-news {
+      font-size: 14px;
+      position: absolute;
+      top: 10px;
+      margin-left: 10px;
+      text-decoration: none; }
+    .content-media .media-news .item-media-news .title-media-news {
+      font-size: 18px;
+      font-weight: bold;
+      margin-left: 10px;
+      text-decoration: none;
+      font-family: "Playfair Display"; }
+    .content-media .media-news .item-media-news hr {
+      background-color: #1F1F1F;
+      opacity: 0.2;
+      height: 180px;
+      width: 3px; }
 
 .btn-media {
   margin-top: 40px; }
@@ -305,7 +321,8 @@ nav ul li a {
     padding: 15px; }
     .content-congratulations div .item-congratulations .content-item-congratulations .title-item-congratulations {
       font-size: 20px;
-      font-weight: bold; }
+      font-weight: bold;
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
     .content-congratulations div .item-congratulations .content-item-congratulations .tag {
       font-size: 12px;
       width: 123px;
@@ -376,6 +393,11 @@ nav ul li a {
   background-color: #1F1F1F;
   color: white !important; }
 
+@media screen and (max-width: 1200px) {
+  .item-congratulations {
+    height: 400px;
+    width: 100% !important;
+    margin-top: 2%; } }
 /*===================GALLERY-CONTENT===================*/
 .bg-gallery {
   width: 100%;
@@ -386,8 +408,9 @@ nav ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 500px;
-  width: 100%; }
+  min-height: 500px;
+  width: 100%;
+  flex-wrap: wrap; }
   .gallery-content .big-photo {
     opacity: 0.8; }
   .gallery-content .text-gallery {
