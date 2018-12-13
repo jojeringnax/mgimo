@@ -1,4 +1,5 @@
 $mainColor : #1F1F1F;
+$linkColor: #A5A5A5;
 
 @font-face {
     font-family: 'PlayfairDisplayRegular';
@@ -31,16 +32,29 @@ $mainColor : #1F1F1F;
     font-family: GraphikLCGRegular;
 }
 
+.container {
+
+}
+
 body {
     background-color: black;
 }
 
 nav {
-    ul {
-        li {
-            a {
-                text-transform: none !important;
-                font-size: 14px !important;
+    background-color: $mainColor;
+    display: flex;
+    justify-content: center;
+    div {
+        justify-content: center;
+
+        ul {
+            li {
+                margin-left: 40px;
+                a {
+                    text-transform: none !important;
+                    font-size: 14px !important;
+                    color: white !important;
+                }
             }
         }
     }
@@ -51,7 +65,7 @@ nav {
     width: 100%;
     height: 600px;
     background-image: url("../img/layout/banner.png");
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     font-family: PlayfairDisplayRegular !important;
     .text-banner {
@@ -106,21 +120,30 @@ nav {
 
 /*===================SECTION-NEWS===================*/
 .contents {
-    min-height: 1240px;
+    margin-top: 40px;
+    min-height: 1340px;
     .buttons-news {
         position: absolute;
-        bottom: 0;
-        padding-bottom: 20px;
+        bottom: 60px;
+        padding-bottom: 0;
         button {
             border: 2px solid $mainColor;
-            height: 40px;
-            width: 300px;
+            height: 55px;
+            width: 330px;
             background-color: white;
             font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            text-transform: uppercase;
+            &:hover {
+                background-color: $mainColor;
+                color: white;
+                span {
+                    background-image: url("../img/icon/partner/white-arrow.svg");
+                }
+            }
             &:after {
                 content: '';
 
@@ -137,11 +160,11 @@ nav {
         }
     }
     .news {
-        padding: 0 30px 0 30px;
+        padding: 0 60px 0 60px;
         @include box-shadow;
         margin-left: -10px;
         .title-news {
-            margin-top: 30px;
+            margin-top: 45px;
             span {
                 font-size: 20px;
                 font-weight: bold;
@@ -158,6 +181,7 @@ nav {
             z-index: 14;
             padding: 0 !important;
             background-image: url("../img/new_test/Mask_Group_17.png");
+            background-size: cover;
             .layout-big-new {
                 position: absolute;
                 width: 100%;
@@ -170,8 +194,10 @@ nav {
                 padding: 0 0 25px 40px;
                 color: white;
                 z-index: 14;
-                h4 {
-                    font-size: 26px;
+                font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+                h3 {
+                    font-size: 30px;
+                    font-weight: bold !important;
                 }
                 .tag {
                     font-size: 12px;
@@ -196,12 +222,13 @@ nav {
                     }
                 }
                 .date-news {
-                    font-size: 12px;
+                    font-size: 14px;
+                    color: white;
                 }
             }
         }
         .small-news {
-            margin-top: 30px;
+            margin-top: 40px;
             .small-new {
                 padding: 0;
                 margin: 20px 0 0 0;
@@ -213,7 +240,7 @@ nav {
                     //padding-left: 10px;
                 }
                 article {
-                    padding: 0 20px 10px 20px;
+                    //padding: 0 20px 10px 20px;
                     //border: 1px solid #707070;
                     width: 100%;
                     display: flex;
@@ -222,7 +249,7 @@ nav {
                     .img-small-new {
                         width: 50%;
                         display: flex;
-                        justify-content: center;
+                        justify-content: flex-start;
                         align-items: center;
                         img {
                             height: 248px;
@@ -237,7 +264,8 @@ nav {
                         padding: 20px;
                         font-family: "Playfair Display";
                         h4 {
-                            margin-top: 10px;
+                            margin-top: 20px;
+                            margin-bottom: 30px;
                             font-weight: bold;
                             font-size: 26px !important;
                         }
@@ -250,7 +278,7 @@ nav {
                             color: black;
                             display: flex;
                             align-items: center;
-                            justify-content: center;
+                            justify-content: flex-start;
                             text-transform: uppercase;
                             font-weight: bold;
                             i {
@@ -262,41 +290,51 @@ nav {
                                 margin-top: -1px;
                             }
                         }
-                        .date-news {
-                            font-size: 14px;
-                            /*text-align: center;*/
+                        .date-link {
+                            .date-news {
+                                font-size: 14px;
+                                /*text-align: center;*/
+                                color: $linkColor;
+
+                            }
+                            a {
+                                color: $mainColor;
+                                text-decoration: underline;
+                                &:hover {
+                                    color: blue;
+                                }
+                            }
                         }
+
                     }
                 }
             }
         }
     }
     .events {
-        padding: 0 20px 0 20px;
+        padding: 0 45px 0 45px;
         @include box-shadow;
         margin-left: 10px;
         .title-events {
-
+            margin-bottom: 20px;
             span {
                 font-size: 20px;
                 font-weight: bold;
-                margin-top: 30px;
+                margin-top: 45px;
                 display: block;
-                font-family: "Playfair Display";
             }
         }
         .item-events {
             //border-bottom: 1px solid $mainColor;
-            margin-top: 15px;
+            margin-top: 30px;
             article {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 height: 70px;
                 margin-left: 10px;
-
                 .name-events {
-                    font-weight: 900 !important;
+                    font-weight: bold;
                     font-family: "Playfair Display";
                     font-size: 18px;
                 }
@@ -305,18 +343,52 @@ nav {
                 font-size: 14px;
                 margin: 15px 0 15px 0;
                 display: block;
+                margin-left: 30px;
+                color: $linkColor;
+                position: relative;
+                .icon-date-events {
+                    position: absolute;
+                    height: 14px;
+                    width: 14px;
+                    background-image: url("../img/icon/date.svg");
+                    background-repeat: no-repeat;
+                    left: -20px;
+                    margin-top: 2px;
+                }
+            }
+            .location {
+                font-size: 14px;
+                margin: 15px 0 15px 0;
+                display: block;
                 margin-left: 10px;
+                color: $linkColor;
+                position: relative;
+                .icon-location-events {
+                    position: absolute;
+                    height: 14px;
+                    width: 11px;
+                    background-image: url("../img/icon/location.svg");
+                    background-repeat: no-repeat;
+                    left: -18px;
+
+                }
+
             }
         }
     }
 }
 
+@media screen and (max-width: 1200px) {
+
+}
 /*===================MEDIA===================*/
 #media {
     margin-top: 40px;
+    padding: 0;
 }
 
 .content-media {
+    padding: 0 !important;
     .title-media {
         font-size: 20px;
         text-transform: uppercase;
@@ -325,32 +397,53 @@ nav {
     .media-news {
         display: flex;
         flex-wrap: wrap;
+        padding: 0;
 
         .item-media-news {
+            padding: 0;
             align-items: center;
             position: relative;
             height: 200px;
             text-decoration: none;
             //border-right: 1px solid $mainColor;
+            &:last-child {
+                margin: 0;
+            }
+
             .source-media-news {
+                &:first-child {
+                    margin: 0;
+                }
+
                 font-size: 14px;
                 position: absolute;
                 top: 10px;
-                margin-left: 10px;
                 text-decoration: none;
+                color: #EB205E;
+                margin-left: 33px;
             }
             .title-media-news {
                 font-size: 18px;
                 font-weight: bold;
-                margin-left: 10px;
                 text-decoration: none;
                 font-family: "Playfair Display";
+                margin-left: 33px;
+                padding-right: 20px;
+                padding-bottom: 20px;
             }
             hr {
                 background-color: $mainColor;
                 opacity: 0.2;
                 height: 180px;
-                width: 3px;
+                width: 1px;
+                position: absolute;
+                top: 0;
+            }
+            .media-news-date {
+                position: absolute;
+                bottom: 20px;
+                margin-left: 33px;
+                color: $linkColor;
             }
         }
     }
@@ -359,14 +452,22 @@ nav {
     margin-top: 40px;
     button {
         border: 2px solid $mainColor;
-        height: 40px;
-        width: 300px;
+        height: 50px;
+        width: 350px;
         background-color: white;
         font-size: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        text-transform: uppercase;
+        &:hover {
+            background-color: $mainColor;
+            color: white;
+            span {
+                background-image: url("../img/icon/partner/white-arrow.svg");
+            }
+        }
         span {
             margin-left: 15px;
             display: block;
@@ -382,9 +483,11 @@ nav {
 /*===================CONGRTATULATIONS===================*/
 #congratulations {
     margin-top: 30px;
+    padding: 0;
 }
 
 .content-congratulations {
+    padding: 0;
     .title-congratulations {
         span {
             font-size: 20px;
@@ -416,18 +519,18 @@ nav {
     div {
         .item-congratulations {
             //border: 1px solid $mainColor;
-            height: 400px;
+            height: 350px;
             width: 49%;
             margin-top: 2%;
             display: flex;
             align-items: center;
             flex-direction: row;
             img {
-                width: 200px;
+                width: 250px;
                 margin-left: 30px;
             }
             .content-item-congratulations {
-                padding: 15px;
+                padding: 15px 50px 25px 50px;
                 .title-item-congratulations {
                     font-size: 20px;
                     font-weight: bold;
@@ -462,16 +565,27 @@ nav {
     }
     .btns-congratulations {
         margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
         .btn-watch-congr {
             border: 2px solid $mainColor;
             height: 55px;
-            width: 300px;
+            width: 400px;
             background-color: white;
             font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            margin-top: 20px;
+            text-transform: uppercase;
+            &:hover {
+                background-color: $mainColor;
+                color: white;
+                .congr_watch {
+                    background-image: url("../img/icon/partner/white-arrow.svg");
+                }
+            }
             .congr_watch {
                 margin-left: 15px;
                 display: block;
@@ -485,7 +599,7 @@ nav {
         .btn-congr {
             border: 0;
             height: 55px;
-            width: 300px;
+            width: 400px;
             font-size: 16px;
             display: flex;
             align-items: center;
@@ -493,12 +607,22 @@ nav {
             cursor: pointer;
             background-color: #0054B9;
             color: white;
+            margin-top: 20px;
+            text-transform: uppercase;
+            &:hover {
+                background-color: white;
+                color: #0054B9;
+                border: 2px solid #0054B9;
+                .congr_icon {
+                    background-image: url("../img/icon/partner/confetti-blue.svg");
+                }
+            }
             .congr_icon {
                 margin-right: 15px;
                 display: block;
                 width: 35.7px;
                 height: 35.7px;
-                background-image: url("../img/congr_icon.png");
+                background-image: url("../img/icon/partner/confetti.svg");
                 top: calc(40% - 9px);;
                 right: 25px;
             }
@@ -538,31 +662,35 @@ nav {
     min-height: 500px;
     width: 100%;
     flex-wrap: wrap;
+    padding: 100px 0 100px 0;
     .big-photo {
         //width: 400px;
         //height: 400px;
         //border-radius: 300px;
         //background-color: $mainColor;
-        opacity: 0.8;
+        opacity: 1;
         img {
-
+            width: 100%;
         }
     }
     .text-gallery {
         display: flex;
         flex-direction: column;
-        margin-left: 40px;
-        align-items: center;
+        //margin-left: 40px;
+        align-items: flex-start;
         span {
+            margin-left: 60px;
             font-size: 28px;
             font-weight: bold;
             font-family: "Playfair Display";
         }
         button {
+            margin-left: 60px;
             margin-top: 40px;
             width: 281px;
             height: 55px;
-            font-size: 20px;
+            font-size: 16px;
+            font-weight: bold;
             border: 2px solid #0054B9;
             color: #0054B9;
             display: flex;
@@ -570,6 +698,14 @@ nav {
             align-items: center;
             cursor: pointer;
             background-color: transparent;
+            text-transform: uppercase;
+            &:hover {
+                background-color: #0054B9;
+                color: white;
+                span {
+                    background-image: url("../img/icon/partner/white-arrow.svg");
+                }
+            }
             span {
                 margin-left: 15px;
                 display: block;
@@ -586,15 +722,16 @@ nav {
 
 .content-partners {
     position: relative;
-    margin-top: 40px;
+    margin-top: 150px;
     .title-partners {
         span {
             font-size: 20px;
             font-weight: bold;
+            text-transform: uppercase;
         }
     }
     .partners {
-        margin-top: 50px;
+        margin-top: 100px;
         .item {
             display: flex;
             justify-content: center;
@@ -618,25 +755,32 @@ nav {
 
 .arrow {
     &.next {
-        background-image: url("../img/right.svg");
-        right: -30px;
+        background-image: url("../img/icon/partner/right-arrow.svg");
+        right: -100px;
         margin-top: 30px;
         cursor: pointer;
+        &:hover {
+            background-image: url("../img/icon/partner/right-hover-arrow.svg");
+        }
     }
     &.prev {
-        background-image: url("../img/left.svg");
-        left: -30px;
+        background-image: url("../img/icon/partner/left-arrow.svg");
+        left: -100px;
         margin-top: 30px;
         cursor: pointer;
+        &:hover {
+            background-image: url("../img/icon/partner/left-hover-arrow.svg");
+        }
     }
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     top: 50%;
 }
 
 .btn-partners {
-    margin-top: 40px;
+    margin-top: 150px;
+    margin-bottom: 150px;
     border: 2px solid $mainColor;
     height: 55px;
     width: 371px;
@@ -648,6 +792,13 @@ nav {
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
+    &:hover {
+        background-color: $mainColor;
+        color: white;
+        span {
+            background-image: url("../img/icon/partner/white-arrow.svg");
+        }
+    }
     span {
         margin-left: 15px;
         display: block;
@@ -1146,4 +1297,114 @@ nav {
 
 .images-admin {
     margin-top: 25px;
+}
+
+
+@media (min-width: 1200px){
+    .container {
+        max-width: 1320px !important;
+    }
+}
+
+footer {
+    padding: 65px 0 65px 0;
+    height: 265px;
+    background-color: #0D0D0D;
+    .nav-bot {
+        height: 100%;
+        background-color: transparent;
+        padding: 0 !important;
+
+        nav {
+            background-color: transparent;
+            height: 100%;
+            justify-content: flex-start;
+            ul {
+                height: 100%;
+                li {
+                    list-style-type: none;
+                    a {
+                        color: white;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    .button-footer {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        button {
+            border: 2px solid white;
+            height: 55px;
+            width: 371px;
+            background-color: #0D0D0D;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+
+            span {
+                margin-right: 25px;
+                display: block;
+                width: 22px;
+                height: 22px;
+                background-image: url("../img/icon/checked.svg");
+                top: calc(40% - 9px);;
+                right: 25px;
+                background-repeat: no-repeat;
+            }
+        }
+        span {
+            text-align: center;
+            color: white;
+            display: block;
+        }
+    }
+    .contact-footer {
+        display: flex;
+        justify-content: flex-end;
+        .soc-net {
+            margin-top: 50px;
+            .item-soc-net {
+                width: 31px;
+                height: 31px;
+                margin-left: 15px;
+                &.vk {
+                    background-image: url("../img/icon/vk-icon.svg");
+                }
+                &.fb {
+                    background-image: url("../img/icon/fb-icon.svg");
+                }
+                &.inst {
+                    background-image: url("../img/icon/inst-icon.svg");
+                }
+                &.yt {
+                    background-image: url("../img/icon/yt-icon.svg");
+                }
+
+
+            }
+        }
+        span {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            color: white;
+            .location-footer {
+
+            }
+            .number-footer {
+                margin-top: 10px;
+                display: block;
+            }
+        }
+    }
 }

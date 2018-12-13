@@ -14,16 +14,25 @@
 body {
   background-color: black; }
 
-nav ul li a {
-  text-transform: none !important;
-  font-size: 14px !important; }
+nav {
+  background-color: #1F1F1F;
+  display: flex;
+  justify-content: center; }
+  nav div {
+    justify-content: center; }
+    nav div ul li {
+      margin-left: 40px; }
+      nav div ul li a {
+        text-transform: none !important;
+        font-size: 14px !important;
+        color: white !important; }
 
 .banner {
   margin-top: 120px;
   width: 100%;
   height: 600px;
   background-image: url("../img/layout/banner.png");
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   font-family: PlayfairDisplayRegular !important; }
   .banner .text-banner {
@@ -68,21 +77,28 @@ nav ul li a {
 
 /*===================SECTION-NEWS===================*/
 .contents {
-  min-height: 1240px; }
+  margin-top: 40px;
+  min-height: 1340px; }
   .contents .buttons-news {
     position: absolute;
-    bottom: 0;
-    padding-bottom: 20px; }
+    bottom: 60px;
+    padding-bottom: 0; }
     .contents .buttons-news button {
       border: 2px solid #1F1F1F;
-      height: 40px;
-      width: 300px;
+      height: 55px;
+      width: 330px;
       background-color: white;
       font-size: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer; }
+      cursor: pointer;
+      text-transform: uppercase; }
+      .contents .buttons-news button:hover {
+        background-color: #1F1F1F;
+        color: white; }
+        .contents .buttons-news button:hover span {
+          background-image: url("../img/icon/partner/white-arrow.svg"); }
       .contents .buttons-news button:after {
         content: ''; }
       .contents .buttons-news button span {
@@ -94,11 +110,11 @@ nav ul li a {
         top: calc(40% - 9px);
         right: 25px; }
   .contents .news {
-    padding: 0 30px 0 30px;
+    padding: 0 60px 0 60px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
     margin-left: -10px; }
     .contents .news .title-news {
-      margin-top: 30px; }
+      margin-top: 45px; }
       .contents .news .title-news span {
         font-size: 20px;
         font-weight: bold; }
@@ -111,7 +127,8 @@ nav ul li a {
       margin: 20px 0 0 0;
       z-index: 14;
       padding: 0 !important;
-      background-image: url("../img/new_test/Mask_Group_17.png"); }
+      background-image: url("../img/new_test/Mask_Group_17.png");
+      background-size: cover; }
       .contents .news .big-news .layout-big-new {
         position: absolute;
         width: 100%;
@@ -122,9 +139,11 @@ nav ul li a {
       .contents .news .big-news article {
         padding: 0 0 25px 40px;
         color: white;
-        z-index: 14; }
-        .contents .news .big-news article h4 {
-          font-size: 26px; }
+        z-index: 14;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
+        .contents .news .big-news article h3 {
+          font-size: 30px;
+          font-weight: bold !important; }
         .contents .news .big-news article .tag {
           font-size: 12px;
           width: 123px;
@@ -146,14 +165,14 @@ nav ul li a {
             margin-right: 9px;
             margin-top: -1px; }
         .contents .news .big-news article .date-news {
-          font-size: 12px; }
+          font-size: 14px;
+          color: white; }
     .contents .news .small-news {
-      margin-top: 30px; }
+      margin-top: 40px; }
       .contents .news .small-news .small-new {
         padding: 0;
         margin: 20px 0 0 0; }
         .contents .news .small-news .small-new article {
-          padding: 0 20px 10px 20px;
           width: 100%;
           display: flex;
           flex-direction: row;
@@ -161,7 +180,7 @@ nav ul li a {
           .contents .news .small-news .small-new article .img-small-new {
             width: 50%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center; }
             .contents .news .small-news .small-new article .img-small-new img {
               height: 248px; }
@@ -174,7 +193,8 @@ nav ul li a {
             padding: 20px;
             font-family: "Playfair Display"; }
             .contents .news .small-news .small-new article .content-small-new h4 {
-              margin-top: 10px;
+              margin-top: 20px;
+              margin-bottom: 30px;
               font-weight: bold;
               font-size: 26px !important; }
             .contents .news .small-news .small-new article .content-small-new .tag {
@@ -186,7 +206,7 @@ nav ul li a {
               color: black;
               display: flex;
               align-items: center;
-              justify-content: center;
+              justify-content: flex-start;
               text-transform: uppercase;
               font-weight: bold; }
               .contents .news .small-news .small-new article .content-small-new .tag i {
@@ -196,21 +216,28 @@ nav ul li a {
                 background-color: #0054B9;
                 margin-right: 9px;
                 margin-top: -1px; }
-            .contents .news .small-news .small-new article .content-small-new .date-news {
+            .contents .news .small-news .small-new article .content-small-new .date-link .date-news {
               font-size: 14px;
-              /*text-align: center;*/ }
+              /*text-align: center;*/
+              color: #A5A5A5; }
+            .contents .news .small-news .small-new article .content-small-new .date-link a {
+              color: #1F1F1F;
+              text-decoration: underline; }
+              .contents .news .small-news .small-new article .content-small-new .date-link a:hover {
+                color: blue; }
   .contents .events {
-    padding: 0 20px 0 20px;
+    padding: 0 45px 0 45px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
     margin-left: 10px; }
-    .contents .events .title-events span {
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 30px;
-      display: block;
-      font-family: "Playfair Display"; }
+    .contents .events .title-events {
+      margin-bottom: 20px; }
+      .contents .events .title-events span {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 45px;
+        display: block; }
     .contents .events .item-events {
-      margin-top: 15px; }
+      margin-top: 30px; }
       .contents .events .item-events article {
         display: flex;
         flex-direction: column;
@@ -218,61 +245,110 @@ nav ul li a {
         height: 70px;
         margin-left: 10px; }
         .contents .events .item-events article .name-events {
-          font-weight: 900 !important;
+          font-weight: bold;
           font-family: "Playfair Display";
           font-size: 18px; }
       .contents .events .item-events .date-events {
         font-size: 14px;
         margin: 15px 0 15px 0;
         display: block;
-        margin-left: 10px; }
+        margin-left: 30px;
+        color: #A5A5A5;
+        position: relative; }
+        .contents .events .item-events .date-events .icon-date-events {
+          position: absolute;
+          height: 14px;
+          width: 14px;
+          background-image: url("../img/icon/date.svg");
+          background-repeat: no-repeat;
+          left: -20px;
+          margin-top: 2px; }
+      .contents .events .item-events .location {
+        font-size: 14px;
+        margin: 15px 0 15px 0;
+        display: block;
+        margin-left: 10px;
+        color: #A5A5A5;
+        position: relative; }
+        .contents .events .item-events .location .icon-location-events {
+          position: absolute;
+          height: 14px;
+          width: 11px;
+          background-image: url("../img/icon/location.svg");
+          background-repeat: no-repeat;
+          left: -18px; }
 
 /*===================MEDIA===================*/
 #media {
-  margin-top: 40px; }
+  margin-top: 40px;
+  padding: 0; }
 
-.content-media .title-media {
-  font-size: 20px;
-  text-transform: uppercase;
-  font-weight: bold; }
-.content-media .media-news {
-  display: flex;
-  flex-wrap: wrap; }
-  .content-media .media-news .item-media-news {
-    align-items: center;
-    position: relative;
-    height: 200px;
-    text-decoration: none; }
-    .content-media .media-news .item-media-news .source-media-news {
-      font-size: 14px;
-      position: absolute;
-      top: 10px;
-      margin-left: 10px;
+.content-media {
+  padding: 0 !important; }
+  .content-media .title-media {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold; }
+  .content-media .media-news {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0; }
+    .content-media .media-news .item-media-news {
+      padding: 0;
+      align-items: center;
+      position: relative;
+      height: 200px;
       text-decoration: none; }
-    .content-media .media-news .item-media-news .title-media-news {
-      font-size: 18px;
-      font-weight: bold;
-      margin-left: 10px;
-      text-decoration: none;
-      font-family: "Playfair Display"; }
-    .content-media .media-news .item-media-news hr {
-      background-color: #1F1F1F;
-      opacity: 0.2;
-      height: 180px;
-      width: 3px; }
+      .content-media .media-news .item-media-news:last-child {
+        margin: 0; }
+      .content-media .media-news .item-media-news .source-media-news {
+        font-size: 14px;
+        position: absolute;
+        top: 10px;
+        text-decoration: none;
+        color: #EB205E;
+        margin-left: 33px; }
+        .content-media .media-news .item-media-news .source-media-news:first-child {
+          margin: 0; }
+      .content-media .media-news .item-media-news .title-media-news {
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        font-family: "Playfair Display";
+        margin-left: 33px;
+        padding-right: 20px;
+        padding-bottom: 20px; }
+      .content-media .media-news .item-media-news hr {
+        background-color: #1F1F1F;
+        opacity: 0.2;
+        height: 180px;
+        width: 1px;
+        position: absolute;
+        top: 0; }
+      .content-media .media-news .item-media-news .media-news-date {
+        position: absolute;
+        bottom: 20px;
+        margin-left: 33px;
+        color: #A5A5A5; }
 
 .btn-media {
   margin-top: 40px; }
   .btn-media button {
     border: 2px solid #1F1F1F;
-    height: 40px;
-    width: 300px;
+    height: 50px;
+    width: 350px;
     background-color: white;
     font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer; }
+    cursor: pointer;
+    text-transform: uppercase; }
+    .btn-media button:hover {
+      background-color: #1F1F1F;
+      color: white; }
+      .btn-media button:hover span {
+        background-image: url("../img/icon/partner/white-arrow.svg"); }
     .btn-media button span {
       margin-left: 15px;
       display: block;
@@ -284,103 +360,123 @@ nav ul li a {
 
 /*===================CONGRTATULATIONS===================*/
 #congratulations {
-  margin-top: 30px; }
+  margin-top: 30px;
+  padding: 0; }
 
-.content-congratulations .title-congratulations span {
-  font-size: 20px;
-  text-transform: uppercase;
-  font-weight: bold; }
-.content-congratulations .tags-congratulations {
-  display: flex;
-  position: relative; }
-  .content-congratulations .tags-congratulations .title-tag-congr {
-    position: absolute;
-    top: 7px; }
-  .content-congratulations .tags-congratulations .item-tags-congratulation {
-    margin: 30px 15px 0 0;
+.content-congratulations {
+  padding: 0; }
+  .content-congratulations .title-congratulations span {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold; }
+  .content-congratulations .tags-congratulations {
     display: flex;
-    justify-content: center;
-    border: 1px solid #1F1F1F;
-    width: 80px;
-    cursor: pointer;
-    color: #1F1F1F; }
-    .content-congratulations .tags-congratulations .item-tags-congratulation:hover {
-      background-color: #1F1F1F;
-      color: white; }
-.content-congratulations div .item-congratulations {
-  height: 400px;
-  width: 49%;
-  margin-top: 2%;
-  display: flex;
-  align-items: center;
-  flex-direction: row; }
-  .content-congratulations div .item-congratulations img {
-    width: 200px;
-    margin-left: 30px; }
-  .content-congratulations div .item-congratulations .content-item-congratulations {
-    padding: 15px; }
-    .content-congratulations div .item-congratulations .content-item-congratulations .title-item-congratulations {
-      font-size: 20px;
-      font-weight: bold;
-      font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
-    .content-congratulations div .item-congratulations .content-item-congratulations .tag {
-      font-size: 12px;
-      width: 123px;
-      height: 35px;
-      border-radius: 18px;
+    position: relative; }
+    .content-congratulations .tags-congratulations .title-tag-congr {
+      position: absolute;
+      top: 7px; }
+    .content-congratulations .tags-congratulations .item-tags-congratulation {
+      margin: 30px 15px 0 0;
+      display: flex;
+      justify-content: center;
+      border: 1px solid #1F1F1F;
+      width: 80px;
+      cursor: pointer;
+      color: #1F1F1F; }
+      .content-congratulations .tags-congratulations .item-tags-congratulation:hover {
+        background-color: #1F1F1F;
+        color: white; }
+  .content-congratulations div .item-congratulations {
+    height: 350px;
+    width: 49%;
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    flex-direction: row; }
+    .content-congratulations div .item-congratulations img {
+      width: 250px;
+      margin-left: 30px; }
+    .content-congratulations div .item-congratulations .content-item-congratulations {
+      padding: 15px 50px 25px 50px; }
+      .content-congratulations div .item-congratulations .content-item-congratulations .title-item-congratulations {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
+      .content-congratulations div .item-congratulations .content-item-congratulations .tag {
+        font-size: 12px;
+        width: 123px;
+        height: 35px;
+        border-radius: 18px;
+        background-color: white;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        font-weight: bold; }
+        .content-congratulations div .item-congratulations .content-item-congratulations .tag i {
+          width: 10px;
+          height: 10px;
+          border-radius: 5px;
+          background-color: #0054B9;
+          margin-right: 9px;
+          margin-top: -1px; }
+  .content-congratulations .btns-congratulations {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap; }
+    .content-congratulations .btns-congratulations .btn-watch-congr {
+      border: 2px solid #1F1F1F;
+      height: 55px;
+      width: 400px;
       background-color: white;
-      color: black;
+      font-size: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-transform: uppercase;
-      font-weight: bold; }
-      .content-congratulations div .item-congratulations .content-item-congratulations .tag i {
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-        background-color: #0054B9;
-        margin-right: 9px;
-        margin-top: -1px; }
-.content-congratulations .btns-congratulations {
-  margin-top: 40px; }
-  .content-congratulations .btns-congratulations .btn-watch-congr {
-    border: 2px solid #1F1F1F;
-    height: 55px;
-    width: 300px;
-    background-color: white;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer; }
-    .content-congratulations .btns-congratulations .btn-watch-congr .congr_watch {
-      margin-left: 15px;
-      display: block;
-      width: 20px;
-      height: 11px;
-      background-image: url("../img/icon/arrow-right.svg");
-      top: calc(40% - 9px);
-      right: 25px; }
-  .content-congratulations .btns-congratulations .btn-congr {
-    border: 0;
-    height: 55px;
-    width: 300px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-color: #0054B9;
-    color: white; }
-    .content-congratulations .btns-congratulations .btn-congr .congr_icon {
-      margin-right: 15px;
-      display: block;
-      width: 35.7px;
-      height: 35.7px;
-      background-image: url("../img/congr_icon.png");
-      top: calc(40% - 9px);
-      right: 25px; }
+      cursor: pointer;
+      margin-top: 20px;
+      text-transform: uppercase; }
+      .content-congratulations .btns-congratulations .btn-watch-congr:hover {
+        background-color: #1F1F1F;
+        color: white; }
+        .content-congratulations .btns-congratulations .btn-watch-congr:hover .congr_watch {
+          background-image: url("../img/icon/partner/white-arrow.svg"); }
+      .content-congratulations .btns-congratulations .btn-watch-congr .congr_watch {
+        margin-left: 15px;
+        display: block;
+        width: 20px;
+        height: 11px;
+        background-image: url("../img/icon/arrow-right.svg");
+        top: calc(40% - 9px);
+        right: 25px; }
+    .content-congratulations .btns-congratulations .btn-congr {
+      border: 0;
+      height: 55px;
+      width: 400px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background-color: #0054B9;
+      color: white;
+      margin-top: 20px;
+      text-transform: uppercase; }
+      .content-congratulations .btns-congratulations .btn-congr:hover {
+        background-color: white;
+        color: #0054B9;
+        border: 2px solid #0054B9; }
+        .content-congratulations .btns-congratulations .btn-congr:hover .congr_icon {
+          background-image: url("../img/icon/partner/confetti-blue.svg"); }
+      .content-congratulations .btns-congratulations .btn-congr .congr_icon {
+        margin-right: 15px;
+        display: block;
+        width: 35.7px;
+        height: 35.7px;
+        background-image: url("../img/icon/partner/confetti.svg");
+        top: calc(40% - 9px);
+        right: 25px; }
 
 .section-hr {
   background-color: #1F1F1F;
@@ -410,30 +506,41 @@ nav ul li a {
   justify-content: center;
   min-height: 500px;
   width: 100%;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  padding: 100px 0 100px 0; }
   .gallery-content .big-photo {
-    opacity: 0.8; }
+    opacity: 1; }
+    .gallery-content .big-photo img {
+      width: 100%; }
   .gallery-content .text-gallery {
     display: flex;
     flex-direction: column;
-    margin-left: 40px;
-    align-items: center; }
+    align-items: flex-start; }
     .gallery-content .text-gallery span {
+      margin-left: 60px;
       font-size: 28px;
       font-weight: bold;
       font-family: "Playfair Display"; }
     .gallery-content .text-gallery button {
+      margin-left: 60px;
       margin-top: 40px;
       width: 281px;
       height: 55px;
-      font-size: 20px;
+      font-size: 16px;
+      font-weight: bold;
       border: 2px solid #0054B9;
       color: #0054B9;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      background-color: transparent; }
+      background-color: transparent;
+      text-transform: uppercase; }
+      .gallery-content .text-gallery button:hover {
+        background-color: #0054B9;
+        color: white; }
+        .gallery-content .text-gallery button:hover span {
+          background-image: url("../img/icon/partner/white-arrow.svg"); }
       .gallery-content .text-gallery button span {
         margin-left: 15px;
         display: block;
@@ -445,12 +552,13 @@ nav ul li a {
 
 .content-partners {
   position: relative;
-  margin-top: 40px; }
+  margin-top: 150px; }
   .content-partners .title-partners span {
     font-size: 20px;
-    font-weight: bold; }
+    font-weight: bold;
+    text-transform: uppercase; }
   .content-partners .partners {
-    margin-top: 50px; }
+    margin-top: 100px; }
     .content-partners .partners .item {
       display: flex;
       justify-content: center;
@@ -467,23 +575,28 @@ nav ul li a {
         justify-content: center; }
 
 .arrow {
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 100px;
   position: absolute;
   top: 50%; }
   .arrow.next {
-    background-image: url("../img/right.svg");
-    right: -30px;
+    background-image: url("../img/icon/partner/right-arrow.svg");
+    right: -100px;
     margin-top: 30px;
     cursor: pointer; }
+    .arrow.next:hover {
+      background-image: url("../img/icon/partner/right-hover-arrow.svg"); }
   .arrow.prev {
-    background-image: url("../img/left.svg");
-    left: -30px;
+    background-image: url("../img/icon/partner/left-arrow.svg");
+    left: -100px;
     margin-top: 30px;
     cursor: pointer; }
+    .arrow.prev:hover {
+      background-image: url("../img/icon/partner/left-hover-arrow.svg"); }
 
 .btn-partners {
-  margin-top: 40px;
+  margin-top: 150px;
+  margin-bottom: 150px;
   border: 2px solid #1F1F1F;
   height: 55px;
   width: 371px;
@@ -495,6 +608,11 @@ nav ul li a {
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold; }
+  .btn-partners:hover {
+    background-color: #1F1F1F;
+    color: white; }
+    .btn-partners:hover span {
+      background-image: url("../img/icon/partner/white-arrow.svg"); }
   .btn-partners span {
     margin-left: 15px;
     display: block;
@@ -828,5 +946,84 @@ nav ul li a {
 
 .images-admin {
   margin-top: 25px; }
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1320px !important; } }
+footer {
+  padding: 65px 0 65px 0;
+  height: 265px;
+  background-color: #0D0D0D; }
+  footer .nav-bot {
+    height: 100%;
+    background-color: transparent;
+    padding: 0 !important; }
+    footer .nav-bot nav {
+      background-color: transparent;
+      height: 100%;
+      justify-content: flex-start; }
+      footer .nav-bot nav ul {
+        height: 100%; }
+        footer .nav-bot nav ul li {
+          list-style-type: none; }
+          footer .nav-bot nav ul li a {
+            color: white;
+            font-size: 14px; }
+  footer .button-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center; }
+    footer .button-footer button {
+      border: 2px solid white;
+      height: 55px;
+      width: 371px;
+      background-color: #0D0D0D;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white; }
+      footer .button-footer button span {
+        margin-right: 25px;
+        display: block;
+        width: 22px;
+        height: 22px;
+        background-image: url("../img/icon/checked.svg");
+        top: calc(40% - 9px);
+        right: 25px;
+        background-repeat: no-repeat; }
+    footer .button-footer span {
+      text-align: center;
+      color: white;
+      display: block; }
+  footer .contact-footer {
+    display: flex;
+    justify-content: flex-end; }
+    footer .contact-footer .soc-net {
+      margin-top: 50px; }
+      footer .contact-footer .soc-net .item-soc-net {
+        width: 31px;
+        height: 31px;
+        margin-left: 15px; }
+        footer .contact-footer .soc-net .item-soc-net.vk {
+          background-image: url("../img/icon/vk-icon.svg"); }
+        footer .contact-footer .soc-net .item-soc-net.fb {
+          background-image: url("../img/icon/fb-icon.svg"); }
+        footer .contact-footer .soc-net .item-soc-net.inst {
+          background-image: url("../img/icon/inst-icon.svg"); }
+        footer .contact-footer .soc-net .item-soc-net.yt {
+          background-image: url("../img/icon/yt-icon.svg"); }
+    footer .contact-footer span {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      color: white; }
+      footer .contact-footer span .number-footer {
+        margin-top: 10px;
+        display: block; }
 
 /*# sourceMappingURL=style.css.map */

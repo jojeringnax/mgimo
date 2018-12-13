@@ -82,17 +82,20 @@
                     <div class="title-events">
                         <span>БЛИЖАЙШИЕ МЕРОПРИЯТИЯ </span>
                     </div>
-                    @for ($i = 0; $i < 7; $i++)
-                        <a href="" style="text-decoration: none">
-                            <div class="item-events">
-                                <article>
-                                    <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
-                                </article>
-                                <span class="date-events">10 Ноября</span>
-                                <span class="location"></span>
-                                <hr>
+                    @for ($i = 0; $i < 6; $i++)
+
+                        <div class="item-events">
+                            <article>
+                                <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
+                            </article>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <span class="date-events"><span class="icon-date-events"></span>22 декабря 2018</span>
+                                <span class="location"><span class="icon-location-events"></span>ДК украинских армян</span>
                             </div>
-                        </a>
+                            @if ($i !== 5)
+                                <hr>
+                            @endif
+                        </div>
                     @endfor
 {{--                    <div class="item-events">
                         <article>
@@ -101,7 +104,7 @@
                         <span class="date-events">10 Ноября</span>
                         <hr>
                     </div>--}}
-                    <div class="buttons-news">
+                    <div class="buttons-news" style="margin-top: 60px;">
                         <button>Смотреть все мероприятия <span></span></button>
                     </div>
                 </div>
@@ -116,24 +119,26 @@
                 <div class="media-news col-12 d-flex fle-wrap justify-content-between">
                     <div class="col-3 item-media-news d-flex">
                         <span class="source-media-news">Lenta.ru</span>
-                        <span class="title-media-news">
-                            Собрание членов Попечительского совета и благотворителей Фонда имени Андрея Карлова
-                        </span>
+                        <span class="title-media-news" style="margin:0">Посол Люксембурга Жан-Клод Кнебелер в МГИМО</span>
+                        <span class="media-news-date" style="margin:0">10 Ноября 2018</span>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
                         <hr>
                         <span class="source-media-news">Yandex</span>
                         <span class="title-media-news">Посол Люксембурга Жан-Клод Кнебелер в МГИМО</span>
+                        <span class="media-news-date">10 Ноября 2018</span>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
                         <hr>
                         <span class="source-media-news">Rambler</span>
                         <span class="title-media-news">Международный экономический форум «Каспийский диалог 2018»</span>
+                        <span class=" media-news-date">10 Ноября 2018</span>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
                         <hr>
                         <span class="source-media-news">Lenta.ru</span>
                         <span class="title-media-news">Собрание членов Попечительского совета и благотворителей Фонда имени Андрея Карлова</span>
+                        <span class="media-news-date">10 Ноября 2018</span>
                     </div>
                 </div>
             </div>
@@ -146,7 +151,7 @@
 
     <div id="congratulations" class="container">
         <div class="row">
-            <div class="content-congratulations col-12">
+            <div class="content-congratulations col-12" style="padding: 0">
                 <div class="title-congratulations">
                     <span>Поздравления</span>
                 </div>
@@ -165,7 +170,6 @@
                     <div class="item-congratulations card">
                         <img class="img-item-congratulations img-thumbnail" src="http://img.over-blog-kiwi.com/1/54/00/21/20160804/ob_83b112_025pikachu-xy-anime-3.png" alt="">
                         <div class="content-item-congratulations">
-                            <div class="tag"><i></i><span>1940-70</span></div>
                             <span class="title-item-congratulations">Заголовок заголовок Заголовок заголовок<br></span>
                             <span class="text-item-congratulations">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda doloribus minus necessitatibus quibusdam quidem repellendus repudiandae.</span>
                         </div>
@@ -206,9 +210,9 @@
     <div class="bg-gallery">
         <div class="container">
             <div class="row">
-                <div class="gallery-content">
-                    <div class="big-photo"><img src="img/new_test/collage.png" alt=""></div>
-                    <div class="text-gallery">
+                <div class="gallery-content d-flex ">
+                    <div class="big-photo col-xl-6 col-lg-6 col-md-12"><img src="img/new_test/collage.png" alt=""></div>
+                    <div class="text-gallery col-xl-6 col-lg-6 col-md-12">
                         <span class="title-text-gallery">Мы собрали самые сокровенные моменты из жизни Эрнеста</span>
                         <button type="button" class="">Смотреть фото <span></span></button>
                     </div>
@@ -223,8 +227,8 @@
                 <div class="title-partners">
                     <span>Партнеры</span>
                 </div>
-                <div class="arrow next"></div>
-                <div class="arrow prev"></div>
+                <div data-arrow = "right" class="arrow next"></div>
+                <div data-arrow = "left" class="arrow prev"></div>
                 <div class="partners owl-carousel owl-theme">
                     <?php for ($i=0;$i<=19;$i++) { ?>
                         <div class="item">
