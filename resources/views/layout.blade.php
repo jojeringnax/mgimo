@@ -10,34 +10,26 @@
     @yield('link')
 </head>
 <body>
-    <header class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar" style="box-shadow: none">
+    <header class="header" style="box-shadow: none">
         <div class="container">
-            <div class="row" style="width:100%">
-                <div class="logo col-1 d-flex justify-content-center align-items-center">
-                    <a class="navbar-brand" href="/public">MGIMO</a>
-                </div>
-                <nav class="navbar-main col-10 " style="width:100%;">
-                    <ul class="navbar-nav mr-auto mt-lg-0 d-flex justify-content-around">
-                        <li class="nav-item"><a class="nav-link" href="#">О юбилее</a></li>
-                        <li class="nav-item"><a class="nav-link" href="news">Новости</a></li>
-                        <li class="nav-item"><a class="nav-link" href="events">Мероприятия</a></li>
-                        <li class="nav-item"><a class="nav-link" href="congratulations">Поздравления</a></li>
-                        <li class="nav-item"><a class="nav-link" href="publish">Издательская программа</a></li>
-                        <li class="nav-item"><a class="nav-link" href="gallery">Галерея</a></li>
-                        <li class="nav-item"><a class="nav-link" href="partners">Партнеры</a></li>
-                    </ul>
+            <div class="row" style="width:100%; ">
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar col-12 " style="width:100%;box-shadow: none;">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mt-lg-0 d-flex justify-content-around">
+                            <li class="nav-item"><a class="nav-link" href="#">О юбилее</a></li>
+                            <li class="nav-item"><a class="nav-link" href="news">Новости</a></li>
+                            <li class="nav-item"><a class="nav-link" href="events">Мероприятия</a></li>
+                            <li class="nav-item"><a class="nav-link" href="congratulations">Поздравления</a></li>
+                            <li class="nav-item"><a class="nav-link" href="publish">Издательская программа</a></li>
+                            <li class="nav-item"><a class="nav-link" href="gallery">Галерея</a></li>
+                            <li class="nav-item"><a class="nav-link" href="partners">Партнеры</a></li>
+                        </ul>
+                    </div>
                 </nav>
-                <div class="soc-net col-1 d-flex align-items-center justify-content-between">
-                    <div class="">
-                        <i>VK</i>
-                    </div>
-                    <div class="">
-                        <i>IN</i>
-                    </div>
-                    <div class="">
-                        <i>FB</i>
-                    </div>
-                </div>
             </div>
         </div>
     </header>
@@ -52,7 +44,46 @@
     {{--<script src="{{asset('js/bootstrap-material-design.js')}}"></script>--}}
     @yield('script')
     <footer>
-
+        <div class="container">
+            <div class="row">
+                <div class="d-flex col-12" style="padding: 0">
+                    <div class="nav-bot col-xl-4 col-lg-4 align-items-stretch">
+                        <nav class="d-flex" style="height: 100%">
+                            <ul class="d-flex flex-column justify-content-between" style="padding: 0">
+                                <li><a href="">О юбилее</a></li>
+                                <li><a href="">Новости</a></li>
+                                <li><a href="">Мероприятия</a></li>
+                                <li><a href="">Поздравления</a></li>
+                            </ul>
+                            <ul class="d-flex flex-column justify-content-between">
+                                <li><a href="">Издательская программа</a></li>
+                                <li><a href="">Галерея</a></li>
+                                <li><a href="">Партнеры</a></li>
+                                <li><a href="">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                <div class="button-footer col-xl-4 col-lg-4 align-items-center">
+                    <button type="button"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</button>
+                    <span class="text-center">
+                        © Ассоциация выпускников МГИМО,2018
+                    </span>
+                </div>
+                <div class="contact-footer col-xl-4 col-lg-4 align-items-stretch d-flex flex-column">
+                    <span class="">
+                        <span class="location-footer">Москва, проспект Вернадского, 76<br></span>
+                        <span class="number-footer">+7 495 229-40-49</span>
+                    </span>
+                    <div class="soc-net d-flex justify-content-end">
+                        <div class="item-soc-net vk"></div>
+                        <div class="item-soc-net fb"></div>
+                        <div class="item-soc-net inst"></div>
+                        <div class="item-soc-net yt"></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

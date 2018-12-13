@@ -17,22 +17,22 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach($news as $element)
                         <tr class="text-center">
-                            @foreach($news as $element)
-                                <td>{{ $element->id }}</td>
-                                <td>
-                                    @foreach($element->getTags() as $tag)
-                                        {{ $tag }}
-                                    @endforeach
-                                </td>
-                                <td>{{ $element->title }}</td>
-                                <td>{!!html_entity_decode($element->content)!!}</td>
-                                <td class="action">
-                                    {{ link_to_action('AdminController@updateArticle', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
-                                    {{ link_to_action('AdminController@deleteArticle', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
-                                </td>
-                            @endforeach
+                            <td>{{ $element->id }}</td>
+                            <td>
+                                @foreach($element->getTags() as $tag)
+                                    {{ $tag }}
+                                @endforeach
+                            </td>
+                            <td>{{ $element->title }}</td>
+                            <td>{!!html_entity_decode($element->content)!!}</td>
+                            <td class="action">
+                                {{ link_to_action('AdminController@updateArticle', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
+                                {{ link_to_action('AdminController@deleteArticle', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
+                            </td>
                         </tr>
+                    @endforeach
                     </tbody>
                 </table>
                 {{ link_to_action('AdminController@createArticle', 'create',[], ['class' => 'btn btn-secondary']) }}
