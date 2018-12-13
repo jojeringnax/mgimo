@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'GraphikLCGRegular';
+    src: url('fonts/GraphikLCGRegular.eot');
+    src: url('fonts/GraphikLCGRegular.eot') format('embedded-opentype'),
+         url('fonts/GraphikLCGRegular.woff2') format('woff2'),
+         url('fonts/GraphikLCGRegular.woff') format('woff'),
+         url('fonts/GraphikLCGRegular.ttf') format('truetype'),
+         url('fonts/GraphikLCGRegular.svg#GraphikLCGRegular') format('svg');
+}
