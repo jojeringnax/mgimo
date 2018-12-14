@@ -85,6 +85,13 @@ Route::match(['get','post'], 'admin/partners/update/{id}', 'AdminController@upda
 Route::get('admin/partners/delete/{id}', 'AdminController@deletePartner');
 
 
+Route::match(['get','post'], 'admin/gallery/create', 'AdminController@createAlbum');
+Route::match(['get','post'], 'admin/gallery/update/{id}', 'AdminController@updateAlbum');
+Route::get('admin/gallery/delete/{id}', 'AdminController@deleteAlbum');
+
+
+Route::match(['get','post'], 'admin/gallery/album_fill/{id}', 'AdminController@albumFill')->name('album_fill');
+
 Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('admin');
@@ -109,3 +116,5 @@ Route::get('admin/books', function() {
 Route::get('admin/smis', function() {
     return view('admin.smis.index', ['smis' => \App\Smi::all()]);
 });
+
+

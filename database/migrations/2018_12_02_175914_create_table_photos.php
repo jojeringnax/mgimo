@@ -19,6 +19,7 @@ class CreateTablePhotos extends Migration
             $table->integer('sizeY')->nullable();
             $table->string('path');
             $table->smallInteger('type');
+            $table->unsignedInteger('album_id')->nullable();
             $table->boolean('video')->default(false);
         });
     }

@@ -29,8 +29,7 @@ class News extends Model
         $photo = $this->mainPhoto;
         $tags = Tag::whereIn('id', $tagConnects->get())->get();
         foreach ($tags as $tag) {
-            $tag->count_news = $tag->count_news - 1;
-            $tag->save();
+            $tag->update(['count_news' => $tag->count_news - 1]);
         }
         parent::delete();
         foreach($photos as $ph) {

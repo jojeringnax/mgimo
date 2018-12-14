@@ -13,6 +13,8 @@ class PhotoConnect extends Model
     const NEWS = 1;
     const BOOK = 2;
     const CONGRATULATION = 3;
+    const GALLERY = 4;
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */

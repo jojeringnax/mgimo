@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Album;
 use App\Book;
 use App\Congratulation;
 use App\Event;
@@ -640,4 +641,54 @@ class AdminController extends Controller
         return 1;
     }
 
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int|string
+     */
+    public function createAlbum(Request $request)
+    {
+        if($request->isMethod('post')) {
+            $album = new Album();
+            $album->name = $request->post('name');
+            $album->save();
+            return redirect()->route('album_fill', ['id' => $album->id]);
+        } elseif ($request->isMethod('get')) {
+            return view('admin.gallery.form');
+        };
+        return 0;
+    }
+
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int|void
+     */
+    public function albumFill($id, Request $request)
+    {
+     if ($request->isMethod('post')) {
+         $files = $request->allFiles()['photos'];
+         $i = 0;
+         foreach ($files as $file) {
+             $i++;
+             $photo = new Photo();
+             $path = 'gallery/album_' . $id . '/' . $i . '.' . $file->getClientOriginalExtension();
+             Storage::put($path, file_get_contents($file->getPathname()));
+             $path = '/storage/photo/' . $path;
+             $photo->type = PhotoConnect::GALLERY;
+             $photo->path = $path;
+             $photo->sizeX = getimagesize($file->getPathname())[0];
+             $photo->sizeY = getimagesize($file->getPathname())[1];
+             $photo->album_id = $id;
+             $photo->save();
+         }
+         return redirect()->route('album_fill', ['id' => $id]);
+     } elseif ($request->isMethod('get')) {
+         return view('admin.gallery.album_fill', [
+             'album' => Album::find($id)
+         ]);
+     }
+     return 0;
+    }
 }
