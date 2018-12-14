@@ -25,10 +25,10 @@ Route::get('books/show/{id}', 'BookController@show');
 
 Route::get('events', 'EventsController@index');
 
-
-Route::get('congratulations', function () {
-    return view('congratulations');
-});
+Route::get('congratulations', 'congratulationsController@index');
+//Route::get('congratulations', function () {
+//    return view('congratulations');
+//});
 
 Route::get('partners', function () {
     return view('partners');
