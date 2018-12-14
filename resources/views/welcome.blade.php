@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div class="buttons-news">
-                        <button>Смотреть все новости <span></span></button>
+                        <a>Смотреть все новости <span></span></a>
                     </div>
                 </div>
                 <div class="item-contents events col-xl-4 col-lg-4 col-md-12 d-flex flex-column">
@@ -83,7 +83,6 @@
                         <span>БЛИЖАЙШИЕ МЕРОПРИЯТИЯ </span>
                     </div>
                     @for ($i = 0; $i < 6; $i++)
-
                         <div class="item-events">
                             <article>
                                 <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
@@ -105,7 +104,7 @@
                         <hr>
                     </div>--}}
                     <div class="buttons-news" style="margin-top: 60px;">
-                        <button>Смотреть все мероприятия <span></span></button>
+                        <a>Смотреть все мероприятия <span></span></a>
                     </div>
                 </div>
             </div>
@@ -143,7 +142,7 @@
                 </div>
             </div>
             <div class="btn-media">
-                <button>Смотреть все новости СМИ<span></span></button>
+                <a>Смотреть все новости СМИ<span></span></a>
             </div>
             <hr class="section-hr">
         </div>
@@ -200,8 +199,8 @@
                     </div>
                 </div>--}}
                 <div class="btns-congratulations d-flex justify-content-between">
-                    <button type="button" class="btn-watch-congr">Смотреть все поздравления <span class="congr_watch"></span></button>
-                    <button type="button" class="btn-congr"><span class="congr_icon"></span>Поздравить Alma Mater</button>
+                    <a href="" class="btn-watch-congr">Смотреть все поздравления <span class="congr_watch"></span></a>
+                    <a href="" class="btn-congr"><span class="congr_icon"></span>Поздравить Alma Mater</a>
                 </div>
             </div>
         </div>
@@ -214,7 +213,7 @@
                     <div class="big-photo col-xl-6 col-lg-6 col-md-12"><img src="img/new_test/collage.png" alt=""></div>
                     <div class="text-gallery col-xl-6 col-lg-6 col-md-12">
                         <span class="title-text-gallery">Мы собрали самые сокровенные моменты из жизни Эрнеста</span>
-                        <button type="button" class="">Смотреть фото <span></span></button>
+                        <a href="" class="">Смотреть фото <span></span></a>
                     </div>
                 </div>
             </div>
@@ -245,7 +244,7 @@
                     <?php } ?>
                 </div>
             </div>
-            <button type="button" class="btn-partners">Смотреть всех партнеров <span></span></button>
+            <a href="" class="btn-partners">Смотреть всех партнеров <span></span></a>
         </div>
     </div>
 @endsection
