@@ -112,11 +112,11 @@
     </div>
 
     <div id="media" class="container">
-        <div class="row">
+        <div class="row" style="margin: 0; padding: 0">
             <div class="content-media col-12">
                 <div class="title-media">Сми о нас</div>
                 <div class="media-news col-12 d-flex fle-wrap justify-content-between">
-                    <div class="col-3 item-media-news d-flex">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
                         <span class="source-media-news">Lenta.ru</span>
                         <span class="title-media-news" style="margin:0">Посол Люксембурга Жан-Клод Кнебелер в МГИМО</span>
                         <span class="media-news-date" style="margin:0">10 Ноября 2018</span>
@@ -149,7 +149,7 @@
     </div>
 
     <div id="congratulations" class="container">
-        <div class="row">
+        <div class="row" style="margin:0; padding: 0">
             <div class="content-congratulations col-12" style="padding: 0">
                 <div class="title-congratulations">
                     <span>Поздравления</span>
