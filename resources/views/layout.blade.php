@@ -46,8 +46,8 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="d-flex col-12" style="padding: 0">
-                    <div class="nav-bot col-xl-4 col-lg-4 align-items-stretch">
+                <div class="d-flex flex-wrap col-12" style="padding: 0">
+                    <div class="nav-bot col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch">
                         <nav class="d-flex" style="height: 100%">
                             <ul class="d-flex flex-column justify-content-between" style="padding: 0">
                                 <li><a href="">О юбилее</a></li>
@@ -63,13 +63,13 @@
                             </ul>
                         </nav>
                     </div>
-                <div class="button-footer col-xl-4 col-lg-4 align-items-center">
+                <div class="button-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-center">
                     <button type="button"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</button>
                     <span class="text-center">
                         © Ассоциация выпускников МГИМО,2018
                     </span>
                 </div>
-                <div class="contact-footer col-xl-4 col-lg-4 align-items-stretch d-flex flex-column">
+                <div class="contact-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch d-flex flex-column">
                     <span class="">
                         <span class="location-footer">Москва, проспект Вернадского, 76<br></span>
                         <span class="number-footer">+7 495 229-40-49</span>

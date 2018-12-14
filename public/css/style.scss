@@ -767,7 +767,7 @@ nav {
 .arrow {
     &.next {
         background-image: url("../img/icon/partner/right-arrow.svg");
-        right: -100px;
+        right: 0px;
         margin-top: 30px;
         cursor: pointer;
         &:hover {
@@ -776,7 +776,7 @@ nav {
     }
     &.prev {
         background-image: url("../img/icon/partner/left-arrow.svg");
-        left: -100px;
+        left: 0px;
         margin-top: 30px;
         cursor: pointer;
         &:hover {
@@ -819,6 +819,28 @@ nav {
         background-image: url("../img/icon/arrow-right.svg");
         top: calc(40% - 9px);;
         right: 25px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .arrow {
+        &.next {
+            right: 30px;
+        }
+        &.prev {
+            left: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .arrow {
+        &.next {
+            right: 30px;
+        }
+        &.prev {
+            left: 30px;
+        }
     }
 }
 
