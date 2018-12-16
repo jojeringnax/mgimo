@@ -514,8 +514,9 @@ class AdminController extends Controller
             $book->description = $request->post('description');
             if ($file = $request->file('photo')) {
                 if($book->cover_photo_id !== null) {
-                    $book->update(['main_photo_id' => null]);
-                    $book->coverPhoto->delete();
+                    $coverPhoto = $book->coverPhoto;
+                    $book->update(['cover_photo_id' => null]);
+                    $coverPhoto->delete();
                 }
                 $photo = new Photo();
                 $path = 'news/' . $book->id . '.' . $file->getClientOriginalExtension();
