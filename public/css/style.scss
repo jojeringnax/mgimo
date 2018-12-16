@@ -1,7 +1,7 @@
 $mainColor : #1A2F3F;
 $linkColor: #A5A5A5;
 $titleFont: "Playfair Display", Georgia, "Times New Roman", serif;
-
+$hoverLinkColor: #EB205E;
 
 @font-face {
     font-family: 'PlayfairDisplayRegular';
@@ -1370,10 +1370,7 @@ nav {
     margin-top: 25px;
 }
 
-
-
 footer {
-
     padding: 65px 0 65px 0;
     min-height: 265px;
     background-color: $mainColor;
@@ -1408,7 +1405,7 @@ footer {
             border: 2px solid white;
             height: 55px;
             width: 371px;
-            background-color: #0D0D0D;
+            background-color: $mainColor;
             font-size: 16px;
             display: flex;
             align-items: center;
@@ -1417,7 +1414,10 @@ footer {
             text-transform: uppercase;
             font-weight: bold;
             color: white;
-
+            &:hover {
+                background-color: white;
+                color: $mainColor;
+            }
             span {
                 margin-right: 25px;
                 display: block;
@@ -1474,6 +1474,53 @@ footer {
     }
 }
 
+.book_title {
+    text-align: center;
+    a {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: $titleFont;
+        text-align: center;
+        color: $mainColor;
+        &:hover {
+            color: $hoverLinkColor;
+        }
+    }
+}
+
+.link-book-pay {
+    cursor: pointer;
+    margin-top: 30px;
+    position: absolute;
+    bottom: 23px;
+    left: calc(50% - 50px);
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        color: $mainColor;
+        border: 2px solid $mainColor;
+        padding: 0;
+        width: 100px;
+        margin: 0 !important;
+        height: 34px;
+        font-weight: 600 !important;
+        &:hover {
+            color: white;
+            background-color: $mainColor;
+        }
+    }
+}
+
+.item-book-page {
+    display: flex;
+    align-items: stretch;
+    .card {
+        padding:10px 10px 100px 10px;
+    }
+}
+
 @media screen and (min-width: 1200px){
     .container {
         max-width: 1320px !important;
@@ -1517,9 +1564,22 @@ footer {
                 }
             }
         }
+        .events {
+            padding-bottom: 170px;
+        }
     }
     .date-link {
         margin-bottom: 140px;
+    }
+    .contents {
+        .events {
+            margin: 40px 0 0 0 !important;
+        }
+    }
+    .contents {
+        .news {
+            margin: 0 !important;
+        }
     }
 }
 

@@ -24,7 +24,7 @@
                             <li class="nav-item"><a class="nav-link" href="news">Новости</a></li>
                             <li class="nav-item"><a class="nav-link" href="events">Мероприятия</a></li>
                             <li class="nav-item"><a class="nav-link" href="congratulations">Поздравления</a></li>
-                            <li class="nav-item"><a class="nav-link" href="publish">Издательская программа</a></li>
+                            <li class="nav-item"><a class="nav-link" href="books">Издательская программа</a></li>
                             <li class="nav-item"><a class="nav-link" href="gallery">Галерея</a></li>
                             <li class="nav-item"><a class="nav-link" href="partners">Партнеры</a></li>
                         </ul>

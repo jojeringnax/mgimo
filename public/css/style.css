@@ -1032,7 +1032,7 @@ footer {
       border: 2px solid white;
       height: 55px;
       width: 371px;
-      background-color: #0D0D0D;
+      background-color: #1A2F3F;
       font-size: 16px;
       display: flex;
       align-items: center;
@@ -1041,6 +1041,9 @@ footer {
       text-transform: uppercase;
       font-weight: bold;
       color: white; }
+      footer .button-footer button:hover {
+        background-color: white;
+        color: #1A2F3F; }
       footer .button-footer button span {
         margin-right: 25px;
         display: block;
@@ -1080,6 +1083,45 @@ footer {
         margin-top: 10px;
         display: block; }
 
+.book_title {
+  text-align: center; }
+  .book_title a {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    text-align: center;
+    color: #1A2F3F; }
+    .book_title a:hover {
+      color: #EB205E; }
+
+.link-book-pay {
+  cursor: pointer;
+  margin-top: 30px;
+  position: absolute;
+  bottom: 23px;
+  left: calc(50% - 50px); }
+  .link-book-pay a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #1A2F3F;
+    border: 2px solid #1A2F3F;
+    padding: 0;
+    width: 100px;
+    margin: 0 !important;
+    height: 34px;
+    font-weight: 600 !important; }
+    .link-book-pay a:hover {
+      color: white;
+      background-color: #1A2F3F; }
+
+.item-book-page {
+  display: flex;
+  align-items: stretch; }
+  .item-book-page .card {
+    padding: 10px 10px 100px 10px; }
+
 @media screen and (min-width: 1200px) {
   .container {
     max-width: 1320px !important;
@@ -1099,9 +1141,17 @@ footer {
 
   .contents .news .small-news .small-new article .content-small-new {
     width: 100%; }
+  .contents .events {
+    padding-bottom: 170px; }
 
   .date-link {
-    margin-bottom: 140px; } }
+    margin-bottom: 140px; }
+
+  .contents .events {
+    margin: 40px 0 0 0 !important; }
+
+  .contents .news {
+    margin: 0 !important; } }
 @media screen and (max-width: 500px) {
   .content-congratulations div .item-congratulations img {
     width: 140px !important; }
