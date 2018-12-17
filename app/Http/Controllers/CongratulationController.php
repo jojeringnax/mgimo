@@ -11,7 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Congratulation;
 
-class CongratulationsController
+class CongratulationController
 {
     public function index()
     {
