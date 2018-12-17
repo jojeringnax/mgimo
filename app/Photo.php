@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Storage;
  * @property integer $type
  * @property int $album_id
  * @property boolean $video
+ * @property PhotoConnect $photoConnect
+ *
  */
 class Photo extends Model
 {
@@ -63,7 +65,7 @@ class Photo extends Model
     /**
      * Return Model of PhotoConnect.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne | PhotoConnect
      */
     public function photoConnect()
     {

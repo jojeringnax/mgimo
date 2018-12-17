@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property int $connect_id
- * @property int type
+ * @property int $type
  */
 class PhotoConnect extends Model
 {

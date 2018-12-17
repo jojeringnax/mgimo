@@ -68,7 +68,7 @@
                             @foreach($photos as $photo)
                                 <div style="position: relative; width: 500px; height: 375px;">
                                     <img src="{{ $photo->path }}" style="position: absolute; width: 100%;"/>
-                                    <a href="{{ action('PhotoController@delete', ['id' => $photo->id]) }}" style="width: 50px; height: 50px; position: absolute;right:10px;top:10px;font-size: 50px;color: white;">X</a>
+                                    <a href="{{ action('PhotoController@delete', ['id' => $photo->id, 'from' => 'news']) }}" style="width: 50px; height: 50px; position: absolute;right:10px;top:10px;font-size: 50px;color: white;">X</a>
                                 </div>
                             @endforeach
                         </div>

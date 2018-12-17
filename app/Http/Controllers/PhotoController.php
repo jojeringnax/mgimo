@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use App\Photo;
+use Illuminate\Http\Request;
 
 class PhotoController extends Controller
 {
@@ -28,9 +29,16 @@ class PhotoController extends Controller
         ]);
     }
 
-    public function delete($id)
+    public function delete($id, Request $request)
     {
-        Photo::find($id)->delete();
+        $from = $request->get('from');
+        $photo = Photo::find($id);
+        $photoConnect = $photo->photoConnect;
+        if($from === 'news') {
+            $articleId = $photoConnect->connect_id;
+            $photo->delete();
+            return redirect()->action('AdminController@updateArticle', ['articleId' => $articleId]);
+        }
         return 'yes';
     }
 
