@@ -4,12 +4,30 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Event
+ * @package App
+ *
+ * @property int $id
+ * @property string $created_at
+ * @property string $updated_at
+ * @property string $content
+ * @property string $date
+ * @property boolean $main
+ * @property string $location
+ */
 class Event extends Model
 {
 
+    /**
+     * @var string
+     */
     protected $table = 'events';
 
     /**
+     * Delete all TagConnects and decrease count_events in Tag model.
+     * Delete Model from database.
+     *
      * @return bool|null
      */
     public function delete()
@@ -26,6 +44,8 @@ class Event extends Model
     }
 
     /**
+     * Return Tags in array.
+     *
      * @return array
      */
     public function getTags()

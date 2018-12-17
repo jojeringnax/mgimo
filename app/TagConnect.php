@@ -4,6 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class TagConnect
+ * @package App
+ *
+ * @property int $id
+ * @property int $connect_id
+ * @property int $type
+ */
 class TagConnect extends Model
 {
     protected $table = 'tag_connects';

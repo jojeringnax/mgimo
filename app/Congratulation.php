@@ -4,23 +4,53 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Congratulation
+ * @package App
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $content
+ * @property string $date
+ * @property int $main_photo_id
+ * @property Photo $mainPhoto
+ *
+ */
 class Congratulation extends Model
 {
+    /**
+     * @var string
+     */
     public $table = 'congratulations';
 
+
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
+
+    /**
+     * @var array
+     */
     public $fillable = ['main_photo_id'];
 
-
+    /**
+     * Delete main photo for evade a relative exception.
+     * Delete the model from database.
+     *
+     * @return bool|null
+     */
     public function delete()
     {
-        parent::delete();
         $this->mainPhoto->delete();
+        return parent::delete();
     }
 
 
     /**
+     * Return Photo-model of the main photo of the Congratulation.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function mainPhoto()

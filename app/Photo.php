@@ -5,6 +5,18 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * Class Photo
+ * @package App
+ *
+ * @property integer $id
+ * @property integer $sizeX
+ * @property integer $sizeY
+ * @property string $path
+ * @property integer $type
+ * @property int $album_id
+ * @property boolean $video
+ */
 class Photo extends Model
 {
     /**
@@ -12,13 +24,25 @@ class Photo extends Model
      */
     protected $table = 'photos';
 
+
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
+
+    /**
+     * @var array
+     */
     public $fillable = [
       'album_id'
     ];
 
     /**
+     * Delete file of photo.
+     * Delete all TagConnects and decrease count_photos of Tag.
+     * Delete Model from database.
+     *
      * @return bool|null
      */
     public function delete()
@@ -37,6 +61,8 @@ class Photo extends Model
 
 
     /**
+     * Return Model of PhotoConnect.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function photoConnect()
@@ -46,6 +72,8 @@ class Photo extends Model
 
 
     /**
+     * Return Album in which this photo save.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function album()
@@ -54,20 +82,25 @@ class Photo extends Model
     }
 
     /**
+     * Return all photo Models for an article by id.
+     *
      * @param $articleId
-     * @return mixed
+     * @return self[]
      */
     public static function getAllPhotosForArticle($articleId)
     {
-        $photoConnects = PhotoConnect::article($articleId);
+        $photoConnects = PhotoConnect::select('id')->where('type', PhotoConnect::NEWS)->where('connect_id', $articleId)->get();
         return self::whereIn('id', $photoConnects)->get();
     }
 
     /**
+     * return all tags as array.
+     *
      * @return array
      */
     public function getTags()
     {
+        $resultArray = [];
         $tagConnects = TagConnect::article($this->id);
         if($tagConnects->isEmpty()) {return [];}
         foreach($tagConnects as $tagConnect) {

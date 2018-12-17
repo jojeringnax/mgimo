@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class News
  * @package App
+ *
+ * @property int $id
+ * @property string $created_at
+ * @property string $updated_at
+ * @property string $title
+ * @property string $content
+ * @property boolean $moderated
+ * @property integer $main_photo_id
+ * @property Photo $mainPhoto
  */
 class News extends Model
 {
@@ -22,6 +31,11 @@ class News extends Model
     public $fillable = ['main_photo_id'];
 
 
+    /**
+     * Delete all TagConnects decrease count_news of Tags, delete all Photos (main Photo included).
+     * Delete Model from database.
+     * return bool|null
+     */
     public function delete()
     {
         $tagConnects = TagConnect::select('id')->where('connect_id', $this->id)->where('type', TagConnect::NEWS);
@@ -36,11 +50,13 @@ class News extends Model
             $ph->delete();
         }
         $photo->delete();
-        $tagConnects->delete();
+        return $tagConnects->delete();
     }
 
 
     /**
+     * Return Photo model of main Photo of Model.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function mainPhoto()
@@ -49,6 +65,8 @@ class News extends Model
     }
 
     /**
+     * Return all Photo model through PhotoConnects.
+     *
      * @return Photo[]
      */
     public function getPhotos()
@@ -58,6 +76,8 @@ class News extends Model
 
 
     /**
+     * Return all moderated News.
+     *
      * @return mixed
      */
     public static function getModerated()
@@ -66,10 +86,13 @@ class News extends Model
     }
 
     /**
+     * Return tags as array.
+     *
      * @return array
      */
     public function getTags()
     {
+        $resultArray = [];
         $tagConnects = TagConnect::article($this->id);
         if($tagConnects->isEmpty()) {return [];}
         foreach($tagConnects as $tagConnect) {

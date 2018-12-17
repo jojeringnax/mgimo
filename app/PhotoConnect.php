@@ -4,10 +4,26 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
+/**
+ * Class PhotoConnect
+ * @package App
+ *
+ * @property int $id
+ * @property int $connect_id
+ * @property int type
+ */
 class PhotoConnect extends Model
 {
+
+    /**
+     * @var string
+     */
     protected $table = 'photo_connects';
 
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
     const NEWS = 1;
@@ -16,15 +32,12 @@ class PhotoConnect extends Model
     const GALLERY = 4;
 
     /**
+     * Return Photo of this Model.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function photo()
     {
         return $this->hasOne(Photo::class, 'id', 'id');
-    }
-
-    public static function article($id)
-    {
-        return self::select('id')->where('type', PhotoConnect::NEWS)->where('connect_id', $id)->get();
     }
 }
