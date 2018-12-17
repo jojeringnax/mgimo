@@ -22,6 +22,9 @@ class CreateTablePhotos extends Migration
             $table->unsignedInteger('album_id')->nullable();
             $table->boolean('video')->default(false);
         });
+        Schema::table('photos', function (Blueprint $table) {
+            $table->foreign('album_id')->references('id')->on('albums');
+        });
     }
 
     /**
@@ -31,6 +34,9 @@ class CreateTablePhotos extends Migration
      */
     public function down()
     {
+        Schema::table('photos', function (Blueprint $table) {
+            $table->dropForeign('photos_album_id_foreign');
+        });
         Schema::dropIfExists('photos');
     }
 }
