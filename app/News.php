@@ -53,8 +53,7 @@ class News extends Model
      */
     public function getPhotos()
     {
-        $photoConnects = PhotoConnect::article($this->id);
-        return Photo::whereIn('id', $photoConnects)->get();
+        return Photo::getAllPhotosForArticle($this->id);
     }
 
 

@@ -25,6 +25,6 @@ class PhotoConnect extends Model
 
     public static function article($id)
     {
-        return self::where('type', PhotoConnect::NEWS)->where('connect_id', $id)->get();
+        return self::select('id')->where('type', PhotoConnect::NEWS)->where('connect_id', $id)->get();
     }
 }

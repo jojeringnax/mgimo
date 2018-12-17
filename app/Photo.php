@@ -59,7 +59,7 @@ class Photo extends Model
      */
     public static function getAllPhotosForArticle($articleId)
     {
-        $photoConnects = PhotoConnect::article($articleId)->toArray();
+        $photoConnects = PhotoConnect::article($articleId);
         return self::whereIn('id', $photoConnects)->get();
     }
 
