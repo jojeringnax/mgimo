@@ -14,21 +14,20 @@
 Route::get('/', 'SiteController@index');
 
 Route::get('news', 'NewsController@index');
+Route::get('news/show/{id}', 'NewsController@show');
 
 
 Route::get('media', 'SmiController@index');
 
-Route::get('news/show/{id}', 'NewsController@show');
-
 Route::get('books', 'BookController@index');
-
 Route::get('books/show/{id}', 'BookController@show');
 
 Route::get('events', 'EventsController@index');
 
 Route::get('congratulations', 'CongratulationController@index');
 
-
+Route::get('gallery', 'PhotoController@index');
+Route::get('gallery/show/{id}', 'PhotoController@show');
 
 /**
  * Admin routes

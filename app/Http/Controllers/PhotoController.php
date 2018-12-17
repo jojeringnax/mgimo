@@ -9,14 +9,23 @@
 namespace App\Http\Controllers;
 
 
+use App\Album;
 use App\Photo;
-use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
-    public function show()
+    public function index()
     {
-        //
+        return view('gallery.index', [
+            'albums' => Album::all()
+        ]);
+    }
+
+    public function show($id)
+    {
+        return view('gallery.show', [
+            'album' => Album::find($id)
+        ]);
     }
 
     public function delete($id)

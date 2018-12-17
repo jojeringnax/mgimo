@@ -18,13 +18,13 @@
                     </div>
                 </div>
                 <div class="items-partners d-flex col-12 flex-wrap">
-                    <?php for ($i=1;$i<=8;$i++) { ?>
+                    @foreach($albums as $album)
                     <div class="col-3">
                         <div class="item-partners-page">
-                            <span>Название альбома</span>
+                            <a href="{{ url('gallery/show', ['id' => $album->id]) }}" ><span>{{ $album->name }}</span></a>
                         </div>
                     </div>
-                    <?php } ?>
+                    @endforeach
                 </div>
             </div>
         </div>
