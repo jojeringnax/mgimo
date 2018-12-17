@@ -76,22 +76,26 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::get('admin/news', function() {
     return view('admin.news.index', ['news' => \App\News::all()]);
-});
+})->name('news_index');
 
 Route::get('admin/events', function() {
     return view('admin.events.index', ['events' => \App\Event::all()]);
-});
+})->name('events_index');
 
 Route::get('admin/congratulations', function() {
     return view('admin.congratulations.index', ['congratulations' => \App\Congratulation::all()]);
-});
+})->name('congratulations_index');
 
 Route::get('admin/books', function() {
     return view('admin.books.index', ['books' => \App\Book::all()]);
-});
+})->name('books_index');
 
 Route::get('admin/smis', function() {
     return view('admin.smis.index', ['smis' => \App\Smi::all()]);
-});
+})->name('smis_index');
+
+Route::get('admin/partners', function() {
+    return view('admin.partners.index', ['partners' => \App\Partner::all()]);
+})->name('partners_index');
 
 

@@ -103,9 +103,7 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
-            return view('admin.news.form',[
-                'news' => News::all()
-            ]);
+            return redirect()->route('news_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.news.form');
         }
@@ -193,9 +191,7 @@ class AdminController extends Controller
                 }
             }
             $article->save();
-            return view('admin.news.form',[
-                'news' => News::all()
-            ]);
+            return redirect()->route('news_index');
         } elseif ($request->isMethod('get')) {
             $article = News::find($articleId);
             return view('admin.news.form', [
@@ -214,7 +210,7 @@ class AdminController extends Controller
     public function deleteArticle($articleId)
     {
         News::find($articleId)->delete();
-        return 1;
+        return redirect()->route('news_index');
     }
 
 
@@ -250,9 +246,7 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
-            return view('admin.events.form',[
-                'events' => Event::all()
-            ]);
+            return redirect()->route('events_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form');
         }
@@ -299,9 +293,7 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
-            return view('admin.events.form',[
-                'events' => Event::all()
-            ]);
+            return redirect()->route('events_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form', [
                 'event' => Event::find($eventId)
@@ -318,7 +310,7 @@ class AdminController extends Controller
     public function deleteEvent($eventId)
     {
         Event::find($eventId)->delete();
-        return 1;
+        return redirect()->route('events_index');
     }
 
 
@@ -334,9 +326,7 @@ class AdminController extends Controller
             $smi->link_view = $request->post('link_view');
             $smi->title = $request->post('title');
             $smi->save();
-            return view('admin.smis.index',[
-                'smis' => Smi::all()
-            ]);
+            return redirect()->route('smis_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.smis.form');
         }
@@ -357,9 +347,7 @@ class AdminController extends Controller
             $smi->link_view = $request->post('link_view');
             $smi->title = $request->post('title');
             $smi->save();
-            return view('admin.smis.index',[
-                'smis' => Smi::all()
-            ]);
+            return redirect()->route('smis_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.smis.form', [
                 'smi' => Smi::find($smiId),
@@ -375,7 +363,7 @@ class AdminController extends Controller
     public function deleteSmi($smiId)
     {
         Smi::find($smiId)->delete();
-        return 1;
+        return redirect()->route('smis_index');
     }
 
 
@@ -405,9 +393,7 @@ class AdminController extends Controller
                 $photo->save();
                 $congratulation->update(['main_photo_id' => $photo->id]);
             }
-            return view('admin.congratulations.index',[
-                'congratulations' => Congratulation::all()
-            ]);
+            return redirect()->route('congratulations_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form');
         }
@@ -445,9 +431,7 @@ class AdminController extends Controller
                 $congratulation->main_photo_id = $photo->id;
             }
             $congratulation->save();
-            return view('admin.congratulations.index',[
-                'congratulations' => Congratulation::all()
-            ]);
+            return redirect()->route('congratulations_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form', [
                 'congratulation' => Congratulation::find($congratulationId),
@@ -464,7 +448,7 @@ class AdminController extends Controller
     public function deleteCongratulation($congratulationId)
     {
         Congratulation::find($congratulationId)->delete();
-        return 1;
+        return redirect()->route('congratulations_index');
     }
 
 
@@ -492,9 +476,7 @@ class AdminController extends Controller
                 $book->cover_photo_id = $photo->id;
                 $book->update(['cover_photo_id' => $photo->id]);
             }
-            return view('admin.books.index',[
-                'books' => Book::all()
-            ]);
+            return redirect()->route('books_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.books.form');
         }
@@ -530,9 +512,7 @@ class AdminController extends Controller
                 $book->cover_photo_id = $photo->id;
             }
             $book->save();
-            return view('admin.books.index',[
-                'books' => Book::all()
-            ]);
+            return redirect()->route('books_index');
         } elseif ($request->isMethod('get')) {
             $book = Book::find($bookId);
             return view('admin.books.form', [
@@ -549,7 +529,7 @@ class AdminController extends Controller
     public function deleteBook($bookId)
     {
         Book::find($bookId)->delete();
-        return 1;
+        return redirect()->route('books_index');
     }
 
 
@@ -581,9 +561,7 @@ class AdminController extends Controller
                 $photo->save();
                 $partner->update(['photo_id' => $photo->id]);
             }
-            return view('admin.partners.index',[
-                'partners' => Partner::all()
-            ]);
+            return redirect()->route('partners_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.partners.form');
         }
@@ -620,10 +598,8 @@ class AdminController extends Controller
                 $partner->photo_id = $photo->id;
             }
             $partner->save();
+            return redirect()->route('partners_index');
 
-            return view('admin.partners.index',[
-                'partners' => Partner::all()
-            ]);
         } elseif ($request->isMethod('get')) {
             return view('admin.partners.form', [
                 'partner' => Partner::find($partnerId),
