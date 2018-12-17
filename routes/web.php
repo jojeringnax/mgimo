@@ -26,29 +26,6 @@ Route::get('books/show/{id}', 'BookController@show');
 Route::get('events', 'EventsController@index');
 
 Route::get('congratulations', 'congratulationsController@index');
-//Route::get('congratulations', function () {
-//    return view('congratulations');
-//});
-
-Route::get('partners', function () {
-    return view('partners');
-});
-
-Route::get('gallery', function () {
-    return view('gallery');
-});
-
-Route::get('news_layout', function () {
-    return view('news_layout');
-});
-
-Route::get('gallery_layout', function () {
-    return view('gallery_layout');
-});
-
-Route::get('admin/news', function () {
-    return view('news');
-});
 
 
 
