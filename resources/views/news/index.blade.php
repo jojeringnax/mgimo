@@ -9,7 +9,8 @@
                 <div class="title-news-page d-flex">
                     <span class="text-title-news-page">Новости</span>
                     <div class="btn-news-page d-flex">
-                        <a  class="btn-news-page-add"><span></span>Добавить свою новость</a>
+
+                        <a  type="button" data-toggle="modal" data-target="#exampleModal"class="modal-button btn-news-page-add">Добавить свою новость</a>
                         <a  class="btn-news-page-sub"><span></span>Подписаться на новости</a>
                     </div>
                 </div>
@@ -75,10 +76,6 @@
             </div>
         </div>
     </div>
-
-    <button type="button" class="modal-button btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
 
     <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
         <div class="modal-dialog" role="document" style="max-width: 80%;">
@@ -183,7 +180,7 @@
                    },
                    success: function(data) {
                        $('.modal-body > .container > .row').html('Новость успешно загружена');
-                       $('.modal-button').attr('data-target', '#').html('hshfdh');
+                       $('.modal-button').css('display','none');
                    }
                });
             });
