@@ -11,7 +11,7 @@
                     <div class="layout-banner-event-page">
 
                     </div>
-                    <div class="d-flex">
+                    <div class="d-flex" style="margin-top: 56px;">
                         <div class="col-xl-4 item-banner-event-page">
                             <div class="title-event-page-banner">
                                 <span class="icon-event-page"></span>

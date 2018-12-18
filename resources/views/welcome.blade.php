@@ -204,7 +204,7 @@
                         <img class="img-item-congratulations img-thumbnail" src="http://img.over-blog-kiwi.com/1/54/00/21/20160804/ob_83b112_025pikachu-xy-anime-3.png" alt="">
                         <div class="content-item-congratulations">
                             <span class="title-item-congratulations">Заголовок заголовок Заголовок заголовок<br></span>
-                            <span class="text-item-congratulations">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda doloribus minus necessitatibus quibusdam quidem repellendus repudiandae.</span>
+                            {{--<span class="text-item-congratulations">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda doloribus minus necessitatibus quibusdam quidem repellendus repudiandae.</span>--}}
                         </div>
                     </div>
                     @endfor
