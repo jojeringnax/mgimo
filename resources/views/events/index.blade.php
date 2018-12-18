@@ -1,14 +1,94 @@
 @extends('layout')
 @section('content')
-    <div class="container" style="margin-top: 100px; padding-bottom: 100px;">
+    <div class="container" style="margin-top: 100px; padding-bottom: 100px !important;">
         <div class="row">
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex">
                     <span>Мероприятия</span>
                     <button type="button" class="btn btn-raised btn-primary">Добавить мероприятие</button>
                 </div>
-                <div class="banner-event-page d-flex align-items-center justify-content-center">
-                    <span>BANNER</span>
+                <div class="banner-event-page d-flex flex-wrap">
+                    <div class="layout-banner-event-page">
+
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-xl-4 item-banner-event-page">
+                            <div class="title-event-page-banner">
+                                <span class="icon-event-page"></span>
+                                <span>Март 2019 г.</span>
+                            </div>
+                            <div class="content">
+                                Универсиада МГИМО.
+                                «Спортивные
+                                поколения»
+                            </div>
+                        </div>
+                        <div class="col-xl-4 item-banner-event-page">
+                            <div class="title-event-page-banner">
+                                <span class="icon-event-page"></span>
+                                <span style="width: 50%">12 – 14 апреля 2019 г.</span>
+                            </div>
+                            <div class="content">
+                                Международный форум
+                                выпускников МГИМО
+                                в Ташкенте
+                            </div>
+                        </div>
+                        <div class="col-xl-4 item-banner-event-page">
+                            <div class="title-event-page-banner">
+                                <span class="icon-event-page"></span>
+                                <span style="width: 50%">24 мая 2019 г.</span>
+                            </div>
+                            <div class="content">
+                                Кубок Ректора МГИМО
+                                по гольфу к 75-летию
+                                МГИМО
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-xl-6 item-banner-event-page">
+                            <div class="title-event-page-banner">
+                                <span class="icon-event-page"></span>
+                                <span>Октябрь 2019 г.</span>
+                            </div>
+                            <div class="content">
+                                XII Конвент РАМИ<br>
+                                «Мир регионов VS.<br> Регионы мира»
+                            </div>
+                        </div>
+                        <div class="col-xl-6 five item-banner-event-page">
+                            <div class="title-event-page-banner">
+                                <span class="icon-event-page"></span>
+                                <span>Октябрь 2019 г.</span>
+                            </div>
+                            <div class="content">
+                                «Возвращаемся к Крымскому мосту». Молодежный вечер МГИМО в Парке Горького и Фестиваль живой музыки в Зеленом театре Парка
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="col-xl-5 last item-banner-event-page">
+                            <div class="title-event-page-banner">
+                                <span class="icon-event-page"></span>
+                                <span>Октябрь 2019 г.</span>
+                            </div>
+                            <div class="content">
+                                Арт-выставка выпускников МГИМО. «О МГИМО и о Москве»
+                            </div>
+                        </div>
+                        <div class="col-xl-5 last item-banner-event-page">
+                            <div class="title-event-page-banner">
+                                <span class="icon-event-page"></span>
+                                <span>Октябрь 2019 г.</span>
+                            </div>
+                            <div class="content">
+                                Торжественный вечер
+                                в Большом театре
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="content-event-page d-flex flex-wrap">
                     @foreach($events as $event)

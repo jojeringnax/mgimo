@@ -78,6 +78,10 @@ Route::get('admin/news', function() {
     return view('admin.news.index', ['news' => \App\News::all()]);
 })->name('news_index');
 
+Route::get('test', function() {
+    return view('test');
+});
+
 Route::get('admin/events', function() {
     return view('admin.events.index', ['events' => \App\Event::all()]);
 })->name('events_index');
