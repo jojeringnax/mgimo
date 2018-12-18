@@ -610,16 +610,18 @@ nav {
   top: 50%; }
   .arrow.next {
     background-image: url("../img/icon/partner/right-arrow.svg");
-    right: -80px;
+    right: 0;
     margin-top: 50px;
-    cursor: pointer; }
+    cursor: pointer;
+    background-position: right; }
     .arrow.next:hover {
       background-image: url("../img/icon/partner/right-hover-arrow.svg"); }
   .arrow.prev {
     background-image: url("../img/icon/partner/left-arrow.svg");
-    left: -80px;
+    left: 0;
     margin-top: 50px;
-    cursor: pointer; }
+    cursor: pointer;
+    background-position: left; }
     .arrow.prev:hover {
       background-image: url("../img/icon/partner/left-hover-arrow.svg"); }
 
