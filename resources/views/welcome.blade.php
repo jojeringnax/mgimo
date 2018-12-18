@@ -6,14 +6,14 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row d-flex flex-column justify-content-center">
             <div class="banner">
-                <div class="text-banner">
-                    <span style=""><span class="years">75</span> лет<br> МГИМО</span>
-                </div>
                 <div class="timer-lay">
                     <div id="timer" class="timer d-flex justify-content-center"></div>
                 </div>
+                {{--<div class="text-banner">--}}
+                    {{--<span style=""><span class="years">75</span> лет<br> МГИМО</span>--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>
@@ -25,77 +25,114 @@
                     <div class="title-news">
                         <span>НОВОСТИ</span>
                     </div>
-                    <div id="3" class="big-news col-12">
-                        <div class="layout-big-new"></div>
-                        <article>
-                            <div class="tag">
-                                <i></i>
-                                <span>РУБРИКА</span>
+                    @foreach($news as $article)
+                        @if($loop->first)
+                            <div id="3" class="big-news col-12" style="background-image: url({{ $article->mainPhoto->path }})">
+                                <div class="layout-big-new"></div>
+                                <article>
+                                    <div class="tag">
+                                        <i></i>
+                                        @foreach($article->getTags() as $tag)
+                                            <span class="">{{ $tag }}</span>
+                                        @endforeach
+                                    </div>
+                                    {{ link_to('news/show/'.$article->id,  $article->title, ['class' => '']) }}
+                                    <span class="date-news">10 Ноября 2018</span>
+                                </article>
                             </div>
-                            <h3>В МГИМО открыли бюст Имадеддина Насими</h3>
-                            <span class="date-news">10 Ноября 2018</span>
-                        </article>
-                    </div>
-                    <div class="small-news">
-                        <div id="2" class="small-new col-12">
-                            <article class="d-flex flex-wrap">
-                                <div class="img-small-new">
-                                    <img src="img/new_test/Mask_Group_20.png" alt="">
+                        @elseif($loop->index == 1)
+                            <div class="small-news">
+                                <div id="2" class="small-new col-12">
+                                    <article class="d-flex flex-wrap">
+                                        <div class="img-small-new">
+                                            <img src="{{ $article->mainPhoto->path }}" alt="">
+                                        </div>
+                                        <div class="content-small-new">
+                                            <div class="tag">
+                                                <i></i>
+                                                @foreach($article->getTags() as $tag)
+                                                    <span class="">{{ $tag }}</span>
+                                                @endforeach
+                                            </div>
+                                            {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
+                                            <div class="date-link d-flex justify-content-between" style="width: 100%">
+                                                <span class="date-news">10 Ноября 2018</span>
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
-                                <div class="content-small-new">
-                                    <div class="tag">
-                                        <i></i>
-                                        <span>РУБРИКА</span>
-                                    </div>
-                                    <h4>Студентка МГИМО — победитель Young Tax Professional of the Year 2018</h4>
-                                    <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                        <span class="date-news">10 Ноября 2018</span>
-                                        <a href="">Читать новость</a>
-                                    </div>
+                            @elseif($loop->index == 2)
+                                <div id="2" class="small-new col-12">
+                                    <article class="d-flex flex-wrap">
+                                        <div class="img-small-new">
+                                            <img src="{{ $article->mainPhoto->path }}" alt="">
+                                        </div>
+                                        <div class="content-small-new">
+                                            <div class="tag">
+                                                <i></i>
+                                                @foreach($article->getTags() as $tag)
+                                                    <span class="">{{ $tag }}</span>
+                                                @endforeach
+                                            </div>
+                                            {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
+                                            <div class="date-link d-flex justify-content-between" style="width: 100%">
+                                                <span class="date-news">10 Ноября 2018</span>
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
-                            </article>
-                        </div>
-                        <div id="1" class="small-new col-12">
-                            <article class="d-flex flex-wrap">
-                                <div class="img-small-new">
-                                    <img src="img/new_test/Mask_Group_18.png" alt="">
-                                </div>
-                                <div class="content-small-new">
-                                    <div class="tag">
-                                        <i></i>
-                                        <span>РУБРИКА</span>
-                                    </div>
-                                    <h4>Встреча и награждение стипендиатов Международного Фонда Шодиева</h4>
-                                    <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                        <span class="date-news">10 Ноября 2018</span>
-                                        <a href="">Читать новость</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
+                            </div>
+                        @endif
+                    @endforeach
+
+                    {{--<div class="small-news">--}}
+
+                        {{--<div id="1" class="small-new col-12">--}}
+                            {{--<article class="d-flex flex-wrap">--}}
+                                {{--<div class="img-small-new">--}}
+                                    {{--<img src="img/new_test/Mask_Group_18.png" alt="">--}}
+                                {{--</div>--}}
+                                {{--<div class="content-small-new">--}}
+                                    {{--<div class="tag">--}}
+                                        {{--<i></i>--}}
+                                        {{--<span>РУБРИКА</span>--}}
+                                    {{--</div>--}}
+                                    {{--<h4>Встреча и награждение стипендиатов Международного Фонда Шодиева</h4>--}}
+                                    {{--<div class="date-link d-flex justify-content-between" style="width: 100%">--}}
+                                        {{--<span class="date-news">10 Ноября 2018</span>--}}
+                                        {{--<a href="">Читать новость</a>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</article>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <div class="buttons-news">
-                        <a>Смотреть все новости <span></span></a>
+                        <a href={{url('news')}}>Смотреть все новости <span></span></a>
                     </div>
                 </div>
                 <div class="item-contents events col-xl-4 col-lg-4 col-md-12 d-flex flex-column">
                     <div class="title-events">
                         <span>БЛИЖАЙШИЕ МЕРОПРИЯТИЯ </span>
                     </div>
-                    @for ($i = 0; $i < 6; $i++)
-                        <div class="item-events">
-                            <article>
-                                <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
-                            </article>
-                            <div class="d-flex flex-wrap justify-content-between">
-                                <span class="date-events"><span class="icon-date-events"></span>22 декабря 2018</span>
-                                <span class="location"><span class="icon-location-events"></span>ДК украинских армян</span>
+                    <div class="bg-events">
+                        @for ($i = 0; $i < 6; $i++)
+                            <div class="item-events">
+                                <article>
+                                    <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
+                                </article>
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <span class="date-events"><span class="icon-date-events"></span>22 декабря 2018</span>
+                                    <span class="location"><span class="icon-location-events"></span>ДК украинских армян</span>
+                                </div>
+                                @if ($i !== 5)
+                                    <hr>
+                                @endif
                             </div>
-                            @if ($i !== 5)
-                                <hr>
-                            @endif
+                        @endfor
+                        <div class="buttons-news" style="margin-top: 60px;">
+                            <a>Смотреть все мероприятия <span></span></a>
                         </div>
-                    @endfor
+                    </div>
 {{--                    <div class="item-events">
                         <article>
                             <span class="name-events">Посол Люксембурга Жан-Клод Кнебелер в МГИМО</span>
@@ -103,9 +140,6 @@
                         <span class="date-events">10 Ноября</span>
                         <hr>
                     </div>--}}
-                    <div class="buttons-news" style="margin-top: 60px;">
-                        <a>Смотреть все мероприятия <span></span></a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -198,7 +232,7 @@
                         </div>
                     </div>
                 </div>--}}
-                <div class="btns-congratulations d-flex justify-content-between">
+                <div class="btns-congratulations d-flex justify-content-start">
                     <a href="" class="btn-watch-congr">Смотреть все поздравления <span class="congr_watch"></span></a>
                     <a href="" class="btn-congr"><span class="congr_icon"></span>Поздравить Alma Mater</a>
                 </div>
@@ -210,9 +244,9 @@
         <div class="container">
             <div class="row">
                 <div class="gallery-content d-flex ">
-                    <div class="big-photo col-xl-6 col-lg-6 col-md-12"><img src="img/new_test/collage.png" alt=""></div>
-                    <div class="text-gallery col-xl-6 col-lg-6 col-md-12">
-                        <span class="title-text-gallery">Мы собрали самые сокровенные моменты из жизни Эрнеста</span>
+                    <div class="big-photo col-xl-8 col-lg-6 col-md-12"><img src="img/new_test/collage.png" alt=""></div>
+                    <div class="text-gallery col-xl-4 col-lg-6 col-md-12">
+                        <span class="title-text-gallery ">Мы собрали самые яркие воспоминания из жизни МГИМО</span>
                         <a href="" class="">Смотреть фото <span></span></a>
                     </div>
                 </div>
@@ -229,7 +263,7 @@
                 <div data-arrow = "right" class="arrow next"></div>
                 <div data-arrow = "left" class="arrow prev"></div>
                 <div class="d-flex justify-content-center">
-                    <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center">
+                    <div class="partners owl-carousel owl-theme col-xl-11 col-lg-8 col-md-6 col-6 justify-content-center">
                         <?php for ($i=0;$i<=19;$i++) { ?>
                         <div class="item">
                             <div class="item-partner">

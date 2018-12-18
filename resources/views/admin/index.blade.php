@@ -16,29 +16,19 @@
                         You are logged in!
                         <div class="admin-sections d-flex flex-wrap">
                             <div id="news-adm" class="col-3 item-admin-dashboard">
-                                <div class="card d-flex justify-content-center align-items-center">
-                                    {{ link_to('admin/news', 'НОВОСТИ') }}
-                                </div>
+                                {{ link_to('admin/news', 'НОВОСТИ', ['class' => 'card d-flex justify-content-center align-items-center']) }}
                             </div>
                             <div id="smis-adm" class="col-3 item-admin-dashboard">
-                                <div class="card d-flex justify-content-center align-items-center">
-                                    {{ link_to('admin/smis', 'СМИ О НАС') }}
-                                </div>
+                                {{ link_to('admin/smis', 'СМИ О НАС', ['class' => 'card d-flex justify-content-center align-items-center']) }}
                             </div>
                             <div id="events-adm" class="col-3 item-admin-dashboard">
-                                <div class="card d-flex justify-content-center align-items-center">
-                                    {{ link_to('admin/events', 'МЕРОПРИЯТИЯ') }}
-                                </div>
+                                {{ link_to('admin/events', 'МЕРОПРИЯТИЯ', ['class' => 'card d-flex justify-content-center align-items-center']) }}
                             </div>
                             <div id="congratulations-adm" class="col-3 item-admin-dashboard">
-                                 <div class="card d-flex justify-content-center align-items-center">
-                                     {{ link_to('admin/congratulations', 'ПОЗДРАВЛЕНИЯ') }}
-                                </div>
+                                 {{ link_to('admin/congratulations', 'ПОЗДРАВЛЕНИЯ', ['class' => 'card d-flex justify-content-center align-items-center']) }}
                             </div>
                             <div id="books-adm" class="col-3 item-admin-dashboard">
-                                <div class="card d-flex justify-content-center align-items-center">
-                                    {{ link_to('admin/books', 'КНИГИ') }}
-                                </div>
+                                {{ link_to('admin/books', 'КНИГИ', ['class' => 'card d-flex justify-content-center align-items-center']) }}
                             </div>
                         </div>
                     </div>

@@ -4,16 +4,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MGIMO75</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    {{--<link rel="stylesheet" href="{{ asset('mdb/assets/css/docs.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/mdb.css') }}">
     @yield('link')
 </head>
 <body>
-    <header class="header" style="box-shadow: none">
+    <header class="header" style="">
         <div class="container">
-            <div class="row" style="width:100%; ">
-                <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar col-12 " style="width:100%;box-shadow: none;">
+            <div class="row" style="width:100%;">
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar col-12 " style="width:100%; background-color: white">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -21,7 +20,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mt-lg-0 d-flex justify-content-around">
                             <li class="nav-item"><a class="nav-link" href="#">О юбилее</a></li>
-                            <li class="nav-item"><a class="nav-link" href="news">Новости</a></li>
+                            <li class="nav-item"><a class="nav-link" href={{url('news')}}>Новости</a></li>
                             <li class="nav-item"><a class="nav-link" href="events">Мероприятия</a></li>
                             <li class="nav-item"><a class="nav-link" href="congratulations">Поздравления</a></li>
                             <li class="nav-item"><a class="nav-link" href="books">Издательская программа</a></li>
@@ -39,9 +38,6 @@
     <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
     <script src="{{asset('bootstrap/js/mdb.js')}}"></script>
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-    {{--<script src="{{asset('js/popper.min.js')}}"></script>--}}
-    {{--<script src="{{asset('js/tooltip.min.js')}}"></script>--}}
-    {{--<script src="{{asset('js/bootstrap-material-design.js')}}"></script>--}}
     @yield('script')
     <footer>
         <div class="container">
@@ -50,6 +46,7 @@
                     <div class="nav-bot col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch">
                         <nav class="d-flex" style="height: 100%">
                             <ul class="d-flex flex-column justify-content-between" style="padding: 0">
+                                <li><a href="">Главная</a></li>
                                 <li><a href="">О юбилее</a></li>
                                 <li><a href="">Новости</a></li>
                                 <li><a href="">Мероприятия</a></li>
@@ -66,7 +63,7 @@
                 <div class="button-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-center">
                     <button type="button"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</button>
                     <span class="text-center">
-                        © Ассоциация выпускников МГИМО,2018
+                        МГИМО 75 Ассоциация выпускников МГИМО Эндаумент МГИМО
                     </span>
                 </div>
                 <div class="contact-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch d-flex flex-column">

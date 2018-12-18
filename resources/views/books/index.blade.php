@@ -3,7 +3,7 @@
 @section('link')
 @endsection
 
-@section('content')@endsection
+@section('content')
     <div class="container" style="margin-top: 130px; padding-bottom: 100px !important">
         <div class="row">
             @foreach($books as $book)
@@ -16,7 +16,7 @@
                             <div class="book_title">
                                 {{ link_to('books/show/'.$book->id, $book->title, ['class' => '']) }}
                             </div>
-                            {{--                            <div class="book_descr">
+                            {{--sas<div class="book_descr">
                                                             {{ $book->description }}
                                                         </div>--}}
                             <div class="link-book-pay">
@@ -29,6 +29,7 @@
             @endforeach
         </div>
     </div>
+@endsection
 @section('script')
 
 @endsection

@@ -21,15 +21,15 @@ let x = setInterval(function() {
         "<div class='hours d-flex flex-column justify-content-center item-timer'>" +
             "<span class='num'>" + days + "</span>" +
             "<span class='point'>Дней</span>" +
-        "</div>" + ":" +
+        "</div>" + "<div class='sm-colon'><span class='colon'>:</span></div>" +
         "<div class='hours d-flex flex-column justify-content-center item-timer'>" +
             "<span class='num'>" + hours + "</span>" +
             "<span class='point'>Часов</span>" +
-        "</div>" + ":"
+        "</div>" + "<div class='sm-colon'><span class='colon'>:</span></div>"
         + "<div class='hours d-flex flex-column justify-content-center item-timer'>" +
             "<span class='num'>" + minutes + "</span>" +
             "<span class='point'>Минут</span>" +
-        "</div>" + ":" + "<div class='hours d-flex flex-column justify-content-center item-timer'>" +
+        "</div>" + "<div class='sm-colon'><span class='colon'>:</span></div>" + "<div class='hours d-flex flex-column justify-content-center item-timer'>" +
             "<span class='num'>" + seconds + "</span>" +
             "<span class='point'>Секунд</span>" +
         "</div>";
@@ -42,10 +42,24 @@ let x = setInterval(function() {
 }, 1000);
 
 $(document).ready(function(){
+
+    $('.big-news').mouseover(function(){
+        $('.layout-big-new').css({'background':'black','cursor':'pointer'});
+        $('.layout-big-new').animate({'opacity':'0.7'});
+        $(this).click(function(){
+            //console.log($(this).children('article').children('a'))
+            document.location.href = $(this).children('article').children('a').attr('href');
+        });
+    });
+    $('.big-news').mouseout(function(){
+        $('.layout-big-new').css({'background':'linear-gradient(to bottom, transparent, black)'});
+        $('.layout-big-new').animate({'opacity':'0.7'});
+    });
+
     let owl = $('.owl-carousel');
     owl.owlCarousel({
         loop:true,
-        margin:10,
+        margin:50,
         nav:false,
         responsive:{
             0:{
