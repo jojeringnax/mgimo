@@ -56,6 +56,8 @@ $(document).ready(function(){
         $('.layout-big-new').animate({'opacity':'0.7'});
     });
 
+
+
     let owl = $('.owl-carousel');
     owl.owlCarousel({
         loop:true,

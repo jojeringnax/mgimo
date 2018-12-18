@@ -9,7 +9,6 @@
                 <div class="title-news-page d-flex">
                     <span class="text-title-news-page">Новости</span>
                     <div class="btn-news-page d-flex">
-
                         <a  type="button" data-toggle="modal" data-target="#exampleModal"class="modal-button btn-news-page-add">Добавить свою новость</a>
                         <a  class="btn-news-page-sub"><span></span>Подписаться на новости</a>
                     </div>
@@ -24,54 +23,53 @@
                     {{--<div class="col-xl-4 d-flex flex-column">--}}
 
                     {{--</div>--}}
-                    @foreach($news as $article)
-                        @if($loop->first)
-                            <div class="col-xl-12 d-flex flex-column flex-wrap" style="max-height: 1400px;">
-                                <div class="item-card-news card">
+                    <div data-col="1" class="col-xl-4 d-flex flex-column flex-wrap" style="max-height: 1400px;">
+                        @foreach($news as $article)
+                            @if($loop->index%3 == 0 )
+                                <div class="item-card-news card" style="width: 100%">
                                     <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
                                     <div class="card-body">
                                         <span class="title-card-news">{{ $article->title }}</span>
-                                        <p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>
+                                        {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
                                     </div>
-                                    {{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}
+                                    {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
                                 </div>
-                        @elseif($loop->index == 1)
-                                <div class="item-card-news card">
-                                    <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
-                                    <div class="card-body">
-                                        <span class="title-card-news">{{ $article->title }}</span>
-                                        <p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>
-                                    </div>
-                                    {{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}
-                                </div>
-                        @elseif($loop->index == 2)
-                                <div class="item-card-news card">
-                                    <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
-                                    <div class="card-body">
-                                        <span class="title-card-news">{{ $article->title }}</span>
-                                        <p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>
-                                    </div>
-                                    {{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}
-                                </div>
-                        @elseif($loop->last)
-                            <div class="item-card-news card">
-                                <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <span class="title-card-news">{{ $article->title }}</span>
-                                    <p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>
-                                </div>
-                                {{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}
-                            </div>
-                            </div>
-
-                        @endif
-
-                    @endforeach
-                </div>
-                <div class="container" style="margin-top:120px;">
-                    <div class="row d-flex justify-content-center">
-                        <a id="btn-download-news-page" class="">Показать еще новости</a>
+                            @endif
+                        @endforeach
                     </div>
+                    <div data-col="2" class="col-xl-4 d-flex flex-column flex-wrap" style="max-height: 1400px;">
+                        @foreach($news as $article)
+                            @if($loop->index%3 == 1 )
+                                <div class="item-card-news card" style="width: 100%">
+                                    <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <span class="title-card-news">{{ $article->title }}</span>
+                                        {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
+                                    </div>
+                                    {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                    <div data-col="3" class="col-xl-4 d-flex flex-column flex-wrap" style="max-height: 1400px;">
+                        @foreach($news as $article)
+                            @if($loop->index%3 == 2 )
+                                <div class="item-card-news card" style="width: 100%">
+                                    <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <span class="title-card-news">{{ $article->title }}</span>
+                                        {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
+                                    </div>
+                                    {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top:120px;">
+                <div class="row d-flex justify-content-center">
+                    <a id="btn-download-news-page" class="">Показать еще новости</a>
                 </div>
             </div>
         </div>
@@ -161,7 +159,6 @@
 @section('script')
     <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
     <script src="{{asset('js/news.js')}}"></script>
-    <script src="{{ asset('js/news.js') }}"></script>
     <script>
         $(document).ready( function() {
            $('.news-form').submit( function(e) {
