@@ -15,6 +15,7 @@ use App\PhotoConnect;
 use App\Smi;
 use App\Tag;
 use App\TagConnect;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -47,10 +48,13 @@ class AdminController extends Controller
     public function createArticle(Request $request)
     {
         if($request->isMethod('post')) {
+            if($request->ajax()) {
+                $this->middleware('guest');
+            }
             $news = new News();
             $news->title = $request->post('title');
             $news->content = $request->post('content');
-            $news->moderated = true;
+            $news->moderated = $request->ajax() ? false : true;
             $news->save();
             if ($file = $request->file('photo')) {
                 $photo = new Photo();
@@ -102,6 +106,9 @@ class AdminController extends Controller
                     $tagConnect->type = TagConnect::NEWS;
                     $tagConnect->save();
                 }
+            }
+            if($request->ajax()) {
+                return 1;
             }
             return redirect()->route('news_index');
         } elseif ($request->isMethod('get')) {
