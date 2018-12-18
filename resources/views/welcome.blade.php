@@ -263,17 +263,17 @@
                 <div data-arrow = "right" class="arrow next"></div>
                 <div data-arrow = "left" class="arrow prev"></div>
                 <div class="d-flex justify-content-center">
-                    <div class="partners owl-carousel owl-theme col-xl-11 col-lg-8 col-md-6 col-6 justify-content-center">
+                    <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center">
                         <?php for ($i=0;$i<=19;$i++) { ?>
                         <div class="item">
                             <div class="item-partner">
-                                <img src="img/partners/partner1.svg" alt="">
+                                <img src="img/partners/partner1.svg" alt="" style="width: 90% !important">
                             </div>
                             <div class="item-partner">
-                                <img src="img/partners/partner2.svg" alt="">
+                                <img src="img/partners/partner2.svg" alt="" style="width: 90% !important">
                             </div>
                             <div class="item-partner">
-                                <img src="img/partners/partner3.svg" alt="">
+                                <img src="img/partners/partner3.svg" alt="" style="width: 90% !important">
                             </div>
                         </div>
                         <?php } ?>
