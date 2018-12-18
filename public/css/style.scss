@@ -227,6 +227,9 @@ nav {
                 color: white;
                 z-index: 14;
                 font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
                 a {
                     font-size: 30px;
                     font-weight: bold !important;
@@ -240,7 +243,7 @@ nav {
                 }
                 .tag {
                     font-size: 12px;
-                    width: 123px;
+                    min-width: 123px;
                     height: 35px;
                     border-radius: 18px;
                     background-color: white;
@@ -1140,14 +1143,14 @@ nav {
                     height: 13px;
                     background-image: url("../img/circle.svg");
                     display: block;
-                    margin-top: 9%;
+                    //margin-top: 9%;
                 }
                 span {
                     font-size: 14px;
                     color: #0054B9;
                     background-color: white;
                     display: block;
-                    margin-top: 9.5%;
+                    //margin-top: 9.5%;
                     width: 30%;
                     text-align: center;
                     display: block;
@@ -1158,13 +1161,13 @@ nav {
                 font-family: "Playfair Display", Georgia, "Times New Roman", serif;
                 font-weight: bold;
                 color: #1A2F3F;
-                margin-top: 5%;
+               // margin-top: 5%;
                 padding: 0 30px 0 0;
                 margin-left: 0;
             }
         }
         div.col-xl-6 {
-            margin-top: 7.5%;
+            margin-top: 37px;
             .title-event-page-banner {
                 display: flex;
                 align-items: center;
@@ -1174,14 +1177,14 @@ nav {
                     height: 13px;
                     background-image: url("../img/circle.svg");
                     display: block;
-                    margin-top: 1.5%;
+                    //margin-top: 1.5%;
                 }
                 span {
                     font-size: 14px;
                     color: #0054B9;
                     background-color: white;
                     display: block;
-                    margin-top: 1.5%;
+                    //margin-top: 1.5%;
                     width: 30%;
                     text-align: center;
                     display: block;
@@ -1206,14 +1209,14 @@ nav {
                     height: 13px;
                     background-image: url("../img/circle.svg");
                     display: block;
-                    margin-top: 1.5%;
+                    //margin-top: 1.5%;
                 }
                 span {
                     font-size: 14px;
                     color: #0054B9;
                     background-color: white;
                     display: block;
-                    margin-top: 1.5%;
+                    //margin-top: 1.5%;
                     width: 30%;
                     text-align: center;
                     display: block;
@@ -1229,7 +1232,8 @@ nav {
             }
         }
         div.col-xl-5.last {
-            margin-top: 2%;
+            margin-top: 35px;
+            //margin-top: 2%;
             .title-event-page-banner {
                 display: flex;
                 align-items: center;
