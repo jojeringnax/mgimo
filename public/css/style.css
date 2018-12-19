@@ -145,7 +145,7 @@ nav {
     .contents .news .title-news {
       margin-top: 45px; }
       .contents .news .title-news span {
-        font-size: 24px; }
+        font-size: 18px; }
     .contents .news .big-news {
       position: relative;
       height: 395px;
@@ -276,7 +276,7 @@ nav {
     .contents .events .title-events {
       margin-bottom: 18px; }
       .contents .events .title-events span {
-        font-size: 24px;
+        font-size: 18px;
         margin-top: 45px;
         display: block; }
     .contents .events .item-events {

@@ -106,7 +106,9 @@
                                     <span class="date-item"><i></i>{{ $event->date }}</span>
                                     <span class="location-item"><i></i>{{ $event->location }}</span>
                                 </div>
-                                <hr>
+                                @if($loop->index%3 !== 2)
+                                    <hr>
+                                @endif
                             </div>
                         </div>
                     @endforeach
