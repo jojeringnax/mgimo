@@ -147,7 +147,7 @@
                 <div class="d-flex flex-wrap justify-content-between">
                     @foreach ($congratulations as $congratulation)
                     <div class="item-congratulations card">
-                        <img class="img-item-congratulations img-thumbnail" src="{{ $congratulation->mainPhoto->path }}" alt="">
+                        {!! html_entity_decode($congratulation->content) !!}
                         <div class="content-item-congratulations">
                             <span class="title-item-congratulations">{{ $congratulation->title }}<br></span>
                         </div>
