@@ -70,7 +70,7 @@ nav {
 .banner{
     margin-top: 70px;
     width: 100%;
-    height: 600px;
+    height: 400px;
     background-image: url("../img/layout/banner.jpg");
     background-size: 105%;
     background-position: center;
@@ -144,7 +144,6 @@ nav {
 
 /*===================SECTION-NEWS===================*/
 .contents {
-    margin-top: 40px;
     min-height: 1240px;
     .buttons-news {
         position: absolute;
@@ -211,7 +210,6 @@ nav {
         //@include box-shadow;
         margin-left: -10px;
         .title-news {
-            margin-top: 45px;
             span {
                 font-size: 18px;
                 //font-weight: bold;
@@ -393,7 +391,6 @@ nav {
             span {
                 font-size: 18px;
                 //font-weight: bold;
-                margin-top: 45px;
                 display: block;
             }
         }
