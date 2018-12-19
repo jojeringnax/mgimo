@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Congratulation;
 use App\Event;
 use App\News;
 use App\Smi;
@@ -20,10 +21,12 @@ class SiteController extends Controller
         $news = News::limit(3)->get();
         $events = Event::limit(6)->orderBy('date', 'asc')->get();
         $smis = Smi::limit(4)->get();
+        $congrats = Congratulation::limit(4)->get();
         return view('welcome', [
             'news' => $news,
             'events' => $events,
-            'smis' => $smis
+            'smis' => $smis,
+            'congratulations' => $congrats
         ]);
     }
 
