@@ -147,7 +147,11 @@
                 <div class="d-flex flex-wrap justify-content-between">
                     @foreach ($congratulations as $congratulation)
                     <div class="item-congratulations card">
-                        {!! html_entity_decode($congratulation->content) !!}
+                        @if(!preg_match('/<iframe*/', $congratulation->content))
+                            <img class="img-item-congratulations img-thumbnail" src="{{ $congratulation->mainPhoto->path }}" alt="" />
+                        @else
+                            <div class="img-item-congratulations img-thumbnail">{!! html_entity_decode($congratulation->content) !!}</div>
+                        @endif
                         <div class="content-item-congratulations">
                             <span class="title-item-congratulations">{{ $congratulation->title }}<br></span>
                         </div>
