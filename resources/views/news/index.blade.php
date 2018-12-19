@@ -2,8 +2,11 @@
 @section('link')
     <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
 @endsection
+@section('shadow')
+    box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
+@endsection
 @section('content')
-    <div class="container" style="margin-top: 100px; padding-bottom: 120px">
+    <div class="container" style="margin-top: 150px; padding-bottom: 120px">
         <div class="row d-flex flex-column">
             <div class="news-page">
                 <div class="title-news-page d-flex">

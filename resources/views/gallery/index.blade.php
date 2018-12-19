@@ -2,7 +2,9 @@
 
 @section('link')
 @endsection
-
+@section('shadow')
+    box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
+@endsection
 @section('content')
     <div class="container">
         <div class="row">

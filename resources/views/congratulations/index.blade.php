@@ -2,7 +2,12 @@
 
 @section('link')
 @endsection
-
+@section('shadow')
+    box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
+@endsection
+@section('shadow')
+    box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
+@endsection
 @section('content')
     <div class="container" style="padding-bottom: 100px;">
         <div class="row">
@@ -38,4 +43,4 @@
             </div>
         </div>
     </div>
-    3
+    @endsection

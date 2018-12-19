@@ -12,12 +12,14 @@
     <header class="header" style="">
         <div class="container">
             <div class="row" style="width:100%;">
-                <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar col-12 " style="width:100%; background-color: white">
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar col-12 " style="width:100%; background-color: white; @yield('shadow');">
+
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
+                        <a class="navbar-brand logo-navbar" href="{{url('/')}}"><img src="img/icon/logo.svg" alt="" style="height: 65px"></a>
                         <ul class="navbar-nav mt-lg-0 d-flex justify-content-around">
                             <li class="nav-item"><a class="nav-link" href="#">О юбилее</a></li>
                             <li class="nav-item"><a class="nav-link" href={{url('news')}}>Новости</a></li>

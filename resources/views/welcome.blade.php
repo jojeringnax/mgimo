@@ -130,7 +130,7 @@
                             </div>
                         @endfor
                         <div class="buttons-news" style="margin-top: 60px;">
-                            <a class="btn-event-page" style=" background-color: transparent">Смотреть все мероприятия <span></span></a>
+                            <a href="{{url('events')}}" class="btn-event-page" style=" background-color: transparent">Смотреть все мероприятия <span></span></a>
                         </div>
                     </div>
 {{--                    <div class="item-events">
@@ -176,7 +176,7 @@
                 </div>
             </div>
             <div class="btn-media">
-                <a>Смотреть все новости СМИ<span></span></a>
+                <a href="">Смотреть все новости СМИ<span></span></a>
             </div>
             <hr class="section-hr">
         </div>
@@ -234,7 +234,7 @@
                 </div>--}}
                 <div class="btns-congratulations d-flex justify-content-start">
                     <a href="" class="btn-watch-congr">Смотреть все поздравления <span class="congr_watch"></span></a>
-                    <a href="" class="btn-congr"><span class="congr_icon"></span>Поздравить Alma Mater</a>
+                    <a href="" class="btn-congr"><span class="congr_icon"></span>Поздравить МГИМО</a>
                 </div>
             </div>
         </div>
