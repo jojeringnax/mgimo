@@ -122,7 +122,7 @@
                                 </article>
                                 <div class="d-flex flex-wrap justify-content-between">
                                     <span class="date-events"><span class="icon-date-events"></span>22 декабря 2018</span>
-                                    <span class="location"><span class="icon-location-events"></span>ДК украинских армян</span>
+                                    <span class="location"><span class="icon-location-events"></span>Москва, ТЦ АВИАПАРК</span>
                                 </div>
                                 @if ($i !== 5)
                                     <hr>
@@ -130,7 +130,7 @@
                             </div>
                         @endfor
                         <div class="buttons-news" style="margin-top: 60px;">
-                            <a>Смотреть все мероприятия <span></span></a>
+                            <a class="btn-event-page" style=" background-color: transparent">Смотреть все мероприятия <span></span></a>
                         </div>
                     </div>
 {{--                    <div class="item-events">

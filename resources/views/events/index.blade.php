@@ -5,7 +5,7 @@
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex">
                     <span>Мероприятия</span>
-                    <button type="button" class="btn btn-raised btn-primary">Добавить мероприятие</button>
+                    <a type="button" class="button-event-page">Добавить мероприятие</a>
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
@@ -37,7 +37,7 @@
                         <div class="col-xl-4 item-banner-event-page">
                             <div class="title-event-page-banner">
                                 <span class="icon-event-page"></span>
-                                <span style="width: 50%">24 мая 2019 г.</span>
+                                <span style="width: 35%; padding-left: 5px;">24 мая 2019 г.</span>
                             </div>
                             <div class="content">
                                 Кубок Ректора МГИМО
@@ -94,18 +94,19 @@
                     @foreach($events as $event)
                         <div class="d-flex col-xl-4" style="padding: 10px;">
                             <div class="items-event-page d-flex flex-wrap flex-column justify-content-around col-xl-12">
-                                <div class="tags-event-page">
-                                    @foreach($event->getTags() as $tag)
-                                        <span class="tag">{{ $tag }}</span>
-                                    @endforeach
-                                </div>
+                                {{--<div class="tags-event-page">--}}
+                                    {{--@foreach($event->getTags() as $tag)--}}
+                                        {{--<span class="tag">{{ $tag }}</span>--}}
+                                    {{--@endforeach--}}
+                                {{--</div>--}}
                                 <div class="item">
                                     <span class="title-item">
                                         {{ $event->content }}
                                     </span>
-                                    <span class="date-item">{{ $event->date }}</span>
-                                    <span class="location-item">{{ $event->location }}</span>
+                                    <span class="date-item"><i></i>{{ $event->date }}</span>
+                                    <span class="location-item"><i></i>{{ $event->location }}</span>
                                 </div>
+                                <hr>
                             </div>
                         </div>
                     @endforeach
