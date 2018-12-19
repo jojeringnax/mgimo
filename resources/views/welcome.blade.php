@@ -11,9 +11,6 @@
                 <div class="timer-lay">
                     <div id="timer" class="timer d-flex justify-content-center"></div>
                 </div>
-                {{--<div class="text-banner">--}}
-                    {{--<span style=""><span class="years">75</span> лет<br> МГИМО</span>--}}
-                {{--</div>--}}
             </div>
         </div>
     </div>
@@ -84,28 +81,6 @@
                             </div>
                         @endif
                     @endforeach
-
-                    {{--<div class="small-news">--}}
-
-                        {{--<div id="1" class="small-new col-12">--}}
-                            {{--<article class="d-flex flex-wrap">--}}
-                                {{--<div class="img-small-new">--}}
-                                    {{--<img src="img/new_test/Mask_Group_18.png" alt="">--}}
-                                {{--</div>--}}
-                                {{--<div class="content-small-new">--}}
-                                    {{--<div class="tag">--}}
-                                        {{--<i></i>--}}
-                                        {{--<span>РУБРИКА</span>--}}
-                                    {{--</div>--}}
-                                    {{--<h4>Встреча и награждение стипендиатов Международного Фонда Шодиева</h4>--}}
-                                    {{--<div class="date-link d-flex justify-content-between" style="width: 100%">--}}
-                                        {{--<span class="date-news">10 Ноября 2018</span>--}}
-                                        {{--<a href="">Читать новость</a>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</article>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
                     <div class="buttons-news">
                         <a href={{url('news')}}>Смотреть все новости <span></span></a>
                     </div>
@@ -133,13 +108,6 @@
                             <a href="{{url('events')}}" class="btn-event-page" style=" background-color: transparent">Смотреть все мероприятия <span></span></a>
                         </div>
                     </div>
-{{--                    <div class="item-events">
-                        <article>
-                            <span class="name-events">Посол Люксембурга Жан-Клод Кнебелер в МГИМО</span>
-                        </article>
-                        <span class="date-events">10 Ноября</span>
-                        <hr>
-                    </div>--}}
                 </div>
             </div>
         </div>
@@ -150,33 +118,20 @@
             <div class="content-media col-12">
                 <div class="title-media">Сми о нас</div>
                 <div class="media-news col-12 d-flex fle-wrap justify-content-between">
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
-                        <span class="source-media-news">Lenta.ru</span>
-                        <span class="title-media-news" style="margin:0">Посол Люксембурга Жан-Клод Кнебелер в МГИМО</span>
-                        <span class="media-news-date" style="margin:0">10 Ноября 2018</span>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
-                        <hr>
-                        <span class="source-media-news">Yandex</span>
-                        <span class="title-media-news">Посол Люксембурга Жан-Клод Кнебелер в МГИМО</span>
-                        <span class="media-news-date">10 Ноября 2018</span>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
-                        <hr>
-                        <span class="source-media-news">Rambler</span>
-                        <span class="title-media-news">Международный экономический форум «Каспийский диалог 2018»</span>
-                        <span class=" media-news-date">10 Ноября 2018</span>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
-                        <hr>
-                        <span class="source-media-news">Lenta.ru</span>
-                        <span class="title-media-news">Собрание членов Попечительского совета и благотворителей Фонда имени Андрея Карлова</span>
-                        <span class="media-news-date">10 Ноября 2018</span>
-                    </div>
+                    @foreach($smis as $smi)
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
+                            <a href="{{ $smi->link }}" target="_blank">
+                                <span class="source-media-news">{{ $smi->link_view }}</span>
+                                <span class="title-media-news">{{ $smi->title }}</span>
+                                <span class="date-media-news">10 Ноября 2018</span>
+                            </a>
+                            @if (($loop->index + 1)%4) <hr> @endif
+                        </div>
+                    @endforeach
                 </div>
             </div>
             <div class="btn-media">
-                <a href="">Смотреть все новости СМИ<span></span></a>
+                <a href="{{url('smis')}}" target="_blank">Смотреть все новости СМИ<span></span></a>
             </div>
             <hr class="section-hr">
         </div>
@@ -188,15 +143,6 @@
                 <div class="title-congratulations">
                     <span>Поздравления</span>
                 </div>
-{{--                <div class="tags-congratulations col-12">
-                    <span class="title-tag-congr">Год выпуска</span>
-                    <div class="item-tags-congratulation">1960-70</div>
-                    <div class="item-tags-congratulation">1970-80</div>
-                    <div class="item-tags-congratulation">1980-90</div>
-                    <div class="item-tags-congratulation active-item-tags-congratulations" >1990-00</div>
-                    <div class="item-tags-congratulation">2000-10</div>
-                    <div class="item-tags-congratulation">2010-18</div>
-                </div>--}}
 
                 <div class="d-flex flex-wrap justify-content-between">
                     @for ($i = 0; $i < 4; $i++)
@@ -210,28 +156,6 @@
                     @endfor
                 </div>
 
-{{--                    <div class="item-congratulations">
-                        <img class="img-item-congratulations img-thumbnail" src="http://img.over-blog-kiwi.com/1/54/00/21/20160804/ob_83b112_025pikachu-xy-anime-3.png" alt="">
-                        <div class="content-item-congratulations">
-                            <span class="title-item-congratulations">Заголовок заголовок Заголовок заголовок<br></span>
-                            <span class="text-item-congratulations">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at, distinctio eos modi natus quasi. Deserunt, excepturi!</span>
-                        </div>
-                    </div>
-                    <div class="item-congratulations">
-                        <img class="img-item-congratulations img-thumbnail" src="http://img.over-blog-kiwi.com/1/54/00/21/20160804/ob_83b112_025pikachu-xy-anime-3.png" alt="">
-                        <div class="content-item-congratulations">
-                            <span class="title-item-congratulations">Заголовок заголовок Заголовок заголовок<br></span>
-                            <span class="text-item-congratulations">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet dolores laudantium omnis! Obcaecati ullam veniam vero?</span>
-                        </div>
-                    </div>
-                    <div class="item-congratulations">
-                        <img class="img-item-congratulations img-thumbnail" src="http://img.over-blog-kiwi.com/1/54/00/21/20160804/ob_83b112_025pikachu-xy-anime-3.png" alt="">
-                        <div class="content-item-congratulations">
-                            <span class="title-item-congratulations">Заголовок заголовок Заголовок заголовок<br></span>
-                            <span class="text-item-congratulations">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nisi perspiciatis quod voluptas voluptatum. Magni, minima, sequi.</span>
-                        </div>
-                    </div>
-                </div>--}}
                 <div class="btns-congratulations d-flex justify-content-start">
                     <a href="" class="btn-watch-congr">Смотреть все поздравления <span class="congr_watch"></span></a>
                     <a href="" class="btn-congr"><span class="congr_icon"></span>Поздравить МГИМО</a>

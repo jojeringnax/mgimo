@@ -23,11 +23,11 @@
                         <ul class="navbar-nav mt-lg-0 d-flex justify-content-around">
                             <li class="nav-item"><a class="nav-link" href="#">О юбилее</a></li>
                             <li class="nav-item"><a class="nav-link" href={{url('news')}}>Новости</a></li>
-                            <li class="nav-item"><a class="nav-link" href="events">Мероприятия</a></li>
-                            <li class="nav-item"><a class="nav-link" href="congratulations">Поздравления</a></li>
-                            <li class="nav-item"><a class="nav-link" href="books">Издательская программа</a></li>
-                            <li class="nav-item"><a class="nav-link" href="gallery">Галерея</a></li>
-                            <li class="nav-item"><a class="nav-link" href="partners">Партнеры</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url('events')}}">Мероприятия</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url('congratulations')}}">Поздравления</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url('books')}}">Издательская программа</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url('gallery')}}">Галерея</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url('partners')}}">Партнеры</a></li>
                         </ul>
                     </div>
                 </nav>

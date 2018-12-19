@@ -14,18 +14,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="text-center">
                         @foreach($smis as $element)
-                            <td>{{ $element->id }}</td>
-                            <td>{{ $element->title }}</td>
-                            <td>{{ $element->link }}</td>
-                            <td>{{ $element->link_view }}</td>
-                            <td class="action">
-                                {{ link_to_action('AdminController@updateSmi', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
-                                {{ link_to_action('AdminController@deleteSmi', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
-                            </td>
+                            <tr class="text-center">
+                                <td>{{ $element->id }}</td>
+                                <td>{{ $element->title }}</td>
+                                <td>{{ $element->link }}</td>
+                                <td>{{ $element->link_view }}</td>
+                                <td class="action">
+                                    {{ link_to_action('AdminController@updateSmi', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
+                                    {{ link_to_action('AdminController@deleteSmi', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
+                                </td>
+                            </tr>
                         @endforeach
-                    </tr>
                     </tbody>
                 </table>
                 {{ link_to_action('AdminController@createSmi', 'create',[], ['class' => 'btn btn-secondary']) }}

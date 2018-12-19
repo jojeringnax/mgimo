@@ -29,6 +29,8 @@ Route::get('congratulations', 'CongratulationController@index');
 Route::get('gallery', 'PhotoController@index');
 Route::get('gallery/show/{id}', 'PhotoController@show');
 
+Route::get('smis', 'SmiController@index');
+
 /**
  * Admin routes
  */

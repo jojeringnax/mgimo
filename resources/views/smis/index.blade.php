@@ -3,7 +3,7 @@
     box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
 @endsection
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 150px; padding-bottom: 120px">
         <div class="row">
             <div class="media-page d-flex flex-column" style="width:100%">
                 <div class="title-media">
@@ -13,15 +13,18 @@
                     <div class="media-page-content d-flex justify-content-between flex-wrap" style="width:100%">
                         @foreach($smis as $smi)
                             <div class="col-3 item-media-news d-flex">
-                                <a href="{{ $smi->link }}">
+                                <a href="{{ $smi->link }}" target="_blank">
                                     <span class="source-media-news">{{ $smi->link_view }}</span>
                                     <span class="title-media-news">{{ $smi->title }}</span>
+                                    <span class="date-media-news"></span>
                                 </a>
                                 @if (($loop->index + 1)%4) <hr> @endif
                             </div>
                         @endforeach
                     </div>
+                <div class="btn-download-media-page">
                     <button id="btn-download-media" type="button" class="btn btn-raised btn-primary">Подгрузить еще новостей</button>
+                </div>
                 @else
                     <!-- Вывод, если новостей нет --><div>Нет новостей</div>
                 @endif
