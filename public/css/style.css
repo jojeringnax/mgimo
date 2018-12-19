@@ -343,7 +343,8 @@ nav {
       align-items: start;
       position: relative;
       min-height: 200px;
-      margin-top: 30px; }
+      margin-top: 30px;
+      padding-bottom: 15px; }
       .content-media .media-news .item-media-news a {
         text-decoration: none !important; }
         .content-media .media-news .item-media-news a .source-media-news {
