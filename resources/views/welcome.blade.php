@@ -90,20 +90,20 @@
                         <span>БЛИЖАЙШИЕ МЕРОПРИЯТИЯ </span>
                     </div>
                     <div class="bg-events">
-                        @for ($i = 0; $i < 6; $i++)
+                        @foreach($events as $event)
                             <div class="item-events">
                                 <article>
-                                    <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
+                                    <span class="name-events">{{ $event->content }}</span>
                                 </article>
                                 <div class="d-flex flex-wrap justify-content-between">
-                                    <span class="date-events"><span class="icon-date-events"></span>22 декабря 2018</span>
-                                    <span class="location"><span class="icon-location-events"></span>Москва, ТЦ АВИАПАРК</span>
+                                    <span class="date-events"><span class="icon-date-events"></span>{{ $event->date }}</span>
+                                    <span class="location"><span class="icon-location-events"></span>{{ $event->location }}</span>
                                 </div>
-                                @if ($i !== 5)
+                                @if ($loop->index !== 5)
                                     <hr>
                                 @endif
                             </div>
-                        @endfor
+                        @endforeach
                         <div class="buttons-news" style="margin-top: 60px;">
                             <a href="{{url('events')}}" class="btn-event-page" style=" background-color: transparent">Смотреть все мероприятия <span></span></a>
                         </div>
