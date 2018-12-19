@@ -34,7 +34,7 @@ nav {
         font-weight: 600 !important; }
 
 .banner {
-  margin-top: 110px;
+  margin-top: 70px;
   width: 100%;
   height: 600px;
   background-image: url("../img/layout/banner.jpg");
@@ -342,7 +342,7 @@ nav {
       display: flex;
       align-items: start;
       position: relative;
-      height: 200px;
+      min-height: 200px;
       margin-top: 30px; }
       .content-media .media-news .item-media-news a {
         text-decoration: none !important; }
