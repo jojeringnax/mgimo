@@ -1197,11 +1197,11 @@ nav {
             background-size: 98%;
             background-position: center;
         }
-        margin-top: 60px;
+        margin-top: 0;
         padding: 50px;
         height: 680px !important;
         //border: 2px solid $mainColor;
-        @include box-shadow;
+        //@include box-shadow;
         .item-banner-event-page {
             min-height: 170px;
         }

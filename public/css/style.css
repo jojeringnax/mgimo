@@ -880,10 +880,9 @@ nav {
       color: white !important; }
 .event-page .banner-event-page {
   position: relative;
-  margin-top: 60px;
+  margin-top: 0px;
   padding: 50px;
-  height: 680px !important;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05); }
+  height: 680px !important; }
   .event-page .banner-event-page .layout-banner-event-page {
     position: absolute;
     width: 90%;

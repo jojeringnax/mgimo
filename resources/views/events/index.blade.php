@@ -1,11 +1,14 @@
 @extends('layout')
+@section('shadow')
+    box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
+@endsection
 @section('content')
     <div class="container" style="margin-top: 100px; padding-bottom: 100px !important;">
         <div class="row">
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex">
                     <span>Мероприятия</span>
-                    <a type="button" class="button-event-page">Добавить мероприятие</a>
+                    <a class="button-event-page">Добавить мероприятие</a>
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
