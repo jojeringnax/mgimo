@@ -63,7 +63,7 @@
                 <div class="button-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-center">
                     <button type="button"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</button>
                     <span class="text-center">
-                        МГИМО 75 Ассоциация выпускников МГИМО Эндаумент МГИМО
+                        МГИМО 75<br>Ассоциация выпускников МГИМО<br>Эндаумент МГИМО
                     </span>
                 </div>
                 <div class="contact-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch d-flex flex-column">

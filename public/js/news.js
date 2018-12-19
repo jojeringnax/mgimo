@@ -47,9 +47,13 @@ $(document).ready(function () {
     $('.item-card-news').mouseover(function(){
         $(this).children('.card-body ').css({'background-color':'#0054B9'});
         $(this).children('.card-body ').children('.title-card-news').css({'color':'white'});
+        $(this).children('.card-body ').children('.date-news-page').css({'color':'white'});
+        $(this).animate({'border':'none'},1000);
     });
     $('.item-card-news').mouseout(function(){
         $(this).children('.card-body ').css({'background-color':'transparent'});
         $(this).children('.card-body ').children('.title-card-news').css({'color':'#1A2F3F'});
+        $(this).children('.card-body ').children('.date-news-page').css({'color':'#1A2F3F'});
+
     });
 });

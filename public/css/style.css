@@ -103,7 +103,7 @@ nav {
     bottom: 40px;
     padding-bottom: 0; }
     .contents .buttons-news a {
-      border: 2px solid #1A2F3F;
+      border: 1px solid #1A2F3F;
       height: 55px;
       width: 295px;
       background-color: white;
@@ -128,8 +128,19 @@ nav {
           right: 25px; }
       .contents .buttons-news a:after {
         content: ''; }
+    .contents .buttons-news .btn-event-page:hover {
+      background-color: transparent !important;
+      color: #1A2F3F !important; }
+      .contents .buttons-news .btn-event-page:hover span {
+        background-image: url("../img/icon/arrow-right.svg");
+        margin-left: 15px;
+        display: block;
+        width: 20px;
+        height: 11px;
+        top: calc(40% - 15px);
+        right: 25px; }
   .contents .news {
-    padding: 0 30px 0 30px;
+    padding: 0 30px 0 0;
     margin-left: -10px; }
     .contents .news .title-news {
       margin-top: 45px; }
@@ -162,7 +173,7 @@ nav {
         flex-direction: column;
         align-items: start; }
         .contents .news .big-news article a {
-          font-size: 30px;
+          font-size: 26px;
           font-weight: bold !important;
           display: block;
           color: white !important;
@@ -214,19 +225,20 @@ nav {
             flex-direction: column;
             align-items: start;
             justify-content: center;
-            padding: 0 0 0 20px;
+            padding: 0 0 0 45px;
             font-family: "Playfair Display"; }
             .contents .news .small-news .small-new article .content-small-new a {
               margin-top: 1px;
               margin-bottom: 20px;
               font-weight: bold;
-              font-size: 26px !important;
+              font-size: 24px !important;
+              line-height: 1.4;
               font-family: "Playfair Display", Georgia, "Times New Roman", serif;
               color: #1A2F3F; }
               .contents .news .small-news .small-new article .content-small-new a:hover {
                 color: #EB205E !important; }
             .contents .news .small-news .small-new article .content-small-new .tag {
-              font-size: 14px;
+              font-size: 12px;
               width: 123px;
               height: 35px;
               border-radius: 18px;
@@ -243,7 +255,7 @@ nav {
                 border-radius: 5px;
                 background-color: #0054B9;
                 margin-right: 9px;
-                margin-top: -1px; }
+                margin-top: -2px; }
             .contents .news .small-news .small-new article .content-small-new .date-link .date-news {
               font-size: 12px;
               /*text-align: center;*/
@@ -260,7 +272,7 @@ nav {
       padding: 0 20px 0 25px;
       flex-grow: 1; }
     .contents .events .title-events {
-      margin-bottom: 20px; }
+      margin-bottom: 18px; }
       .contents .events .title-events span {
         font-size: 24px;
         margin-top: 45px;
@@ -276,10 +288,10 @@ nav {
         .contents .events .item-events article .name-events {
           font-weight: bold;
           font-family: "Playfair Display";
-          font-size: 18px; }
+          font-size: 16px; }
       .contents .events .item-events .date-events {
         font-size: 12px;
-        margin: 25px 0 15px 0;
+        margin: 18px 0 15px 0;
         display: block;
         margin-left: 30px;
         color: #A5A5A5;
@@ -294,7 +306,7 @@ nav {
           margin-top: 2px; }
       .contents .events .item-events .location {
         font-size: 12px;
-        margin: 25px 0 15px 0;
+        margin: 18px 0 15px 0;
         display: block;
         margin-left: 10px;
         color: #A5A5A5;
@@ -315,9 +327,10 @@ nav {
 .content-media {
   padding: 0 !important; }
   .content-media .title-media {
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
-    font-weight: bold; }
+    font-weight: 500 !important;
+    margin: 100px 0 50px 0; }
   .content-media .media-news {
     display: flex;
     flex-wrap: wrap;
@@ -340,7 +353,7 @@ nav {
         .content-media .media-news .item-media-news .source-media-news:first-child {
           margin: 0; }
       .content-media .media-news .item-media-news .title-media-news {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         text-decoration: none;
         font-family: "Playfair Display";
@@ -364,7 +377,7 @@ nav {
 .btn-media {
   margin-top: 40px; }
   .btn-media a {
-    border: 2px solid #1A2F3F;
+    border: 1px solid #1A2F3F;
     height: 50px;
     width: 350px;
     background-color: white;
@@ -393,10 +406,12 @@ nav {
 
 .content-congratulations {
   padding: 0; }
-  .content-congratulations .title-congratulations span {
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: bold; }
+  .content-congratulations .title-congratulations {
+    margin: 90px 0 44px 0; }
+    .content-congratulations .title-congratulations span {
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: 500 !important; }
   .content-congratulations .tags-congratulations {
     display: flex;
     position: relative; }
@@ -415,14 +430,14 @@ nav {
         background-color: #1A2F3F;
         color: white; }
   .content-congratulations div .item-congratulations {
-    height: 350px;
+    height: 250px;
     width: 49%;
     margin-top: 2%;
     display: flex;
     align-items: center;
     flex-direction: row; }
     .content-congratulations div .item-congratulations img {
-      width: 210px;
+      width: 180px;
       margin-left: 30px; }
     .content-congratulations div .item-congratulations .content-item-congratulations {
       padding: 15px 50px 25px 50px; }
@@ -454,7 +469,7 @@ nav {
     display: flex;
     flex-wrap: wrap; }
     .content-congratulations .btns-congratulations .btn-watch-congr {
-      border: 2px solid #1A2F3F;
+      border: 1px solid #1A2F3F;
       height: 55px;
       width: 400px;
       color: #1A2F3F;
@@ -496,7 +511,7 @@ nav {
       .content-congratulations .btns-congratulations .btn-congr:hover {
         background-color: white;
         color: #0054B9;
-        border: 2px solid #0054B9;
+        border: 1px solid #0054B9;
         font-weight: 600 !important; }
         .content-congratulations .btns-congratulations .btn-congr:hover .congr_icon {
           background-image: url("../img/icon/partner/confetti-blue.svg"); }
@@ -542,24 +557,25 @@ nav {
   .gallery-content .big-photo {
     opacity: 1; }
     .gallery-content .big-photo img {
-      width: 100%; }
+      width: 100%;
+      margin-left: -70px; }
   .gallery-content .text-gallery {
     display: flex;
     flex-direction: column;
     align-items: flex-start; }
     .gallery-content .text-gallery span {
-      margin-left: 60px;
+      margin-left: 20px;
       font-size: 26px;
       font-weight: bold;
       font-family: "Playfair Display"; }
     .gallery-content .text-gallery a {
-      margin-left: 60px;
+      margin-left: 20px;
       margin-top: 40px;
       width: 281px;
       height: 55px;
       font-size: 16px;
       font-weight: bold;
-      border: 2px solid #0054B9;
+      border: 1px solid #0054B9;
       color: #0054B9;
       display: flex;
       justify-content: center;
@@ -586,8 +602,8 @@ nav {
   position: relative;
   margin-top: 150px; }
   .content-partners .title-partners span {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 500 !important;
     text-transform: uppercase; }
   .content-partners .partners {
     margin-top: 100px; }
@@ -613,7 +629,7 @@ nav {
   top: 50%; }
   .arrow.next {
     background-image: url("../img/icon/partner/right-arrow.svg");
-    right: 0;
+    right: -35px;
     margin-top: 50px;
     cursor: pointer;
     background-position: right; }
@@ -621,7 +637,7 @@ nav {
       background-image: url("../img/icon/partner/right-hover-arrow.svg"); }
   .arrow.prev {
     background-image: url("../img/icon/partner/left-arrow.svg");
-    left: 0;
+    left: -35px;
     margin-top: 50px;
     cursor: pointer;
     background-position: left; }
@@ -631,8 +647,8 @@ nav {
 .btn-partners {
   margin-top: 150px;
   margin-bottom: 150px;
-  margin-left: 30px;
-  border: 2px solid #1A2F3F;
+  margin-left: 0px;
+  border: 1px solid #1A2F3F;
   height: 55px;
   width: 371px;
   background-color: white;
@@ -667,24 +683,50 @@ nav {
   .arrow.prev {
     left: 30px; } }
 /*===================NEWS-PAGES===================*/
+.tags-news-page .tag {
+  font-size: 12px;
+  min-width: 123px;
+  height: 35px;
+  background-color: white;
+  color: black;
+  display: flex;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  border-radius: 35px;
+  justify-content: center;
+  align-items: center; }
+  .tags-news-page .tag i {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #0054B9;
+    margin-right: 9px;
+    margin-top: -1px; }
+
+.date-news-page {
+  margin-left: 0px;
+  margin-top: 10px; }
+
 .news-page .title-news-page {
   align-items: center; }
   .news-page .title-news-page span.text-title-news-page {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
-    margin-right: 50px; }
+    margin-right: 50px;
+    color: #1A2F3F; }
   .news-page .title-news-page .btn-news-page a {
-    width: 322px;
+    width: 296px;
     height: 59px;
     font-size: 20px;
     margin-right: 30px; }
   .news-page .title-news-page .btn-news-page a.btn-news-page-add {
-    border: 2px solid #1A2F3F;
+    border: 1px solid #1A2F3F;
     height: 55px;
-    width: 371px;
+    width: 296px;
     background-color: white;
-    font-size: 16px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -701,11 +743,11 @@ nav {
       right: 25px;
       background-repeat: no-repeat; }
   .news-page .title-news-page .btn-news-page a.btn-news-page-sub {
-    border: 2px solid #1A2F3F;
+    border: 1px solid #1A2F3F;
     height: 55px;
-    width: 371px;
+    width: 296px;
     background-color: white;
-    font-size: 16px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -762,7 +804,7 @@ nav {
   justify-content: center;
   width: 333px;
   height: 55px;
-  border: 2px solid #1A2F3F;
+  border: 1px solid #1A2F3F;
   background-color: white;
   color: #1A2F3F;
   text-transform: uppercase;
@@ -811,10 +853,32 @@ nav {
     bottom: -50px; }
 
 .event-page .title-event-page {
-  margin-top: 40px; }
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column; }
+  .event-page .title-event-page span {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 50px;
+    margin-bottom: 30px; }
+  .event-page .title-event-page a {
+    width: 337px;
+    height: 55px;
+    background-color: white;
+    color: #1A2F3F;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #1A2F3F;
+    text-transform: uppercase; }
+    .event-page .title-event-page a:hover {
+      background-color: #1A2F3F;
+      color: white !important; }
 .event-page .banner-event-page {
   position: relative;
-  margin-top: 100px;
+  margin-top: 60px;
   padding: 50px;
   height: 680px !important;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.05); }
@@ -843,9 +907,11 @@ nav {
       background-color: white;
       display: block;
       width: 30%;
-      text-align: center;
-      display: block; }
+      text-align: left;
+      display: block;
+      padding-left: 5px; }
   .event-page .banner-event-page div .content {
+    margin-top: 20px;
     font-size: 20px;
     font-family: "Playfair Display", Georgia, "Times New Roman", serif;
     font-weight: bold;
@@ -862,15 +928,17 @@ nav {
         width: 13px;
         height: 13px;
         background-image: url("../img/circle.svg");
-        display: block; }
+        display: block;
+        background-repeat: no-repeat; }
       .event-page .banner-event-page div.col-xl-6 .title-event-page-banner span {
         font-size: 14px;
         color: #0054B9;
         background-color: white;
         display: block;
         width: 30%;
-        text-align: center;
-        display: block; }
+        text-align: left;
+        display: block;
+        padding-left: 5px; }
     .event-page .banner-event-page div.col-xl-6 .content {
       font-size: 20px;
       font-family: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -892,9 +960,9 @@ nav {
       color: #0054B9;
       background-color: white;
       display: block;
-      width: 30%;
-      text-align: center;
-      display: block; }
+      text-align: left;
+      display: block;
+      padding-left: 5px; }
   .event-page .banner-event-page div.col-xl-6.five .content {
     font-size: 20px;
     font-family: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -919,9 +987,9 @@ nav {
         color: #0054B9;
         background-color: white;
         display: block;
-        width: 40%;
-        text-align: center;
-        display: block; }
+        text-align: left;
+        display: block;
+        padding-left: 5px; }
     .event-page .banner-event-page div.col-xl-5.last .content {
       display: flex;
       justify-content: center;
@@ -930,10 +998,10 @@ nav {
       font-weight: bold;
       color: #1A2F3F;
       margin-top: 20px;
-      margin-left: 0;
       margin-left: 100px; }
 .event-page .content-event-page {
-  position: relative; }
+  position: relative;
+  margin-top: 100px; }
   .event-page .content-event-page .tags-event-page {
     position: absolute;
     margin-top: 30px;
@@ -948,27 +1016,50 @@ nav {
         color: white; }
   .event-page .content-event-page .items-event-page {
     width: 23%;
-    height: 300px;
-    border: 1px solid #1A2F3F;
+    height: 250px;
     padding: 15px;
     margin-top: 25px;
     position: relative; }
     .event-page .content-event-page .items-event-page .item {
       position: relative;
-      height: 100%; }
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
       .event-page .content-event-page .items-event-page .item span.title-item {
+        padding-right: 50px;
         font-size: 20px;
         font-weight: bold;
-        margin-top: 90px;
-        display: block; }
+        margin-top: 28px;
+        display: block;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
       .event-page .content-event-page .items-event-page .item span.date-item {
-        position: absolute;
-        bottom: 15px;
-        left: 15px; }
+        margin-top: 100px;
+        margin-bottom: 10px;
+        display: flex; }
+        .event-page .content-event-page .items-event-page .item span.date-item i {
+          height: 14px;
+          width: 14px;
+          background-image: url("../img/icon/clock-circular-red.svg");
+          display: block;
+          background-repeat: no-repeat;
+          margin-right: 10px; }
       .event-page .content-event-page .items-event-page .item span.location-item {
-        position: absolute;
-        bottom: 15px;
-        right: 15px; }
+        display: flex; }
+        .event-page .content-event-page .items-event-page .item span.location-item i {
+          height: 14px;
+          width: 10px;
+          background-repeat: no-repeat;
+          background-image: url("../img/icon/location-red.svg");
+          display: block;
+          margin-right: 10px; }
+    .event-page .content-event-page .items-event-page hr {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 1px;
+      background-color: #707070;
+      opacity: 0.2; }
 
 @media screen and (max-width: 1300px) {
   .content {
@@ -1038,7 +1129,7 @@ nav {
     position: relative;
     padding: 10px;
     height: 270px;
-    border: 2px solid;
+    border: 1px solid black;
     margin-top: 14px; }
     .gallery-page .items-partners div .item-partners-page span {
       font-size: 22px;
@@ -1181,7 +1272,7 @@ footer {
     flex-direction: column;
     align-items: center; }
     footer .button-footer button {
-      border: 2px solid white;
+      border: 1px solid white;
       height: 55px;
       width: 371px;
       background-color: transparent;
@@ -1255,7 +1346,7 @@ footer {
     align-items: center;
     font-size: 14px;
     color: #1A2F3F;
-    border: 2px solid #1A2F3F;
+    border: 1px solid #1A2F3F;
     padding: 0;
     width: 100px;
     margin: 0 !important;

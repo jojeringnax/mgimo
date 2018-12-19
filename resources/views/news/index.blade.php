@@ -28,8 +28,14 @@
                             @if($loop->index%3 == 0 )
                                 <div class="item-card-news card" style="width: 100%">
                                     <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column align-items-start">
+                                        <span class="tags-news-page">
+                                         @foreach($article->getTags() as $tag)
+                                             <span class="tag"><i></i>{{ $tag }}</span>
+                                         @endforeach
+                                        </span>
                                         <span class="title-card-news">{{ $article->title }}</span>
+                                        <span class="date-news-page">19 декабря 2018</span>
                                         {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
                                     </div>
                                     {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
@@ -42,8 +48,14 @@
                             @if($loop->index%3 == 1 )
                                 <div class="item-card-news card" style="width: 100%">
                                     <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column align-items-start">
+                                        <span class="tags-news-page">
+                                            @foreach($article->getTags() as $tag)
+                                                <span class="tag"><i></i>{{ $tag }}</span>
+                                            @endforeach
+                                        </span>
                                         <span class="title-card-news">{{ $article->title }}</span>
+                                        <span class="date-news-page">20 декабря 2018</span>
                                         {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
                                     </div>
                                     {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
@@ -56,8 +68,14 @@
                             @if($loop->index%3 == 2 )
                                 <div class="item-card-news card" style="width: 100%">
                                     <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column align-items-start">
+                                        <span class="tags-news-page">
+                                            @foreach($article->getTags() as $tag)
+                                                <span class="tag"><i></i>{{ $tag }}</span>
+                                            @endforeach
+                                        </span>
                                         <span class="title-card-news">{{ $article->title }}</span>
+                                        <span class="date-news-page">17 декабря 2018</span>
                                         {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
                                     </div>
                                     {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
