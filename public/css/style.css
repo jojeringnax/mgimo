@@ -663,7 +663,7 @@ nav {
   .arrow.next {
     background-image: url("../img/icon/partner/right-arrow.svg");
     right: -35px;
-    margin-top: 50px;
+    margin-top: 25px;
     cursor: pointer;
     background-position: right; }
     .arrow.next:hover {
@@ -671,7 +671,7 @@ nav {
   .arrow.prev {
     background-image: url("../img/icon/partner/left-arrow.svg");
     left: -35px;
-    margin-top: 50px;
+    margin-top: 25px;
     cursor: pointer;
     background-position: left; }
     .arrow.prev:hover {
