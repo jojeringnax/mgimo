@@ -61,7 +61,8 @@
 
 
                 {{ Form::label('tags', 'Тэги') }}
-                {{ Form::text('tags', isset($tags) ? implode(',', $tags) : '',['class' => 'form-control item-form-news-add','placeholder' => 'Культура'] ) }}
+                {{Form::select('tags',['СПОРТ' => 'СПОРТ','ИСКУССТВО' => 'ИСКУССТВО','НАУКА' => 'НАУКА','ОБРАЗОВАНИЕ' => 'ОБРАЗОВАНИЕ','МЕЖДУНАРОДНЫЕ СВЯЗИ' => 'МЕЖДУНАРОДНЫЕ СВЯЗИ','ВСТРЕЧИ ВЫПУСКНИКОВ' => 'ВСТРЕЧИ ВЫПУСКНИКОВ','КОНЦЕРТЫ' => 'КОНЦЕРТЫ','ЮБИЛЕИ' => 'ЮБИЛЕИ','ПРЕЗЕНТАЦИИ' => 'ПРЕЗЕНТАЦИИ','ИЗДАНИЯ' =>'ИЗДАНИЯ' ],null,['class' => 'custom-select'])}}
+                {{--{{ Form::text('tags', isset($tags) ? implode(',', $tags) : '',['class' => 'form-control item-form-news-add','placeholder' => 'Культура'] ) }}--}}
                 @if(isset($article))
                     @if(!$photos->isEmpty())
                         <div style="display: flex;align-items: center; justify-content: space-around;">

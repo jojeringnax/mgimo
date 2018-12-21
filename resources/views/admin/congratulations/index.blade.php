@@ -18,12 +18,12 @@
 
                     @foreach($congratulations as $element)
                         <tr class="text-center">
-                            <td>{{ $element->id }}</td>
+                            <td width="5%">{{ $element->id }}</td>
                             <td>{{ $element->title }}</td>
                             <td>{{ $element->date }}</td>
                             <td>{{ $element->content }}</td>
                             <td>{{ $element->main_photo_id }}</td>
-                            <td class="action">
+                            <td width="10%" class="action">
                                 {{ link_to_action('AdminController@updateCongratulation', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
                                 {{ link_to_action('AdminController@deleteCongratulation', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
                             </td>

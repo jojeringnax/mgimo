@@ -31,6 +31,9 @@ Route::get('gallery/show/{id}', 'PhotoController@show');
 
 Route::get('smis', 'SmiController@index');
 
+Route::get('anniversary', function() {
+    return view('anniversary');
+});
 /**
  * Admin routes
  */

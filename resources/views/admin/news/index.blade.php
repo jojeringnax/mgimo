@@ -19,15 +19,15 @@
                     <tbody>
                     @foreach($news as $element)
                         <tr class="text-center">
-                            <td>{{ $element->id }}</td>
-                            <td>
+                            <td width="5%">{{ $element->id }}</td>
+                            <td width="10%">
                                 @foreach($element->getTags() as $tag)
                                     {{ $tag }}
                                 @endforeach
                             </td>
-                            <td>{{ $element->title }}</td>
-                            <td>{!!html_entity_decode($element->content)!!}</td>
-                            <td class="action">
+                            <td width="20%">{{ $element->title }}</td>
+                            <td width="55%">{!!mb_strimwidth((html_entity_decode($element->content)),0,230,'...')!!}</td>
+                            <td width="10%" class="action">
                                 {{ link_to_action('AdminController@updateArticle', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
                                 {{ link_to_action('AdminController@deleteArticle', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
                             </td>

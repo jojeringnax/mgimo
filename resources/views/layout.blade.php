@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -6,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/mdb.css') }}">
+    <script src="{{asset('js/jquery-3.3.1.js')}}"></script>
     @yield('link')
 </head>
 <body>
@@ -19,9 +21,9 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <a class="navbar-brand logo-navbar" href="{{url('/')}}"><img src="img/icon/logo.svg" alt="" style="height: 65px"></a>
+                        <a class="navbar-brand logo-navbar" href="{{url('/')}}"><img src="{{asset('img/icon/logo.svg')}}" alt="" style="height: 65px"></a>
                         <ul class="navbar-nav mt-lg-0 d-flex justify-content-around">
-                            <li class="nav-item"><a class="nav-link" href="#">О юбилее</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url('anniversary')}}">О юбилее</a></li>
                             <li class="nav-item"><a class="nav-link" href={{url('news')}}>Новости</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('events')}}">Мероприятия</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('congratulations')}}">Поздравления</a></li>
@@ -36,7 +38,6 @@
     </header>
 
     @yield('content')
-    <script src="{{asset('js/jquery-3.3.1.js')}}"></script>
     <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
     <script src="{{asset('bootstrap/js/mdb.js')}}"></script>
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
@@ -48,16 +49,16 @@
                     <div class="nav-bot col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch">
                         <nav class="d-flex" style="height: 100%">
                             <ul class="d-flex flex-column justify-content-between" style="padding: 0">
-                                <li><a href="">Главная</a></li>
-                                <li><a href="">О юбилее</a></li>
-                                <li><a href="">Новости</a></li>
-                                <li><a href="">Мероприятия</a></li>
-                                <li><a href="">Поздравления</a></li>
+                                <li><a href="{{url('/')}}">Главная</a></li>
+                                <li><a href="{{url('anniversary')}}">О юбилее</a></li>
+                                <li><a href="{{url('news')}}">Новости</a></li>
+                                <li><a href="{{url('events')}}">Мероприятия</a></li>
+                                <li><a href="{{url('congratulations')}}">Поздравления</a></li>
                             </ul>
                             <ul class="d-flex flex-column justify-content-between">
-                                <li><a href="">Издательская программа</a></li>
-                                <li><a href="">Галерея</a></li>
-                                <li><a href="">Партнеры</a></li>
+                                <li><a href="{{url('books')}}">Издательская программа</a></li>
+                                <li><a href="{{url('gallery')}}">Галерея</a></li>
+                                <li><a href="{{url('partners')}}">Партнеры</a></li>
                                 <li><a href="">Контакты</a></li>
                             </ul>
                         </nav>

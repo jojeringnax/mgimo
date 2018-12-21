@@ -18,11 +18,11 @@
 
                     @foreach($books as $element)
                         <tr>
-                            <td class="text-center">{{ $element->id }}</td>
+                            <td width="5%" class="text-center">{{ $element->id }}</td>
                             <td class="text-center">{{ $element->title }}</td>
                             <td class="text-center">{!! html_entity_decode($element->description) !!}</td>
                             <td class="text-center">{{ $element->cover_photo_id }}</td>
-                            <td class="text-center action">
+                            <td width="10%" class="text-center action">
                                 {{ link_to_action('AdminController@updateBook', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
                                 {{ link_to_action('AdminController@deleteBook', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
                             </td>

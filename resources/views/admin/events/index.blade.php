@@ -17,7 +17,7 @@
                     <tbody>
                         @foreach($events as $event)
                             <tr class="text-center">
-                                <td>{{ $event->id }}</td>
+                                <td width="5%">{{ $event->id }}</td>
                                 <td class="tag">
                                     @foreach($event->getTags() as $tag)
                                         {{ $tag }}
@@ -26,7 +26,7 @@
                                 <td>{{ $event->location }}</td>
                                 <td>{{ $event->date }}</td>
                                 <td>{{ $event->content }}</td>
-                                <td class="action">
+                                <td width="10%" class="action">
                                     {{ link_to_action('AdminController@updateEvent', '', ['id' => $event->id], ['class' => 'oi oi-pencil']) }}
                                     {{ link_to_action('AdminController@deleteEvent', '', ['id' => $event->id], ['class' => 'oi oi-delete delete-admin']) }}
                                 </td>
