@@ -243,7 +243,6 @@ nav {
         //@include box-shadow;
         //margin-left: -10px;
         .title-news {
-            margin-top: 45px;
             span {
                 font-size: 18px;
                 //font-weight: bold;
@@ -426,7 +425,6 @@ nav {
             span {
                 font-size: 18px;
                 //font-weight: bold;
-                margin-top: 45px;
                 display: block;
             }
         }
@@ -437,7 +435,7 @@ nav {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                min-eight: 50px;
+                min-height: 50px;
                 margin-left: 10px;
                 .name-events {
                     font-weight: bold;
