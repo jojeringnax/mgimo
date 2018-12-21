@@ -96,6 +96,18 @@ class Photo extends Model
     }
 
     /**
+     * Return all photo Models for an event by id.
+     *
+     * @param $eventId
+     * @return self[]
+     */
+    public function getAllPhotosForEvent($eventId)
+    {
+        $photoConnects = PhotoConnect::select('id')->where('type', PhotoConnect::EVENT)->where('connect_id', $eventId)->get();
+        return self::whereIn('id', $photoConnects)->get();
+    }
+
+    /**
      * return all tags as array.
      *
      * @return array

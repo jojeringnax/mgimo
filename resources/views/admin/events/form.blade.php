@@ -5,6 +5,8 @@
         <div class="row d-flex justify-content-center">
             <div class="col-8 d-flex flex-column">
                 {{ request()->route()->getActionMethod() !== 'updateEvent' ? Form::open(array('action' => 'AdminController@createEvent')) : Form::model($event) }}
+                {{ Form::label('title', 'Местоположение') }}
+                {{ Form::text('title', !isset($event) ? '' : $event->title, ['class' => 'form-control']) }}
                 <div class="item-form-event">
                     {{ Form::label('content', 'Заголовок') }}
                     {{ Form::textarea('content', !isset($event) ? '' : $event->content, ['class' => 'form-control']) }}
