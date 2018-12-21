@@ -305,7 +305,7 @@ nav {
       .contents .events .item-events article {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         min-height: 50px;
         margin-left: 10px; }
         .contents .events .item-events article .name-events {
@@ -633,13 +633,13 @@ nav {
 
 .content-partners {
   position: relative;
-  margin-top: 150px; }
+  margin-top: 100px; }
   .content-partners .title-partners span {
     font-size: 18px;
     font-weight: 500 !important;
     text-transform: uppercase; }
   .content-partners .partners {
-    margin-top: 100px; }
+    margin-top: 50px; }
     .content-partners .partners .item {
       display: flex;
       justify-content: center;
