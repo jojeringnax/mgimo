@@ -699,26 +699,27 @@ class AdminController extends Controller
      */
     public function albumFill($id, Request $request)
     {
+        $album = Album::find($id);
      if ($request->isMethod('post')) {
          $files = $request->allFiles()['photos'];
-         $i = 0;
          foreach ($files as $file) {
-             $i++;
              $photo = new Photo();
-             $path = 'gallery/album_' . $id . '/' . $i . '.' . $file->getClientOriginalExtension();
-             Storage::put($path, file_get_contents($file->getPathname()));
-             $path = '/storage/photo/' . $path;
              $photo->type = PhotoConnect::GALLERY;
-             $photo->path = $path;
+             $photo->path = '';
              $photo->sizeX = getimagesize($file->getPathname())[0];
              $photo->sizeY = getimagesize($file->getPathname())[1];
              $photo->album_id = $id;
+             $photo->save();
+             $path = 'gallery/album_' . $id . '/' . $photo->id . '.' . $file->getClientOriginalExtension();
+             Storage::put($path, file_get_contents($file->getPathname()));
+             $path = '/storage/photo/' . $path;
+             $photo->path = $path;
              $photo->save();
          }
          return redirect()->route('album_fill', ['id' => $id]);
      } elseif ($request->isMethod('get')) {
          return view('admin.gallery.album_fill', [
-             'album' => Album::find($id)
+             'album' => $album
          ]);
      }
      return 0;
