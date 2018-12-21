@@ -3,9 +3,32 @@
 @section('link')
     <link rel="stylesheet" href="js/OwlCarousel2/dist/assets/owl.carousel.css">
 @endsection
-
+<script>
+    let nameMonth = {
+        1: 'Января',
+        2: 'Февраля',
+        3: 'Марта',
+        4: 'Апреля',
+        5: 'Мая',
+        6: 'Июня',
+        7: 'Июля',
+        8: 'Августа',
+        9: 'Сентября',
+        10: 'Октября',
+        11: 'Ноября',
+        12: 'Декабря'
+    }
+</script>
 @section('content')
-    <div class="container">
+    <div class="layout-img hide">
+        <div class="layout">
+
+        </div>
+        <div class="img-source-layout">
+            <img src="" alt="">
+        </div>
+    </div>
+    <div class="container" style="padding: 5px">
         <div class="row d-flex flex-column justify-content-center">
             <div class="banner">
                 <div class="timer-lay">
@@ -96,10 +119,19 @@
                                     <span class="name-events">{{ $event->content }}</span>
                                 </article>
                                 <div class="d-flex flex-wrap justify-content-between">
-                                    <span class="date-events"><span class="icon-date-events"></span>{{ $event->date }}</span>
-                                    <span class="location"><span class="icon-location-events"></span>{{ $event->location }}</span>
+                                    <span class="date-events col-6">
+                                        <script>
+                                            $(document).ready(function(){
+                                                let icon = "<span class='icon-date-events'></span>";
+                                                let cur_date =  nameMonth[("{{ $event->date }}").match(/\w+/g)[1]];
+                                                $('.date-events').html(icon + ("{{ $event->date }}").match(/\w+/g)[2] + " " + cur_date + " " + ("{{ $event->date }}").match(/\w+/g)[0] );
+                                                console.log(cur_date)
+                                            })
+                                        </script>
+                                    </span>
+                                    <span class="location col-6"><span class="icon-location-events"></span>{{ $event->location }}</span>
                                 </div>
-                                @if ($loop->index !== 5)
+                                @if ($event->index !== 7)
                                     <hr>
                                 @endif
                             </div>
@@ -119,7 +151,7 @@
                 <div class="title-media">Сми о нас</div>
                 <div class="media-news col-12 d-flex fle-wrap justify-content-between">
                     @foreach($smis as $smi)
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
+                        <div data-smis="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
                             <a href="{{ $smi->link }}" target="_blank">
                                 <span class="source-media-news">{{ $smi->link_view }}</span>
                                 <span class="title-media-news">{{ $smi->title }}</span>

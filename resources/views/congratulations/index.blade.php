@@ -9,38 +9,39 @@
     box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
 @endsection
 @section('content')
-    <div class="container" style="padding-bottom: 100px;">
-        <div class="row">
-            <div class="congratulations-page  col-xl-12">
-                <div class="title-congratulation-page">
+    <div class="layout-img hide">
+        <div class="layout">
+
+        </div>
+        <div class="img-source-layout">
+            <img src="" alt="">
+        </div>
+    </div>
+    <div id="congratulations" class="container" style="padding-bottom: 100px; margin-top: 80px;">
+        <div class="row" style="margin:0; padding: 0">
+            <div class="content-congratulations col-12" style="padding: 0">
+                <div class="title-congratulations">
                     <span>Поздравления</span>
                 </div>
-                <div class="congratulations-page-content">
-                    <div class="tags">
-                        <span class="title-tags">Годы выпуска</span>
-                        <div class="tags-content">
-                            <?php for ($i=1940;$i<2020;$i+=10) {
-                            $next = $i + 10; $next = substr($next, 2);
-                            if($next == 20){
-                                $next = 18;
-                            }?>
-                            <span class="item-tag"><?php echo $i.' - '.$next; ?></span>
-                            <?php } ?>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between flex-wrap">
-                        @foreach($congratulations as $element)
-                            <div class="item-congratulations-page">
-                                <img class="img-item-congratulations img-thumbnail" src={{ $element->mainPhoto->path }} alt="">
-                                <div class="content-item-congratulations">
-                                    <span class="title-item-congratulations">{{ $element->title }}<br></span>
-                                    <span class="text-item-congratulations">{{ $element->content }}</span>
-                                </div>
+
+                <div class="d-flex flex-wrap justify-content-between">
+                    @foreach ($congratulations as $congratulation)
+                        <div class="item-congratulations card">
+                            @if(!preg_match('/<iframe*/', $congratulation->content))
+                                <img class="img-item-congratulations img-thumbnail" src="{{ $congratulation->mainPhoto->path }}" alt="" />
+                            @else
+                                <div class="img-item-congratulations">{!! html_entity_decode($congratulation->content) !!}</div>
+                            @endif
+                            <div class="content-item-congratulations">
+                                <span class="title-item-congratulations">{{ $congratulation->title }}<br></span>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
     @endsection
+@section('script')
+    <script src="{{asset('js/congratulations.js')}}"></script>
+@endsection
