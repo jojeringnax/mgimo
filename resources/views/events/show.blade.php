@@ -20,10 +20,17 @@
                     <div class="title-news">
                         <h2>{{ $article->title }}</h2>
                     </div>
+                    <div class="attr">
+                        <div class="date">19 ноября, 18:00</div>
+                        <div class="locations">Москва, ТЦ «Армянин»</div>
+                    </div>
                     <div class="text-news">
                         {!! html_entity_decode($article->content) !!}
                     </div>
                 </div>
+            </div>
+            <div class="soc-network">
+
             </div>
         </div>
     </div>

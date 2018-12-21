@@ -56,4 +56,21 @@ $(document).ready(function () {
         $(this).children('.card-body ').children('.date-news-page').css({'color':'#1A2F3F'});
 
     });
+
+    let colorTags = {
+        'СПОРТ': '#05C386',
+        'ИСКУССТВО': '#EB205E',
+        'НАУКА': '#0054B9',
+        'ОБРАЗОВАНИЕ':'#FFBA00',
+        'МЕЖДУНАРОДНЫЕ СВЯЗИ':'#A5A5A5',
+        'ВСТРЕЧИ ВЫПУСКНИКОВ':'#B2E821',
+        'КОНЦЕРТЫ':'#1DB5ED',
+        'ЮБИЛЕИ':'#FF6C00',
+        'ПРЕЗЕНТАЦИИ':'#9946B2',
+        'ИЗДАНИЯ':'#1A2F3F'
+    };
+    $('.tag').each(function(){
+        $(this).children('i').css({'background-color': colorTags[$(this).children('span').text()]}) ;
+        console.log($(this).children('i'),$(this).children('span').text(), colorTags[$(this).children('span').text()])
+    });
 });

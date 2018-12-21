@@ -16,11 +16,11 @@
                     <tbody>
                         @foreach($smis as $element)
                             <tr class="text-center">
-                                <td>{{ $element->id }}</td>
+                                <td width="5%">{{ $element->id }}</td>
                                 <td>{{ $element->title }}</td>
                                 <td>{{ $element->link }}</td>
                                 <td>{{ $element->link_view }}</td>
-                                <td class="action">
+                                <td width="10%" class="action">
                                     {{ link_to_action('AdminController@updateSmi', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
                                     {{ link_to_action('AdminController@deleteSmi', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
                                 </td>
