@@ -131,11 +131,31 @@
                                     </span>
                                     <span class="location col-6"><span class="icon-location-events"></span>{{ $event->location }}</span>
                                 </div>
-                                @if ($event->index !== 7)
+                                @if ($loop->index !== 7)
                                     <hr>
                                 @endif
                             </div>
                         @endforeach
+                            <div class="item-events">
+                                <article>
+                                    <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
+                                </article>
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <span class="date-events col-6"><span class="icon-date-events"></span>21 Декабря 2018</span>
+                                    <span class="location col-6"><span class="icon-location-events"></span>Москва</span>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="item-events">
+                                <article>
+                                    <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
+                                </article>
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <span class="date-events col-6"><span class="icon-date-events"></span>21 Декабря 2018</span>
+                                    <span class="location col-6"><span class="icon-location-events"></span>Москва</span>
+                                </div>
+                                <hr>
+                            </div>
                         <div class="buttons-news" style="margin-top: 60px;">
                             <a href="{{url('events')}}" class="btn-event-page" style=" background-color: transparent">Смотреть все мероприятия <span></span></a>
                         </div>
