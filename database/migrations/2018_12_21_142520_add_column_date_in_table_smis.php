@@ -14,7 +14,7 @@ class AddColumnDateInTableSmis extends Migration
     public function up()
     {
         Schema::table('smis', function (Blueprint $table) {
-            $table->addColumn('dateTime', 'date');
+            $table->addColumn('dateTime', 'date')->default(null)->nullable();
         });
     }
 

@@ -44,7 +44,7 @@ $(document).ready(function () {
         return true;
     });
 
-    $('.item-card-news').mouseover(function(){
+/*    $('.item-card-news').mouseover(function(){
         $(this).children('.card-body ').css({'background-color':'#0054B9'});
         $(this).children('.card-body ').children('.title-card-news').css({'color':'white'});
         $(this).children('.card-body ').children('.date-news-page').css({'color':'white'});
@@ -55,7 +55,7 @@ $(document).ready(function () {
         $(this).children('.card-body ').children('.title-card-news').css({'color':'#1A2F3F'});
         $(this).children('.card-body ').children('.date-news-page').css({'color':'#1A2F3F'});
 
-    });
+    });*/
 
     let colorTags = {
         'СПОРТ': '#05C386',

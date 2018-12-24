@@ -161,12 +161,10 @@
                                     </div>
                                 </div>
 
-
                                 {{ Form::label('tags', 'Тэги') }}
                                 {{ Form::text('tags', isset($tags) ? implode(',', $tags) : '',['class' => 'form-control item-form-news-add','placeholder' => 'Культура'] ) }}
 
                                 {{ Form::submit('Сохранить',['class' => 'btn btn-primary item-form-news-add-btn'] ) }}
-
 
                                 {{ Form::close() }}
                             </div>

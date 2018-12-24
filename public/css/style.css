@@ -810,7 +810,7 @@ nav {
     box-shadow: none !important;
     cursor: pointer; }
     .news .item-card-news:hover {
-      box-shadow: 0 10px 15px rgba(0, 84, 185, 0.4) !important;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1) !important;
       border: none; }
     .news .item-card-news img {
       min-height: 180px; }
@@ -1257,6 +1257,9 @@ p {
 
 .item-form-news-add {
   margin-bottom: 20px; }
+  .item-form-news-add div input {
+    width: 100% !important;
+    outline: none; }
 
 .item-form-news-add-btn {
   height: 40px;
@@ -1420,12 +1423,94 @@ footer {
       color: white;
       background-color: #1A2F3F; }
 
+.link-book-pay-pages {
+  cursor: pointer;
+  margin-top: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100%; }
+  .link-book-pay-pages a {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #1A2F3F;
+    border: 1px solid #1A2F3F;
+    padding: 0;
+    width: 100px;
+    margin: 0 !important;
+    height: 34px;
+    font-weight: 600 !important; }
+    .link-book-pay-pages a:hover {
+      color: white;
+      background-color: #1A2F3F; }
+
 .item-book-page {
   display: flex;
   align-items: stretch; }
   .item-book-page .card {
     padding: 10px 10px 100px 10px; }
 
+.anniversary-img .item-img-news {
+  margin-top: 20px; }
+
+.album-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.album-delete-photos {
+  height: 100% !important; }
+  .album-delete-photos .item-album-photo {
+    position: relative;
+    margin-top: 40px;
+    padding: 25px; }
+    .album-delete-photos .item-album-photo .check-box-delete-item {
+      position: absolute;
+      top: 2px;
+      left: 5px; }
+
+.btn-soc-net {
+  border: none;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  padding: 0 !important;
+  cursor: pointer; }
+  .btn-soc-net:focus {
+    outline: none !important; }
+  .btn-soc-net #vk {
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/icon/vk-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    outline: none; }
+  .btn-soc-net #fb {
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/icon/fb-icon.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    outline: none; }
+
+@media screen and (max-width: 1200px) {
+  .contents .buttons-news a {
+    width: 250px;
+    font-size: 12px; }
+
+  .date-events {
+    font-size: 10px !important;
+    align-items: center;
+    padding-left: 25px !important; }
+    .date-events .icon-date-events {
+      height: 12px !important;
+      width: 12px !important;
+      margin-top: 0 !important; } }
 @media screen and (max-width: 1000px) {
   .container {
     max-width: 1320px !important;
@@ -1439,20 +1524,52 @@ footer {
   .content-item-congratulations .text-item-congratulations {
     font-size: 14px !important; }
 
-  .contents .news .small-news .small-new article .content-small-new {
-    width: 100%; }
-  .contents .events {
-    padding-bottom: 170px; }
+  .contents {
+    min-height: 1120px; }
+    .contents .news .small-news .small-new article .content-small-new {
+      width: 50%; }
+      .contents .news .small-news .small-new article .content-small-new .date-link {
+        margin: 0 !important; }
+      .contents .news .small-news .small-new article .content-small-new a {
+        font-size: 20px !important; }
+    .contents .news .small-news .small-new .img-small-new {
+      display: flex;
+      align-items: flex-start !important; }
+
+  .item-media-news a .source-media-news {
+    font-size: 10px !important; }
+  .item-media-news a .title-media-news {
+    font-size: 12px !important; }
+  .item-media-news a .date-media-news {
+    font-size: 10px !important; }
+
+  .name-events {
+    font-size: 14px !important; }
 
   .date-link {
     margin-bottom: 140px; }
 
-  .contents .events {
-    margin: 40px 0 0 0 !important; }
-
   .contents .news {
     margin: 0 !important; } }
 @media screen and (max-width: 500px) {
+  .buttons-news {
+    position: static !important;
+    display: flex;
+    justify-content: center;
+    margin: 25px 0 50px 0; }
+
+  .btns-congratulations {
+    justify-content: center !important;
+    display: flex; }
+    .btns-congratulations .btn-congr {
+      margin-left: 0 !important; }
+
+  .item-contents {
+    padding: 0 !important; }
+
+  .item-congratulations {
+    flex-wrap: wrap !important; }
+
   .content-congratulations div .item-congratulations img {
     width: 140px !important; }
 
@@ -1465,6 +1582,41 @@ footer {
     width: 100%; }
 
   .date-link {
-    margin-bottom: 140px; } }
+    margin-bottom: 140px; }
+
+  .bg-gallery {
+    margin-top: 100px; }
+
+  .big-photo {
+    text-align: center; }
+    .big-photo img {
+      margin-left: 0 !important; }
+
+  .text-gallery {
+    align-items: center !important; }
+    .text-gallery a {
+      margin-left: 0 !important; }
+
+  .img-small-new {
+    width: 100% !important; }
+
+  .banner {
+    height: 250px; }
+
+  .footers {
+    align-items: center !important;
+    justify-content: center !important; }
+    .footers .contact-footer {
+      justify-content: center !important;
+      align-items: center !important;
+      margin-top: 30px; }
+      .footers .contact-footer span {
+        align-items: center !important; }
+    .footers .button-footer {
+      margin-top: 50px; }
+      .footers .button-footer button {
+        margin-bottom: 20px; }
+    .footers .nav-bot nav ul {
+      margin-left: 25px; } }
 
 /*# sourceMappingURL=style.css.map */

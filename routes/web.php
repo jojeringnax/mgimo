@@ -45,6 +45,10 @@ Route::match(['get','post'], 'admin/smis/create', 'AdminController@createSmi');
 Route::match(['get','post'], 'admin/smis/update/{id}', 'AdminController@updateSmi');
 Route::get('admin/smis/delete/{id}', 'AdminController@deleteSmi');
 
+Route::match(['get','post'], 'admin/gallery/create', 'AdminController@createAlbum');
+Route::match(['get','post'], 'admin/gallery/create/{id}', 'AdminController@albumFill');
+//Route::get('admin/gallery/delete/{id}/{id}', 'AdminController@deleteAlbum');
+
 Route::match(['get','post'], 'admin/news/create', 'AdminController@createArticle');
 Route::match(['get','post'], 'admin/news/update/{id}', 'AdminController@updateArticle');
 Route::get('admin/news/delete/{id}', 'AdminController@deleteArticle');
@@ -90,6 +94,10 @@ Route::get('test', function() {
 Route::get('admin/events', function() {
     return view('admin.events.index', ['events' => \App\Event::all()]);
 })->name('events_index');
+
+Route::get('admin/gallery', function() {
+    return view('admin.gallery.index', ['albums' => \App\Album::all()]);
+})->name('album_index');
 
 Route::get('admin/congratulations', function() {
     return view('admin.congratulations.index', ['congratulations' => \App\Congratulation::all()]);
