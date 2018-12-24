@@ -702,6 +702,31 @@ class AdminController extends Controller
         $album = Album::find($id);
      if ($request->isMethod('post')) {
          $files = $request->allFiles()['photos'];
+         if ($tags = $request->post('tags')) {
+             $tagConnects = TagConnect::select('id')->where('connect_id', $album->id)->where('type', TagConnect::GALLERY);
+             $tagsModels = Tag::whereIn('id', $tagConnects->get())->get();
+             foreach ($tagsModels as $tag) {
+                 $tag->update(['count_news' => $tag->count_news - 1]);
+             }
+             $tagConnects->delete();
+             $tags = preg_split('/,/', $tags);
+             foreach ($tags as $tag) {
+                 $tagModel = Tag::where('word', $tag)->first();
+                 if ($tagModel === null) {
+                     $tagModel = new Tag();
+                     $tagModel->word = $tag;
+                     $tagModel->count_photos = 1;
+                     $tagModel->save();
+                 } else {
+                     $tagModel->update(['count_event', $tagModel->count_event + 1]);
+                 }
+                 $tagConnect = new TagConnect();
+                 $tagConnect->id = $tagModel->id;
+                 $tagConnect->connect_id = $album->id;
+                 $tagConnect->type = TagConnect::GALLERY;
+                 $tagConnect->save();
+             }
+         }
          foreach ($files as $file) {
              $photo = new Photo();
              $photo->type = PhotoConnect::GALLERY;
