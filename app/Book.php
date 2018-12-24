@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property int $cover_photo_id
  * @property Photo $coverPhoto
+ * @property int $price
+ *
  */
 class Book extends Model
 {

@@ -274,6 +274,7 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
+            $event->update(['main_photo_id' => $request->post('main_photo_id')]);
             return redirect()->route('events_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form');
@@ -295,7 +296,6 @@ class AdminController extends Controller
             $event->date = $request->post('date');
             $event->location = $request->post('location');
             $event->main = $request->post('main') === null ? 0 : 1;
-            $event->save();
             if ($tags = $request->post('tags')) {
                 $tagConnects = TagConnect::event($eventId);
                 foreach ($tagConnects as $tagConnect) {
@@ -348,6 +348,8 @@ class AdminController extends Controller
                     $photoConnect->save();
                 }
             }
+            $event->main_photo_id = $request->post('main_photo_id');
+            $event->save();
             return redirect()->route('events_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form', [
@@ -433,6 +435,7 @@ class AdminController extends Controller
             $congratulation->title = $request->post('title');
             $congratulation->content = $request->post('content');
             $congratulation->date = $request->post('date');
+            $congratulation->priority = $request->post('priority');
             $congratulation->save();
             if ($file = $request->file('file')) {
                 $photo = new Photo();
@@ -467,6 +470,7 @@ class AdminController extends Controller
             $congratulation->title = $request->post('title');
             $congratulation->content = $request->post('content');
             $congratulation->date = $request->post('date');
+            $congratulation->priority = $request->post('priority');
             if ($file = $request->file('file')) {
                 if ($photo = $congratulation->mainPhoto) {
                     $congratulation->update(['main_photo_id' => null]);
@@ -517,6 +521,7 @@ class AdminController extends Controller
             $book = new Book();
             $book->title = $request->post('title');
             $book->description = $request->post('description');
+            $book->price = $request->post('price');
             $book->save();
             if ($file = $request->file('photo')) {
                 $photo = new Photo();
@@ -549,6 +554,7 @@ class AdminController extends Controller
             $book = Book::find($bookId);
             $book->title = $request->post('title');
             $book->description = $request->post('description');
+            $book->price = $request->post('price');
             if ($file = $request->file('photo')) {
                 if($book->cover_photo_id !== null) {
                     $coverPhoto = $book->coverPhoto;

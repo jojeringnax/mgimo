@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $date
  * @property int $main_photo_id
  * @property Photo $mainPhoto
+ * @property int $priority
  *
  */
 class Congratulation extends Model

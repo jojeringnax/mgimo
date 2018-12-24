@@ -25,6 +25,12 @@ class Event extends Model
      */
     protected $table = 'events';
 
+
+    /**
+     * @var array
+     */
+    public $fillable = ['main_photo_id'];
+
     /**
      * Delete all TagConnects and decrease count_events in Tag model.
      * Delete Model from database.
