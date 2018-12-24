@@ -12,6 +12,10 @@
 
                     {{ Form::label('link', 'Ссылка', ['class' => 'label-inp-smis', 'id' => '']) }}
                     {{ Form::text('link', !isset($smi) ? '' : $smi->link, ['class' => 'item-form-smis form-control']) }}
+
+                    {{ Form::label('date', 'Дата', ['class' => 'label-inp-smis', 'id' => '']) }}
+                    {{ Form::date('date', !isset($smi) ? '' : $smi->link, ['class' => 'item-form-smis form-control']) }}
+
                     {{ Form::submit('Сохранить',['class' => 'item-form-smis-btn btn btn-raised btn-primary']) }}
                 </div>
                 {{ Form::close() }}

@@ -7,7 +7,7 @@
                     <thead class="">
                         <tr class="text-center">
                             <th scope="col">#</th>
-                            <th scope="col">tag</th>
+                            <th scope="col">Title</th>
                             <th scope="col">Location</th>
                             <th scope="col">Date</th>
                             <th scope="col">Content</th>
@@ -18,14 +18,10 @@
                         @foreach($events as $event)
                             <tr class="text-center">
                                 <td width="5%">{{ $event->id }}</td>
-                                <td class="tag">
-                                    @foreach($event->getTags() as $tag)
-                                        {{ $tag }}
-                                    @endforeach
-                                </td>
+                                <td >{{ $event->title }}</td>
                                 <td>{{ $event->location }}</td>
                                 <td>{{ $event->date }}</td>
-                                <td>{{ $event->content }}</td>
+                                <td>{!!mb_strimwidth((html_entity_decode($event->content)),0,230,'...')!!}</td>
                                 <td width="10%" class="action">
                                     {{ link_to_action('AdminController@updateEvent', '', ['id' => $event->id], ['class' => 'oi oi-pencil']) }}
                                     {{ link_to_action('AdminController@deleteEvent', '', ['id' => $event->id], ['class' => 'oi oi-delete delete-admin']) }}

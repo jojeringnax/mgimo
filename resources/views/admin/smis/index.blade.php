@@ -10,6 +10,7 @@
                         <th scope="col">Title</th>
                         <th scope="col">Link</th>
                         <th scope="col">Link_View</th>
+                        <th scope="col">Date</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -20,6 +21,7 @@
                                 <td>{{ $element->title }}</td>
                                 <td>{{ $element->link }}</td>
                                 <td>{{ $element->link_view }}</td>
+                                <td>{{ $element->date }}</td>
                                 <td width="10%" class="action">
                                     {{ link_to_action('AdminController@updateSmi', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
                                     {{ link_to_action('AdminController@deleteSmi', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}

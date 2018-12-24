@@ -45,7 +45,7 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="d-flex flex-wrap col-12" style="padding: 0">
+                <div class="d-flex flex-wrap col-12 footers" style="padding: 0">
                     <div class="nav-bot col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch">
                         <nav class="d-flex" style="height: 100%">
                             <ul class="d-flex flex-column justify-content-between" style="padding: 0">

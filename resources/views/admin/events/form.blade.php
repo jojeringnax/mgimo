@@ -1,15 +1,22 @@
 @extends('layouts.admin')
 
+@section('link')
+    <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+@endsection
 @section('content')
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-8 d-flex flex-column">
-                {{ request()->route()->getActionMethod() !== 'updateEvent' ? Form::open(array('action' => 'AdminController@createEvent')) : Form::model($event) }}
-                {{ Form::label('title', 'Местоположение') }}
+                {{ request()->route()->getActionMethod() !== 'updateEvent' ? Form::open(array('action' => 'AdminController@createEvent', 'class'=>'event-form')) : Form::model($event, ['class'=>'event-form']) }}
+                {{ Form::label('title', 'Заколовок') }}
                 {{ Form::text('title', !isset($event) ? '' : $event->title, ['class' => 'form-control']) }}
                 <div class="item-form-event">
-                    {{ Form::label('content', 'Заголовок') }}
-                    {{ Form::textarea('content', !isset($event) ? '' : $event->content, ['class' => 'form-control']) }}
+                    <div id="editor" class="col-12 item-form-news-add">
+                        {!! isset($event) ? html_entity_decode($event->content) : '' !!}
+                    </div>
+                    <input type="hidden" name="content" id="content-event"/>
+        {{--            {{ Form::label('content', 'Заголовок') }}
+                    {{ Form::textarea('content', !isset($event) ? '' : $event->content, ['class' => 'form-control']) }}--}}
                 </div>
                 <div class="item-form-event">
                     {{ Form::label('date', 'Дата') }}
@@ -38,4 +45,8 @@
         </div>
     </div>
 
+@endsection
+@section('script')
+    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+    <script src="{{asset('js/event-page.js')}}"></script>
 @endsection

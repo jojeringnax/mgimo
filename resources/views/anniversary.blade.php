@@ -9,9 +9,23 @@
     <div class="container" style="margin-top: 120px; padding-bottom: 100px !important">
         <div class="row">
             <div class="layout_news d-flex flex-wrap">
-                <div id="photos-news" class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12 d-flex flex-column">
-                    <div class="item-img-news">
-                        <img src="" alt="" style="width: 100%">
+                <div id="photos-news " class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12 d-flex flex-column justify-content-start">
+                    <div class="anniversary-img">
+                        <div class="item-img-news">
+                            <img src="/storage/photo/news/1.png" alt="" style="width: 100%">
+                        </div>
+                        <div class="item-img-news">
+                            <img src="/storage/photo/news/1.png" alt="" style="width: 100%">
+                        </div>
+                        <div class="item-img-news">
+                            <img src="/storage/photo/news/1.png" alt="" style="width: 100%">
+                        </div>
+                        <div class="item-img-news">
+                            <img src="/storage/photo/news/1.png" alt="" style="width: 100%">
+                        </div>
+                        <div class="item-img-news">
+                            <img src="/storage/photo/news/2.png" alt="" style="width: 100%">
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12 d-flex flex-column justify-content-center">
@@ -114,5 +128,5 @@
     </div>
 @endsection
 @section('script')
-
+    <script src="{{asset('js/anniversary.js')}}"></script>
 @endsection
