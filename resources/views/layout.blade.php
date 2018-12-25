@@ -21,8 +21,8 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <a class="navbar-brand logo-navbar" href="{{url('/')}}"><img src="{{asset('img/icon/logo.svg')}}" alt="" style="height: 65px"></a>
                         <ul class="navbar-nav mt-lg-0 d-flex justify-content-around">
+                            <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Главная</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('anniversary')}}">О юбилее</a></li>
                             <li class="nav-item"><a class="nav-link" href={{url('news')}}>Новости</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('events')}}">Мероприятия</a></li>
@@ -45,7 +45,7 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="d-flex flex-wrap col-12" style="padding: 0">
+                <div class="d-flex flex-wrap col-12 footers" style="padding: 0">
                     <div class="nav-bot col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch">
                         <nav class="d-flex" style="height: 100%">
                             <ul class="d-flex flex-column justify-content-between" style="padding: 0">

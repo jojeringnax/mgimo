@@ -41,7 +41,7 @@
     <div class="container">
         <div class="row">
             <div class="contents d-flex flex-wrap">
-                <div class="item-contents news col-xl-8 col-lg-8 col-md-12 col-12">
+                <div class="item-contents news col-xl-8 col-lg-8 col-md-8 col-12">
                     <div class="title-news">
                         <span>НОВОСТИ</span>
                     </div>
@@ -108,7 +108,7 @@
                         <a href={{url('news')}}>Смотреть все новости <span></span></a>
                     </div>
                 </div>
-                <div class="item-contents events col-xl-4 col-lg-4 col-md-12 d-flex flex-column">
+                <div class="item-contents events col-xl-4 col-lg-4 col-md-4 d-flex flex-column">
                     <div class="title-events">
                         <span>БЛИЖАЙШИЕ МЕРОПРИЯТИЯ </span>
                     </div>
@@ -136,26 +136,26 @@
                                 @endif
                             </div>
                         @endforeach
-                            <div class="item-events">
-                                <article>
-                                    <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
-                                </article>
-                                <div class="d-flex flex-wrap justify-content-between">
-                                    <span class="date-events col-6"><span class="icon-date-events"></span>21 Декабря 2018</span>
-                                    <span class="location col-6"><span class="icon-location-events"></span>Москва</span>
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="item-events">
-                                <article>
-                                    <span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>
-                                </article>
-                                <div class="d-flex flex-wrap justify-content-between">
-                                    <span class="date-events col-6"><span class="icon-date-events"></span>21 Декабря 2018</span>
-                                    <span class="location col-6"><span class="icon-location-events"></span>Москва</span>
-                                </div>
-                                <hr>
-                            </div>
+                            {{--<div class="item-events">--}}
+                                {{--<article>--}}
+                                    {{--<span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>--}}
+                                {{--</article>--}}
+                                {{--<div class="d-flex flex-wrap justify-content-between">--}}
+                                    {{--<span class="date-events col-6"><span class="icon-date-events"></span>21 Декабря 2018</span>--}}
+                                    {{--<span class="location col-6"><span class="icon-location-events"></span>Москва</span>--}}
+                                {{--</div>--}}
+                                {{--<hr>--}}
+                            {{--</div>--}}
+                            {{--<div class="item-events">--}}
+                                {{--<article>--}}
+                                    {{--<span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>--}}
+                                {{--</article>--}}
+                                {{--<div class="d-flex flex-wrap justify-content-between">--}}
+                                    {{--<span class="date-events col-6"><span class="icon-date-events"></span>21 Декабря 2018</span>--}}
+                                    {{--<span class="location col-6"><span class="icon-location-events"></span>Москва</span>--}}
+                                {{--</div>--}}
+                                {{--<hr>--}}
+                            {{--</div>--}}
                         <div class="buttons-news" style="margin-top: 60px;">
                             <a href="{{url('events')}}" class="btn-event-page" style=" background-color: transparent">Смотреть все мероприятия <span></span></a>
                         </div>
@@ -171,7 +171,7 @@
                 <div class="title-media">Сми о нас</div>
                 <div class="media-news col-12 d-flex fle-wrap justify-content-between">
                     @foreach($smis as $smi)
-                        <div data-smis="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12 item-media-news d-flex">
+                        <div data-smis="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 item-media-news d-flex">
                             <a href="{{ $smi->link }}" target="_blank">
                                 <span class="source-media-news">{{ $smi->link_view }}</span>
                                 <span class="title-media-news">{{ $smi->title }}</span>
@@ -211,7 +211,7 @@
                     @endforeach
                 </div>
 
-                <div class="btns-congratulations d-flex justify-content-start">
+                <div class="btns-congratulations d-flex justify-content-xl-start justify-content-sm-center">
                     <a href="" class="btn-watch-congr">Смотреть все поздравления <span class="congr_watch"></span></a>
                     <a href="" class="btn-congr"><span class="congr_icon"></span>Поздравить МГИМО</a>
                 </div>

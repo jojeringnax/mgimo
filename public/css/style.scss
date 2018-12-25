@@ -178,6 +178,7 @@ nav {
 .contents {
     margin-top: 30;
     min-height: 1240px;
+    width: 100%;
     .buttons-news {
         position: absolute;
         bottom: 40px;
@@ -223,6 +224,7 @@ nav {
             }
         }
         .btn-event-page {
+            margin-left: 15px;
             &:hover {
                 background-color: transparent !important;
                 color: $mainColor !important;
@@ -488,9 +490,6 @@ nav {
     }
 }
 
-@media screen and (max-width: 1200px) {
-
-}
 /*===================MEDIA===================*/
 #media {
     margin-top: 40px;
@@ -1047,7 +1046,7 @@ nav {
         border-radius: 35px;
         justify-content: center;
         align-items: center;
-        padding: 0 10px 0 10px;
+        padding: 0 10px 0 0;
         i {
             width: 10px;
             height: 10px;
@@ -1139,6 +1138,7 @@ nav {
 
 .news {
     position: relative;
+    padding-bottom: 120px;
     .item-card-news {
         border: 1px solid #EAEAEA;
         width: 32%;
@@ -1149,7 +1149,7 @@ nav {
         box-shadow: none !important;
         cursor: pointer;
         &:hover {
-            box-shadow: 0 10px 15px rgba(0, 84, 185, 0.40) !important;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.10) !important;
             border: none;
         }
         img {
@@ -1664,6 +1664,7 @@ nav {
 }
 /*=====================LAYOUT_NEWS=====================*/
 .layout_news {
+    width: 100%;
     .title-news {
         font-family: $titleFont;
 
@@ -1684,8 +1685,9 @@ nav {
     #photos-news {
         .item-img-news {
             margin-bottom: 20px;
+            text-align: center;
             img {
-                width: 100%
+                width: 60% !important;
             }
         }
     }
@@ -1748,6 +1750,12 @@ p {
 
 .item-form-news-add {
     margin-bottom: 20px;
+    div {
+        input {
+            width: 100% !important;
+            outline: none;
+        }
+    }
 }
 
 .item-form-news-add-btn {
@@ -1947,16 +1955,9 @@ footer {
 
 .book_title {
     text-align: center;
-    a {
-        font-size: 16px;
-        font-weight: bold;
-        font-family: $titleFont;
-        text-align: center;
-        color: $mainColor;
-        &:hover {
-            color: $hoverLinkColor;
-        }
-    }
+    font-size: 16px;
+    text-align: center;
+    color: $mainColor;
 }
 
 .link-book-pay {
@@ -1984,23 +1985,159 @@ footer {
     }
 }
 
-.item-book-page {
+.link-book-pay-pages {
+    cursor: pointer;
+    margin-top: 30px;
+    text-align: center;
     display: flex;
-    align-items: stretch;
-    .card {
-        padding:10px 10px 100px 10px;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    a {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        color: $mainColor;
+        border: 1px solid $mainColor;
+        padding: 0;
+        width: 178px;
+        margin: 0 !important;
+        height: 55px;
+        font-weight: 600 !important;
+        &:hover {
+            color: white;
+            background-color: $mainColor;
+        }
     }
 }
 
-//@media screen and (min-width: 1200px){
-//    .container {
-//        max-width: 1320px !important;
-//        padding: 0 40px 0 40px !important;
-//
-//    }
-//}
+.item-book-page {
+    display: flex;
+    align-items: stretch;
+    .card-book {
+        padding:10px 10px 10px 10px;
+        &:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.10) !important;
+        }
+        .card-body {
+            .price-book {
+                color: #EB205E;
+                font-size: 16px;
+                font-weight: 500 !important;
+            }
+        }
+    }
+}
+
+.anniversary-img {
+    //position: fixed;
+    .item-img-news {
+        margin-top: 20px;
+
+    }
+}
+
+.album-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.album-delete-photos {
+    height: 100% !important;
+    .item-album-photo {
+        position: relative;
+        margin-top: 40px;
+        padding: 25px;
+        input {
+
+        }
+        .check-box-delete-item {
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            label {
+                &:before {
+                    //background-color: #303f9f;
+                }
+            }
+        }
+    }
+}
+
+.btn-soc-net {
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    padding: 0 !important;
+    cursor: pointer;
+    &:focus {
+        outline: none !important;
+    }
+    #vk {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon/vk-icon.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        outline: none;
+    }
+    #fb {
+        width: 40px;
+        height: 40px;
+        background-image: url("../img/icon/fb-icon.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        outline: none;
+    }
+}
+
+.item-partners-page {
+    margin-top: 150px;
+    &:first-child {
+        margin-top: 0;
+    }
+    .title-partners-page {
+        margin-bottom: 40px;
+        padding-left: 0 !important;
+        font-size: 16px;
+        color: $mainColor;
+    }
+    img {
+        height: 70px !important;
+    }
+}
+
+@media screen and(max-width: 1200px){
+    .contents {
+        .buttons-news {
+            a {
+                width: 250px;
+                font-size: 12px;
+            }
+
+        }
+    }
+    .date-events {
+        font-size: 10px !important;
+        align-items: center;
+        padding-left: 25px !important;
+        .icon-date-events {
+            height: 12px !important;
+            width: 12px !important;
+            margin-top: 0 !important;
+        }
+
+    }
+
+}
 
 @media screen and (max-width: 1000px){
+
     .container {
         max-width: 1320px !important;
         padding: 0 20px 0 20px !important;
@@ -2024,27 +2161,54 @@ footer {
         }
     }
     .contents {
+        min-height: 1120px;
         .news {
             .small-news {
                 .small-new {
                     article {
                         .content-small-new {
-                            width: 100%;
+                            width: 50%;
+                            //height: 100%;
+                            .date-link {
+                                margin: 0!important;
+                            }
+                            a {
+                                font-size: 20px !important;
+                            }
                         }
+                    }
+                    .img-small-new {
+                        display: flex;
+                        align-items: flex-start !important;
                     }
                 }
             }
         }
-        .events {
-            padding-bottom: 170px;
+    }
+    .item-media-news {
+        a {
+            .source-media-news {
+                font-size: 10px !important;
+            }
+            .title-media-news {
+                font-size: 12px !important;
+
+            }
+            .date-media-news {
+                font-size: 10px !important;
+            }
         }
+    }
+
+    .name-events {
+        font-size: 14px !important;
     }
     .date-link {
         margin-bottom: 140px;
     }
     .contents {
         .events {
-            margin: 40px 0 0 0 !important;
+            //margin: 40px 0 0 0 !important;
         }
     }
     .contents {
@@ -2055,6 +2219,25 @@ footer {
 }
 
 @media screen and (max-width: 500px){
+    .buttons-news {
+        position: static !important;
+        display: flex;
+        justify-content: center;
+        margin: 25px 0 50px 0;
+    }
+    .btns-congratulations {
+        justify-content: center !important;
+        display: flex;
+        .btn-congr {
+            margin-left: 0 !important;
+        }
+    }
+    .item-contents {
+        padding: 0!important;
+    }
+    .item-congratulations {
+        flex-wrap: wrap !important;
+    }
     .content-congratulations {
         div {
             .item-congratulations {
@@ -2087,5 +2270,51 @@ footer {
     }
     .date-link {
         margin-bottom: 140px;
+    }
+    .bg-gallery {
+        margin-top: 100px;
+    }
+    .big-photo {
+        text-align: center;
+        img {
+            margin-left: 0 !important;
+        }
+    }
+    .text-gallery {
+        align-items: center !important;
+        a {
+            margin-left: 0!important;
+        }
+    }
+    .img-small-new {
+        width: 100% !important;
+    }
+    .banner {
+        height: 250px;
+    }
+    .footers {
+        align-items: center !important;
+        justify-content: center !important;
+        .contact-footer {
+            justify-content: center !important;
+            align-items: center !important;
+            margin-top: 30px;
+            span {
+                align-items: center !important;
+            }
+        }
+        .button-footer {
+            margin-top: 50px;
+            button {
+                margin-bottom: 20px;
+            }
+        }
+        .nav-bot {
+            nav {
+                ul {
+                    margin-left: 25px;
+                }
+            }
+        }
     }
 }

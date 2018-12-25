@@ -230,11 +230,31 @@ class AdminController extends Controller
     {
         if($request->isMethod('post')) {
             $event = new Event();
+            $event->title = $request->post('title');
             $event->content = $request->post('content');
             $event->date = $request->post('date');
             $event->location = $request->post('location');
             $event->main = $request->post('main') === null ? 0 : 1;
             $event->save();
+            $files = isset($request->allFiles()['photos']) ? $request->allFiles()['photos'] : [];
+            $i = 0;
+            foreach ($files as $file) {
+                $i++;
+                $photo = new Photo();
+                $path = 'events/'.$event->id.'_'.$i.'.'.$file->getClientOriginalExtension();
+                Storage::put($path, file_get_contents($file->getPathname()));
+                $path = '/storage/photo/' . $path;
+                $photo->type = PhotoConnect::GALLERY;
+                $photo->path = $path;
+                $photo->sizeX = getimagesize($file->getPathname())[0];
+                $photo->sizeY = getimagesize($file->getPathname())[1];
+                $photo->save();
+                $photoConnect = new PhotoConnect();
+                $photoConnect->id = $photo->id;
+                $photoConnect->connect_id = $event->id;
+                $photoConnect->type = PhotoConnect::EVENT;
+                $photoConnect->save();
+            }
             if ($tags = $request->post('tags')) {
                 $tags = preg_split('/,/', $tags);
                 foreach ($tags as $tag) {
@@ -254,6 +274,7 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
+            $event->update(['main_photo_id' => $request->post('main_photo_id')]);
             return redirect()->route('events_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form');
@@ -273,9 +294,9 @@ class AdminController extends Controller
             $event = Event::find($eventId);
             $event->content = $request->post('content');
             $event->date = $request->post('date');
+            $event->title = $request->post('title');
             $event->location = $request->post('location');
             $event->main = $request->post('main') === null ? 0 : 1;
-            $event->save();
             if ($tags = $request->post('tags')) {
                 $tagConnects = TagConnect::event($eventId);
                 foreach ($tagConnects as $tagConnect) {
@@ -301,6 +322,36 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
+            if(isset($request->allFiles()['photos'])) {
+                $photos = $event->getPhotos();
+                if($photos !== null) {
+                    foreach ($photos as $photo) {
+                        $photo->delete();
+                    }
+                }
+                $files = $request->allFiles()['photos'];
+                $i = 0;
+                foreach ($files as $file) {
+                    $i++;
+                    $photo = new Photo();
+                    $path = 'events/'.$event->id.'_'.$i.'.'.$file->getClientOriginalExtension();
+                    Storage::put($path, file_get_contents($file->getPathname()));
+                    $path = '/storage/photo/' . $path;
+                    $photo->type = PhotoConnect::GALLERY;
+                    $photo->path = $path;
+                    $photo->sizeX = getimagesize($file->getPathname())[0];
+                    $photo->sizeY = getimagesize($file->getPathname())[1];
+                    $photo->save();
+                    $photoConnect = new PhotoConnect();
+                    $photoConnect->id = $photo->id;
+                    $photoConnect->connect_id = $event->id;
+                    $photoConnect->type = PhotoConnect::EVENT;
+                    $photoConnect->save();
+                }
+            }
+            $event->main_photo_id = $request->post('main_photo_id');
+            $event->save();
+
             return redirect()->route('events_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form', [
@@ -333,6 +384,7 @@ class AdminController extends Controller
             $smi->link = $request->post('link');
             $smi->link_view = $request->post('link_view');
             $smi->title = $request->post('title');
+            $smi->date = $request->post('date');
             $smi->save();
             return redirect()->route('smis_index');
         } elseif ($request->isMethod('get')) {
@@ -354,6 +406,7 @@ class AdminController extends Controller
             $smi->link = $request->post('link');
             $smi->link_view = $request->post('link_view');
             $smi->title = $request->post('title');
+            $smi->date = $request->post('date');
             $smi->save();
             return redirect()->route('smis_index');
         } elseif ($request->isMethod('get')) {
@@ -386,6 +439,7 @@ class AdminController extends Controller
             $congratulation->title = $request->post('title');
             $congratulation->content = $request->post('content');
             $congratulation->date = $request->post('date');
+            $congratulation->priority = $request->post('priority');
             $congratulation->save();
             if ($file = $request->file('file')) {
                 $photo = new Photo();
@@ -400,6 +454,23 @@ class AdminController extends Controller
                 $photo->video = $video;
                 $photo->save();
                 $congratulation->update(['main_photo_id' => $photo->id]);
+            }
+            if($files = $request->allFiles()['photos']) {
+                $i = 0;
+                foreach ($files as $file) {
+                    $i++;
+                    $photo = new Photo();
+                    $photo->type = PhotoConnect::GALLERY;
+                    $photo->path = '';
+                    $photo->sizeX = getimagesize($file->getPathname())[0];
+                    $photo->sizeY = getimagesize($file->getPathname())[1];
+                    $photo->save();
+                    $path = 'congratulations/' . $congratulation->id . '_' . $i . '.' . $file->getClientOriginalExtension();
+                    Storage::put($path, file_get_contents($file->getPathname()));
+                    $path = '/storage/photo/' . $path;
+                    $photo->path = $path;
+                    $photo->save();
+                }
             }
             return redirect()->route('congratulations_index');
         } elseif ($request->isMethod('get')) {
@@ -420,6 +491,7 @@ class AdminController extends Controller
             $congratulation->title = $request->post('title');
             $congratulation->content = $request->post('content');
             $congratulation->date = $request->post('date');
+            $congratulation->priority = $request->post('priority');
             if ($file = $request->file('file')) {
                 if ($photo = $congratulation->mainPhoto) {
                     $congratulation->update(['main_photo_id' => null]);
@@ -437,6 +509,27 @@ class AdminController extends Controller
                 $photo->video = (boolean) strpos('video', $_FILES['file']['type']);
                 $photo->save();
                 $congratulation->main_photo_id = $photo->id;
+            }
+            if($files = $request->allFiles()['photos']) {
+                $i = 0;
+                $oldPhotos = $congratulation->getPhotos();
+                foreach ($oldPhotos as $oldPhoto) {
+                    $oldPhoto->delete();
+                }
+                foreach ($files as $file) {
+                    $i++;
+                    $photo = new Photo();
+                    $photo->type = PhotoConnect::GALLERY;
+                    $photo->path = '';
+                    $photo->sizeX = getimagesize($file->getPathname())[0];
+                    $photo->sizeY = getimagesize($file->getPathname())[1];
+                    $photo->save();
+                    $path = 'congratulations/' . $congratulation->id . '_' . $i . '.' . $file->getClientOriginalExtension();
+                    Storage::put($path, file_get_contents($file->getPathname()));
+                    $path = '/storage/photo/' . $path;
+                    $photo->path = $path;
+                    $photo->save();
+                }
             }
             $congratulation->save();
             return redirect()->route('congratulations_index');
@@ -470,6 +563,9 @@ class AdminController extends Controller
             $book = new Book();
             $book->title = $request->post('title');
             $book->description = $request->post('description');
+            $book->link = $request->post('link');
+            $book->status = $request->post('status');
+            $book->price = $request->post('price');
             $book->save();
             if ($file = $request->file('photo')) {
                 $photo = new Photo();
@@ -501,7 +597,10 @@ class AdminController extends Controller
         if($request->isMethod('post')) {
             $book = Book::find($bookId);
             $book->title = $request->post('title');
+            $book->link = $request->post('link');
             $book->description = $request->post('description');
+            $book->status = $request->post('status');
+            $book->price = $request->post('price');
             if ($file = $request->file('photo')) {
                 if($book->cover_photo_id !== null) {
                     $coverPhoto = $book->coverPhoto;
@@ -552,6 +651,7 @@ class AdminController extends Controller
             $partner->link = $request->post('link');
             $partner->name = $request->post('name');
             $partner->priority = $request->post('priority');
+            $partner->category = $request->post('category');
             $partner->save();
             if ($file = $request->file('photo')) {
                 if($partner->cover_photo_id !== null) {
@@ -588,6 +688,7 @@ class AdminController extends Controller
             $partner = Partner::find($partnerId);
             $partner->link = $request->post('link');
             $partner->name = $request->post('name');
+            $partner->category = $request->post('category');
             $partner->priority = $request->post('priority');
             if ($file = $request->file('photo')) {
                 if($partner->cover_photo_id !== null) {
@@ -652,26 +753,53 @@ class AdminController extends Controller
      */
     public function albumFill($id, Request $request)
     {
+        $album = Album::find($id);
      if ($request->isMethod('post')) {
+
+         if ($tags = $request->post('tags')) {
+             $tagConnects = TagConnect::select('id')->where('connect_id', $album->id)->where('type', TagConnect::GALLERY);
+             $tagsModels = Tag::whereIn('id', $tagConnects->get())->get();
+             foreach ($tagsModels as $tag) {
+                 $tag->update(['count_news' => $tag->count_news - 1]);
+             }
+             $tagConnects->delete();
+             $tags = preg_split('/,/', $tags);
+             foreach ($tags as $tag) {
+                 $tagModel = Tag::where('word', $tag)->first();
+                 if ($tagModel === null) {
+                     $tagModel = new Tag();
+                     $tagModel->word = $tag;
+                     $tagModel->count_photos = 1;
+                     $tagModel->save();
+                 } else {
+                     $tagModel->update(['count_event', $tagModel->count_event + 1]);
+                 }
+                 $tagConnect = new TagConnect();
+                 $tagConnect->id = $tagModel->id;
+                 $tagConnect->connect_id = $album->id;
+                 $tagConnect->type = TagConnect::GALLERY;
+                 $tagConnect->save();
+             }
+         }
          $files = $request->allFiles()['photos'];
-         $i = 0;
          foreach ($files as $file) {
-             $i++;
              $photo = new Photo();
-             $path = 'gallery/album_' . $id . '/' . $i . '.' . $file->getClientOriginalExtension();
-             Storage::put($path, file_get_contents($file->getPathname()));
-             $path = '/storage/photo/' . $path;
              $photo->type = PhotoConnect::GALLERY;
-             $photo->path = $path;
+             $photo->path = '';
              $photo->sizeX = getimagesize($file->getPathname())[0];
              $photo->sizeY = getimagesize($file->getPathname())[1];
              $photo->album_id = $id;
+             $photo->save();
+             $path = 'gallery/album_' . $id . '/' . $photo->id . '.' . $file->getClientOriginalExtension();
+             Storage::put($path, file_get_contents($file->getPathname()));
+             $path = '/storage/photo/' . $path;
+             $photo->path = $path;
              $photo->save();
          }
          return redirect()->route('album_fill', ['id' => $id]);
      } elseif ($request->isMethod('get')) {
          return view('admin.gallery.album_fill', [
-             'album' => Album::find($id)
+             'album' => $album
          ]);
      }
      return 0;

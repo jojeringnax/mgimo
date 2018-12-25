@@ -96,6 +96,30 @@ class Photo extends Model
     }
 
     /**
+     * Return all photo Models for an congratulation by id.
+     *
+     * @param $articleId
+     * @return self[]
+     */
+    public static function getAllPhotosForCongratulation($congId)
+    {
+        $photoConnects = PhotoConnect::select('id')->where('type', PhotoConnect::CONGRATULATION)->where('connect_id', $congId)->get();
+        return self::whereIn('id', $photoConnects)->get();
+    }
+
+    /**
+     * Return all photo Models for an event by id.
+     *
+     * @param $eventId
+     * @return self[]
+     */
+    public static function getAllPhotosForEvent($eventId)
+    {
+        $photoConnects = PhotoConnect::select('id')->where('type', PhotoConnect::EVENT)->where('connect_id', $eventId)->get();
+        return self::whereIn('id', $photoConnects)->get();
+    }
+
+    /**
      * return all tags as array.
      *
      * @return array

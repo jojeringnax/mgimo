@@ -11,6 +11,8 @@
                             <th  class="text-center" scope="col">Title</th>
                             <th  class="text-center" scope="col">Description</th>
                             <th  class="text-center" scope="col">Cover_photo_id</th>
+                            <th  class="text-center" scope="col">Status</th>
+                            <th  class="text-center" scope="col">Price</th>
                             <th class="text-center" >Action</th>
                         </tr>
                     </thead>
@@ -20,8 +22,10 @@
                         <tr>
                             <td width="5%" class="text-center">{{ $element->id }}</td>
                             <td class="text-center">{{ $element->title }}</td>
-                            <td class="text-center">{!! html_entity_decode($element->description) !!}</td>
-                            <td class="text-center">{{ $element->cover_photo_id }}</td>
+                            <td class="text-center">{!! mb_strimwidth(html_entity_decode($element->description),0,230,'...') !!}</td>
+                            <td class="text-center">{{(isset($element->cover_photo_id) ?  $element->cover_photo_id : 'нет')}} </td>
+                            <td class="text-center">{{$element->status}} </td>
+                            <td class="text-center">{{$element->price}} </td>
                             <td width="10%" class="text-center action">
                                 {{ link_to_action('AdminController@updateBook', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
                                 {{ link_to_action('AdminController@deleteBook', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}

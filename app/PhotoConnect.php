@@ -30,6 +30,7 @@ class PhotoConnect extends Model
     const BOOK = 2;
     const CONGRATULATION = 3;
     const GALLERY = 4;
+    const EVENT = 5;
 
     /**
      * Return Photo of this Model.

@@ -32,7 +32,7 @@ class CreateTablePhotos extends Migration
      *
      * @return void
      */
-    public function down(
+    public function down()
     {
         Schema::table('photos', function (Blueprint $table) {
             $table->dropForeign('photos_album_id_foreign');

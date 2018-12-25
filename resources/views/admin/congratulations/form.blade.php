@@ -15,15 +15,18 @@
                 </div>
                 <div class="item-form-congratulation">
                     {{ Form::label('date', 'Выберите дату') }}
-                    {{--{{ Form::select('date',\App\Congratulation::getDatesArray()), array('class' => 'form-control') }}--}}
                     {{  Form::select('date', \App\Congratulation::getDatesArray(),  null, ['class' => 'form-control' ]) }}
+                </div>
+                <div class="item-form-congratulation">
+                    {{ Form::label('priority', 'Приоритет') }}
+                    {{ Form::number('priority', '1',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
                 </div>
                 <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
                     <div class="input-group-prepend clear">
                         <span class="input-group-text" id="photo2_area" data-file="второе">Upload</span>
                     </div>
                     <div class="custom-file">
-                        {{ Form::file('file', ['class' => 'form-control','area-describedby' => 'photo2_area','id' => 'photo'])}}
+                        {{ Form::file('photos', ['class' => 'form-control','area-describedby' => 'photo2_area','id' => 'photo'])}}
                         <label class="custom-file-label" for="photo">Загрузите фото или видео</label>
                     </div>
                 </div>
@@ -42,9 +45,6 @@
             </div>
         </div>
     </div>
-
-
-
 
     {{ Form::close() }}
 

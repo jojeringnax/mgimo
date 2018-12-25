@@ -21,5 +21,13 @@ class EventsController extends Controller
     {
         return view('events.index', ['events' => Event::all()]);
     }
+    public function show($id)
+    {
+        $event = Event::findOrFail($id);
+        return view('events.show', [
+            'event' => $event,
+            'eventPhotos' => $event->getPhotos()
+        ]);
+    }
 
 }
