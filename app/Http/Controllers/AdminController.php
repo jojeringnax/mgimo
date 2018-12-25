@@ -329,7 +329,7 @@ class AdminController extends Controller
                         $photo->delete();
                     }
                 }
-                $files = $request->allFiles();
+                $files = $request->allFiles()['photos'];
                 $i = 0;
                 foreach ($files as $file) {
                     $i++;
