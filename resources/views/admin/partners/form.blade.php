@@ -7,11 +7,11 @@
                 {{ !isset($partner) ? Form::open(array('action' => 'AdminController@createPartner', 'files' => true, 'class'=>'news-form')) : Form::model($partner, ['files' => true, 'class'=>'partner-form']) }}
 
                 {{ Form::label('link', 'Ссылка') }}
-                {{ Form::text('link', isset($partner) ? $partner->link : '',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
+                {{ Form::text('link', isset($partner) ? $partner->link : '',['class' => 'form-control item-form-news-add','placeholder' => 'Ссылка на сайт партнера']) }}
 
 
                 {{ Form::label('name', 'Имя партнера') }}
-                {{ Form::text('name', isset($partner) ? $partner->name : '',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
+                {{ Form::text('name', isset($partner) ? $partner->name : '',['class' => 'form-control item-form-news-add','placeholder' => 'Наименование']) }}
 
 
                 {{ Form::label('category', 'Категория') }}
@@ -20,11 +20,10 @@
                     \App\Partner::GENERAL_SPONSORS => 'Генеральные спонсоры',
                     \App\Partner::SPONSORS => 'Спонсоры',
                     \App\Partner::INFORM_PARTNERS => 'Информационные партнеры'
-                ]) }}
+                ], null, ['class' => 'custom-select']) }}
 
 
-                {{ Form::label('priority', 'Приоритет') }}
-                {{ Form::number('priority', isset($partner) ? $partner->priority : '5',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
+                {{ Form::number('priority', isset($partner) ? $partner->priority : '5',['class' => 'form-control item-form-news-add hide','placeholder' => 'МГИМО лучший вуз в мире']) }}
 
                 <div class="input-group col-xl-12 item-form-news-add">
                     <div class="input-group-prepend clear">

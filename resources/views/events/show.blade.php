@@ -8,29 +8,25 @@
             <div class="layout_news d-flex flex-wrap">
                 <div id="photos-news" class="col-xl-6 col-lg-5 col-md-6 col-sm-12 col-12 d-flex flex-column">
                     <div class="item-img-news">
-                        <img src="{{ $article->mainPhoto->path }}" alt="" style="width: 100%">
+                        @foreach($eventPhotos as $photo)
+                            <div class="item-img-news">
+                                <img src="{{ $photo->path }}" alt="" style="width: 100%">
+                            </div>
+                        @endforeach
                     </div>
-                    @foreach($articlePhotos as $photo)
-                        <div class="item-img-news">
-                            <img src="{{ $photo->path }}" alt="" style="width: 100%">
-                        </div>
-                    @endforeach
                 </div>
-                <div class="col-xl-6 col-lg-7 col-md-6 col-sm-12 col-12 d-flex flex-column justify-content-center">
+                <div class="col-xl-6 col-lg-7 col-md-6 col-sm-12 col-12 d-flex flex-column justify-content-start">
                     <div class="title-news">
-                        <h2>{{ $article->title }}</h2>
+                        <h2>{{ $event->title }}</h2>
                     </div>
                     <div class="attr">
-                        <div class="date">19 ноября, 18:00</div>
-                        <div class="locations">Москва, ТЦ «Армянин»</div>
+                        <div class="date">{{ $event->date }}</div>
+                        <div class="locations">{{ $event->location }}</div>
                     </div>
                     <div class="text-news">
-                        {!! html_entity_decode($article->content) !!}
+                        {!! html_entity_decode($event->content) !!}
                     </div>
                 </div>
-            </div>
-            <div class="soc-network">
-
             </div>
         </div>
     </div>

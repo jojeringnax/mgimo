@@ -1506,6 +1506,18 @@ footer {
     background-repeat: no-repeat;
     outline: none; }
 
+.item-partners-page {
+  margin-top: 150px; }
+  .item-partners-page:first-child {
+    margin-top: 0; }
+  .item-partners-page .title-partners-page {
+    margin-bottom: 40px;
+    padding-left: 0 !important;
+    font-size: 16px;
+    color: #1A2F3F; }
+  .item-partners-page img {
+    height: 70px !important; }
+
 @media screen and (max-width: 1200px) {
   .contents .buttons-news a {
     width: 250px;

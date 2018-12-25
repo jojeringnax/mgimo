@@ -9,9 +9,14 @@
 namespace App\Http\Controllers;
 
 
+use App\Partner;
+
 class PartnerController
 {
-
+    public function index()
+    {
+        return view('partners.index', ['partners' => Partner::all()]);
+    }
     //
 
 }
