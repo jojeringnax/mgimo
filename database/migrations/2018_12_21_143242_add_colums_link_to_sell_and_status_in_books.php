@@ -14,7 +14,7 @@ class AddColumsLinkToSellAndStatusInBooks extends Migration
     public function up()
     {
         Schema::table('books', function (Blueprint $table) {
-            $table->addColumn('string', 'link', ['length' => 128]);
+            $table->addColumn('text', 'link');
             $table->addColumn('integer', 'status', ['length' => 1]);
         });
     }
