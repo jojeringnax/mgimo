@@ -79,4 +79,14 @@ class Congratulation extends Model
         }
         return $resultArray;
     }
+
+    /**
+     * Return all Photo model through PhotoConnects.
+     *
+     * @return Photo[]
+     */
+    public function getPhotos()
+    {
+        return Photo::getAllPhotosForCongratulation($this->id);
+    }
 }

@@ -294,6 +294,7 @@ class AdminController extends Controller
             $event = Event::find($eventId);
             $event->content = $request->post('content');
             $event->date = $request->post('date');
+            $event->title = $request->post('title');
             $event->location = $request->post('location');
             $event->main = $request->post('main') === null ? 0 : 1;
             if ($tags = $request->post('tags')) {
@@ -451,6 +452,23 @@ class AdminController extends Controller
                 $photo->save();
                 $congratulation->update(['main_photo_id' => $photo->id]);
             }
+            if($files = $request->allFiles()['photos']) {
+                $i = 0;
+                foreach ($files as $file) {
+                    $i++;
+                    $photo = new Photo();
+                    $photo->type = PhotoConnect::GALLERY;
+                    $photo->path = '';
+                    $photo->sizeX = getimagesize($file->getPathname())[0];
+                    $photo->sizeY = getimagesize($file->getPathname())[1];
+                    $photo->save();
+                    $path = 'congratulations/' . $congratulation->id . '_' . $i . '.' . $file->getClientOriginalExtension();
+                    Storage::put($path, file_get_contents($file->getPathname()));
+                    $path = '/storage/photo/' . $path;
+                    $photo->path = $path;
+                    $photo->save();
+                }
+            }
             return redirect()->route('congratulations_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form');
@@ -489,6 +507,27 @@ class AdminController extends Controller
                 $photo->save();
                 $congratulation->main_photo_id = $photo->id;
             }
+            if($files = $request->allFiles()['photos']) {
+                $i = 0;
+                $oldPhotos = $congratulation->getPhotos();
+                foreach ($oldPhotos as $oldPhoto) {
+                    $oldPhoto->delete();
+                }
+                foreach ($files as $file) {
+                    $i++;
+                    $photo = new Photo();
+                    $photo->type = PhotoConnect::GALLERY;
+                    $photo->path = '';
+                    $photo->sizeX = getimagesize($file->getPathname())[0];
+                    $photo->sizeY = getimagesize($file->getPathname())[1];
+                    $photo->save();
+                    $path = 'congratulations/' . $congratulation->id . '_' . $i . '.' . $file->getClientOriginalExtension();
+                    Storage::put($path, file_get_contents($file->getPathname()));
+                    $path = '/storage/photo/' . $path;
+                    $photo->path = $path;
+                    $photo->save();
+                }
+            }
             $congratulation->save();
             return redirect()->route('congratulations_index');
         } elseif ($request->isMethod('get')) {
@@ -521,6 +560,7 @@ class AdminController extends Controller
             $book = new Book();
             $book->title = $request->post('title');
             $book->description = $request->post('description');
+            $book->link = $request->post('link');
             $book->price = $request->post('price');
             $book->save();
             if ($file = $request->file('photo')) {
@@ -553,6 +593,7 @@ class AdminController extends Controller
         if($request->isMethod('post')) {
             $book = Book::find($bookId);
             $book->title = $request->post('title');
+            $book->link = $request->post('link');
             $book->description = $request->post('description');
             $book->price = $request->post('price');
             if ($file = $request->file('photo')) {
@@ -707,7 +748,7 @@ class AdminController extends Controller
     {
         $album = Album::find($id);
      if ($request->isMethod('post')) {
-         $files = $request->allFiles()['photos'];
+
          if ($tags = $request->post('tags')) {
              $tagConnects = TagConnect::select('id')->where('connect_id', $album->id)->where('type', TagConnect::GALLERY);
              $tagsModels = Tag::whereIn('id', $tagConnects->get())->get();
@@ -733,6 +774,7 @@ class AdminController extends Controller
                  $tagConnect->save();
              }
          }
+         $files = $request->allFiles()['photos'];
          foreach ($files as $file) {
              $photo = new Photo();
              $photo->type = PhotoConnect::GALLERY;
