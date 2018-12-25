@@ -113,7 +113,7 @@ class Photo extends Model
      * @param $eventId
      * @return self[]
      */
-    public function getAllPhotosForEvent($eventId)
+    public static function getAllPhotosForEvent($eventId)
     {
         $photoConnects = PhotoConnect::select('id')->where('type', PhotoConnect::EVENT)->where('connect_id', $eventId)->get();
         return self::whereIn('id', $photoConnects)->get();

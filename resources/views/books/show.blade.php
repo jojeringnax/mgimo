@@ -11,10 +11,10 @@
             <div class="layout_news d-flex flex-wrap">
                 <div id="photos-news" class="col-5 d-flex flex-column">
                     <div class="item-img-news" style="text-align: center">
-                        <img src="{{ $article->CoverPhoto->path }}" alt="" style="width: 70%;">
+                        <img src="{{ $article->CoverPhoto->path }}" alt="" style="width: 55%;">
                     </div>
                     <div class="link-book-pay-pages">
-                        <a href="" style="text-align: center">Купить</a>
+                        <a href="{{$article->link}}" style="text-align: center" target="_blank">Купить</a>
                     </div>
                 </div>
                 <div class="col-7 d-flex flex-column align-items-start justify-content-start">

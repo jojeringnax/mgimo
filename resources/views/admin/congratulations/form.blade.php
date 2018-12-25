@@ -26,7 +26,7 @@
                         <span class="input-group-text" id="photo2_area" data-file="второе">Upload</span>
                     </div>
                     <div class="custom-file">
-                        {{ Form::file('file', ['class' => 'form-control','area-describedby' => 'photo2_area','id' => 'photo'])}}
+                        {{ Form::file('photos', ['class' => 'form-control','area-describedby' => 'photo2_area','id' => 'photo'])}}
                         <label class="custom-file-label" for="photo">Загрузите фото или видео</label>
                     </div>
                 </div>
@@ -45,9 +45,6 @@
             </div>
         </div>
     </div>
-
-
-
 
     {{ Form::close() }}
 

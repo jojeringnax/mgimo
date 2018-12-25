@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-8 d-flex flex-column">
-                {{ request()->route()->getActionMethod() !== 'updateEvent' ? Form::open(array('action' => 'AdminController@createEvent', 'class'=>'event-form')) : Form::model($event, ['class'=>'event-form']) }}
+                {{ request()->route()->getActionMethod() !== 'updateEvent' ? Form::open(array('action' => 'AdminController@createEvent', 'class'=>'event-form', 'files' => true)) : Form::model($event, ['class'=>'event-form', 'files' => true]) }}
                 {{ Form::label('title', 'Заколовок') }}
                 {{ Form::text('title', !isset($event) ? '' : $event->title, ['class' => 'form-control']) }}
                 <div class="item-form-event">
@@ -33,6 +33,16 @@
                 <div class="item-form-event custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="main">
                     <label class="custom-control-label" for="main">Main</label>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        {{ Form::file('photos', ['class' => 'input-default-js custom-file-input', 'area-describedby' => 'photo_area', 'id' => 'photo', 'multiple' => 'multiple']) }}
+                        {{--<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">--}}
+                        <label class="custom-file-label" for="inputGroupFile01">Choose files</label>
+                    </div>
                 </div>
                 {{--{{ Form::label('main') }}--}}
                 {{--{{ Form::checkbox('main') }}--}}
