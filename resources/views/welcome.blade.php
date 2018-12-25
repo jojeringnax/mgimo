@@ -116,7 +116,7 @@
                         @foreach($events as $event)
                             <div class="item-events">
                                 <article>
-                                    <span class="name-events">{{ $event->content }}</span>
+                                    <span class="name-events">{{ $event->title }}</span>
                                 </article>
                                 <div class="d-flex flex-wrap justify-content-between">
                                     <span class="date-events col-6">
