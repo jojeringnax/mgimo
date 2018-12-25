@@ -34,6 +34,9 @@ Route::get('smis', 'SmiController@index');
 Route::get('anniversary', function() {
     return view('anniversary');
 });
+
+Route::get('partners', 'PartnerController@index');
+
 /**
  * Admin routes
  */

@@ -2096,6 +2096,22 @@ footer {
     }
 }
 
+.item-partners-page {
+    margin-top: 150px;
+    &:first-child {
+        margin-top: 0;
+    }
+    .title-partners-page {
+        margin-bottom: 40px;
+        padding-left: 0 !important;
+        font-size: 16px;
+        color: $mainColor;
+    }
+    img {
+        height: 70px !important;
+    }
+}
+
 @media screen and(max-width: 1200px){
     .contents {
         .buttons-news {

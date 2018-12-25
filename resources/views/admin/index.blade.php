@@ -32,6 +32,9 @@
                             <div id="books-adm" class="col-xl-3 col-lg-3 col-md-3 col-sm-12 item-admin-dashboard">
                                 {{ link_to('admin/gallery', 'ГАЛЕРЕЯ', ['class' => 'card d-flex justify-content-center align-items-center']) }}
                             </div>
+                            <div id="books-adm" class="col-xl-3 col-lg-3 col-md-3 col-sm-12 item-admin-dashboard">
+                                {{ link_to('admin/partners', 'Партнеры', ['class' => 'card d-flex justify-content-center align-items-center']) }}
+                            </div>
                         </div>
                     </div>
                 </div>
