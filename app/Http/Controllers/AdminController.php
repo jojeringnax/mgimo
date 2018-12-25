@@ -236,7 +236,7 @@ class AdminController extends Controller
             $event->location = $request->post('location');
             $event->main = $request->post('main') === null ? 0 : 1;
             $event->save();
-            $files = isset($request->allFiles()['photos']) ? $request->allFiles()['photos'] : [];
+            $files = $request->allFiles()['photos'] ? $request->allFiles()['photos'] : [];
             $i = 0;
             foreach ($files as $file) {
                 $i++;
