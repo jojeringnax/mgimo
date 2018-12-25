@@ -26,7 +26,7 @@ class AddColumnPriorityToCongratulations extends Migration
     public function down()
     {
         Schema::table('congratulations', function (Blueprint $table) {
-            $table->dropColumn('tinyInteger');
+            $table->dropColumn('priority');
         });
     }
 }
