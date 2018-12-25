@@ -13,6 +13,16 @@
                 {{ Form::label('name', 'Имя партнера') }}
                 {{ Form::text('name', isset($partner) ? $partner->name : '',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
 
+
+                {{ Form::label('category', 'Категория') }}
+                {{ Form::select('category',[
+                    \App\Partner::ORGANIZATORS => 'Организаторы',
+                    \App\Partner::GENERAL_SPONSORS => 'Генеральные спонсоры',
+                    \App\Partner::SPONSORS => 'Спонсоры',
+                    \App\Partner::INFORM_PARTNERS => 'Информационные партнеры'
+                ]) }}
+
+
                 {{ Form::label('priority', 'Приоритет') }}
                 {{ Form::number('priority', isset($partner) ? $partner->priority : '5',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
 

@@ -651,6 +651,7 @@ class AdminController extends Controller
             $partner->link = $request->post('link');
             $partner->name = $request->post('name');
             $partner->priority = $request->post('priority');
+            $partner->category = $request->post('category');
             $partner->save();
             if ($file = $request->file('photo')) {
                 if($partner->cover_photo_id !== null) {
@@ -687,6 +688,7 @@ class AdminController extends Controller
             $partner = Partner::find($partnerId);
             $partner->link = $request->post('link');
             $partner->name = $request->post('name');
+            $partner->category = $request->post('category');
             $partner->priority = $request->post('priority');
             if ($file = $request->file('photo')) {
                 if($partner->cover_photo_id !== null) {

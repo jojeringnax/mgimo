@@ -19,6 +19,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Partner extends Model
 {
+
+    const ORGANIZATORS = 0;
+    const GENERAL_SPONSORS = 1;
+    const SPONSORS = 2;
+    const INFORM_PARTNERS = 3;
+
+
     /**
      * @var string
      */
