@@ -383,6 +383,7 @@ class AdminController extends Controller
             $smi->link = $request->post('link');
             $smi->link_view = $request->post('link_view');
             $smi->title = $request->post('title');
+            $smi->date = $request->post('date');
             $smi->save();
             return redirect()->route('smis_index');
         } elseif ($request->isMethod('get')) {
@@ -404,6 +405,7 @@ class AdminController extends Controller
             $smi->link = $request->post('link');
             $smi->link_view = $request->post('link_view');
             $smi->title = $request->post('title');
+            $smi->date = $request->post('date');
             $smi->save();
             return redirect()->route('smis_index');
         } elseif ($request->isMethod('get')) {
