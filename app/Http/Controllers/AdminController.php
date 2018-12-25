@@ -563,6 +563,7 @@ class AdminController extends Controller
             $book->title = $request->post('title');
             $book->description = $request->post('description');
             $book->link = $request->post('link');
+            $book->status = $request->post('status');
             $book->price = $request->post('price');
             $book->save();
             if ($file = $request->file('photo')) {
@@ -597,6 +598,7 @@ class AdminController extends Controller
             $book->title = $request->post('title');
             $book->link = $request->post('link');
             $book->description = $request->post('description');
+            $book->status = $request->post('status');
             $book->price = $request->post('price');
             if ($file = $request->file('photo')) {
                 if($book->cover_photo_id !== null) {
