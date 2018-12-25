@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="form-book col-12 d-flex justify-content-center">
-            {{ !isset($book) ? Form::open(array('action' => 'AdminController@createBook', 'files' => true, 'class'=>'book-form col-xl-8')) : Form::model($book, ['files' => true, 'class'=>'book-form']) }}
+            {{ !isset($book) ? Form::open(array('action' => 'AdminController@createBook', 'files' => true, 'class'=>'book-form col-xl-8')) : Form::model($book, ['files' => true, 'class'=>'book-form col-xl-8']) }}
             <div class="item-book-admin col-xl-12">
                 {{ Form::label('title', 'Название книги') }}
                 {{ Form::text('title', isset($book) ? $book->title : '',['class' => 'form-control']) }}
@@ -21,21 +21,16 @@
                 <input type="hidden" name="description" id="description"/>
             </div>
             <div class="col-xl-12 item-book-admin">
-                <div class="check-box-delete-item custom-control custom-checkbox custom-control-inline">
-                    {{ Form::checkbox('onsale',null,null, ['class' => 'custom-control-input', 'id' => 'onsale']) }}
-                    <label class="custom-control-label" for="onsale">В продаже</label>
-                </div>
+                {{Form::select('status',['0' => 'Ожидается', '1' => 'В продаже'],null,['class' => 'custom-select'])}}
             </div>
             <div class="col-xl-12 item-book-admin">
-                {{ Form::label('link', 'Ссылка на покупку книги') }}
-                {{ Form::text('link', null, ['class' => 'form-control']) }}
+                {{ Form::label('link', '','Ссылка на покупку книги') }}
+                {{ Form::text('link', isset($book) ? $book->link : '', ['class' => 'form-control']) }}
             </div>
             <div class="col-xl-12 item-book-admin">
                 {{ Form::label('price', 'Цена за книгу') }}
-                {{ Form::text('price', null, ['class' => 'form-control']) }}
+                {{ Form::text('price', isset($book) ? $book->price : '', ['class' => 'form-control']) }}
             </div>
-
-
 
             <div class="input-group col-xl-12 item-book-admin">
                 <div class="input-group-prepend clear">
@@ -59,9 +54,7 @@
                 </div>
             </div>
 
-
             {{ Form::submit('Сохранить',['class' => 'btn btn-primary']) }}
-
 
             {{ Form::close() }}
         </div>

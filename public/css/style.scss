@@ -178,6 +178,7 @@ nav {
 .contents {
     margin-top: 30;
     min-height: 1240px;
+    width: 100%;
     .buttons-news {
         position: absolute;
         bottom: 40px;
@@ -223,6 +224,7 @@ nav {
             }
         }
         .btn-event-page {
+            margin-left: 15px;
             &:hover {
                 background-color: transparent !important;
                 color: $mainColor !important;
@@ -1044,7 +1046,7 @@ nav {
         border-radius: 35px;
         justify-content: center;
         align-items: center;
-        padding: 0 10px 0 10px;
+        padding: 0 10px 0 0;
         i {
             width: 10px;
             height: 10px;
@@ -1136,6 +1138,7 @@ nav {
 
 .news {
     position: relative;
+    padding-bottom: 120px;
     .item-card-news {
         border: 1px solid #EAEAEA;
         width: 32%;
@@ -1661,6 +1664,7 @@ nav {
 }
 /*=====================LAYOUT_NEWS=====================*/
 .layout_news {
+    width: 100%;
     .title-news {
         font-family: $titleFont;
 
@@ -1681,8 +1685,9 @@ nav {
     #photos-news {
         .item-img-news {
             margin-bottom: 20px;
+            text-align: center;
             img {
-                width: 100%
+                width: 60% !important;
             }
         }
     }
@@ -1950,16 +1955,9 @@ footer {
 
 .book_title {
     text-align: center;
-    a {
-        font-size: 16px;
-        font-weight: bold;
-        font-family: $titleFont;
-        text-align: center;
-        color: $mainColor;
-        &:hover {
-            color: $hoverLinkColor;
-        }
-    }
+    font-size: 16px;
+    text-align: center;
+    color: $mainColor;
 }
 
 .link-book-pay {
@@ -2004,9 +2002,9 @@ footer {
         color: $mainColor;
         border: 1px solid $mainColor;
         padding: 0;
-        width: 100px;
+        width: 178px;
         margin: 0 !important;
-        height: 34px;
+        height: 55px;
         font-weight: 600 !important;
         &:hover {
             color: white;
@@ -2018,8 +2016,18 @@ footer {
 .item-book-page {
     display: flex;
     align-items: stretch;
-    .card {
-        padding:10px 10px 100px 10px;
+    .card-book {
+        padding:10px 10px 10px 10px;
+        &:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.10) !important;
+        }
+        .card-body {
+            .price-book {
+                color: #EB205E;
+                font-size: 16px;
+                font-weight: 500 !important;
+            }
+        }
     }
 }
 

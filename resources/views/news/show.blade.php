@@ -18,7 +18,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="col-xl-6 col-lg-7 col-md-6 col-sm-12 col-12 d-flex flex-column justify-content-center">
+                <div class="col-xl-6 col-lg-7 col-md-6 col-sm-12 col-12 d-flex flex-column justify-content-start">
                     <div class="title-news">
                         <h2>{{ $article->title }}</h2>
                     </div>

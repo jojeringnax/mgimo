@@ -38,7 +38,7 @@ $(document).ready(function () {
 
     $('.form-book').submit(function(){
         $('#description').attr('value', $('#editor > .ql-editor').html());
-        alert($('#description').val());
+        //alert($('#description').val());
         console.log($('#description').val(), 'asd', $('#editor > .ql-editor').html());
         return true;
     });

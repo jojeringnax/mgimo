@@ -11,13 +11,6 @@
             <div class="gallery-page d-flex flex-wrap">
                 <div class="title-gallery-page">
                     <span>Галлерея</span>
-                    <div class="tag">
-                        <?php for ($i=1;$i<=6;$i++) { ?>
-                        <div class="item-tags">
-                            Рубрика
-                        </div>
-                        <?php } ?>
-                    </div>
                 </div>
                 <div class="items-partners d-flex col-12 flex-wrap">
                     @foreach($albums as $album)
