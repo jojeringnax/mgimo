@@ -236,7 +236,7 @@ class AdminController extends Controller
             $event->location = $request->post('location');
             $event->main = $request->post('main') === null ? 0 : 1;
             $event->save();
-            $files = isset($request->allFiles()['photos']) ? $request->allFiles['photos'] : [];
+            $files = isset($request->allFiles()['photos']) ? $request->allFiles()['photos'] : [];
             $i = 0;
             foreach ($files as $file) {
                 $i++;
@@ -329,7 +329,7 @@ class AdminController extends Controller
                         $photo->delete();
                     }
                 }
-                $files = $request->allFiles()['photos'];
+                $files = $request->allFiles();
                 $i = 0;
                 foreach ($files as $file) {
                     $i++;
@@ -351,6 +351,7 @@ class AdminController extends Controller
             }
             $event->main_photo_id = $request->post('main_photo_id');
             $event->save();
+
             return redirect()->route('events_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form', [
