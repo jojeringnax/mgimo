@@ -118,18 +118,20 @@
                                         {{--<span class="tag">{{ $tag }}</span>--}}
                                     {{--@endforeach--}}
                                 {{--</div>--}}
-                                <div class="item">
-                                    <span class="title-item">
-                                        {{ $event->content }}
-                                    </span>
-                                    <span class="date-item"></span>
-                                    <script>
-                                        $(document).ready(function(){
-                                            $('.date-item').html("<i></i>" + ("{{ date('d', strtotime($event->date)) }}") + " " + nameMonth[("{{ date('m', strtotime($event->date)) }}")] + " " + ("{{ date('Y', strtotime($event->date)) }}"));
-                                        });
-                                    </script>
-                                    <span class="location-item"><i></i>{{ $event->location }}</span>
-                                </div>
+                                <a href="{{url('events/show/'.$event->id)}}">
+                                    <div class="item">
+                                        <span class="title-item">
+                                            {{ $event->title }}
+                                        </span>
+                                        <span class="date-item"></span>
+                                        <script>
+                                            $(document).ready(function(){
+                                                $('.date-item').html("<i></i>" + ("{{ date('d', strtotime($event->date)) }}") + " " + nameMonth[("{{ date('m', strtotime($event->date)) }}")] + " " + ("{{ date('Y', strtotime($event->date)) }}"));
+                                            });
+                                        </script>
+                                        <span class="location-item"><i></i>{{ $event->location }}</span>
+                                    </div>
+                                </a>
                                 @if($loop->index%3 !== 2)
                                     <hr>
                                 @endif

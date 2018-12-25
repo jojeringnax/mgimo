@@ -23,6 +23,7 @@ Route::get('books', 'BookController@index');
 Route::get('books/show/{id}', 'BookController@show');
 
 Route::get('events', 'EventsController@index');
+Route::get('events/show/{id}', 'EventsController@show');
 
 Route::get('congratulations', 'CongratulationController@index');
 
