@@ -882,10 +882,11 @@ nav {
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            height: 100%;
 
             .item-partner {
                 width: 145px;
-                height: 43px;
+                height: 135px;
                 //border: 1px solid $mainColor;
                 display: flex;
                 flex-direction: column;
@@ -893,8 +894,26 @@ nav {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                a {
+                    height: 100%;
+                    img {
+                        height: 100%;
+                    }
+                }
             }
 
+        }
+    }
+}
+.prtn {
+    .item {
+        .item-partner {
+            a {
+                img {
+                    max-height: 140px;
+                  
+                }
+            }
         }
     }
 }

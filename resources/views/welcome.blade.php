@@ -246,18 +246,18 @@
                             <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center">
                                 <div class="item">
                         @else
-                            <div style="display: flex;justify-content: space-between;align-items: center;flex-direction: row;">
+                            <div class="prtn" style="display: flex;justify-content: space-around;align-items: center;flex-direction: row;">
                         @endif
                                 @foreach($partners as $partner)
                                     @if($loop->count <= 3)
                                         <div class="item" style="width: 200px;height: 50px">
                                             <div class="item-partner">
-                                                <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" style="width: 90% !important" /></a>
+                                                <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" /></a>
                                             </div>
                                         </div>
                                     @else
                                         <div class="item-partner">
-                                            <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" style="width: 90% !important" /></a>
+                                            <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" /></a>
                                         </div>
                                         @if($loop->iteration%2 === 0 && $loop->index !== 0 && !$loop->last)
                                             </div><div class="item">
