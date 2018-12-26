@@ -252,12 +252,12 @@
                                     @if($loop->count <= 3)
                                         <div class="item" style="width: 200px;height: 50px">
                                             <div class="item-partner">
-                                                <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : asset('img/no-img.png')}}" alt="" style="width: 90% !important" /></a>
+                                                <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" style="width: 90% !important" /></a>
                                             </div>
                                         </div>
                                     @else
                                         <div class="item-partner">
-                                            <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : asset('img/no-img.png')}}" alt="" style="width: 90% !important" /></a>
+                                            <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" style="width: 90% !important" /></a>
                                         </div>
                                         @if($loop->iteration%2 === 0 && $loop->index !== 0 && !$loop->last)
                                             </div><div class="item">
