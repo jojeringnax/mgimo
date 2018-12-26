@@ -53,11 +53,17 @@ nav {
     justify-content: center; }
     nav div ul li {
       margin-left: 40px; }
+      nav div ul li:first-child {
+        margin-left: 0; }
+        nav div ul li:first-child a {
+          padding-left: 0 !important; }
       nav div ul li a {
         text-transform: none !important;
         font-size: 14px !important;
         color: #1A2F3F !important;
         font-weight: 600 !important; }
+        nav div ul li a:hover {
+          color: #e74237 !important; }
 
 .banner {
   margin-top: 100px;
@@ -147,7 +153,7 @@ nav {
         background-color: #1A2F3F;
         color: white !important; }
         .contents .buttons-news a:hover span {
-          background-image: url("../img/icon/partner/white-arrow.svg");
+          background-image: url("../img/icon/red-arrow.svg");
           margin-left: 15px;
           display: block;
           width: 20px;
@@ -227,6 +233,8 @@ nav {
             border-radius: 5px;
             margin-right: 9px;
             margin-top: -1px; }
+          .contents .news .big-news article .tag span {
+            font-size: 12px !important; }
         .contents .news .big-news article .date-news {
           font-size: 12px;
           color: white; }
@@ -283,6 +291,8 @@ nav {
                 border-radius: 5px;
                 margin-right: 9px;
                 margin-top: -2px; }
+              .contents .news .small-news .small-new article .content-small-new .tag span {
+                font-size: 12px !important; }
             .contents .news .small-news .small-new article .content-small-new .date-link .date-news {
               font-size: 12px;
               /*text-align: center;*/
@@ -366,12 +376,14 @@ nav {
       display: flex;
       align-items: start;
       position: relative;
-      min-height: 200px;
+      min-height: 220px;
       margin-top: 30px;
       padding-bottom: 15px; }
       .content-media .media-news .item-media-news[data-smis='0'] {
         margin-left: 0 !important;
         padding-left: 0 !important; }
+        .content-media .media-news .item-media-news[data-smis='0'] a .title-media-news {
+          margin-left: 0 !important; }
       .content-media .media-news .item-media-news a {
         text-decoration: none !important; }
         .content-media .media-news .item-media-news a .source-media-news {
@@ -421,7 +433,7 @@ nav {
       background-color: #1A2F3F;
       color: white !important; }
       .btn-media a:hover span {
-        background-image: url("../img/icon/partner/white-arrow.svg");
+        background-image: url("../img/icon/red-arrow.svg");
         margin-left: 15px;
         display: block;
         width: 20px;
@@ -461,6 +473,7 @@ nav {
         background-color: #1A2F3F;
         color: white; }
   .content-congratulations div .item-congratulations {
+    border: 1px solid #EAEAEA;
     height: 250px;
     width: 49%;
     margin-top: 2%;
@@ -468,6 +481,9 @@ nav {
     align-items: center;
     flex-direction: row;
     padding: 20px 20px 20px 20px; }
+    .content-congratulations div .item-congratulations:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1) !important;
+      border: none; }
     .content-congratulations div .item-congratulations img {
       cursor: pointer;
       height: 80%;
@@ -520,7 +536,7 @@ nav {
         background-color: #1A2F3F;
         color: white; }
         .content-congratulations .btns-congratulations .btn-watch-congr:hover .congr_watch {
-          background-image: url("../img/icon/partner/white-arrow.svg");
+          background-image: url("../img/icon/red-arrow.svg");
           margin-left: 15px;
           display: block;
           width: 20px;
@@ -563,7 +579,6 @@ nav {
   background-color: #1A2F3F;
   opacity: 0.2;
   width: 100%;
-  height: 1px;
   margin-top: 100px; }
 
 .active-item-tags-congratulations {
@@ -588,7 +603,7 @@ nav {
   min-height: 500px;
   width: 100%;
   flex-wrap: wrap;
-  padding: 100px 0 100px 0; }
+  padding: 100px 100px 100px 0; }
   .gallery-content .big-photo {
     opacity: 1; }
     .gallery-content .big-photo img {
@@ -700,7 +715,7 @@ nav {
     background-color: #1A2F3F;
     color: white; }
     .btn-partners:hover span {
-      background-image: url("../img/icon/partner/white-arrow.svg");
+      background-image: url("../img/icon/red-arrow.svg");
       margin-left: 15px;
       display: block;
       width: 20px;
@@ -922,7 +937,7 @@ nav {
       background-color: #1A2F3F;
       color: white !important; }
       .event-page .title-event-page a:hover span {
-        background-image: url("../img/icon/partner/white-arrow.svg");
+        background-image: url("../img/icon/partner/red-arrow.svg");
         margin-left: 15px;
         display: block;
         width: 20px;
