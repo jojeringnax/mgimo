@@ -286,7 +286,7 @@ nav {
             .contents .news .small-news .small-new article .content-small-new .date-link .date-news {
               font-size: 12px;
               /*text-align: center;*/
-              color: #A5A5A5; }
+              color: #e74237; }
             .contents .news .small-news .small-new article .content-small-new .date-link a {
               color: #1A2F3F;
               text-decoration: underline; }
@@ -318,7 +318,7 @@ nav {
       .contents .events .item-events .date-events {
         font-size: 12px;
         margin: 18px 0 0 0;
-        color: #A5A5A5;
+        color: #e74237;
         position: relative;
         display: flex;
         justify-content: center; }
@@ -334,7 +334,7 @@ nav {
         font-size: 12px;
         margin: 18px 0 0 0;
         display: block;
-        color: #A5A5A5;
+        color: #e74237;
         position: relative;
         padding-left: 30px; }
         .contents .events .item-events .location .icon-location-events {
@@ -393,7 +393,7 @@ nav {
           position: absolute;
           bottom: 30px;
           margin-left: 10px;
-          color: #A5A5A5;
+          color: #e74237;
           font-size: 12px; }
       .content-media .media-news .item-media-news hr {
         position: absolute;
