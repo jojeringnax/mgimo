@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $main_photo_id
  * @property Photo $mainPhoto
  * @property int $priority
+ * @property bool $moderated
  *
  */
 class Congratulation extends Model
@@ -78,6 +79,14 @@ class Congratulation extends Model
             }
         }
         return $resultArray;
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getModerated($limit=4,$offset=0)
+    {
+        return self::where('moderated', true)->limit($limit)->skip($offset)->get();
     }
 
     /**
