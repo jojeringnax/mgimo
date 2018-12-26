@@ -21,7 +21,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav mt-lg-0 d-flex justify-content-around">
+                        <ul class="container navbar-nav d-flex justify-content-between" style="padding: 0">
                             <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Главная</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('anniversary')}}">О юбилее</a></li>
                             <li class="nav-item"><a class="nav-link" href={{url('news')}}>Новости</a></li>

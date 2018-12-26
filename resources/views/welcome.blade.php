@@ -198,7 +198,7 @@
 
                 <div class="d-flex flex-wrap justify-content-between">
                     @foreach ($congratulations as $congratulation)
-                    <div class="item-congratulations card">
+                    <div class="item-congratulations">
                         @if(!preg_match('/<iframe*/', $congratulation->content))
                             <img class="img-item-congratulations img-thumbnail" src="{{ $congratulation->mainPhoto->path }}" alt="" />
                         @else
