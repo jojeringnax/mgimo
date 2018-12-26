@@ -239,26 +239,41 @@
                 <div class="title-partners">
                     <span>Партнеры</span>
                 </div>
-                <div data-arrow = "right" class="arrow next"></div>
-                <div data-arrow = "left" class="arrow prev"></div>
-                <div class="d-flex justify-content-center">
-                    <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center">
-                        <?php for ($i=0;$i<=19;$i++) { ?>
-                        <div class="item">
-                            <div class="item-partner">
-                                <img src="img/partners/partner1.svg" alt="" style="width: 90% !important">
+                @if(count($partners) > 3)
+                    <div data-arrow = "right" class="arrow next"></div>
+                    <div data-arrow = "left" class="arrow prev"></div>
+                    <div class="d-flex justify-content-center">
+                            <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center">
+                                <div class="item">
+                        @else
+                            <div style="display: flex;justify-content: space-between;align-items: center;flex-direction: row;">
+                        @endif
+                                @foreach($partners as $partner)
+                                    @if($loop->count <= 3)
+                                        <div class="item" style="width: 200px;height: 50px">
+                                            <div class="item-partner">
+                                                <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : 'https://ras34.ru/wp-content/uploads/2018/08/no-image.png'}}" alt="" style="width: 90% !important" /></a>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="item-partner">
+                                            <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : 'https://ras34.ru/wp-content/uploads/2018/08/no-image.png'}}" alt="" style="width: 90% !important" /></a>
+                                        </div>
+                                        @if($loop->iteration%2 === 0 && $loop->index !== 0 && !$loop->last)
+                                            </div><div class="item">
+                                        @endif
+                                        @if($loop->last)
+                                            </div>
+                                        @endif
+                                    @endif
+                                @endforeach
+                            @if(count($partners) > 3)
                             </div>
-                            <div class="item-partner">
-                                <img src="img/partners/partner2.svg" alt="" style="width: 90% !important">
+                        @else
                             </div>
-                            <div class="item-partner">
-                                <img src="img/partners/partner3.svg" alt="" style="width: 90% !important">
-                            </div>
+                        @endif
                         </div>
-                        <?php } ?>
                     </div>
-                </div>
-            </div>
             <a href="" class="btn-partners">Смотреть всех партнеров <span></span></a>
         </div>
     </div>
