@@ -470,6 +470,11 @@ class AdminController extends Controller
                     $path = '/storage/photo/' . $path;
                     $photo->path = $path;
                     $photo->save();
+                    $photoConnect = new PhotoConnect();
+                    $photoConnect->id = $photo->id;
+                    $photoConnect->type = PhotoConnect::CONGRATULATION;
+                    $photoConnect->connect_id = $congratulation->id;
+                    $photoConnect->save();
                 }
             }
             return redirect()->route('congratulations_index');
@@ -508,6 +513,11 @@ class AdminController extends Controller
                 $photo->path = $path;
                 $photo->video = (boolean) strpos('video', $_FILES['file']['type']);
                 $photo->save();
+                $photoConnect = new PhotoConnect();
+                $photoConnect->id = $photo->id;
+                $photoConnect->type = PhotoConnect::CONGRATULATION;
+                $photoConnect->connect_id = $congratulation->id;
+                $photoConnect->save();
                 $congratulation->main_photo_id = $photo->id;
             }
             if($files = $request->allFiles()['photos']) {
