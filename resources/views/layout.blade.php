@@ -75,10 +75,10 @@
                         <span class="number-footer">+7 495 229-40-49</span>
                     </span>
                     <div class="soc-net d-flex justify-content-end">
-                        <div class="item-soc-net vk"></div>
-                        <div class="item-soc-net fb"></div>
-                        <div class="item-soc-net inst"></div>
-                        <div class="item-soc-net yt"></div>
+                        <a target="_blank" href="https://vk.com/" class="item-soc-net vk"></a>
+                        <a target="_blank" href="https://www.facebook.com/" class="item-soc-net fb"></a>
+                        <a target="_blank" href="https://www.instagram.com/" class="item-soc-net inst"></a>
+                        <a target="_blank" href="https://www.youtube.com/" class="item-soc-net yt"></a>
                     </div>
                 </div>
                 </div>

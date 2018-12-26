@@ -681,6 +681,14 @@ nav {
 .prtn .item .item-partner a img {
   max-height: 140px; }
 
+.anniversary-content .title-a span {
+  font-size: 20px;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
+.anniversary-content p {
+  font-size: 16px !important; }
+.anniversary-content li {
+  font-size: 16px !important; }
+
 .arrow {
   width: 100px;
   height: 100px;
@@ -1348,21 +1356,21 @@ footer {
   width: 100% !important;
   bottom: 0; }
   footer .nav-bot {
-    height: 150px;
     background-color: transparent;
     padding: 0 !important; }
     footer .nav-bot nav {
       background-color: transparent;
       height: 100%;
       justify-content: flex-start; }
-      footer .nav-bot nav ul li {
-        margin-top: 15px;
-        list-style-type: none; }
-        footer .nav-bot nav ul li:first-child {
-          margin-top: 0; }
-        footer .nav-bot nav ul li a {
-          color: white;
-          font-size: 14px; }
+      footer .nav-bot nav ul {
+        margin: 0 !important; }
+        footer .nav-bot nav ul li {
+          list-style-type: none; }
+          footer .nav-bot nav ul li:first-child {
+            margin-top: 0; }
+          footer .nav-bot nav ul li a {
+            color: white;
+            font-size: 14px; }
   footer .button-footer {
     display: flex;
     justify-content: space-between;
@@ -1371,9 +1379,9 @@ footer {
     footer .button-footer button {
       border: 1px solid white;
       height: 55px;
-      width: 371px;
+      width: 298px;
       background-color: transparent;
-      font-size: 16px;
+      font-size: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1396,7 +1404,7 @@ footer {
       display: block; }
   footer .contact-footer {
     display: flex;
-    justify-content: flex-end; }
+    justify-content: space-between; }
     footer .contact-footer .soc-net {
       margin-top: 50px; }
       footer .contact-footer .soc-net .item-soc-net {
@@ -1650,7 +1658,7 @@ footer {
     align-items: center !important;
     justify-content: center !important; }
     .footers .contact-footer {
-      justify-content: center !important;
+      justify-content: space-between !important;
       align-items: center !important;
       margin-top: 30px; }
       .footers .contact-footer span {
