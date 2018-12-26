@@ -11,6 +11,9 @@
             <div class="layout_news d-flex flex-wrap">
                 <div id="photos-news " class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12 d-flex flex-column justify-content-start">
                     <div class="anniversary-img">
+                        <div class="item-img-news" style="text-align: center;">
+                            <img src="img/icon/logo.svg" alt="" style="width: 40%">
+                        </div>
                         <div class="item-img-news">
                             <img src="img/anniversary/1.jpg" alt="" style="width: 100%">
                         </div>
