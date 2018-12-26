@@ -32,8 +32,8 @@
                             </td>
                             <td></td>
                             <td width="10%" class="action">
-                                {{ link_to_action('AdminController@updateSmi', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
-                                {{ link_to_action('AdminController@deleteSmi', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
+                                {{ link_to_action('AdminController@updatePartner', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
+                                {{ link_to_action('AdminController@deletePartner', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
                             </td>
                         </tr>
                     @endforeach
