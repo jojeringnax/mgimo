@@ -55,7 +55,7 @@ class AdminController extends Controller
             $news = new News();
             $news->title = $request->post('title');
             $news->content = $request->post('content');
-            $news->moderated = $request->ajax() ? false : true;
+            $news->moderated = $request->ajax() ? false : $request->post('moderated') === null ? false : true;
             $news->save();
             if ($file = $request->file('photo')) {
                 $photo = new Photo();
@@ -130,7 +130,7 @@ class AdminController extends Controller
             $article = News::find($articleId);
             $article->title = $request->post('title');
             $article->content = $request->post('content');
-            $article->moderated = true;
+            $article->moderated = $request->post('moderated') === null ? false : true;
             if ($file = $request->file('photo')) {
                 if($article->main_photo_id !== null) {
                     $mainPhoto = Photo::find($article->main_photo_id);
@@ -229,12 +229,17 @@ class AdminController extends Controller
     public function createEvent(Request $request)
     {
         if($request->isMethod('post')) {
+            $main = $request->post('main') === null ? 0 : 1;
+            if($request->ajax()) {
+                $main = 0;
+                $this->middleware('guest');
+            }
             $event = new Event();
             $event->title = $request->post('title');
             $event->content = $request->post('content');
             $event->date = $request->post('date');
             $event->location = $request->post('location');
-            $event->main = $request->post('main') === null ? 0 : 1;
+            $event->main = $main;
             $event->save();
             $files = $request->allFiles()['photos'] ? $request->allFiles()['photos'] : [];
             $i = 0;
@@ -275,7 +280,7 @@ class AdminController extends Controller
                 }
             }
             $event->update(['main_photo_id' => $request->post('main_photo_id')]);
-            return redirect()->route('events_index');
+            return $request->ajax() ? json_encode($event) : redirect()->route('events_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.events.form');
         }
@@ -435,11 +440,19 @@ class AdminController extends Controller
     public function createCongratulation(Request $request)
     {
         if($request->isMethod('post')) {
+            $moderated = $request->post('moderated') === null ? 0 : 1;
+            $priority = $request->post('priority');
+            if($request->ajax()) {
+                $this->middleware('guest');
+                $moderated = 0;
+                $priority = 1;
+            }
             $congratulation = new Congratulation();
+            $congratulation->moderated = $moderated;
             $congratulation->title = $request->post('title');
             $congratulation->content = $request->post('content');
             $congratulation->date = $request->post('date');
-            $congratulation->priority = $request->post('priority');
+            $congratulation->priority = $priority;
             $congratulation->save();
             if ($file = $request->file('file')) {
                 $photo = new Photo();
@@ -455,7 +468,8 @@ class AdminController extends Controller
                 $photo->save();
                 $congratulation->update(['main_photo_id' => $photo->id]);
             }
-            if($files = $request->allFiles()['photos']) {
+            if(isset($request->allFiles()['photos'])) {
+                $files = $request->allFiles()['photos'];
                 $i = 0;
                 foreach ($files as $file) {
                     $i++;
@@ -477,7 +491,7 @@ class AdminController extends Controller
                     $photoConnect->save();
                 }
             }
-            return redirect()->route('congratulations_index');
+            return $request->ajax() ? json_encode($congratulation) : redirect()->route('congratulations_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form');
         }
@@ -497,6 +511,7 @@ class AdminController extends Controller
             $congratulation->content = $request->post('content');
             $congratulation->date = $request->post('date');
             $congratulation->priority = $request->post('priority');
+            $congratulation->moderated = $request->post('moderated') === null ? false : true;
             if ($file = $request->file('file')) {
                 if ($photo = $congratulation->mainPhoto) {
                     $congratulation->update(['main_photo_id' => null]);
@@ -520,7 +535,8 @@ class AdminController extends Controller
                 $photoConnect->save();
                 $congratulation->main_photo_id = $photo->id;
             }
-            if($files = $request->allFiles()['photos']) {
+            if(isset($request->allFiles()['photos'])) {
+                $files = $request->allFiles()['photos'];
                 $i = 0;
                 $oldPhotos = $congratulation->getPhotos();
                 foreach ($oldPhotos as $oldPhoto) {

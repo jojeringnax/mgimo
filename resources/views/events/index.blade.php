@@ -1,4 +1,7 @@
 @extends('layout')
+@section('link')
+    <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+@endsection
 @section('shadow')
     box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
 @endsection
@@ -24,7 +27,7 @@
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex flex-row align-items-center">
                     {{--<span>Мероприятия</span>--}}
-                    <a class="button-event-page" style="margin-left: 58px;">Добавить мероприятие<span></span></a>
+                    <a data-toggle="modal" data-target="#congratulationModule" class="modal-button button-event-page" style="margin-left: 58px;">Добавить мероприятие<span></span></a>
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
@@ -142,7 +145,88 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="congratulationModule">
+        <div class="modal-dialog" role="document" style="max-width: 80%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Добавьте своё мероприятие</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-8 d-flex flex-column">
+                                {{ Form::open(array('action' => 'AdminController@createEvent', 'class'=>'event-form', 'files' => true)) }}
+                                {{ Form::label('title', 'Заколовок') }}
+                                {{ Form::text('title','', ['class' => 'form-control']) }}
+                                <div class="item-form-event">
+                                    <div id="editor" class="col-12 item-form-news-add"></div>
+                                    <input type="hidden" name="content" id="content-event"/>
+                                </div>
+                                <div class="item-form-event">
+                                    {{ Form::label('date', 'Дата') }}
+                                    {{ Form::date('date', \Carbon\Carbon::now(), ['class' => 'form-control datepicker']) }}
+                                </div>
+                                <div class="item-form-event">
+                                    {{ Form::label('tags', 'Тэги') }}
+                                    {{ Form::text('tags', '', ['class' => 'form-control']) }}
+                                </div>
+                                <div class="item-form-event">
+                                    {{ Form::label('location', 'Местоположение') }}
+                                    {{ Form::text('location','', ['class' => 'form-control']) }}
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        {{ Form::file('photos[]', ['class' => 'input-default-js custom-file-input', 'area-describedby' => 'photo_area', 'id' => 'photo', 'multiple' => 'multiple']) }}
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose files</label>
+                                    </div>
+                                </div>
+
+                                {{ Form::submit('Сохранить',['class' => 'item-form-event-btn btn btn-raised btn-primary']) }}
+
+                                {{ Form::close() }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('script')
-    <script src="js/events.js"></script>
+    <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+    <script src="{{asset('js/event-page.js')}}"></script>
+    <script>
+        $(document).ready( function() {
+            $('.event-form').submit( function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ url('admin/events/create') }}",
+                    dataType: 'json',
+                    data: new FormData($(this)[0]),
+                    type: 'POST',
+                    async: false,
+                    cache:false,
+                    contentType: false,
+                    processData: false,
+                    error: function(data) {
+                        $('.modal-body > .container > .row').html('Мероприятие не загружено, попробуйте снова');
+                    },
+                    success: function(data) {
+                        $('.modal-body > .container > .row').html('Мероприятие успешно загружено');
+                        $('.modal-button').css('display','none');
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

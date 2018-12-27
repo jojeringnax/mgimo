@@ -80,9 +80,9 @@ class News extends Model
      *
      * @return mixed
      */
-    public static function getModerated()
+    public static function getModerated($limit=3, $offset=0)
     {
-        return self::where('moderated', true)->get();
+        return self::where('moderated', true)->limit($limit)->skip($offset)->get();
     }
 
     /**

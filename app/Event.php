@@ -84,4 +84,14 @@ class Event extends Model
     {
         return Photo::getAllPhotosForEvent($this->id);
     }
+
+    /**
+     * @param $limit
+     * @param $offset
+     * @return mixed
+     */
+    public static function getModerated($limit=12, $offset=0)
+    {
+        return self::where('main', true)->limit($limit)->skip($offset)->get();
+    }
 }
