@@ -60,7 +60,27 @@
                     @foreach($news as $article)
                         @if($loop->index == 0)
                             <div class="small-news">
-                                <div id="2" class="small-new col-12">
+                                <div id="0" class="small-new col-12">
+                                    <article class="d-flex flex-wrap">
+                                        <div class="img-small-new">
+                                            <img src="{{ $article->mainPhoto->path }}" alt="">
+                                        </div>
+                                        <div class="content-small-new">
+                                            <div class="tag">
+                                                <i></i>
+                                                @foreach($article->getTags() as $tag)
+                                                    <span class="">{{ $tag }}</span>
+                                                @endforeach
+                                            </div>
+                                            {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
+                                            <div class="date-link d-flex justify-content-between" style="width: 100%">
+                                                <span class="date-news">10 Ноября 2018</span>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            @elseif($loop->index == 1)
+                                <div id="1" class="small-new col-12">
                                     <article class="d-flex flex-wrap">
                                         <div class="img-small-new">
                                             <img src="{{ $article->mainPhoto->path }}" alt="">
