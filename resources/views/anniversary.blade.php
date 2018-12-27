@@ -33,7 +33,7 @@
                 </div>
                 <div class="anniversary-content col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12 d-flex flex-column justify-content-start">
                     <div class="title-a" style="margin-top: 10px">
-                        <span>О Юбилее</span>
+                        <h2>О Юбилее</h2>
                     </div>
                     <div class="title-news" >
                         <p>В 2019 г. МГИМО исполняется 75 лет. Юбилейный год – уникальная

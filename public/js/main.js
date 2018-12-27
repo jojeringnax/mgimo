@@ -117,4 +117,11 @@ $(document).ready(function(){
             $('.layout-img').addClass('hide');
         };
     });
+    $(window).scroll(function(){
+        if($(window).scrollTop() >= 100) {
+            console.log($('nav'))
+            $('header').css({'box-shadow' : '0 3px 10px rgba(0,0,0, 0.07)'})
+        }
+
+    });
 });

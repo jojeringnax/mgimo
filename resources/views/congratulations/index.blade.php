@@ -20,9 +20,9 @@
     <div id="congratulations" class="container" style="padding-bottom: 100px; margin-top: 80px;">
         <div class="row" style="margin:0; padding: 0">
             <div class="content-congratulations col-12" style="padding: 0">
-                <div class="title-congratulations">
-                    <span>Поздравления</span>
-                </div>
+                {{--<div class="title-congratulations">--}}
+                    {{--<span>Поздравления</span>--}}
+                {{--</div>--}}
 
                 <div class="d-flex flex-wrap justify-content-between">
                     @foreach ($congratulations as $congratulation)

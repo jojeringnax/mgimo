@@ -28,7 +28,7 @@
             <img src="" alt="">
         </div>
     </div>
-    <div class="container" style="padding: 5px">
+    <div class="container" style="padding: 5px; margin-top: 50px;">
         <div class="row d-flex flex-column justify-content-center">
             <div class="banner">
                 <div class="timer-lay">
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-top: 50px">
         <div class="row">
             <div class="contents d-flex flex-wrap">
                 <div class="item-contents news col-xl-8 col-lg-8 col-md-8 col-12">
@@ -210,8 +210,8 @@
                 </div>
 
                 <div class="btns-congratulations d-flex justify-content-xl-start justify-content-sm-center">
-                    <a href="{{ url('congratulations') }}" class="btn-watch-congr">Смотреть все поздравления <span class="congr_watch"></span></a>
-                    <a type="button" data-toggle="modal" data-target="#congratulationModule" class="btn-congr"><span class="congr_icon"></span>Поздравить МГИМО</a>
+                    <a href="{{url('congratulations')}}" class="btn-watch-congr">Смотреть все поздравления <span class="congr_watch"></span></a>
+                    <a href=""data-toggle="modal" data-target="#congratulationModule" class="btn-congr"><span class="congr_icon"></span>Поздравить МГИМО</a>
                 </div>
             </div>
         </div>
@@ -224,7 +224,7 @@
                     <div class="big-photo col-xl-8 col-lg-6 col-md-12"><img src="img/new_test/collage.png" alt=""></div>
                     <div class="text-gallery col-xl-4 col-lg-6 col-md-12">
                         <span class="title-text-gallery ">Мы собрали самые яркие воспоминания из жизни МГИМО</span>
-                        <a href="" class="">Смотреть фото <span></span></a>
+                        <a href="{{url('gallery')}}" class="">Смотреть фото <span></span></a>
                     </div>
                 </div>
             </div>
@@ -272,8 +272,7 @@
                         @endif
                         </div>
                     </div>
-            <a href="partners" class="btn-partners">Смотреть всех партнеров <span></span></a>
-
+            <a href="{{url('partners')}}" class="btn-partners">Смотреть всех партнеров <span></span></a>
         </div>
     </div>
     <div class="modal" tabindex="-1" role="dialog" id="congratulationModule">

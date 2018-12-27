@@ -26,8 +26,8 @@
         <div class="row">
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex flex-row align-items-center">
-                    <span>Мероприятия</span>
-                    <a type="button" data-toggle="modal" data-target="#congratulationModule" class="modal-button button-event-page">Добавить мероприятие<span></span></a>
+                    {{--<span>Мероприятия</span>--}}
+                    <a data-toggle="modal" data-target="#congratulationModule" class="modal-button button-event-page" style="margin-left: 58px;">Добавить мероприятие<span></span></a>
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
