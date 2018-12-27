@@ -146,7 +146,7 @@ nav {
     z-index: 123;
     position: absolute;
     .timer {
-        margin-top: -20px;
+        margin-top: -40px;
         font-size: 47px;
         font-weight: bold;
         width: 340px;
@@ -236,16 +236,17 @@ nav {
         .btn-event-page {
             margin-left: 15px;
             &:hover {
-                background-color: transparent !important;
-                color: $mainColor !important;
+                background-color: $mainColor !important;
+                color:white !important;
+                transition-duration: 0.4s;
                 span {
-                    background-image: url("../img/icon/arrow-right.svg");
+                    background-image: url("../img/icon/red-arrow.svg");
                     margin-left: 15px;
                     display: block;
                     width: 20px;
                     height: 11px;
-                    top: calc(40% - 15px);
                     right: 25px;
+                    margin-top: -4px;
                 }
             }
         }
@@ -437,7 +438,6 @@ nav {
             flex-grow: 1;
         }
         .title-events {
-
             margin-bottom: 18px;
             span {
                 font-size: 18px;
@@ -465,7 +465,7 @@ nav {
                 margin: 18px 0 0 0;
                 //display: block;
                 //margin-left: 30px;
-                color: $linkColor;
+                color: $mainColor;
                 position: relative;
                 display: flex;
                 justify-content: center;
@@ -473,10 +473,10 @@ nav {
                     position: absolute;
                     height: 14px;
                     width: 14px;
-                    background-image: url("../img/icon/date.svg");
+                    background-image: url("../img/icon/clock-circular-red.svg");
                     background-repeat: no-repeat;
                     left: 10px;
-                    margin-top: 2px;
+                    //margin-top: 2px;
                 }
             }
             .location {
@@ -484,14 +484,14 @@ nav {
                 margin: 18px 0 0 0;
                 display: block;
                 //margin-left: 10px;
-                color: $linkColor;
+                color: $mainColor;
                 position: relative;
                 padding-left: 30px;
                 .icon-location-events {
                     position: absolute;
                     height: 14px;
                     width: 11px;
-                    background-image: url("../img/icon/location.svg");
+                    background-image: url("../img/icon/location-red.svg");
                     background-repeat: no-repeat;
                     left: 10px;
                     margin-top: 2px;
@@ -545,14 +545,14 @@ nav {
                     font-size: 14px;
                     position: absolute;
                     top: 10px;
-                    margin-left: 10px;
+                    //margin-left: 10px;
                     display: block;
-                    color: #EB205E;
+                    color: $linkColor;
                 }
                 .title-media-news {
                     font-size: 15px;
                     font-weight: bold;
-                    margin-left: 10px;
+                    //margin-left: 10px;
                     display: block;
                     padding-right: 40px;
                     font-family: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -562,8 +562,8 @@ nav {
                 .date-media-news {
                     position: absolute;
                     bottom: 30px;
-                    margin-left: 10px;
-                    color: $linkColor;
+                   // margin-left: 10px;
+                    color: #A5A5A5;
                     font-size: 12px;
                 }
             }
@@ -910,7 +910,7 @@ nav {
         .item-partner {
             a {
                 img {
-                    max-height: 140px;
+                    max-height: 70px;
 
                 }
             }
@@ -919,10 +919,12 @@ nav {
 }
 
 .anniversary-content {
+    padding-left: 40px !important;
+
     .title-a {
-        span {
-            font-size: 20px;
+        h2 {
             font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            font-weight: 600 !important;
         }
 
     }
@@ -1272,12 +1274,12 @@ nav {
                 background-color: $mainColor;
                 color: white !important;
                 span {
-                    background-image: url("../img/icon/partner/red-arrow.svg");
+                    background-image: url("../img/icon/red-arrow.svg");
                     margin-left: 15px;
                     display: block;
                     width: 20px;
                     height: 11px;
-                    top: calc(40% - 15px);
+                    margin-top: -4px;
                     right: 5px;
                     margin-right: 0 !important;
                 }
@@ -1449,7 +1451,7 @@ nav {
     }
     .content-event-page {
         position: relative;
-        margin-top: 100px;
+        margin-top: 30px;
         .tags-event-page {
             position: absolute;
             margin-top: 30px;
@@ -1468,17 +1470,18 @@ nav {
         }
         .items-event-page {
             width: 23%;
-            height: 250px;
+            max-height: 250px;
             //border: 1px solid $mainColor;
             padding: 15px;
             margin-top: 25px;
             position: relative;
             .item {
                 position: relative;
-                height: 100%;
+                //height: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
+                max-height: 250px;
                 span.title-item {
                     padding-right: 50px;
                     font-size: 20px;
@@ -1489,8 +1492,9 @@ nav {
                 }
                 span.date-item {
                     //margin-top: 100px;
-                    margin-bottom: 10px;
-                    position: absolute;
+                    margin-bottom: 5px;
+                    margin-top: 20px;
+                    //position: absolute;
                     bottom: 20px;
                     left: 1px;
 
@@ -1506,12 +1510,12 @@ nav {
                         }
                 }
                 span.location-item {
-                    position: absolute;
+                    //position: absolute;
                     bottom: 5px;
                     right: 15px;
                     display: flex;
                     left: 1px;
-                    margin-top: 17px;
+                    margin-top: 0;
                         i {
                             height: 14px;
                             width: 10px;
@@ -1631,24 +1635,31 @@ nav {
             }
         }
     }
-    .items-partners {
-        div {
-            .item-partners-page {
-                position: relative;
-                padding: 10px;
-                height: 270px;
-                border: 1px solid black;
-                margin-top: 14px;
-                span {
-                    font-size: 22px;
-                    font-weight: bold;
-                    display: block;
-                    position: absolute;
-                    bottom: 10px;
-                    left: 10px;
-                }
-            }
-        }
+}
+.items-gallery {
+    position: relative;
+    height: 270px;
+    border: 1px solid black;
+    margin-top: 14px;
+    .layout-partner-page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent, black);
+        z-index: 12;
+        opacity: 0.7;
+
+    }
+    span {
+        font-size: 22px;
+        font-weight: bold;
+        display: block;
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        color: white;
+        z-index: 123123;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
     }
 }
 /*=====================LAYOUT_NEWS=====================*/
@@ -2086,8 +2097,30 @@ footer {
     }
 }
 
+.partners-page {
+    &:first-child {
+        margin-top: 0px;
+    }
+}
+
 .item-partners-page {
-    margin-top: 150px;
+    margin-top: 60px;
+    position: relative;
+    &:nth-child(2) {
+        margin-top: 50px;
+    }
+    &:first-child {
+        margin-top: 50px !important;
+    }
+    .layout-partner-page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent, black);
+        z-index: 12;
+        opacity: 0.7;
+
+    }
     &:first-child {
         margin-top: 0;
     }
@@ -2108,6 +2141,7 @@ footer {
             a {
                 width: 250px;
                 font-size: 12px;
+
             }
 
         }

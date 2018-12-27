@@ -23,8 +23,8 @@
         <div class="row">
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex flex-row align-items-center">
-                    <span>Мероприятия</span>
-                    <a class="button-event-page">Добавить мероприятие<span></span></a>
+                    {{--<span>Мероприятия</span>--}}
+                    <a class="button-event-page" style="margin-left: 58px;">Добавить мероприятие<span></span></a>
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">

@@ -9,8 +9,8 @@
     <div class="container" style="margin-top: 150px; padding-bottom: 120px">
         <div class="row d-flex flex-column">
             <div class="news-page">
-                <div class="title-news-page d-flex">
-                    <span class="text-title-news-page">Новости</span>
+                <div class="title-news-page d-flex" style="padding-left: 25px;">
+                    {{--<span class="text-title-news-page">Новости</span>--}}
                     <div class="btn-news-page d-flex">
                         <a  type="button" data-toggle="modal" data-target="#exampleModal"class="modal-button btn-news-page-add">Добавить свою новость</a>
                         <a  class="btn-news-page-sub"><span></span>Подписаться на новости</a>

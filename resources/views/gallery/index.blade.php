@@ -9,10 +9,11 @@
     <div class="container" style="margin-top: 150px; padding-bottom: 120px;">
         <div class="row">
             <div class="gallery-page d-flex flex-wrap">
-                <div class="title-gallery-page">
-                    <span>Галлерея</span>
-                </div>
-                <div class="items-partners d-flex col-12 flex-wrap">
+                {{--<div class="title-gallery-page">--}}
+                    {{--<span>Галлерея</span>--}}
+                {{--</div>--}}
+
+                <div class="d-flex col-12 flex-wrap">
                     @foreach($albums as $album)
                         @php
                             $photos = $album->photos;
@@ -20,7 +21,10 @@
                         @foreach($photos as $photo)
                             <a class="col-3" href="{{ url('gallery/show', ['id' => $album->id]) }}">
                                 <div  style="background-image: url({{ $photo->path }}); background-size: cover;">
-                                    <div class="item-partners-page">
+                                    <div class="items-gallery">
+                                        <div class="layout-partner-page">
+
+                                        </div>
                                         <span>{{ $album->name }}</span>
                                     </div>
                                 </div>

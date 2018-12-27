@@ -10,7 +10,10 @@
     <div class="container" style="margin-top: 100px; padding-bottom: 120px">
         <div class="row">
             <div class="partners-page d-flex flex-wrap flex-column">
-                <div class="organizers item-partners-page" style="height:70px;">
+                <div class="logo">
+                    <img src="{{asset('img/icon/logo.svg')}}" alt="logo-mgimo" style="width: 100px;">
+                </div>
+                <div class="organizers item-partners-page">
                     <div class="title-partners-page">
                         ОРГАНИЗАТОРЫ
                     </div>
