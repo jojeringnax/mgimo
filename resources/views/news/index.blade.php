@@ -12,7 +12,7 @@
                 <div class="title-news-page d-flex" style="padding-left: 25px;">
                     {{--<span class="text-title-news-page">Новости</span>--}}
                     <div class="btn-news-page d-flex">
-                        <a  type="button" data-toggle="modal" data-target="#exampleModal"class="modal-button btn-news-page-add">Добавить свою новость</a>
+                        <a  data-toggle="modal" data-target="#exampleModal"class="modal-button btn-news-page-add">Добавить свою новость <span></span></a>
                         <a  class="btn-news-page-sub"><span></span>Подписаться на новости</a>
                     </div>
                 </div>

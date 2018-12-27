@@ -28,11 +28,23 @@
             <img src="" alt="">
         </div>
     </div>
-    <div class="container" style="padding: 5px; margin-top: 50px;">
-        <div class="row d-flex flex-column justify-content-center">
-            <div class="banner">
+    <div class="banner-header" style="background-color: #F2FBFF;">
+        <div class="time">
+            <div class="logo">
+                <img src="img/icon/logo.svg" alt="">
+                <hr />
+            </div>
+            <div class="timerr">
+                <span class="title-timer">До юбилея осталось:</span>
                 <div class="timer-lay">
                     <div id="timer" class="timer d-flex justify-content-center"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="container" style="">
+            <div class="row d-flex flex-column justify-content-center">
+                <div class="banner">
                 </div>
             </div>
         </div>
@@ -46,21 +58,7 @@
                         <span>НОВОСТИ</span>
                     </div>
                     @foreach($news as $article)
-                        @if($loop->first)
-                            <div id="3" class="big-news col-12" style="background-image: url({{ $article->mainPhoto->path }})">
-                                <div class="layout-big-new"></div>
-                                <article>
-                                    <div class="tag">
-                                        <i></i>
-                                        @foreach($article->getTags() as $tag)
-                                            <span class="">{{ $tag }}</span>
-                                        @endforeach
-                                    </div>
-                                    {{ link_to('news/show/'.$article->id,  $article->title, ['class' => '']) }}
-                                    <span class="date-news">10 Ноября 2018</span>
-                                </article>
-                            </div>
-                        @elseif($loop->index == 1)
+                        @if($loop->index == 0)
                             <div class="small-news">
                                 <div id="2" class="small-new col-12">
                                     <article class="d-flex flex-wrap">

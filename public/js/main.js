@@ -118,10 +118,15 @@ $(document).ready(function(){
         };
     });
     $(window).scroll(function(){
-        if($(window).scrollTop() >= 100) {
-            console.log($('nav'))
-            $('header').css({'box-shadow' : '0 3px 10px rgba(0,0,0, 0.07)'})
+        if($(window).scrollTop() >= 400) {
+            //console.log($('nav'))
+            $('nav').css({'background-color': 'white'});
+            $('nav').addClass('box-sd');
+        }else if($(window).scrollTop() <= 300){
+            $('nav').css({'background-color': 'transparent'});
+            $('nav').removeClass('box-sd');
         }
 
     });
+    $('.banner-header').css({'height':$(window).outerHeight()});
 });

@@ -14,7 +14,12 @@
                         <img src="{{ $article->CoverPhoto->path }}" alt="" style="width: 55%;">
                     </div>
                     <div class="link-book-pay-pages">
-                        <a href="{{$article->link}}" style="text-align: center" target="_blank">Купить</a>
+                        @if($article->status == 0)
+                            <a class="btn-bad" style="opacity: 0.4">Ожидается</a>
+                        @else
+                            <a class="btn-good" href="{{$article->link}}" style="text-align: center" target="_blank">Купить</a>
+                        @endif
+
                     </div>
                 </div>
                 <div class="col-7 d-flex flex-column align-items-start justify-content-start">
