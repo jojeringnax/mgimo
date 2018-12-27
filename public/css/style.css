@@ -167,8 +167,7 @@ nav {
 
 /*===================SECTION-NEWS===================*/
 .contents {
-  margin-top: 30;
-  min-height: 1240px;
+  min-height: 1000px;
   width: 100%; }
   .contents .buttons-news {
     position: absolute;
