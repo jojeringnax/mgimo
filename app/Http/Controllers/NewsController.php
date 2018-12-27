@@ -30,6 +30,4 @@ class NewsController extends Controller
             'articlePhotos' => $article->getPhotos()
         ]);
     }
-
-
 }

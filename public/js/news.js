@@ -73,4 +73,8 @@ $(document).ready(function () {
         $(this).children('i').css({'background-color': colorTags[$(this).children('span').text()]}) ;
         console.log($(this).children('i'),$(this).children('span').text(), colorTags[$(this).children('span').text()])
     });
+
+    $('.btn-download-news-page').click(function(){
+
+    });
 });

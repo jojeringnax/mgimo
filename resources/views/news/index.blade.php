@@ -12,8 +12,8 @@
                 <div class="title-news-page d-flex" style="padding-left: 25px;">
                     {{--<span class="text-title-news-page">Новости</span>--}}
                     <div class="btn-news-page d-flex">
-                        <a type="button" data-toggle="modal" data-target="#exampleModal" class="modal-button btn-news-page-add">Добавить свою новость</a>
-                        <a class="btn-news-page-sub"><span></span>Подписаться на новости</a>
+                        <a  data-toggle="modal" data-target="#exampleModal"class="modal-button btn-news-page-add">Добавить свою новость <span></span></a>
+                        <a  class="btn-news-page-sub"><span></span>Подписаться на новости</a>
                     </div>
                 </div>
                 <div class="news d-flex flex-wrap justify-content-start">
@@ -28,7 +28,7 @@
                     {{--</div>--}}
                     <div data-col="1" class="col-xl-4 d-flex flex-column flex-wrap" style="max-height: 1400px;">
                         @foreach($news as $article)
-                            @if($loop->index%3 == 0)
+                            @if($loop->index%3 == 0 )
                                 <a href="{{ url('news/show', ['id' => $article->id]) }}" class="item-card-news card" style="display:block;width: 100%">
                                     <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
                                     <div class="card-body d-flex flex-column align-items-start">

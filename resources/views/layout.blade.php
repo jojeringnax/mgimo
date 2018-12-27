@@ -14,7 +14,7 @@
     <header class="header" style="">
         <div class="container">
             <div class="row" style="width:100%;">
-                <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar col-12 " style="width:100%; background-color: white; @yield('shadow');">
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar col-12 " style="width:100%; @yield('shadow')">
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -55,16 +55,16 @@
                                 <li><a href="{{url('events')}}">Мероприятия</a></li>
                                 <li><a href="{{url('congratulations')}}">Поздравления</a></li>
                             </ul>
-                            <ul class="d-flex flex-column justify-content-between">
+                            <ul class="d-flex flex-column justify-content-start">
                                 <li><a href="{{url('books')}}">Издательская программа</a></li>
-                                <li><a href="{{url('gallery')}}">Галерея</a></li>
-                                <li><a href="{{url('partners')}}">Партнеры</a></li>
-                                <li><a href="">Контакты</a></li>
+                                <li style="margin-top: 7.5px"><a href="{{url('gallery')}}">Галерея</a></li>
+                                <li style="margin-top: 7.5px"><a href="{{url('partners')}}">Партнеры</a></li>
+                                <li style="margin-top: 7.5px"><a href="">Контакты</a></li>
                             </ul>
                         </nav>
                     </div>
                 <div class="button-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-center">
-                    <button type="button"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</button>
+                    <a href=""><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
                     <span class="text-center">
                         МГИМО 75<br>Ассоциация выпускников МГИМО<br>Эндаумент МГИМО
                     </span>
