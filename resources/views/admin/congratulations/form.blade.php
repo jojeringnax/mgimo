@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-8 d-flex flex-column" style="height:100%">
@@ -30,6 +29,9 @@
                         <label class="custom-file-label" for="photo-main">Загрузите основное фото</label>
                     </div>
                 </div>
+                {{ Form::label('moderated') }}
+                {{ Form::checkbox('moderated') }}
+
                 <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
                     <div class="input-group-prepend clear">
                         <span class="input-group-text" id="photo2_area" data-file="второе">Upload</span>
@@ -40,7 +42,7 @@
                     </div>
                 </div>
                 @if(isset($congratulation))
-                    @if($photo = $congratulation)
+                    @if(($photo = $congratulation->photo) !== null)
                         <div class="col-12">
                             <div class="card col-3">
                                 <div class="card-head">

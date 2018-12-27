@@ -28,7 +28,7 @@
                     @foreach ($congratulations as $congratulation)
                         <div class="item-congratulations">
                             @if(!preg_match('/<iframe*/', $congratulation->content))
-                                <img class="img-item-congratulations img-thumbnail" src="{{ $congratulation->mainPhoto->path }}" alt="" />
+                                <img class="img-item-congratulations img-thumbnail" src="{{ $congratulation->mainPhoto !== null ? $congratulation->mainPhoto->path : url('img/no-image.png')}}" alt="" />
                             @else
                                 <div class="img-item-congratulations">{!! html_entity_decode($congratulation->content) !!}</div>
                             @endif

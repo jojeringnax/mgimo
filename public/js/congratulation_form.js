@@ -11,4 +11,25 @@ $(document).ready(function () {
             input.parent().parent().children('.clear').children('span').css({'cursor':'default'});
         });
     });
-})
+
+    $('.congratulation_ajax').submit(function(e) {
+        e.preventDefault();
+      $.ajax({
+          url: "admin/congratulations/create",
+          dataType: 'json',
+          data: new FormData($(this)[0]),
+          type: 'POST',
+          async: false,
+          cache:false,
+          contentType: false,
+          processData: false,
+          error: function(data) {
+              $('.modal-body > .container > .row').html('Поздравление не отправлено, попробуйте снова');
+          },
+          success: function(data) {
+              $('.modal-body > .container > .row').html('Спасибо за поздравление!');
+          }
+      })
+    });
+});
+

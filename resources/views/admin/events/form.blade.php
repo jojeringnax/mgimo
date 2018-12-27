@@ -31,8 +31,8 @@
                     {{ Form::text('location', !isset($event) ? '' : $event->location, ['class' => 'form-control']) }}
                 </div>
                 <div class="item-form-event custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="main">
-                    <label class="custom-control-label" for="main">Main</label>
+                    <input name="main" type="checkbox" class="custom-control-input" id="main">
+                    <label class="custom-control-label" for="main">Активна</label>
                 </div>
                 <div class="input-group">
                     <div class="input-group-prepend">

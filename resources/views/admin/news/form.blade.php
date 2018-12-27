@@ -12,12 +12,12 @@
                 {{ Form::label('title', 'Заголовок') }}
                 {{ Form::text('title', isset($article) ? $article->title : '',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
 
+                {{ Form::label('moderated', 'Активна') }}
+                {{ Form::checkbox('moderated', isset($article) ? $article->moderated : true) }}
                 <div id="editor" class="col-12 item-form-news-add">
                     {!! isset($article) ? html_entity_decode($article->content) : '' !!}
                 </div>
                 <input type="hidden" name="content" id="content-news"/>
-                {{--{{ Form::label('content', 'Текст статьи') }}
-                    {{ Form::textarea('content', isset($article) ? $article->content : '') }}--}}
 
                 <div class="d-flex col-12 flex-wrap item-form-news-add justify-content-between" style="margin-top: 25px">
                     <div class="input-group col-xl-5 item-form-news-add">
