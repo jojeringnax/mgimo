@@ -9,10 +9,7 @@
                     {{ Form::text('title', isset($congratulation) ? $congratulation->title : '',['class' => 'form-control']) }}
                 </div>
                     {{ Form::hidden('content','123',['class' => 'form-control']) }}
-                <div class="item-form-congratulation">
-                    {{ Form::label('date', 'Выберите дату') }}
-                    {{  Form::select('date', \App\Congratulation::getDatesArray(),  null, ['class' => 'form-control' ]) }}
-                </div>
+                    {{  Form::hidden('date','1',  null, ['class' => 'form-control' ]) }}
                 <div class="item-form-congratulation">
                     {{ Form::label('priority', 'Приоритет') }}
                     {{ Form::number('priority', '1',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}

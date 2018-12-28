@@ -2571,7 +2571,6 @@ footer {
         align-items: center !important;
         justify-content: center !important;
         .contact-footer {
-
             justify-content: space-between !important;
             align-items: center !important;
             margin-top: 30px;
@@ -2580,17 +2579,40 @@ footer {
             }
         }
         .button-footer {
-            margin-top: 50px;
+            margin-top: 180px;
             button {
                 margin-bottom: 20px;
             }
         }
         .nav-bot {
             nav {
+                justify-content: center;
                 ul {
                     margin-left: 25px;
+                    margin-top: 40px !important;
                 }
             }
         }
+    }
+    .items-partners {
+        justify-content: center;
+        div {
+            //margin-top: 20px;
+            margin-bottom: 25px;
+            img {
+                margin: 0 !important;
+            }
+        }
+    }
+    .container {
+        margin-top: 40px !important;
+    }
+
+    footer {
+        position:  static !important;
+        padding-top: 0px !important;
+    }
+    body {
+        padding: 0 !important;
     }
 }

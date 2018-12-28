@@ -117,7 +117,7 @@
                 </div>
                 <div id="events_wrapper" class="content-event-page d-flex flex-wrap">
                     @foreach($events as $event)
-                        <div class="d-flex col-xl-4" style="padding: 10px;">
+                        <div class="d-flex col-xl-4 col-lg-4 col-ms-4 col-sm-6 col-12" style="padding: 10px;">
                             <div class="items-event-page d-flex flex-wrap flex-column justify-content-around col-xl-12">
                                 {{--<div class="tags-event-page">--}}
                                     {{--@foreach($event->getTags() as $tag)--}}
