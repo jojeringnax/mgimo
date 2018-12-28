@@ -51,7 +51,6 @@ Route::get('admin/smis/delete/{id}', 'AdminController@deleteSmi');
 
 Route::match(['get','post'], 'admin/gallery/create', 'AdminController@createAlbum');
 Route::match(['get','post'], 'admin/gallery/create/{id}', 'AdminController@albumFill');
-//Route::get('admin/gallery/delete/{id}/{id}', 'AdminController@deleteAlbum');
 
 Route::match(['get','post'], 'admin/news/create', 'AdminController@createArticle');
 Route::match(['get','post'], 'admin/news/update/{id}', 'AdminController@updateArticle');
@@ -78,6 +77,10 @@ Route::get('admin/partners/delete/{id}', 'AdminController@deletePartner');
 Route::match(['get','post'], 'admin/gallery/create', 'AdminController@createAlbum');
 Route::match(['get','post'], 'admin/gallery/update/{id}', 'AdminController@updateAlbum');
 Route::get('admin/gallery/delete/{id}', 'AdminController@deleteAlbum');
+
+Route::match(['get','post'], 'admin/subscribers/create', 'AdminController@createSubscriber');
+Route::match(['get','post'], 'admin/subscribers/update/{id}', 'AdminController@updateSubscriber');
+Route::get('admin/subscribers/delete/{id}', 'AdminController@deleteSubscriber');
 
 
 Route::match(['get','post'], 'admin/gallery/album_fill/{id}', 'AdminController@albumFill')->name('album_fill');
@@ -126,5 +129,9 @@ Route::get('admin/smis', function() {
 Route::get('admin/partners', function() {
     return view('admin.partners.index', ['partners' => \App\Partner::all()]);
 })->name('partners_index');
+
+Route::get('admin/subscribers', function() {
+    return view('admin.subscribers.index', ['subscribers' => \App\Subscriber::all()]);
+})->name('subscribers_index');
 
 

@@ -11,7 +11,7 @@
                         <tr class="text-center">
                             <th scope="col">id</th>
                             <th scope="col">Tag</th>
-                            <th scope=""col>Date</th>
+                            <th scope="col">Date</th>
                             <th scope="col">Title</th>
                             <th scope="col">Content</th>
                             <th>Action</th>

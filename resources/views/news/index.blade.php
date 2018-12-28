@@ -102,7 +102,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-9">
-                                {{ Form::open(array('action' => 'AdminController@createArticle', 'files' => true, 'class'=>'news-form')) }}
+                                {{ Form::open(array('action' => 'AdminController@createSubscriber', 'files' => true, 'class'=>'news-form')) }}
 
                                 {{ Form::label('title', 'Заголовок') }}
                                 {{ Form::text('title', '',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
@@ -178,7 +178,7 @@
                     </button>
                 </div>
                 <div class="modal-body mx-3 subscribes">
-                    {{ Form::open(array('action' => 'AdminController@createArticle', 'files' => true, 'class'=>'subscribe-form')) }}
+                    {{ Form::open(array('action' => 'AdminController@createSubscriber', 'class'=>'subscribe-form')) }}
                     <div class="md-form mb-5">
                         <i class="fas fa-user prefix grey-text"></i>
                         <input name="name" type="text" id="orangeForm-name" class="form-control validate">
@@ -226,20 +226,15 @@
            $('.subscribe-form').submit( function(e) {
                e.preventDefault();
                $.ajax({
-                   url: "{{ url('admin/news/create') }}",
+                   url: "{{ url('admin/subscribers/create') }}",
                    dataType: 'json',
-                   data: new FormData($(this)[0]),
+                   data: $(this).serialize(),
                    type: 'POST',
-                   async: false,
-                   cache:false,
-                   contentType: false,
-                   processData: false,
                    error: function(data) {
-                        $('.subscribes').html('К сожалению, что-то пошло не так. Пожалуйста напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!');
+                        $('.subscribes').html('К сожалению, что-то пошло не так. Пожалуйста, напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!');
                    },
                    success: function(data) {
                        $('.subscribes').html('Ваша заявка успешно отправлена');
-                       $('.modal-button').css('display','none');
                    }
                });
             });
