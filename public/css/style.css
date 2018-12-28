@@ -1898,10 +1898,30 @@ footer {
       .footers .contact-footer span {
         align-items: center !important; }
     .footers .button-footer {
-      margin-top: 50px; }
+      margin-top: 180px; }
       .footers .button-footer button {
         margin-bottom: 20px; }
-    .footers .nav-bot nav ul {
-      margin-left: 25px; } }
+    .footers .nav-bot nav {
+      justify-content: center; }
+      .footers .nav-bot nav ul {
+        margin-left: 25px;
+        margin-top: 40px !important; }
+
+  .items-partners {
+    justify-content: center; }
+    .items-partners div {
+      margin-bottom: 25px; }
+      .items-partners div img {
+        margin: 0 !important; }
+
+  .container {
+    margin-top: 40px !important; }
+
+  footer {
+    position: static !important;
+    padding-top: 0px !important; }
+
+  body {
+    padding: 0 !important; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -12,7 +12,6 @@
                         <th scope="col">id</th>
                         {{--<th scope="col">Tag</th>--}}
                         <th scope="col">Название альбома</th>
-                        <th scope="col">Content</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -26,9 +25,6 @@
                                 @endforeach
                             </td>--}}
                             <td width="20%">{{ $album->name }}</td>
-                            <td width="55%">
-                                {{$album->photos}}
-                            </td>
                             <td width="10%" class="action">
                                 {{ link_to_action('AdminController@albumFill', '', ['id' => $album->id], ['class' => 'oi oi-pencil']) }}
                                 {{--{{ link_to_action('AdminController@deleteArticle', '', ['id' => $album->id], ['class' => 'oi oi-delete delete-admin']) }}--}}
