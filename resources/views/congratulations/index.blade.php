@@ -58,20 +58,21 @@
                     type: 'get',
                     success: function(d) {
                         console.log(d);
-                        if (d !== 0) {
-                            d.forEach(function (el) {
-                                let ing = '<div class="item-congratulations">';
-                                if (el.content) {
-                                    ing += '<img class="img-item-congratulations img-thumbnail" src="' + el.content + '" alt="" />';
-                                } else {
-                                    ing += '<div class="img-item-congratulations">' + el.content + '</div>';
-                                }
-                                ing += '<div class="content-item-congratulations">' +
-                                    '<span class="title-item-congratulations">' + el.title + '<br /></span>' +
-                                    '</div></div>';
-                                $('#congratulations_wrapper').append(ing);
-                            });
+                        if (d === 0) {
+                            return false;
                         }
+                        d.forEach(function (el) {
+                            let ing = '<div class="item-congratulations">';
+                            if (el.content) {
+                                ing += '<img class="img-item-congratulations img-thumbnail" src="' + el.content + '" alt="" />';
+                            } else {
+                                ing += '<div class="img-item-congratulations">' + el.content + '</div>';
+                            }
+                            ing += '<div class="content-item-congratulations">' +
+                                '<span class="title-item-congratulations">' + el.title + '<br /></span>' +
+                                '</div></div>';
+                            $('#congratulations_wrapper').append(ing);
+                        });
                     }
                 });
             });

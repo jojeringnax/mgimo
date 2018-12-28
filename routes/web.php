@@ -107,6 +107,8 @@ Route::post('admin/gallery/deletePhotos', 'PhotoController@deletePhotos');
 Route::get('news/add_news/{data}', 'NewsController@addNews');
 Route::get('events/add_events/{data}', 'EventsController@addEvents');
 Route::get('congratulations/add_congratulations/{data}', 'CongratulationController@addCongratulations');
+Route::get('books/add_books/{data}', 'BookController@addBooks');
+Route::get('gallery/add_albums/{data}', 'PhotoController@addAlbums');
 
 
 Route::get('admin/congratulations', function() {

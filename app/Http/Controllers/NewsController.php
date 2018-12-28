@@ -34,6 +34,9 @@ class NewsController extends Controller
 
     public function addNews(Request $request)
     {
+        if(!$request->ajax()) {
+            return redirect('/');
+        }
         $news = News::getModerated(9, $request->data);
         foreach ($news as $article) {
             $resultArray[] = [
@@ -42,7 +45,7 @@ class NewsController extends Controller
                 'updated_at' => $article->updated_at,
                 'title' => $article->title,
                 'content' => $article->content,
-                'photo' => $article->mainPhoto->path,
+                'photo' => $article->mainPhoto !== null ? $article->mainPhoto->path : url('img/no-image.png'),
                 'link' => url('news/show', ['id' => $article->id]),
                 'tag' => $article->getTags()[0]
             ];

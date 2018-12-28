@@ -18,7 +18,7 @@ class PhotoController extends Controller
     public function index()
     {
         return view('gallery.index', [
-            'albums' => Album::all()
+            'albums' => Album::limit(4)->get()
         ]);
     }
 
@@ -49,6 +49,24 @@ class PhotoController extends Controller
             return $photos;
         }
         return false;
+    }
+
+
+    public function addAlbums($data, Request $request)
+    {
+        if (!$request->ajax()) {
+            return redirect('/');
+        }
+        $albums = Album::limit(4)->skip($data)->get();
+        foreach ($albums as $album) {
+            $resultArray[] = [
+                'id' => $album->id,
+                'link' => url('gallery/show', ['id' => $album->id]),
+                'photo' => Photo::where('album_id', $album->id)->first()->path,
+                'name' => $album->name
+            ];
+        }
+        return isset($resultArray) ? $resultArray : 0;
     }
 
 

@@ -280,23 +280,24 @@
                     type: 'get',
                     success: function (d) {
                         let i = 1;
-                        if (d !== 0) {
-                            d.forEach(function (el) {
-                                $('div[data-col=' + i + ']').append(
-                                    '<a href="' + el.link + '" class="item-card-news card" style="display:block;width: 100%">' +
-                                    '<div class="item-card-news card" style="width: 100%">' +
-                                    '<img class="card-img-top" src="' + el.photo + '" alt="Card image cap">' +
-                                    '<div class="card-body d-flex flex-column align-items-start">' +
-                                    '<span class="tags-news-page"><span class="tag"><i></i><span>' + el.tag + '</span></span></span>' +
-                                    '<span class="title-card-news">' + el.title + '</span>' +
-                                    '<span class="date-news-page">17 декабря 2018</span>' +
-                                    '</div>' +
-                                    '</div>' +
-                                    '</a>'
-                                );
-                                i++;
-                            });
+                        if (d === 0) {
+                            return false;
                         }
+                        d.forEach(function (el) {
+                            $('div[data-col=' + i + ']').append(
+                                '<a href="' + el.link + '" class="item-card-news card" style="display:block;width: 100%">' +
+                                '<div class="item-card-news card" style="width: 100%">' +
+                                '<img class="card-img-top" src="' + el.photo + '" alt="Card image cap">' +
+                                '<div class="card-body d-flex flex-column align-items-start">' +
+                                '<span class="tags-news-page"><span class="tag"><i></i><span>' + el.tag + '</span></span></span>' +
+                                '<span class="title-card-news">' + el.title + '</span>' +
+                                '<span class="date-news-page">17 декабря 2018</span>' +
+                                '</div>' +
+                                '</div>' +
+                                '</a>'
+                            );
+                            i++;
+                        });
                     }
                 });
             });

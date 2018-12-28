@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Congratulation;
+use Illuminate\Http\Request;
 
 class CongratulationController
 {
@@ -18,8 +19,11 @@ class CongratulationController
         return view('congratulations.index', ['congratulations' => Congratulation::getModerated()]);
     }
 
-    public function addCongratulations($data)
+    public function addCongratulations($data, Request $request)
     {
+        if(!$request->ajax()) {
+            return redirect('/');
+        }
         $congratulations = Congratulation::getModerated(4, $data);
         foreach ($congratulations as $congratulation) {
             $resultArray[] = [
