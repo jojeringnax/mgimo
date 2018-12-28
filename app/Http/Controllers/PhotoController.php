@@ -42,5 +42,14 @@ class PhotoController extends Controller
         return 'yes';
     }
 
+    public function deletePhotos(Request $request)
+    {
+        if($request->ajax()) {
+            $photos = Photo::whereIn('id', $request->data)->delete();
+            return $photos;
+        }
+        return false;
+    }
+
 
 }

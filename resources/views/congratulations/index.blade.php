@@ -24,7 +24,7 @@
                     {{--<span>Поздравления</span>--}}
                 {{--</div>--}}
 
-                <div class="d-flex flex-wrap justify-content-between">
+                <div id="congratulations_wrapper" class="d-flex flex-wrap justify-content-between">
                     @foreach ($congratulations as $congratulation)
                         <div class="item-congratulations">
                             @if(!preg_match('/<iframe*/', $congratulation->content))
@@ -53,10 +53,26 @@
                 e.preventDefault();
                 let data = $('.item-congratulations').length;
                 $.ajax({
-                    url: "add_congratulations",
+                    url: "{{ url('congratulations/add_congratulations') }}/" + data,
                     dataType: 'json',
-                    data: data,
-                    type: 'POST'
+                    type: 'get',
+                    success: function(d) {
+                        console.log(d);
+                        if (d !== 0) {
+                            d.forEach(function (el) {
+                                let ing = '<div class="item-congratulations">';
+                                if (el.content) {
+                                    ing += '<img class="img-item-congratulations img-thumbnail" src="' + el.content + '" alt="" />';
+                                } else {
+                                    ing += '<div class="img-item-congratulations">' + el.content + '</div>';
+                                }
+                                ing += '<div class="content-item-congratulations">' +
+                                    '<span class="title-item-congratulations">' + el.title + '<br /></span>' +
+                                    '</div></div>';
+                                $('#congratulations_wrapper').append(ing);
+                            });
+                        }
+                    }
                 });
             });
         });

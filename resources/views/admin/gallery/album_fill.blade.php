@@ -13,7 +13,6 @@
             </div>
             <div class="custom-file">
                 {{ Form::file('photos[]', ['class' => 'input-default-js custom-file-input', 'area-describedby' => 'photo_area', 'id' => 'photo', 'multiple' => 'multiple']) }}
-                {{--<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">--}}
                 <label class="custom-file-label" for="inputGroupFile01">Choose files</label>
             </div>
         </div>
@@ -31,7 +30,7 @@
             {{ Form::open(array( 'files' => true, 'class'=>'form-control album-delete-photos')) }}
                 <div class="photo-albums d-flex flex-wrap">
                         @foreach( $photos as $photo)
-                            <div class="col-2">
+                            <div class="col-2" data-id="{{ $photo->id }}">
                                 <div class="item-album-photo img-thumbnail">
                                     <div class="check-box-delete-item custom-control custom-checkbox custom-control-inline">
                                         {{ Form::checkbox($photo->id,null,null, ['class' => 'custom-control-input chekk', 'id' => $photo->id]) }}
@@ -44,7 +43,7 @@
                             </div>
                         @endforeach
                     <div class="col-12 d-flex justify-content-lg-center">
-                        {{ Form::submit('Удалить',['class' => 'btn btn-primary item-form-news-add-btn'] ) }}
+                        {{ Form::submit('Удалить',['class' => 'btn btn-primary delete-photos'] ) }}
                     </div>
                 </div>
             {{ Form::close() }}
@@ -56,18 +55,30 @@
     <script>
         $(document).ready(function(){
             let data = [];
-            $('.item-form-news-add-btn').click(function(e){
+            $('.delete-photos').click(function(e){
                 e.preventDefault();
                 $('.chekk').each(function(){
                     if($(this).prop("checked")) {
                         data.push(parseInt(($(this).attr('id'))));
                     }
                 });
+                console.log(data);
                $.ajax({
-                    url: 'delete_pic_album',
-                    method: 'delete',
-                    data: data,
-                    dataType: "json"
+                    headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token()}}'
+                    },
+                    url: '{{url('admin/gallery/deletePhotos')}}',
+                    method: 'post',
+                    data: {data: data},
+                    dataType: "text",
+                    success: function() {
+                        data.forEach(function(el) {
+                            $('.col-2[data-id=' + el + ']').remove();
+                        });
+                    },
+                    error: function(ut) {
+                        console.log(ut);
+                    }
                })
             });
         });

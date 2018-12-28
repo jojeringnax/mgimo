@@ -15,6 +15,20 @@ class CongratulationController
 {
     public function index()
     {
-        return view('congratulations.index', ['congratulations' => Congratulation::all()]);
+        return view('congratulations.index', ['congratulations' => Congratulation::getModerated()]);
+    }
+
+    public function addCongratulations($data)
+    {
+        $congratulations = Congratulation::getModerated(4, $data);
+        foreach ($congratulations as $congratulation) {
+            $resultArray[] = [
+                'id' => $congratulation->id,
+                'title' => $congratulation->title,
+                'content' => !preg_match('/<iframe*/', $congratulation->content) ? $congratulation->mainPhoto !== null ? $congratulation->mainPhoto->path : url('img/no-image.png') : false,
+                'date' => $congratulation->date
+            ];
+        }
+        return isset($resultArray) ? json_encode($resultArray) : 0;
     }
 }

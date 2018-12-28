@@ -13,23 +13,13 @@
         <div class="row d-flex flex-column">
             <div class="news-page">
                 <div class="title-news-page d-flex" style="padding-left: 25px;">
-                    {{--<span class="text-title-news-page">Новости</span>--}}
                     <div class="btn-news-page d-flex">
                         <a  data-toggle="modal" data-target="#exampleModal" class="modal-button btn-news-page-add"><span></span>Добавить свою новость</a>
                         <a  data-toggle="modal" data-target="#modalRegisterForm" class="btn-news-page-sub"><span></span>Подписаться на новости</a>
                     </div>
                 </div>
                 <div class="news d-flex flex-wrap justify-content-start">
-                    {{--<div class="col-xl-4 d-flex flex-column">--}}
-
-                    {{--</div>--}}
-                    {{--<div class="col-xl-4 d-flex flex-column">--}}
-
-                    {{--</div>--}}
-                    {{--<div class="col-xl-4 d-flex flex-column">--}}
-
-                    {{--</div>--}}
-                    <div data-col="1" class="col-xl-4 d-flex flex-column flex-wrap" style="max-height: 1400px;">
+                    <div data-col="1" class="col-xl-4 d-flex flex-column flex-wrap">
                         @foreach($news as $article)
                             @if($loop->index%3 == 0 )
                                 <a href="{{ url('news/show', ['id' => $article->id]) }}" class="item-card-news card" style="display:block;width: 100%">
@@ -42,14 +32,12 @@
                                         </span>
                                         <span class="title-card-news">{{ $article->title }}</span>
                                         <span class="date-news-page">19 декабря 2018</span>
-                                        {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
                                     </div>
-                                    {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
                                 </a>
                             @endif
                         @endforeach
                     </div>
-                    <div data-col="2" class="col-xl-4 d-flex flex-column flex-wrap" style="max-height: 1400px;">
+                    <div data-col="2" class="col-xl-4 d-flex flex-column flex-wrap">
                         @foreach($news as $article)
                             @if($loop->index%3 == 1 )
                                 <a href={{url('news/show/'.$article->id)}}>
@@ -71,7 +59,7 @@
                             @endif
                         @endforeach
                     </div>
-                    <div data-col="3" class="col-xl-4 d-flex flex-column flex-wrap" style="max-height: 1400px;">
+                    <div data-col="3" class="col-xl-4 d-flex flex-column flex-wrap">
                         @foreach($news as $article)
                             @if($loop->index%3 == 2 )
                                 <a href={{url('news/show/'.$article->id)}}>
@@ -85,9 +73,7 @@
                                             </span>
                                             <span class="title-card-news">{{ $article->title }}</span>
                                             <span class="date-news-page">17 декабря 2018</span>
-                                            {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
                                         </div>
-                                        {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
                                     </div>
                                 </a>
                             @endif
@@ -249,7 +235,7 @@
                    contentType: false,
                    processData: false,
                    error: function(data) {
-                        $('.subscribes').html('К сожаоению что-то пошло не так. Пожалуйста напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!');
+                        $('.subscribes').html('К сожалению, что-то пошло не так. Пожалуйста напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!');
                    },
                    success: function(data) {
                        $('.subscribes').html('Ваша заявка успешно отправлена');
@@ -285,14 +271,33 @@
     </script>
     <script>
         $(document).ready( function() {
-            $('#btn-download-news-page').click( function(e) {
+            $('#btn-download-news-page').click(function (e) {
                 e.preventDefault();
                 let data = $('.item-card-news').length;
-               $.ajax({
-                    url: "add_news",
+                $.ajax({
+                    url: "{{ url('news/add_news') }}/" + data,
                     dataType: 'json',
-                    data: data,
-                    type: 'POST'
+                    type: 'get',
+                    success: function (d) {
+                        let i = 1;
+                        if (d !== 0) {
+                            d.forEach(function (el) {
+                                $('div[data-col=' + i + ']').append(
+                                    '<a href="' + el.link + '" class="item-card-news card" style="display:block;width: 100%">' +
+                                    '<div class="item-card-news card" style="width: 100%">' +
+                                    '<img class="card-img-top" src="' + el.photo + '" alt="Card image cap">' +
+                                    '<div class="card-body d-flex flex-column align-items-start">' +
+                                    '<span class="tags-news-page"><span class="tag"><i></i><span>' + el.tag + '</span></span></span>' +
+                                    '<span class="title-card-news">' + el.title + '</span>' +
+                                    '<span class="date-news-page">17 декабря 2018</span>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '</a>'
+                                );
+                                i++;
+                            });
+                        }
+                    }
                 });
             });
         });

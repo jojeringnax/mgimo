@@ -115,7 +115,7 @@
                     </div>
 
                 </div>
-                <div class="content-event-page d-flex flex-wrap">
+                <div id="events_wrapper" class="content-event-page d-flex flex-wrap">
                     @foreach($events as $event)
                         <div class="d-flex col-xl-4" style="padding: 10px;">
                             <div class="items-event-page d-flex flex-wrap flex-column justify-content-around col-xl-12">
@@ -144,9 +144,9 @@
                             </div>
                         </div>
                     @endforeach
-                    <div class="d-flex justify-content-center" style="width: 100%; margin-top: 60px;"><a id="btn-download-event-page" href="" class="">Показать еще новости</a></div>
                 </div>
             </div>
+            <div class="d-flex justify-content-center" style="width: 100%; margin-top: 60px;"><a id="btn-download-event-page" href="" class="">Показать еще мероприятия</a></div>
         </div>
     </div>
 
@@ -239,10 +239,34 @@
                 e.preventDefault();
                 let data = $('.items-event-page > a').length;
                 $.ajax({
-                    url: "add_event",
+                    url: "{{ url('events/add_events') }}/" + data,
                     dataType: 'json',
-                    data: data,
-                    type: 'POST'
+                    type: 'get',
+                    success: function(d) {
+                        let i = 0;
+                        let div = $('#events_wrapper');
+                        let text;
+                        if(d !== 0) {
+                            d.forEach(function (el) {
+                                text =
+                                    '<div class="d-flex col-xl-4" style="padding: 10px;">' +
+                                    '<div class="items-event-page d-flex flex-wrap flex-column justify-content-around col-xl-12">' +
+                                    '<a href="' + el.link + '">' +
+                                    '<div class="item">' +
+                                    '<span class="title-item">' + el.title + '</span>' +
+                                    '<span class="date-item">' + el.date + '</span>' +
+                                    '<span class="location-item"><i></i>' + el.location + '</span>' +
+                                    '</div>' +
+                                    '</a>';
+                                if (i % 3 !== 2) {
+                                    text += '<hr>';
+                                }
+                                text += '</div></div>';
+                                div.append(text);
+                                i++;
+                            });
+                        }
+                    }
                 });
             });
         });

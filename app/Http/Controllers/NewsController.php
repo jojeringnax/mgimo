@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\News;
 use App\Photo;
+use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
@@ -29,5 +30,23 @@ class NewsController extends Controller
             'article' => $article,
             'articlePhotos' => $article->getPhotos()
         ]);
+    }
+
+    public function addNews(Request $request)
+    {
+        $news = News::getModerated(9, $request->data);
+        foreach ($news as $article) {
+            $resultArray[] = [
+                'id' => $article->id,
+                'created_at' => $article->created_at,
+                'updated_at' => $article->updated_at,
+                'title' => $article->title,
+                'content' => $article->content,
+                'photo' => $article->mainPhoto->path,
+                'link' => url('news/show', ['id' => $article->id]),
+                'tag' => $article->getTags()[0]
+            ];
+        }
+        return isset($resultArray) ? json_encode($resultArray, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) : 0;
     }
 }

@@ -103,6 +103,12 @@ Route::get('admin/gallery', function() {
     return view('admin.gallery.index', ['albums' => \App\Album::all()]);
 })->name('album_index');
 
+Route::post('admin/gallery/deletePhotos', 'PhotoController@deletePhotos');
+Route::get('news/add_news/{data}', 'NewsController@addNews');
+Route::get('events/add_events/{data}', 'EventsController@addEvents');
+Route::get('congratulations/add_congratulations/{data}', 'CongratulationController@addCongratulations');
+
+
 Route::get('admin/congratulations', function() {
     return view('admin.congratulations.index', ['congratulations' => \App\Congratulation::all()]);
 })->name('congratulations_index');
