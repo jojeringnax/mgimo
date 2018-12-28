@@ -8,10 +8,7 @@
                     {{ Form::label('title', 'Заголовок') }}
                     {{ Form::text('title', isset($congratulation) ? $congratulation->title : '',['class' => 'form-control']) }}
                 </div>
-                <div class="item-form-congratulation">
-                    {{ Form::label('content', 'Текст поздравления') }}
-                    {{ Form::textarea('content', isset($congratulation) ? $congratulation->content : '',['class' => 'form-control']) }}
-                </div>
+                    {{ Form::hidden('content','123',['class' => 'form-control']) }}
                 <div class="item-form-congratulation">
                     {{ Form::label('date', 'Выберите дату') }}
                     {{  Form::select('date', \App\Congratulation::getDatesArray(),  null, ['class' => 'form-control' ]) }}
@@ -21,9 +18,9 @@
                     {{ Form::number('priority', '1',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
                 </div>
                 <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
-                    <div class="input-group-prepend clear">
-                        <span class="input-group-text" id="photo_area" data-file="второе">Upload</span>
-                    </div>
+                    {{--<div class="input-group-prepend clear">--}}
+                        {{--<span class="input-group-text" id="photo_area" data-file="второе">Upload</span>--}}
+                    {{--</div>--}}
                     <div class="custom-file">
                         {{ Form::file('file', ['class' => 'form-control','area-describedby' => 'photo_area','id' => 'photo-main'])}}
                         <label class="custom-file-label" for="photo-main">Загрузите основное фото</label>
@@ -33,9 +30,9 @@
                 {{ Form::checkbox('moderated') }}
 
                 <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
-                    <div class="input-group-prepend clear">
-                        <span class="input-group-text" id="photo2_area" data-file="второе">Upload</span>
-                    </div>
+                    {{--<div class="input-group-prepend clear">--}}
+                        {{--<span class="input-group-text" id="photo2_area" data-file="второе">Upload</span>--}}
+                    {{--</div>--}}
                     <div class="custom-file">
                         {{ Form::file('photos[]', ['class' => 'form-control','area-describedby' => 'photo2_area','id' => 'photo', 'multiple' => 'multiple'])}}
                         <label class="custom-file-label" for="photo">Загрузите фото или видео</label>

@@ -22,13 +22,6 @@
                                 <div class="book_title">
                                     {{$book->title}}
                                 </div>
-                                <div class="price-book text-center" style="margin-top: 30px;">
-                                    {{$book->price}}
-                                    &#8381;
-                                </div>
-                                {{--<div class="link-book-pay">--}}
-                                    {{--<a href="">Купить</a>--}}
-                                {{--</div>--}}
                             </div>
                         </a>
                     </div>

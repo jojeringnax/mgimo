@@ -11,6 +11,9 @@
     @yield('link')
 </head>
 <body>
+<div class="arrow-top">
+    <img src="img/arrow-top.svg" alt="">
+</div>
     <header class="header" style="">
         <div class="container">
             <div class="row" style="width:100%;">

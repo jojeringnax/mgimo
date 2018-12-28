@@ -12,10 +12,6 @@
     <div class="container" style="margin-top: 150px; padding-bottom: 120px;">
         <div class="row">
             <div class="gallery-page d-flex flex-wrap">
-                {{--<div class="title-gallery-page">--}}
-                    {{--<span>Галлерея</span>--}}
-                {{--</div>--}}
-
                 <div class="d-flex col-12 flex-wrap">
                     @foreach($albums as $album)
                         @php

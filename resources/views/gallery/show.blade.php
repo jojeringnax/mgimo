@@ -15,6 +15,9 @@
 @section('content')
     <div class="container" style="margin-top: 150px; padding-bottom: 120px;">
         <div class="row">
+            <div class="album-names">
+                {{$album->name}}
+            </div>
             <div class="gallery-page d-flex flex-wrap list-unstyled">
                 <div  id="lightgallery" class="items-partners d-flex col-12 flex-wrap" >
                 @foreach($album->photos as $photo)
