@@ -9,14 +9,13 @@ let x = setInterval(function() {
     // Find the distance between now and the count down date
     let distance = countDownDate - now;
 
-
     // Time calculations for days, hours, minutes and seconds
     let days = Math.floor(distance / (1000 * 60 * 60 * 24));
     let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Display the result in the element with id="demo"
+    // Display the result in the element with id=""
     document.getElementById("timer").innerHTML = "" +
         "<div class='hours d-flex flex-column justify-content-center item-timer'>" +
             "<span class='num'>" + days + "</span>" +
@@ -55,8 +54,6 @@ $(document).ready(function(){
         $('.layout-big-new').css({'background':'linear-gradient(to bottom, transparent, black)'});
         $('.layout-big-new').animate({'opacity':'0.7'});
     });
-
-
 
     let owl = $('.owl-carousel');
     owl.owlCarousel({
@@ -101,11 +98,9 @@ $(document).ready(function(){
 
     $('.tag').each(function(){
         $(this).children('i').css({'background-color': colorTags[$(this).children('span').text()]}) ;
-        //console.log($(this).children('i'),$(this).children('span').text(), colorTags[$(this).children('span').text()])
     });
 
     $('.item-congratulations > img').click(function(){
-        //console.log(window.innerHeight);
         $('.layout-img').removeClass('hide');
         $('.layout-img > div > img').attr('src',$(this).attr('src'));
         $('.layout-img > .img-source-layout').css({'margin-top': $(window).scrollTop() + 120});
@@ -115,29 +110,28 @@ $(document).ready(function(){
         let divImg = $('.layout-img > .img-source-layout > img');
         if (!$(e.target).closest(divImg).length) {
             $('.layout-img').addClass('hide');
-        };
+        }
     });
     $(window).scroll(function(){
-        if($(window).scrollTop() >= 400) {
+        if($(window).scrollTop() >= 80) {
             //console.log($('nav'))
             $('.nav-top').css({'background-color': 'white'});
             $('.nav-top').addClass('box-sd');
-        }else if($(window).scrollTop() <= 300){
+        }else if($(window).scrollTop() <=150){
             $('.nav-top').css({'background-color': 'transparent'});
             $('.nav-top').removeClass('box-sd');
         }
          if ($(window).scrollTop() > $(window).outerHeight()*3) {
-             $('.arrow-top').css({'display': 'block'})
+             $('.arrow-top').css({'display': 'block'});
          } else if($(window).scrollTop() < $(window).outerHeight()) {
-             $('.arrow-top').css({'display': 'none'})
+             $('.arrow-top').css({'display': 'none'});
          }
 
     });
     $('.arrow-top').click(function(){
         console.log('kuku')
         $('html,body').stop().animate({scrollTop:0},1000);
-    })
+    });
     $('.banner-header').css({'height':$(window).outerHeight()});
 
-    $('.owl-carousel > .owl-item > img').removeAttr('width');
 });
