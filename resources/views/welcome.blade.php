@@ -74,7 +74,12 @@
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news">10 Ноября 2018</span>
+                                                <span class="date-news first">{{ date('d', strtotime($article->created_at)) }}</span>
+                                                <script>
+                                                    $(document).ready(function(){
+                                                        $('.date-news.first').html(("{{ date('d', strtotime($article->created_at)) }}") + " " + nameMonth[("{{ date('m', strtotime($article->created_at)) }}")] + " " + ("{{ date('Y', strtotime($article->created_at)) }}"));
+                                                    });
+                                                </script>
                                             </div>
                                         </div>
                                     </article>
@@ -94,7 +99,12 @@
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news">10 Ноября 2018</span>
+                                                <span class="date-news second"></span>
+                                                <script>
+                                                    $(document).ready(function(){
+                                                        $('.date-news.second').html(("{{ date('d', strtotime($article->created_at)) }}") + " " + nameMonth[("{{ date('m', strtotime($article->created_at)) }}")] + " " + ("{{ date('Y', strtotime($article->created_at)) }}"));
+                                                    });
+                                                </script>
                                             </div>
                                         </div>
                                     </article>
@@ -114,7 +124,12 @@
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news">10 Ноября 2018</span>
+                                                <span class="date-news third"></span>
+                                                <script>
+                                                    $(document).ready(function(){
+                                                        $('.date-news.third').html(("{{ date('d', strtotime($article->created_at)) }}") + " " + nameMonth[("{{ date('m', strtotime($article->created_at)) }}")] + " " + ("{{ date('Y', strtotime($article->created_at)) }}"));
+                                                    });
+                                                </script>
                                             </div>
                                         </div>
                                     </article>

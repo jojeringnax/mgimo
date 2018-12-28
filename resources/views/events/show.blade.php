@@ -2,6 +2,9 @@
 @section('shadow')
     box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
 @endsection
+@section('color')
+    background-color: white !important;
+@endsection
 @section('content')
     <div class="container" style="margin-top: 120px; padding-bottom: 100px !important">
         <div class="row">

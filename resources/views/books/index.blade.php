@@ -5,7 +5,9 @@
 @section('shadow')
     box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
 @endsection
-
+@section('color')
+    background-color: white !important;
+@endsection
 @section('content')
     <div class="container" style="margin-top: 130px; padding-bottom: 100px !important">
         <div class="row">
@@ -32,9 +34,25 @@
                     </div>
                 </div>
             @endforeach
+            <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
+                <a id="btn-download-books-page" href="">ПОКАЗАТЬ ЕЩЕ КНИГИ</a>
+            </div>
         </div>
     </div>
 @endsection
 @section('script')
-
+    <script>
+        $(document).ready( function() {
+            $('#btn-download-books-page').click( function(e) {
+                e.preventDefault();
+                let data = $('.item-book-page').length;
+                $.ajax({
+                    url: "add_congratulations",
+                    dataType: 'json',
+                    data: data,
+                    type: 'POST'
+                });
+            });
+        });
+    </script>
 @endsection
