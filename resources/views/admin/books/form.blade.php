@@ -27,15 +27,12 @@
                 {{ Form::label('link', '','Ссылка на покупку книги') }}
                 {{ Form::text('link', isset($book) ? $book->link : '', ['class' => 'form-control']) }}
             </div>
-            <div class="col-xl-12 item-book-admin">
-                {{ Form::label('price', 'Цена за книгу') }}
-                {{ Form::text('price', isset($book) ? $book->price : '', ['class' => 'form-control']) }}
-            </div>
+            {{ Form::hidden('price','1', ['class' => 'form-control']) }}
 
             <div class="input-group col-xl-12 item-book-admin">
-                <div class="input-group-prepend clear">
-                    <span class="input-group-text" id="photo_area" data-file="третье">Upload</span>
-                </div>
+                {{--<div class="input-group-prepend clear">--}}
+                    {{--<span class="input-group-text" id="photo_area" data-file="третье">Upload</span>--}}
+                {{--</div>--}}
                 <div class="custom-file ">
                     {{ Form::file('photo', ['class' => 'input-default-js', 'area-describedby' => 'photo_area', 'id' => 'photo'])}}
                     <label class="custom-file-label" for="photo">Загрузите фото обложки</label>

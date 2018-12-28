@@ -20,6 +20,7 @@
     }
 </script>
 @section('content')
+
     <div class="layout-img hide">
         <div class="layout">
 
@@ -274,7 +275,7 @@
                     <div data-arrow = "right" class="arrow next"></div>
                     <div data-arrow = "left" class="arrow prev"></div>
                     <div class="d-flex justify-content-center">
-                            <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center">
+                            <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center" >
                                 <div class="item">
                         @else
                             <div class="prtn" style="display: flex;justify-content: space-around;align-items: center;flex-direction: row;">
@@ -283,12 +284,20 @@
                                     @if($loop->count <= 3)
                                         <div class="item" style="width: 200px;height: 50px">
                                             <div class="item-partner">
-                                                <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" /></a>
+                                                <a href="{{ $partner->link }}">
+                                                    <div style="height: 100%">
+                                                        <img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" />
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
                                     @else
                                         <div class="item-partner">
-                                            <a href="{{ $partner->link }}"><img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" /></a>
+                                            <a href="{{ $partner->link }}">
+                                                <div style="height: 100%">
+                                                    <img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" />
+                                                </div>
+                                            </a>
                                         </div>
                                         @if($loop->iteration%2 === 0 && $loop->index !== 0 && !$loop->last)
                                             </div><div class="item">
