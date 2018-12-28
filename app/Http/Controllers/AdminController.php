@@ -14,6 +14,7 @@ use App\Partner;
 use App\Photo;
 use App\PhotoConnect;
 use App\Smi;
+use App\Subscriber;
 use App\Tag;
 use App\TagConnect;
 use App\User;
@@ -780,54 +781,117 @@ class AdminController extends Controller
     public function albumFill($id, Request $request)
     {
         $album = Album::find($id);
-     if ($request->isMethod('post')) {
+        if ($request->isMethod('post')) {
 
-         if ($tags = $request->post('tags')) {
-             $tagConnects = TagConnect::select('id')->where('connect_id', $album->id)->where('type', TagConnect::GALLERY);
-             $tagsModels = Tag::whereIn('id', $tagConnects->get())->get();
-             foreach ($tagsModels as $tag) {
-                 $tag->update(['count_news' => $tag->count_news - 1]);
-             }
-             $tagConnects->delete();
-             $tags = preg_split('/,/', $tags);
-             foreach ($tags as $tag) {
-                 $tagModel = Tag::where('word', $tag)->first();
-                 if ($tagModel === null) {
-                     $tagModel = new Tag();
-                     $tagModel->word = $tag;
-                     $tagModel->count_photos = 1;
-                     $tagModel->save();
-                 } else {
-                     $tagModel->update(['count_event', $tagModel->count_event + 1]);
+            if ($tags = $request->post('tags')) {
+                $tagConnects = TagConnect::select('id')->where('connect_id', $album->id)->where('type', TagConnect::GALLERY);
+                $tagsModels = Tag::whereIn('id', $tagConnects->get())->get();
+                foreach ($tagsModels as $tag) {
+                    $tag->update(['count_news' => $tag->count_news - 1]);
+                }
+                 $tagConnects->delete();
+                 $tags = preg_split('/,/', $tags);
+                 foreach ($tags as $tag) {
+                     $tagModel = Tag::where('word', $tag)->first();
+                     if ($tagModel === null) {
+                         $tagModel = new Tag();
+                         $tagModel->word = $tag;
+                         $tagModel->count_photos = 1;
+                         $tagModel->save();
+                     } else {
+                         $tagModel->update(['count_event', $tagModel->count_event + 1]);
+                     }
+                     $tagConnect = new TagConnect();
+                     $tagConnect->id = $tagModel->id;
+                     $tagConnect->connect_id = $album->id;
+                     $tagConnect->type = TagConnect::GALLERY;
+                     $tagConnect->save();
                  }
-                 $tagConnect = new TagConnect();
-                 $tagConnect->id = $tagModel->id;
-                 $tagConnect->connect_id = $album->id;
-                 $tagConnect->type = TagConnect::GALLERY;
-                 $tagConnect->save();
-             }
-         }
-         $files = $request->allFiles()['photos'];
-         foreach ($files as $file) {
-             $photo = new Photo();
-             $photo->type = PhotoConnect::GALLERY;
-             $photo->path = '';
-             $photo->sizeX = getimagesize($file->getPathname())[0];
-             $photo->sizeY = getimagesize($file->getPathname())[1];
-             $photo->album_id = $id;
-             $photo->save();
-             $path = 'gallery/album_' . $id . '/' . $photo->id . '.' . $file->getClientOriginalExtension();
-             Storage::put($path, file_get_contents($file->getPathname()));
-             $path = '/storage/photo/' . $path;
-             $photo->path = $path;
-             $photo->save();
-         }
-         return redirect()->route('album_fill', ['id' => $id]);
-     } elseif ($request->isMethod('get')) {
-         return view('admin.gallery.album_fill', [
-             'album' => $album
-         ]);
+            }
+            $files = $request->allFiles()['photos'];
+            foreach ($files as $file) {
+                $photo = new Photo();
+                $photo->type = PhotoConnect::GALLERY;
+                $photo->path = '';
+                $photo->sizeX = getimagesize($file->getPathname())[0];
+                $photo->sizeY = getimagesize($file->getPathname())[1];
+                $photo->album_id = $id;
+                $photo->save();
+                $path = 'gallery/album_' . $id . '/' . $photo->id . '.' . $file->getClientOriginalExtension();
+                Storage::put($path, file_get_contents($file->getPathname()));
+                $path = '/storage/photo/' . $path;
+                $photo->path = $path;
+                $photo->save();
+            }
+            return redirect()->route('album_fill', ['id' => $id]);
+
+        } elseif ($request->isMethod('get')) {
+            return view('admin.gallery.album_fill', [
+                'album' => $album
+        ]);
      }
      return 0;
+    }
+
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     */
+    public function createSubscriber(Request $request)
+    {
+        if($request->isMethod('post') && $request->ajax()) {
+            $subscriber = new Subscriber();
+            $subscriber->name = $request->post('name');
+            $subscriber->email = $request->post('email');
+            $subscriber->course = $request->post('course');
+            $subscriber->faculty = $request->post('faculty');
+            $subscriber->work = $request->post('work');
+            $subscriber->post = $request->post('post');
+            $subscriber->active = $request->post('active') === null ? false : true;
+            $subscriber->save();
+            return 1;
+        } elseif ($request->isMethod('get')) {
+            return view('admin.subscribers.form');
+        }
+        return 0;
+    }
+
+
+    /**
+     * @param $subscriberId
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View|int
+     */
+    public function updateSubscriber($subscriberId, Request $request)
+    {
+        if($request->isMethod('post')) {
+            $subscriber = Subscriber::find($subscriberId);
+            $subscriber->name = $request->post('name');
+            $subscriber->email = $request->post('email');
+            $subscriber->course = $request->post('course');
+            $subscriber->faculty = $request->post('faculty');
+            $subscriber->work = $request->post('work');
+            $subscriber->post = $request->post('post');
+            $subscriber->active = $request->post('active') === null ? false : true;
+            $subscriber->save();
+            return redirect()->route('subscribers_index');
+        } elseif ($request->isMethod('get')) {
+            return view('admin.subscribers.form', [
+                'subscriber' => Subscriber::find($subscriberId)
+            ]);
+        }
+        return 0;
+    }
+
+    /**
+     * @param $subscriberId
+     * @return int
+     */
+    public function deleteSubscriber($subscriberId)
+    {
+        Subscriber::find($subscriberId)->delete();
+        return 1;
     }
 }

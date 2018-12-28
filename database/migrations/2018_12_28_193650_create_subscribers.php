@@ -22,6 +22,7 @@ class CreateSubscribers extends Migration
             $table->string('faculty', 32);
             $table->string('work', 256);
             $table->string('post',64);
+            $table->boolean('active');
         });
     }
 
