@@ -18,7 +18,7 @@
                             $photos = $album->photos;
                         @endphp
                         @foreach($photos as $photo)
-                            <a class="col-3 item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}">
+                            <a class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}">
                                 <div  style="background-image: url({{ $photo->path }}); background-size: cover;">
                                     <div class="items-gallery">
                                         <span>{{ $album->name }}</span>

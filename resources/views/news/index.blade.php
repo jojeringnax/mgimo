@@ -13,13 +13,13 @@
         <div class="row d-flex flex-column">
             <div class="news-page">
                 <div class="title-news-page d-flex" style="padding-left: 25px;">
-                    <div class="btn-news-page d-flex">
+                    <div class="btn-news-page d-flex flex-wrap">
                         <a  data-toggle="modal" data-target="#exampleModal" class="modal-button btn-news-page-add"><span></span>Добавить свою новость</a>
                         <a  data-toggle="modal" data-target="#modalRegisterForm" class="btn-news-page-sub"><span></span>Подписаться на новости</a>
                     </div>
                 </div>
                 <div class="news d-flex flex-wrap justify-content-start">
-                    <div data-col="1" class="col-xl-4 d-flex flex-column flex-wrap">
+                    <div data-col="1" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
                         @foreach($news as $article)
                             @if($loop->index%3 == 0 )
                                 <a href="{{ url('news/show', ['id' => $article->id]) }}" class="item-card-news card" style="display:block;width: 100%">
@@ -37,7 +37,7 @@
                             @endif
                         @endforeach
                     </div>
-                    <div data-col="2" class="col-xl-4 d-flex flex-column flex-wrap">
+                    <div data-col="2" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
                         @foreach($news as $article)
                             @if($loop->index%3 == 1 )
                                 <a href={{url('news/show/'.$article->id)}}>
@@ -59,7 +59,7 @@
                             @endif
                         @endforeach
                     </div>
-                    <div data-col="3" class="col-xl-4 d-flex flex-column flex-wrap">
+                    <div data-col="3" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
                         @foreach($news as $article)
                             @if($loop->index%3 == 2 )
                                 <a href={{url('news/show/'.$article->id)}}>
@@ -181,32 +181,32 @@
                     {{ Form::open(array('action' => 'AdminController@createArticle', 'files' => true, 'class'=>'subscribe-form')) }}
                     <div class="md-form mb-5">
                         <i class="fas fa-user prefix grey-text"></i>
-                        <input type="text" id="orangeForm-name" class="form-control validate">
+                        <input name="name" type="text" id="orangeForm-name" class="form-control validate">
                         <label data-error="Вы не ввели имя" data-success="Готово" for="orangeForm-name">*Ваше Имя</label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
-                        <input type="email" id="sub_news-email" class="form-control validate">
+                        <input name="email" type="email" id="sub_news-email" class="form-control validate">
                         <label data-error="Вы не ввели e-mail" data-success="right" for="orangeForm-email">*Ваш e-mail</label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
-                        <input type="text" id="sub_news-course" class="form-control">
+                        <input name="course" type="number" id="sub_news-course" class="form-control">
                         <label for="sub_news-course">Курс</label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
-                        <input type="text" id="sub_news-faculty" class="form-control validate">
+                        <input name="faculty" type="text" id="sub_news-faculty" class="form-control validate">
                         <label for="sub_news-faculty">Факультет</label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
-                        <input type="text" id="sub_news-work" class="form-control validate">
+                        <input name="work" type="text" id="sub_news-work" class="form-control validate">
                         <label for="sub_news-work">Место работы</label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
-                        <input type="text" id="sub_news-post" class="form-control validate">
+                        <input name="post" type="text" id="sub_news-post" class="form-control validate">
                         <label for="sub_news-post">Должность</label>
                     </div>
                 </div>

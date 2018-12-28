@@ -8,16 +8,16 @@
     <div class="forms-albums container">
         {{ Form::model($album, ['class'=>'album-form form-group', 'files' => true]) }}
         <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-            </div>
+            {{--<div class="input-group-prepend">--}}
+                {{--<span class="input-group-text" id="inputGroupFileAddon01">Upload</span>--}}
+            {{--</div>--}}
             <div class="custom-file">
                 {{ Form::file('photos[]', ['class' => 'input-default-js custom-file-input', 'area-describedby' => 'photo_area', 'id' => 'photo', 'multiple' => 'multiple']) }}
                 <label class="custom-file-label" for="inputGroupFile01">Choose files</label>
             </div>
         </div>
 
-        {{ Form::submit('Что-то сделать!', ['class' => 'btn btn-primary']) }}
+        {{ Form::submit('Загрузить фото', ['class' => 'btn btn-primary']) }}
 
         {{ Form::close() }}
     </div>
@@ -81,6 +81,10 @@
                     }
                })
             });
+
+            $('.custom-file-input').change(function(){
+                $('.custom-file-label').html('Количество загруженных фото: ' + this.files.length)
+            })
         });
     </script>
 @endsection
