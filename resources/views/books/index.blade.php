@@ -15,7 +15,7 @@
                 <div class="col-xl-3 item-book-page">
                     <div class="card-book" style="width: 100%">
                         <a href="{{url('books/show/'.$book->id)}}">
-                            <div class="card-head d-flex flex-column justify-content-start align-items-center" style="height: 200px">
+                            <div class="card-head d-flex flex-column justify-content-start align-items-center" style="min-height: 200px">
                                 <img class="card-img-top" src="{{ $book->coverPhoto->path }}" style="height: 100%"/>
                             </div>
                             <div class="card-body">
