@@ -12,7 +12,7 @@
     <div class="container" style="margin-top: 150px; padding-bottom: 120px;">
         <div class="row">
             <div class="gallery-page d-flex flex-wrap">
-                <div class="d-flex col-12 flex-wrap">
+                <div id="albums_wrapper" class="d-flex col-12 flex-wrap">
                     @foreach($albums as $album)
                         @php
                             $photos = $album->photos;
@@ -21,9 +21,6 @@
                             <a class="col-3 item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}">
                                 <div  style="background-image: url({{ $photo->path }}); background-size: cover;">
                                     <div class="items-gallery">
-                                        <div class="layout-partner-page">
-
-                                        </div>
                                         <span>{{ $album->name }}</span>
                                     </div>
                                 </div>
@@ -46,10 +43,25 @@
             e.preventDefault();
             let data = $('.item-album').length;
             $.ajax({
-                url: "add_gallery",
+                url: "{{ url('gallery/add_albums') }}/" + data,
                 dataType: 'json',
-                data: data,
-                type: 'POST'
+                type: 'get',
+                success: function(d) {
+                    if(d === 0) {
+                        return false;
+                    }
+                    d.forEach(function(el) {
+                        $('#albums_wrapper').append(
+                            '<a class="col-3 item-album" href="' + el.link + '">' +
+                                '<div  style="background-image: url(' + el.photo + '); background-size: cover;">' +
+                                    '<div class="items-gallery">' +
+                                        '<span>{{ $album->name }}</span>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</a>'
+                        );
+                    });
+                }
             });
         });
     });
