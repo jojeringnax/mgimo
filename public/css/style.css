@@ -55,7 +55,7 @@ nav {
   nav div {
     justify-content: center; }
     nav div ul li {
-      margin-left: 40px; }
+      margin-left: 20px; }
       nav div ul li:first-child {
         margin-left: 0; }
         nav div ul li:first-child a {
@@ -64,7 +64,6 @@ nav {
         text-transform: none !important;
         font-size: 14px !important;
         color: #1A2F3F !important;
-        font-weight: 600 !important;
         transition: 0.5s; }
         nav div ul li a:hover {
           color: #e74237 !important; }
@@ -96,14 +95,13 @@ nav {
   justify-content: flex-end; }
 
 .banner {
-  position: absolute;
   bottom: 0;
   margin-top: 100px;
   width: 100%;
   height: 400px;
   background-image: url("../img/layout/banner.png");
   background-size: 102%;
-  background-position: center;
+  background-position: center bottom;
   display: flex;
   position: relative;
   justify-content: center;
@@ -852,7 +850,7 @@ nav {
     text-transform: uppercase;
     font-weight: bold; }
     .news-page .title-news-page .btn-news-page a.btn-news-page-add span {
-      margin-left: 25px;
+      margin-right: 25px;
       display: block;
       width: 22px;
       height: 22px;
@@ -860,6 +858,10 @@ nav {
       top: calc(40% - 9px);
       right: 25px;
       background-repeat: no-repeat; }
+    .news-page .title-news-page .btn-news-page a.btn-news-page-add:hover {
+      border: 1px solid #1A2F3F;
+      background-color: #1A2F3F;
+      color: white; }
   .news-page .title-news-page .btn-news-page a.btn-news-page-sub {
     border: 1px solid #1A2F3F;
     height: 55px;
@@ -881,6 +883,10 @@ nav {
       top: calc(40% - 9px);
       right: 25px;
       background-repeat: no-repeat; }
+    .news-page .title-news-page .btn-news-page a.btn-news-page-sub:hover {
+      border: 1px solid #1A2F3F;
+      background-color: #1A2F3F;
+      color: white; }
 
 .news {
   position: relative;
@@ -940,6 +946,94 @@ nav {
   -o-transition: 0.5s;
   transition: 0.5s; }
   #btn-download-news-page:hover {
+    background-color: #1A2F3F;
+    color: white; }
+
+#btn-download-event-page {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 333px;
+  height: 55px;
+  border: 1px solid #1A2F3F;
+  background-color: white;
+  color: #1A2F3F;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+  #btn-download-event-page:hover {
+    background-color: #1A2F3F;
+    color: white; }
+
+#btn-download-galley-page {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 333px;
+  height: 55px;
+  border: 1px solid #1A2F3F;
+  background-color: white;
+  color: #1A2F3F;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+  #btn-download-galley-page:hover {
+    background-color: #1A2F3F;
+    color: white; }
+
+#btn-download-congratulations-page {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 333px;
+  height: 55px;
+  border: 1px solid #1A2F3F;
+  background-color: white;
+  color: #1A2F3F;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+  #btn-download-congratulations-page:hover {
+    background-color: #1A2F3F;
+    color: white; }
+
+#btn-download-books-page {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 333px;
+  height: 55px;
+  border: 1px solid #1A2F3F;
+  background-color: white;
+  color: #1A2F3F;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+  #btn-download-books-page:hover {
     background-color: #1A2F3F;
     color: white; }
 

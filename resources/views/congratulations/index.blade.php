@@ -5,8 +5,8 @@
 @section('shadow')
     box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
 @endsection
-@section('shadow')
-    box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
+@section('color')
+    background-color: white !important;
 @endsection
 @section('content')
     <div class="layout-img hide">
@@ -38,10 +38,27 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
+                    <a id="btn-download-congratulations-page" href="">ПОКАЗАТЬ ЕЩЕ ПОЗДРАВЛЕНИЯ</a>
+                </div>
             </div>
         </div>
     </div>
     @endsection
 @section('script')
     <script src="{{asset('js/congratulations.js')}}"></script>
+    <script>
+        $(document).ready( function() {
+            $('#btn-download-congratulations-page').click( function(e) {
+                e.preventDefault();
+                let data = $('.item-congratulations').length;
+                $.ajax({
+                    url: "add_congratulations",
+                    dataType: 'json',
+                    data: data,
+                    type: 'POST'
+                });
+            });
+        });
+    </script>
 @endsection

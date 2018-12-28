@@ -2,6 +2,9 @@
 @section('shadow')
     box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
 @endsection
+@section('color')
+    background-color: white !important;
+@endsection
 @section('content')
     <div class="container" style="margin-top: 150px; padding-bottom: 120px">
         <div class="row">
@@ -29,9 +32,26 @@
                     <!-- Вывод, если новостей нет --><div>Нет новостей</div>
                 @endif
             </div>
+            <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
+                <a id="btn-download-smis-page" href="">ПОКАЗАТЬ ЕЩЕ СМИ О НАС</a>
+            </div>
         </div>
     </div>
 @endsection
 @section('script')
     <script src="{{ asset('js/media.js') }}"></script>
+    <script>
+        $(document).ready( function() {
+            $('#btn-download-smis-page').click( function(e) {
+                e.preventDefault();
+                let data = $('.item-media-news').length;
+                $.ajax({
+                    url: "add_smis",
+                    dataType: 'json',
+                    data: data,
+                    type: 'POST'
+                });
+            });
+        });
+    </script>
 @endsection

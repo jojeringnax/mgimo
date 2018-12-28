@@ -5,6 +5,9 @@
 @section('shadow')
     box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
 @endsection
+@section('color')
+    background-color: white !important;
+@endsection
 <script>
     let nameMonth = {
         1: 'Января',
@@ -141,6 +144,7 @@
                             </div>
                         </div>
                     @endforeach
+                    <div class="d-flex justify-content-center" style="width: 100%; margin-top: 60px;"><a id="btn-download-event-page" href="" class="">Показать еще новости</a></div>
                 </div>
             </div>
         </div>
@@ -225,6 +229,20 @@
                         $('.modal-body > .container > .row').html('Мероприятие успешно загружено');
                         $('.modal-button').css('display','none');
                     }
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready( function() {
+            $('#btn-download-event-page').click( function(e) {
+                e.preventDefault();
+                let data = $('.items-event-page > a').length;
+                $.ajax({
+                    url: "add_event",
+                    dataType: 'json',
+                    data: data,
+                    type: 'POST'
                 });
             });
         });

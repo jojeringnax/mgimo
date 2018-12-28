@@ -5,6 +5,9 @@
 @section('shadow')
     box-shadow: 0 3px 10px rgba(0,0,0, 0.07) !important;
 @endsection
+@section('color')
+    background-color: white !important;
+@endsection
 @section('content')
     <div class="container" style="margin-top: 150px; padding-bottom: 120px">
         <div class="row d-flex flex-column">
@@ -12,8 +15,8 @@
                 <div class="title-news-page d-flex" style="padding-left: 25px;">
                     {{--<span class="text-title-news-page">Новости</span>--}}
                     <div class="btn-news-page d-flex">
-                        <a  data-toggle="modal" data-target="#exampleModal"class="modal-button btn-news-page-add">Добавить свою новость <span></span></a>
-                        <a  class="btn-news-page-sub"><span></span>Подписаться на новости</a>
+                        <a  data-toggle="modal" data-target="#exampleModal" class="modal-button btn-news-page-add"><span></span>Добавить свою новость</a>
+                        <a  data-toggle="modal" data-target="#modalRegisterForm" class="btn-news-page-sub"><span></span>Подписаться на новости</a>
                     </div>
                 </div>
                 <div class="news d-flex flex-wrap justify-content-start">
@@ -178,13 +181,63 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Подписаться на новости</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3 subscribes">
+                    {{ Form::open(array('action' => 'AdminController@createArticle', 'files' => true, 'class'=>'subscribe-form')) }}
+                    <div class="md-form mb-5">
+                        <i class="fas fa-user prefix grey-text"></i>
+                        <input type="text" id="orangeForm-name" class="form-control validate">
+                        <label data-error="Вы не ввели имя" data-success="Готово" for="orangeForm-name">*Ваше Имя</label>
+                    </div>
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="email" id="sub_news-email" class="form-control validate">
+                        <label data-error="Вы не ввели e-mail" data-success="right" for="orangeForm-email">*Ваш e-mail</label>
+                    </div>
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="text" id="sub_news-course" class="form-control">
+                        <label for="sub_news-course">Курс</label>
+                    </div>
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="text" id="sub_news-faculty" class="form-control validate">
+                        <label for="sub_news-faculty">Факультет</label>
+                    </div>
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="text" id="sub_news-work" class="form-control validate">
+                        <label for="sub_news-work">Место работы</label>
+                    </div>
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="text" id="sub_news-post" class="form-control validate">
+                        <label for="sub_news-post">Должность</label>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn  btn-rounded btn-primary">Отправить заявку</button>
+                </div>
+                {{ Form::close() }}
+            </div>
+        </div>
+    </div>
 @endsection
 @section('script')
     <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
     <script src="{{asset('js/news.js')}}"></script>
     <script>
         $(document).ready( function() {
-           $('.news-form').submit( function(e) {
+           $('.subscribe-form').submit( function(e) {
                e.preventDefault();
                $.ajax({
                    url: "{{ url('admin/news/create') }}",
@@ -196,13 +249,51 @@
                    contentType: false,
                    processData: false,
                    error: function(data) {
-                        $('.modal-body > .container > .row').html('Новость не загружена, попробуйте снова');
+                        $('.subscribes').html('К сожаоению что-то пошло не так. Пожалуйста напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!');
                    },
                    success: function(data) {
-                       $('.modal-body > .container > .row').html('Новость успешно загружена');
+                       $('.subscribes').html('Ваша заявка успешно отправлена');
                        $('.modal-button').css('display','none');
                    }
                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready( function() {
+            $('.news-form').submit( function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ url('admin/news/create') }}",
+                    dataType: 'json',
+                    data: new FormData($(this)[0]),
+                    type: 'POST',
+                    async: false,
+                    cache:false,
+                    contentType: false,
+                    processData: false,
+                    error: function(data) {
+                        $('.modal-body > .container > .row').html('Новость не загружена, попробуйте снова');
+                    },
+                    success: function(data) {
+                        $('.modal-body > .container > .row').html('Новость успешно загружена');
+                        $('.modal-button').css('display','none');
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready( function() {
+            $('#btn-download-news-page').click( function(e) {
+                e.preventDefault();
+                let data = $('.item-card-news').length;
+               $.ajax({
+                    url: "add_news",
+                    dataType: 'json',
+                    data: data,
+                    type: 'POST'
+                });
             });
         });
     </script>

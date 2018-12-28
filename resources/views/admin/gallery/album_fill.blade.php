@@ -28,13 +28,13 @@
     @endphp
     <div class="container" style="margin-top: 140px;">
         <div class="row">
-            {{ Form::open(array('action' => 'AdminController@createArticle', 'files' => true, 'class'=>'form-control album-delete-photos')) }}
+            {{ Form::open(array( 'files' => true, 'class'=>'form-control album-delete-photos')) }}
                 <div class="photo-albums d-flex flex-wrap">
                         @foreach( $photos as $photo)
                             <div class="col-2">
                                 <div class="item-album-photo img-thumbnail">
                                     <div class="check-box-delete-item custom-control custom-checkbox custom-control-inline">
-                                        {{ Form::checkbox($photo->id,null,null, ['class' => 'custom-control-input', 'id' => $photo->id]) }}
+                                        {{ Form::checkbox($photo->id,null,null, ['class' => 'custom-control-input chekk', 'id' => $photo->id]) }}
                                         <label class="custom-control-label" for="{{$photo->id}}"></label>
                                     </div>
                                     <div class="img img-thumbnail">
@@ -50,7 +50,26 @@
             {{ Form::close() }}
         </div>
     </div>
+
 @endsection
 @section('script')
-
+    <script>
+        $(document).ready(function(){
+            let data = [];
+            $('.item-form-news-add-btn').click(function(e){
+                e.preventDefault();
+                $('.chekk').each(function(){
+                    if($(this).prop("checked")) {
+                        data.push(parseInt(($(this).attr('id'))));
+                    }
+                });
+               $.ajax({
+                    url: 'delete_pic_album',
+                    method: 'delete',
+                    data: data,
+                    dataType: "json"
+               })
+            });
+        });
+    </script>
 @endsection

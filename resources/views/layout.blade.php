@@ -14,7 +14,7 @@
     <header class="header" style="">
         <div class="container">
             <div class="row" style="width:100%;">
-                <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar col-12 " style="width:100%; @yield('shadow')">
+                <nav class="nav-top navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar col-12 " style="width:100%; @yield('shadow'); @yield('color')">
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,7 @@
                             <li class="nav-item"><a class="nav-link" href="{{url('books')}}">Издательская программа</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('gallery')}}">Галерея</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{url('partners')}}">Партнеры</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{url('contacts')}}">Контакты</a></li>
                         </ul>
                     </div>
                 </nav>

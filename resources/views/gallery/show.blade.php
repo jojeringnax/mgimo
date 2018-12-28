@@ -3,7 +3,9 @@
 @endsection
 
 @extends('layout')
-
+@section('color')
+    background-color: white !important;
+@endsection
 @section('link')
     <link href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css" rel="stylesheet">
 @endsection

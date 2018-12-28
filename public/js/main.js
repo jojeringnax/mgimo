@@ -120,11 +120,11 @@ $(document).ready(function(){
     $(window).scroll(function(){
         if($(window).scrollTop() >= 400) {
             //console.log($('nav'))
-            $('nav').css({'background-color': 'white'});
-            $('nav').addClass('box-sd');
+            $('.nav-top').css({'background-color': 'white'});
+            $('.nav-top').addClass('box-sd');
         }else if($(window).scrollTop() <= 300){
-            $('nav').css({'background-color': 'transparent'});
-            $('nav').removeClass('box-sd');
+            $('.nav-top').css({'background-color': 'transparent'});
+            $('.nav-top').removeClass('box-sd');
         }
 
     });

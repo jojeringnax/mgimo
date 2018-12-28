@@ -11,6 +11,7 @@
                         <tr class="text-center">
                             <th scope="col">id</th>
                             <th scope="col">Tag</th>
+                            <th scope=""col>Date</th>
                             <th scope="col">Title</th>
                             <th scope="col">Content</th>
                             <th>Action</th>
@@ -25,6 +26,7 @@
                                     {{ $tag }}
                                 @endforeach
                             </td>
+                            <td>{{$element->created_at}}</td>
                             <td width="20%">{{ $element->title }}</td>
                             <td width="55%">{!!mb_strimwidth((html_entity_decode($element->content)),0,230,'...')!!}</td>
                             <td width="10%" class="action">
