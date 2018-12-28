@@ -18,10 +18,10 @@ class CreateSubscribers extends Migration
             $table->timestamps();
             $table->string('name', 64);
             $table->string('email', 64);
-            $table->tinyInteger('course');
-            $table->string('faculty', 32);
-            $table->string('work', 256);
-            $table->string('post',64);
+            $table->tinyInteger('course')->nullable();
+            $table->string('faculty', 32)->nullable();
+            $table->string('work', 256)->nullable();
+            $table->string('post',64)->nullable();
             $table->boolean('active');
         });
     }
