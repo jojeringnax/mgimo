@@ -1484,7 +1484,8 @@ p {
 
 .item-form-news-add-btn {
   height: 40px;
-  width: 300px; }
+  width: 300px;
+  margin-top: 20px !important; }
 
 .item-form-event {
   margin-bottom: 20px; }
@@ -1758,6 +1759,19 @@ footer {
 
 .partners-page:first-child {
   margin-top: 0px; }
+
+.item-form-partner-add {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column; }
+  .item-form-partner-add label {
+    width: 100%; }
+  .item-form-partner-add input {
+    width: 100% !important; }
+  .item-form-partner-add select {
+    width: 100% !important; }
+  .item-form-partner-add .custom-file {
+    width: 100% !important; }
 
 .item-partners-page {
   margin-top: 60px;
