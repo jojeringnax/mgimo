@@ -3,22 +3,8 @@
 @section('link')
     <link rel="stylesheet" href="js/OwlCarousel2/dist/assets/owl.carousel.css">
 @endsection
-<script>
-    let nameMonth = {
-        1: 'Января',
-        2: 'Февраля',
-        3: 'Марта',
-        4: 'Апреля',
-        5: 'Мая',
-        6: 'Июня',
-        7: 'Июля',
-        8: 'Августа',
-        9: 'Сентября',
-        10: 'Октября',
-        11: 'Ноября',
-        12: 'Декабря'
-    }
-</script>
+
+
 @section('content')
 
     <div class="layout-img hide">
@@ -75,12 +61,7 @@
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news first">{{ date('d', strtotime($article->created_at)) }}</span>
-                                                <script>
-                                                    $(document).ready(function(){
-                                                        $('.date-news.first').html(("{{ date('d', strtotime($article->created_at)) }}") + " " + nameMonth[("{{ date('m', strtotime($article->created_at)) }}")] + " " + ("{{ date('Y', strtotime($article->created_at)) }}"));
-                                                    });
-                                                </script>
+                                                <span class="date-news first">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                             </div>
                                         </div>
                                     </article>
@@ -100,12 +81,8 @@
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news second"></span>
-                                                <script>
-                                                    $(document).ready(function(){
-                                                        $('.date-news.second').html(("{{ date('d', strtotime($article->created_at)) }}") + " " + nameMonth[("{{ date('m', strtotime($article->created_at)) }}")] + " " + ("{{ date('Y', strtotime($article->created_at)) }}"));
-                                                    });
-                                                </script>
+                                                <span class="date-news second">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+
                                             </div>
                                         </div>
                                     </article>
@@ -125,12 +102,7 @@
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news third"></span>
-                                                <script>
-                                                    $(document).ready(function(){
-                                                        $('.date-news.third').html(("{{ date('d', strtotime($article->created_at)) }}") + " " + nameMonth[("{{ date('m', strtotime($article->created_at)) }}")] + " " + ("{{ date('Y', strtotime($article->created_at)) }}"));
-                                                    });
-                                                </script>
+                                                <span class="date-news third">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                             </div>
                                         </div>
                                     </article>
@@ -153,15 +125,8 @@
                                     <span class="name-events">{{ $event->title }}</span>
                                 </article>
                                 <div class="d-flex flex-wrap justify-content-between">
-                                    <span class="date-events col-6">
-                                        <script>
-                                            $(document).ready(function(){
-                                                let icon = "<span class='icon-date-events'></span>";
-                                                let cur_date =  nameMonth[("{{ $event->date }}").match(/\w+/g)[1]];
-                                                $('.date-events').html(icon + ("{{ $event->date }}").match(/\w+/g)[2] + " " + cur_date + " " + ("{{ $event->date }}").match(/\w+/g)[0] );
-                                                console.log(cur_date)
-                                            })
-                                        </script>
+                                    <span class="date-events col-6"><span class='icon-date-events'></span>
+                                        {{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('m', strtotime($event->date))], date('Y', strtotime($event->date))]) }}
                                     </span>
                                     <span class="location col-6"><span class="icon-location-events"></span>{{ $event->location }}</span>
                                 </div>
@@ -170,26 +135,6 @@
                                 @endif
                             </div>
                         @endforeach
-                            {{--<div class="item-events">--}}
-                                {{--<article>--}}
-                                    {{--<span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>--}}
-                                {{--</article>--}}
-                                {{--<div class="d-flex flex-wrap justify-content-between">--}}
-                                    {{--<span class="date-events col-6"><span class="icon-date-events"></span>21 Декабря 2018</span>--}}
-                                    {{--<span class="location col-6"><span class="icon-location-events"></span>Москва</span>--}}
-                                {{--</div>--}}
-                                {{--<hr>--}}
-                            {{--</div>--}}
-                            {{--<div class="item-events">--}}
-                                {{--<article>--}}
-                                    {{--<span class="name-events">Международный экономический форум «Каспийский диалог 2018»</span>--}}
-                                {{--</article>--}}
-                                {{--<div class="d-flex flex-wrap justify-content-between">--}}
-                                    {{--<span class="date-events col-6"><span class="icon-date-events"></span>21 Декабря 2018</span>--}}
-                                    {{--<span class="location col-6"><span class="icon-location-events"></span>Москва</span>--}}
-                                {{--</div>--}}
-                                {{--<hr>--}}
-                            {{--</div>--}}
                         <div class="buttons-news" style="margin-top: 60px;">
                             <a href="{{url('events')}}" class="btn-event-page" style=" background-color: transparent">Смотреть все мероприятия <span></span></a>
                         </div>
@@ -209,7 +154,7 @@
                             <a href="{{ $smi->link }}" target="_blank">
                                 <span class="source-media-news">{{ $smi->link_view }}</span>
                                 <span class="title-media-news">{{ $smi->title }}</span>
-                                <span class="date-media-news">10 Ноября 2018</span>
+                                <span class="date-media-news">{{ $smi->date }}</span>
                             </a>
                             @if (($loop->index + 1)%4) <hr> @endif
                         </div>

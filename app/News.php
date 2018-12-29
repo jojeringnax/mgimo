@@ -20,6 +20,21 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
 
+    const nameMonth = [
+        1 => 'Января',
+        2 => 'Февраля',
+        3 => 'Марта',
+        4 => 'Апреля',
+        5 => 'Мая',
+        6 => 'Июня',
+        7 => 'Июля',
+        8 => 'Августа',
+        9 => 'Сентября',
+        10 => 'Октября',
+        11 => 'Ноября',
+        12 => 'Декабря'
+    ];
+
     /**
      * @var string
      */
@@ -82,7 +97,7 @@ class News extends Model
      */
     public static function getModerated($limit=9, $offset=0)
     {
-        return self::where('moderated', true)->limit($limit)->skip($offset)->get();
+        return self::where('moderated', true)->orderBy('created_at', 'desc')->limit($limit)->skip($offset)->get();
     }
 
     /**

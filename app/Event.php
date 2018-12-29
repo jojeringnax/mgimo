@@ -92,6 +92,6 @@ class Event extends Model
      */
     public static function getModerated($limit=12, $offset=0)
     {
-        return self::where('main', true)->limit($limit)->skip($offset)->get();
+        return self::where('main', true)->orderBy('date', 'asc')->limit($limit)->skip($offset)->get();
     }
 }

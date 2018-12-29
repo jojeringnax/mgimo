@@ -119,22 +119,12 @@
                     @foreach($events as $event)
                         <div class="d-flex col-xl-4 col-lg-4 col-ms-4 col-sm-6 col-12" style="padding: 10px;">
                             <div class="items-event-page d-flex flex-wrap flex-column justify-content-around col-xl-12">
-                                {{--<div class="tags-event-page">--}}
-                                    {{--@foreach($event->getTags() as $tag)--}}
-                                        {{--<span class="tag">{{ $tag }}</span>--}}
-                                    {{--@endforeach--}}
-                                {{--</div>--}}
                                 <a href="{{url('events/show/'.$event->id)}}">
                                     <div class="item">
                                         <span class="title-item">
                                             {{ $event->title }}
                                         </span>
-                                        <span class="date-item"></span>
-                                        <script>
-                                            $(document).ready(function(){
-                                                $('.date-item').html("<i></i>" + ("{{ date('d', strtotime($event->date)) }}") + " " + nameMonth[("{{ date('m', strtotime($event->date)) }}")] + " " + ("{{ date('Y', strtotime($event->date)) }}"));
-                                            });
-                                        </script>
+                                        <span class="date-item">{{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('m', strtotime($event->date))], date('Y', strtotime($event->date))]) }}</span>
                                         <span class="location-item"><i></i>{{ $event->location }}</span>
                                     </div>
                                 </a>

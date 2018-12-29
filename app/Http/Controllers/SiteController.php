@@ -19,8 +19,8 @@ class SiteController extends Controller
 {
     public function index()
     {
-        $news = News::limit(3)->get();
-        $events = Event::limit(7)->orderBy('date', 'asc')->get();
+        $news = News::getModerated(3);
+        $events = Event::getModerated(7);
         $smis = Smi::limit(4)->get();
         $congrats = Congratulation::getModerated();
         $partners = Partner::getInPriority();

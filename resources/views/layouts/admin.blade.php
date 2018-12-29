@@ -17,7 +17,6 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        {{--<link rel="stylesheet" href="{{ asset('mdb/assets/css/docs.css') }}">--}}
         <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('bootstrap/css/mdb.css') }}">
         <link rel="stylesheet" href="{{ asset('css/open-iconic-bootstrap.css')}}">
@@ -46,11 +45,6 @@
                         @guest
                             <li class="nav-item">
                                 <a style="color: black !important;" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                @if (Route::has('register'))
-                                    <a style="color: black !important;" class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                @endif
                             </li>
                         @else
                             <li class="nav-item dropdown">

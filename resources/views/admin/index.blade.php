@@ -6,13 +6,7 @@
                 <div class="card">
                     <div class="card-header">Dashboard</div>
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        You are logged in!
+                            <a href="{{ url('register') }}">Добавить пользователя</a>
                         <div class="admin-sections d-flex flex-wrap">
                             <div id="news-adm" class="col-xl-3 col-lg-3 col-md-3 col-sm-12 item-admin-dashboard">
                                 {{ link_to('admin/news', 'НОВОСТИ', ['class' => 'card d-flex justify-content-center align-items-center']) }}

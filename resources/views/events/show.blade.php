@@ -23,7 +23,7 @@
                         <h2>{{ $event->title }}</h2>
                     </div>
                     <div class="attr">
-                        <div class="date">{{ $event->date }}</div>
+                        <div class="date">{{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('m', strtotime($event->date))], date('Y', strtotime($event->date))]) }}</div>
                         <div class="locations">{{ $event->location }}</div>
                     </div>
                     <div class="text-news">
