@@ -97,7 +97,7 @@ $(document).ready(function(){
     };
 
     $('.tag').each(function(){
-        $(this).children('i').css({'background-color': colorTags[$(this).children('span').text()]}) ;
+        $(this).children('i').css({'background-color': colorTags[$(this).children('span').text().toUpperCase()]}) ;
     });
 
     $('.item-congratulations > img').click(function(){
