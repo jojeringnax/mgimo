@@ -61,7 +61,7 @@
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news first">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                                <span class="date-news first">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                             </div>
                                         </div>
                                     </article>
@@ -81,7 +81,7 @@
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news second">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                                <span class="date-news second">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
 
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news third">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                                <span class="date-news third">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                             </div>
                                         </div>
                                     </article>
@@ -126,7 +126,7 @@
                                 </article>
                                 <div class="d-flex flex-wrap justify-content-between">
                                     <span class="date-events col-6"><span class='icon-date-events'></span>
-                                        {{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('m', strtotime($event->date))], date('Y', strtotime($event->date))]) }}
+                                        {{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('n', strtotime($event->date))], date('Y', strtotime($event->date))]) }}
                                     </span>
                                     <span class="location col-6"><span class="icon-location-events"></span>{{ $event->location }}</span>
                                 </div>
@@ -154,7 +154,7 @@
                             <a href="{{ $smi->link }}" target="_blank">
                                 <span class="source-media-news">{{ $smi->link_view }}</span>
                                 <span class="title-media-news">{{ $smi->title }}</span>
-                                <span class="date-media-news">{{ $smi->date }}</span>
+                                <span class="date-media-news">{{ implode(' ', [date('d', strtotime($smi->created_at)), \App\News::nameMonth[date('n', strtotime($smi->created_at))], date('Y', strtotime($smi->created_at))]) }}</span>
                             </a>
                             @if (($loop->index + 1)%4) <hr> @endif
                         </div>
