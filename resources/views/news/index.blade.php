@@ -31,7 +31,7 @@
                                          @endforeach
                                         </span>
                                         <span class="title-card-news">{{ $article->title }}</span>
-                                        <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                        <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                     </div>
                                 </a>
                             @endif
@@ -50,7 +50,7 @@
                                                 @endforeach
                                             </span>
                                             <span class="title-card-news">{{ $article->title }}</span>
-                                            <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                            <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                             {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
                                         </div>
                                         {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
@@ -72,7 +72,7 @@
                                                 @endforeach
                                             </span>
                                             <span class="title-card-news">{{ $article->title }}</span>
-                                            <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                            <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                         </div>
                                     </div>
                                 </a>

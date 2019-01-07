@@ -124,7 +124,7 @@
                                         <span class="title-item">
                                             {{ $event->title }}
                                         </span>
-                                        <span class="date-item">{{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('m', strtotime($event->date))], date('Y', strtotime($event->date))]) }}</span>
+                                        <span class="date-item">{{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('n', strtotime($event->date))], date('Y', strtotime($event->date))]) }}</span>
                                         <span class="location-item"><i></i>{{ $event->location }}</span>
                                     </div>
                                 </a>
