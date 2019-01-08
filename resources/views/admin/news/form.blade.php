@@ -22,7 +22,7 @@
                 <div class="d-flex col-12 flex-wrap item-form-news-add justify-content-between" style="margin-top: 25px">
                     <div class="input-group col-xl-5 item-form-news-add">
                         <div class="input-group-prepend clear">
-                            <span class="input-group-text" id="photo_area" data-file="">Upload</span>
+                            <span class="input-group-text" id="photo_area" data-file=""></span>
                         </div>
                         <div class="custom-file">
                             {{ Form::file('photo', ['class' => 'input-default-js', 'area-describedby' => 'photo_area', 'id' => 'photo']) }}
@@ -32,7 +32,7 @@
 
                     <div class="input-group col-xl-5 item-form-news-add">
                         <div class="input-group-prepend clear">
-                            <span class="input-group-text" id="photo1_area" data-file="">Upload</span>
+                            <span class="input-group-text" id="photo1_area" data-file=""></span>
                         </div>
                         <div class="custom-file">
                             {{ Form::file('photo1', ['class' => 'input-default-js', 'area-describedby' => 'photo1_area', 'id' => 'photo1']) }}
@@ -41,7 +41,7 @@
                     </div>
                     <div class="input-group col-xl-5 item-form-news-add">
                         <div class="input-group-prepend clear">
-                            <span class="input-group-text" id="photo2_area" data-file="">Upload</span>
+                            <span class="input-group-text" id="photo2_area" data-file=""></span>
                         </div>
                         <div class="custom-file">
                             {{ Form::file('photo2', ['class' => 'input-default-js', 'area-describedby' => 'photo2_area', 'id' => 'photo2']) }}
@@ -50,7 +50,7 @@
                     </div>
                     <div class="input-group col-xl-5 item-form-news-add">
                         <div class="input-group-prepend clear">
-                            <span class="input-group-text" id="photo3_area" data-file="">Upload</span>
+                            <span class="input-group-text" id="photo3_area" data-file=""></span>
                         </div>
                         <div class="custom-file">
                             {{ Form::file('photo3', ['class' => 'input-default-js', 'area-describedby' => 'photo3_area', 'id' => 'photo3'])}}

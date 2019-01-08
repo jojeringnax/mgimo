@@ -135,7 +135,7 @@
                                 @endif
                             </div>
                         @endforeach
-                        <div class="buttons-news" style="margin-top: 60px;">
+                        <div id="btn-event" class="buttons-news" style="margin-top: 60px;">
                             <a href="{{url('events')}}" class="btn-event-page" style=" background-color: transparent">Смотреть все мероприятия <span></span></a>
                         </div>
                     </div>

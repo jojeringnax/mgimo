@@ -90,7 +90,7 @@
     </div>
 
     <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
-        <div class="modal-dialog" role="document" style="max-width: 80%;">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Добавьте свою новость</h5>
@@ -100,12 +100,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <div class="row">
+                        <div class="row d-flex justify-content-center">
                             <div class="col-9">
                                 {{ Form::open(array('action' => 'AdminController@createSubscriber', 'files' => true, 'class'=>'news-form')) }}
 
                                 {{ Form::label('title', 'Заголовок') }}
-                                {{ Form::text('title', '',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
+                                {{ Form::text('title', '',['class' => 'form-control item-form-news-add','placeholder' => 'Введите заголовок новости']) }}
 
                                 <div id="editor" class="col-12 item-form-news-add"></div>
                                 <input type="hidden" name="content" id="content-news"/>
@@ -113,7 +113,7 @@
                                 <div class="d-flex col-12 flex-wrap item-form-news-add justify-content-between" style="margin-top: 25px">
                                     <div class="input-group col-xl-5 item-form-news-add">
                                         <div class="input-group-prepend clear">
-                                            <span class="input-group-text" id="photo_area" data-file="главное">Upload</span>
+                                            <span class="input-group-text" id="photo_area" data-file="главное"></span>
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo', ['class' => 'input-default-js', 'area-describedby' => 'photo_area', 'id' => 'photo']) }}
@@ -123,7 +123,7 @@
 
                                     <div class="input-group col-xl-5 item-form-news-add">
                                         <div class="input-group-prepend clear">
-                                            <span class="input-group-text" id="photo1_area" data-file="первое">Upload</span>
+                                            <span class="input-group-text" id="photo1_area" data-file="первое"></span>
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo1', ['class' => 'input-default-js', 'area-describedby' => 'photo1_area', 'id' => 'photo1']) }}
@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="input-group col-xl-5 item-form-news-add">
                                         <div class="input-group-prepend clear">
-                                            <span class="input-group-text" id="photo2_area" data-file="второе">Upload</span>
+                                            <span class="input-group-text" id="photo2_area" data-file="второе"></span>
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo2', ['class' => 'input-default-js', 'area-describedby' => 'photo2_area', 'id' => 'photo2']) }}
@@ -141,7 +141,7 @@
                                     </div>
                                     <div class="input-group col-xl-5 item-form-news-add">
                                         <div class="input-group-prepend clear">
-                                            <span class="input-group-text" id="photo3_area" data-file="третье">Upload</span>
+                                            <span class="input-group-text" id="photo3_area" data-file="третье"></span>
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo3', ['class' => 'input-default-js', 'area-describedby' => 'photo3_area', 'id' => 'photo3'])}}
@@ -151,7 +151,7 @@
                                 </div>
 
                                 {{ Form::label('tags', 'Тэги') }}
-                                {{ Form::text('tags', isset($tags) ? implode(',', $tags) : '',['class' => 'form-control item-form-news-add','placeholder' => 'Культура'] ) }}
+                                {{Form::select('tags',['СПОРТ' => 'СПОРТ','ИСКУССТВО' => 'ИСКУССТВО','НАУКА' => 'НАУКА','ОБРАЗОВАНИЕ' => 'ОБРАЗОВАНИЕ','МЕЖДУНАРОДНЫЕ СВЯЗИ' => 'МЕЖДУНАРОДНЫЕ СВЯЗИ','ВСТРЕЧИ ВЫПУСКНИКОВ' => 'ВСТРЕЧИ ВЫПУСКНИКОВ','КОНЦЕРТЫ' => 'КОНЦЕРТЫ','ЮБИЛЕИ' => 'ЮБИЛЕИ','ПРЕЗЕНТАЦИИ' => 'ПРЕЗЕНТАЦИИ','ИЗДАНИЯ' =>'ИЗДАНИЯ' ],null,['class' => 'custom-select'])}}
 
                                 {{ Form::submit('Сохранить',['class' => 'btn btn-primary item-form-news-add-btn'] ) }}
 
@@ -162,7 +162,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>

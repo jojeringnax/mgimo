@@ -206,10 +206,8 @@ nav {
           height: 11px;
           margin-top: -3px;
           right: 25px; }
-      .contents .buttons-news a:after {
-        content: ''; }
     .contents .buttons-news .btn-event-page {
-      margin-left: 15px;
+      margin-left: 10px;
       transition: 0.5s; }
       .contents .buttons-news .btn-event-page:hover {
         background-color: #1A2F3F !important;
@@ -1218,7 +1216,6 @@ nav {
       font-size: 14px;
       color: #0054B9;
       background-color: white;
-      display: block;
       text-align: left;
       display: block;
       padding-left: 10px;
@@ -1316,8 +1313,7 @@ nav {
         left: 1px;
         margin-top: 0; }
         .event-page .content-event-page .items-event-page .item span.location-item i {
-          height: 14px;
-          width: 10px;
+          width: 14px;
           background-repeat: no-repeat;
           background-image: url("../img/icon/location-red.svg");
           display: block;
@@ -1329,6 +1325,9 @@ nav {
       width: 1px;
       background-color: #707070;
       opacity: 0.2; }
+
+.modal-dialog {
+  max-width: 60% !important; }
 
 @media screen and (max-width: 1300px) {
   .content {
@@ -1406,8 +1405,15 @@ nav {
 .items-gallery {
   position: relative;
   height: 270px;
-  border: 1px solid black;
   margin-top: 14px; }
+  .items-gallery .layout-gallery {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6; }
+    .items-gallery .layout-gallery:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15) !important; }
   .items-gallery .layout-partner-page {
     position: absolute;
     width: 100%;
@@ -1440,7 +1446,7 @@ nav {
     margin-bottom: 20px;
     text-align: center; }
     .layout_news #photos-news .item-img-news img {
-      width: 60% !important; }
+      width: 100% !important; }
 
 p {
   margin: 0 !important; }
@@ -1634,7 +1640,6 @@ footer {
 .book_title {
   text-align: center;
   font-size: 16px;
-  text-align: center;
   color: #1A2F3F; }
 
 .link-book-pay {
@@ -1757,7 +1762,7 @@ footer {
     outline: none; }
 
 .partners-page:first-child {
-  margin-top: 0px; }
+  margin-top: 0; }
 
 .item-form-partner-add {
   margin-top: 15px;
@@ -1970,7 +1975,7 @@ footer {
 
   footer {
     position: static !important;
-    padding-top: 0px !important; }
+    padding-top: 0 !important; }
 
   body {
     padding: 0 !important; } }

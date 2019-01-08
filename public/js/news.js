@@ -31,7 +31,7 @@ $(document).ready(function () {
         $(this).parent().parent().children('.clear').click(function(){
             input.attr('value', '');
             input.parent().children('label').html('Загрузите ' + input.parent().parent().children('.clear').children('span').data('file') + ' фото');
-            input.parent().parent().children('.clear').children('span').html('Upload');
+            input.parent().parent().children('.clear').children('span').html('');
             input.parent().parent().children('.clear').children('span').css({'cursor':'default'});
         });
     });
