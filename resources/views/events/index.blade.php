@@ -124,7 +124,7 @@
                                         <span class="title-item">
                                             {{ $event->title }}
                                         </span>
-                                        <span class="date-item">{{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('n', strtotime($event->date))], date('Y', strtotime($event->date))]) }}</span>
+                                        <span class="date-item"><i></i>{{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('n', strtotime($event->date))], date('Y', strtotime($event->date))]) }}</span>
                                         <span class="location-item"><i></i>{{ $event->location }}</span>
                                     </div>
                                 </a>
@@ -154,9 +154,12 @@
                         <div class="row d-flex justify-content-center">
                             <div class="col-8 d-flex flex-column">
                                 {{ Form::open(array('action' => 'AdminController@createEvent', 'class'=>'event-form', 'files' => true)) }}
-                                {{ Form::label('title', 'Заколовок') }}
-                                {{ Form::text('title','', ['class' => 'form-control']) }}
                                 <div class="item-form-event">
+                                    {{ Form::label('title', 'Заколовок') }}
+                                    {{ Form::text('title','', ['class' => 'form-control']) }}
+                                </div>
+                                <div class="item-form-event">
+                                    {{ Form::label('title', 'Введите текст') }}
                                     <div id="editor" class="col-12 item-form-news-add"></div>
                                     <input type="hidden" name="content" id="content-event"/>
                                 </div>
@@ -165,16 +168,12 @@
                                     {{ Form::date('date', \Carbon\Carbon::now(), ['class' => 'form-control datepicker']) }}
                                 </div>
                                 <div class="item-form-event">
-                                    {{ Form::label('tags', 'Тэги') }}
-                                    {{ Form::text('tags', '', ['class' => 'form-control']) }}
-                                </div>
-                                <div class="item-form-event">
                                     {{ Form::label('location', 'Местоположение') }}
                                     {{ Form::text('location','', ['class' => 'form-control']) }}
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                        <span class="input-group-text" id="inputGroupFileAddon01"></span>
                                     </div>
                                     <div class="custom-file">
                                         {{ Form::file('photos[]', ['class' => 'input-default-js custom-file-input', 'area-describedby' => 'photo_area', 'id' => 'photo', 'multiple' => 'multiple']) }}
@@ -190,7 +189,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>
