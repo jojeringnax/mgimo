@@ -68,7 +68,7 @@
                         </nav>
                     </div>
                 <div class="button-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-center">
-                    <a href=""><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
+                    <a data-toggle="modal" data-target="#modalRegisterForm" href="#"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
                     <span class="text-center">
                         МГИМО 75<br>Ассоциация выпускников МГИМО<br>Эндаумент МГИМО
                     </span>
