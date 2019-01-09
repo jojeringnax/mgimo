@@ -121,18 +121,20 @@
                     <div class="bg-events">
                         @foreach($events as $event)
                             <div class="item-events">
-                                <article>
-                                    <span class="name-events">{{ $event->title }}</span>
-                                </article>
-                                <div class="d-flex flex-wrap justify-content-between">
+                                <a href="{{url('events/show/'.$event->id)}}">
+                                    <article>
+                                        <span class="name-events">{{ $event->title }}</span>
+                                    </article>
+                                    <div class="d-flex flex-wrap justify-content-between">
                                     <span class="date-events col-6"><span class='icon-date-events'></span>
                                         {{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('n', strtotime($event->date))], date('Y', strtotime($event->date))]) }}
                                     </span>
-                                    <span class="location col-6"><span class="icon-location-events"></span>{{ $event->location }}</span>
-                                </div>
-                                @if ($loop->index !== 7)
-                                    <hr>
-                                @endif
+                                        <span class="location col-6"><span class="icon-location-events"></span>{{ $event->location }}</span>
+                                    </div>
+                                    @if ($loop->index !== 7)
+                                        <hr>
+                                    @endif
+                                </a>
                             </div>
                         @endforeach
                         <div id="btn-event" class="buttons-news" style="margin-top: 60px;">
@@ -167,7 +169,7 @@
             <hr class="section-hr">
         </div>
     </div>
-    <div id="congratulations" class="container">
+    <div id="congratulationss" class="container">
         <div class="row" style="margin:0; padding: 0">
             <div class="content-congratulations col-12" style="padding: 0">
                 <div class="title-congratulations">
@@ -214,7 +216,7 @@
         <div class="row">
             <div class="content-partners" style="width: 100%">
                 <div class="title-partners">
-                    <span>Партнеры</span>
+                    <span>Партнеры и спонсоры</span>
                 </div>
                 @if(count($partners) > 3)
                     <div data-arrow = "right" class="arrow next"></div>
@@ -278,29 +280,25 @@
                                 {{Form::open(array('action' => 'AdminController@createCongratulation', 'files' => true, 'class' => 'congratulation_ajax')) }}
                                 <div class="item-form-congratulation">
                                     {{ Form::label('title', 'Заголовок') }}
-                                    {{ Form::text('title', '',['class' => 'form-control']) }}
+                                    {{ Form::text('title','',['class' => 'form-control']) }}
                                 </div>
                                 <div class="item-form-congratulation">
-                                    {{ Form::label('content', 'Текст поздравления') }}
-                                    {{ Form::textarea('content',    '',['class' => 'form-control']) }}
+                                    {{ Form::label('content', 'Сыылка на видео') }}
+                                    {{ Form::text('content','',['class' => 'form-control item-form-news-add','placeholder' => 'Вставьте ссылку на видео.']) }}
                                 </div>
+
+                                {{  Form::hidden('date','1',  null, ['class' => 'form-control' ]) }}
                                 <div class="item-form-congratulation">
-                                    {{ Form::label('date', 'Выберите дату') }}
-                                    {{  Form::select('date', \App\Congratulation::getDatesArray(),  null, ['class' => 'form-control' ]) }}
+                                    {{ Form::label('priority', 'Приоритет') }}
+                                    {{ Form::number('priority', '1',['class' => 'form-control item-form-news-add']) }}
                                 </div>
                                 <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
-                                    <div class="input-group-prepend clear">
-                                        <span class="input-group-text" id="photo_area" data-file="второе">Upload</span>
-                                    </div>
                                     <div class="custom-file">
                                         {{ Form::file('file', ['class' => 'form-control','area-describedby' => 'photo_area','id' => 'photo-main'])}}
                                         <label class="custom-file-label" for="photo-main">Загрузите основное фото</label>
                                     </div>
                                 </div>
                                 <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
-                                    <div class="input-group-prepend clear">
-                                        <span class="input-group-text" id="photo2_area" data-file="второе">Upload</span>
-                                    </div>
                                     <div class="custom-file">
                                         {{ Form::file('photos[]', ['class' => 'form-control','area-describedby' => 'photo2_area','id' => 'photo', 'multiple' => 'multiple'])}}
                                         <label class="custom-file-label" for="photo">Загрузите фото или видео</label>
@@ -324,4 +322,5 @@
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/congratulation_form.js')}}"></script>
     <script src="{{asset('js/OwlCarousel2/dist/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('js/locations.js')}}"></script>
 @endsection

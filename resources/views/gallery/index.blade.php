@@ -19,10 +19,10 @@
                         @endphp
                         @foreach($photos as $photo)
                             <a class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}">
-                                <div  style="background-image: url({{ $photo->path }}); background-size: cover;">
-                                    <div class="items-gallery">
-                                        <div class="layout-gallery"></div>
-                                        <span>{{ $album->name }}</span>
+                                <div class="item-card-album card" style="width: 100%">
+                                    <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
+                                    <div class="card-body d-flex flex-column align-items-start">
+                                        <span class="title-card-album">{{ $album->name }}</span>
                                     </div>
                                 </div>
                             </a>
@@ -30,9 +30,11 @@
                         @endforeach
                     @endforeach
                 </div>
-                <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
-                    <a id="btn-download-galley-page" href="">ПОКАЗАТЬ ЕЩЕ АЛЬБОМЫ</a>
-                </div>
+                @if(count($albums) > 12)
+                    <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
+                        <a id="btn-download-galley-page" href="">ПОКАЗАТЬ ЕЩЕ АЛЬБОМЫ</a>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -67,4 +69,5 @@
         });
     });
 </script>
+<script src="{{asset('js/locations.js')}}"></script>
 @endsection

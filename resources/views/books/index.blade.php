@@ -28,9 +28,11 @@
                 </div>
             @endforeach
         </div>
-        <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
-            <a id="btn-download-books-page" href="">ПОКАЗАТЬ ЕЩЕ КНИГИ</a>
-        </div>
+        @if(count($books) > 12)
+            <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
+                <a id="btn-download-books-page" href="">ПОКАЗАТЬ ЕЩЕ КНИГИ</a>
+            </div>
+        @endif
     </div>
 @endsection
 @section('script')
@@ -69,4 +71,5 @@
             });
         });
     </script>
+    <script src="{{asset('js/locations.js')}}"></script>
 @endsection
