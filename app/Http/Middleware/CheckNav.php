@@ -21,7 +21,7 @@ class CheckNav
 
             $active = explode('/', $request->url());
 
-            $result = count($active) <= 3 ? 'main' : $active[3] === 'public' ? $active[4] : $active[3];
+            $result = count($active) <= 3 ? 'main' : $active[3];
 
             $request->merge(['active' => $result]);
 
