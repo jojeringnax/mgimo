@@ -23,14 +23,19 @@
                         <h2>{{ $event->title }}</h2>
                     </div>
                     <div class="attr">
-                        <div class="date">{{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('n', strtotime($event->date))], date('Y', strtotime($event->date))]) }}</div>
-                        <div class="locations">{{ $event->location }}</div>
+                        <div class="date"><i></i>{{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('n', strtotime($event->date))], date('Y', strtotime($event->date))]) }}</div>
+                        <div class="locations"><i></i>{{ $event->location }}</div>
+                        <hr />
                     </div>
-                    <div class="text-news">
+
+                    <div class="text-news" style="margin-top: 40px">
                         {!! html_entity_decode($event->content) !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="{{asset('js/locations.js')}}"></script>
 @endsection

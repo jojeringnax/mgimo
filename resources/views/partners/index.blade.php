@@ -69,5 +69,5 @@
 @endsection
 
 @section('script')
-
+    <script src="{{asset('js/locations.js')}}"></script>
 @endsection

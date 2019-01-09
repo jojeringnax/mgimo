@@ -44,4 +44,5 @@
             window.Sharer.init();
         })
     </script>
+    <script src="{{asset('js/locations.js')}}"></script>
 @endsection()

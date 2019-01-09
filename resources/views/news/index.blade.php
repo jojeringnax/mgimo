@@ -81,11 +81,13 @@
                     </div>
                 </div>
             </div>
-            <div class="container" style="margin-top:120px;">
-                <div class="row d-flex justify-content-center">
-                    <a id="btn-download-news-page" class="">Показать еще новости</a>
+            @if(count($news) > 10)
+                <div class="container" style="margin-top:120px;">
+                    <div class="row d-flex justify-content-center">
+                        <a id="btn-download-news-page" class="">Показать еще новости</a>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 
@@ -169,7 +171,7 @@
     </div>
     <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog" id="sub" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Подписаться на новости</h4>
@@ -311,5 +313,5 @@
             });
         });
     </script>
-
+    <script src="{{asset('js/locations.js')}}"></script>
 @endsection
