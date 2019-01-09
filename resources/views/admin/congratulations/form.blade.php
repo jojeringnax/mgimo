@@ -10,7 +10,7 @@
                 </div>
                 <div class="item-form-congratulation">
                     {{ Form::label('content', 'Сыылка на видео') }}
-                    {{ Form::text('content','',['class' => 'form-control item-form-news-add','placeholder' => 'Вставьте ссылку на видео.']) }}
+                    {{ Form::text('content',isset($congratulation) ? $congratulation->content : '',['class' => 'form-control item-form-news-add','placeholder' => 'Вставьте ссылку на видео.']) }}
                 </div>
 
                     {{  Form::hidden('date','1',  null, ['class' => 'form-control' ]) }}
@@ -24,16 +24,17 @@
                         <label class="custom-file-label" for="photo-main">Загрузите основное фото</label>
                     </div>
                 </div>
-                {{ Form::label('moderated') }}
-                {{ Form::checkbox('moderated') }}
-
                 <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
                     <div class="custom-file">
                         {{ Form::file('photos[]', ['class' => 'form-control','area-describedby' => 'photo2_area','id' => 'photo', 'multiple' => 'multiple'])}}
                         <label class="custom-file-label" for="photo">Загрузите фото или видео</label>
                     </div>
                 </div>
-                @if(isset($congratulation))
+                <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
+                    {{ Form::label('moderated') }}
+                    {{ Form::checkbox('moderated') }}
+                </div>
+            @if(isset($congratulation))
                     @if(($photo = $congratulation->photo) !== null)
                         <div class="col-12">
                             <div class="card col-3">

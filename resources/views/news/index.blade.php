@@ -177,16 +177,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                {{ Form::open(array('action' => 'AdminController@createSubscriber', 'class'=>'subscribe-form')) }}
                 <div class="modal-body mx-3 subscribes">
-                    {{ Form::open(array('action' => 'AdminController@createSubscriber', 'class'=>'subscribe-form')) }}
                     <div class="md-form mb-5">
                         <i class="fas fa-user prefix grey-text"></i>
-                        <input name="name" type="text" id="orangeForm-name" class="form-control validate">
+                        <input name="name" type="text" id="orangeForm-name" class="form-control validate" required>
                         <label data-error="Вы не ввели имя" data-success="Готово" for="orangeForm-name">*Ваше Имя</label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
-                        <input name="email" type="email" id="sub_news-email" class="form-control validate">
+                        <input name="email" type="email" id="sub_news-email" class="form-control validate" required>
                         <label data-error="Вы не ввели e-mail" data-success="right" for="orangeForm-email">*Ваш e-mail</label>
                     </div>
                     <div class="md-form mb-5">
@@ -223,18 +223,31 @@
     <script src="{{asset('js/news.js')}}"></script>
     <script>
         $(document).ready( function() {
+            $('.close').click(function(){
+                $('.subscribe-form').removeClass('hide');
+                $('.modal-title').html('<h4>'+ 'Подписаться на новости'+ '</h4>')
+            });
+
            $('.subscribe-form').submit( function(e) {
                e.preventDefault();
+               $('#sub_news-course').attr('value',  $('#sub_news-course').val() ? '' : 0);
+               $('#sub_news-faculty').attr('value',  $('#sub_news-faculty').val() ? '' : 0);
+               $('#sub_news-work').attr('value',  $('#sub_news-work').val() ? '' : 0);
+               $('#sub_news-post').attr('value',  $('#sub_news-post').val() ? '' : 0);
                $.ajax({
                    url: "{{ url('admin/subscribers/create') }}",
                    dataType: 'json',
                    data: $(this).serialize(),
                    type: 'POST',
                    error: function(data) {
-                        $('.subscribes').html('К сожалению, что-то пошло не так. Пожалуйста, напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!');
+                        $('.modal-title').html('<span>'+'К сожалению, что-то пошло не так. Пожалуйста, напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!'+'</span>');
+                        $('.subscribe-form').addClass('hide');
+                       document.querySelector('.subscribe-form').reset();
                    },
                    success: function(data) {
-                       $('.subscribes').html('Ваша заявка успешно отправлена');
+                       $('.modal-title').html('<span>'+'Ваша заявка успешно отправлена'+'</span>');
+                       $('.subscribe-form').addClass('hide');
+                       document.querySelector('.subscribe-form').reset();
                    }
                });
             });
@@ -286,7 +299,7 @@
                                 '<div class="card-body d-flex flex-column align-items-start">' +
                                 '<span class="tags-news-page"><span class="tag"><i></i><span>' + el.tag + '</span></span></span>' +
                                 '<span class="title-card-news">' + el.title + '</span>' +
-                                '<span class="date-news-page">17 декабря 2018</span>' +
+                                '<span class="date-news-page">'+'{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}' +'</span>' +
                                 '</div>' +
                                 '</div>' +
                                 '</a>'
