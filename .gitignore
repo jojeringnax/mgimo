@@ -1,3 +1,7 @@
+composer.phar
+www.tar.gz
+/www
+/log
 /node_modules
 /public/hot
 /public/storage
@@ -7,9 +11,12 @@
 /.vscode
 /nbproject
 /.vagrant
+/storage
+
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
 .phpunit.result.cache
+composer.lock
