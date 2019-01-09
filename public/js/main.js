@@ -74,7 +74,6 @@ $(document).ready(function(){
     });
 
     $(".next").click(function(){
-        console.log('next');
         owl.trigger('next.owl');
     });
 
@@ -136,7 +135,4 @@ $(document).ready(function(){
         console.log('kuku')
         $('html,body').stop().animate({scrollTop:0},1000);
     });
-
-    $('.banner-header').css({'height':$(window).outerHeight()});
-
 });

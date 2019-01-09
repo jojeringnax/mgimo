@@ -102,7 +102,8 @@ nav {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  min-height: 80vh; }
 
 .banner {
   bottom: 0;
@@ -406,6 +407,24 @@ nav {
 #media {
   margin-top: 40px;
   padding: 0; }
+
+#btn-download-smis-page {
+  border: 1px solid #1A2F3F;
+  height: 55px;
+  width: 295px;
+  background-color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+  color: #1A2F3F;
+  transition: 0.5s; }
+  #btn-download-smis-page:hover {
+    background-color: #1A2F3F;
+    color: white !important; }
 
 .content-media {
   padding: 0 !important; }
@@ -910,11 +929,11 @@ nav {
     margin-left: 2%;
     box-shadow: none !important;
     cursor: pointer;
-    -webkit-transition: 0.5s time;
-    -moz-transition: 0.5s time;
-    -ms-transition: 0.5s time;
-    -o-transition: 0.5s time;
-    transition: 0.5s time; }
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s; }
     .news .item-card-news:hover {
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1) !important;
       border: 1px solid transparent; }
@@ -1062,23 +1081,28 @@ nav {
     align-items: start;
     position: relative;
     height: 200px;
-    margin-top: 30px; }
+    margin-top: 30px;
+    padding-bottom: 50px; }
     .media-page .item-media-news a {
       text-decoration: none !important; }
       .media-page .item-media-news a .source-media-news {
         font-size: 14px;
         position: absolute;
         top: 10px;
-        margin-left: 10px;
         display: block;
         color: #EB205E; }
       .media-page .item-media-news a .title-media-news {
-        margin-top: 80px;
+        margin-top: 60px;
         font-size: 15px;
         font-weight: bold;
-        margin-left: 10px;
         display: block;
-        padding-right: 30px; }
+        padding-right: 30px;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
+      .media-page .item-media-news a .date-media-news {
+        position: absolute;
+        bottom: 30px;
+        color: #A5A5A5;
+        font-size: 12px; }
     .media-page .item-media-news hr {
       position: absolute;
       background-color: #1A2F3F;

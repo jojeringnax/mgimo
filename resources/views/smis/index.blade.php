@@ -19,15 +19,12 @@
                                 <a href="{{ $smi->link }}" target="_blank">
                                     <span class="source-media-news">{{ $smi->link_view }}</span>
                                     <span class="title-media-news">{{ $smi->title }}</span>
-                                    <span class="date-media-news"></span>
+                                    <span class="date-media-news">{{ implode(' ', [date('d', strtotime($smi->created_at)), \App\News::nameMonth[date('n', strtotime($smi->created_at))], date('Y', strtotime($smi->created_at))]) }}</span>
                                 </a>
                                 @if (($loop->index + 1)%4) <hr> @endif
                             </div>
                         @endforeach
                     </div>
-                <div class="btn-download-media-page">
-                    <button id="btn-download-media" type="button" class="btn btn-raised btn-primary">Подгрузить еще новостей</button>
-                </div>
                 @else
                     <!-- Вывод, если новостей нет --><div>Нет новостей</div>
                 @endif
@@ -39,7 +36,6 @@
     </div>
 @endsection
 @section('script')
-    <script src="{{ asset('js/media.js') }}"></script>
     <script>
         $(document).ready( function() {
             $('#btn-download-smis-page').click( function(e) {

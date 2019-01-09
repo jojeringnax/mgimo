@@ -144,20 +144,17 @@ nav {
             margin: 0;
         }
     }
-
-
 }
 
 .banner-header {
     position: relative;
     display: flex;
-    //align-items: flex-end;
     flex-direction: column;
     justify-content: flex-end;
+    min-height: 80vh;
 }
 
 .banner{
-    //position: absolute;
     bottom: 0;
     margin-top: 100px;
     width: 100%;
@@ -536,7 +533,25 @@ nav {
     margin-top: 40px;
     padding: 0;
 }
-
+#btn-download-smis-page {
+    border: 1px solid $mainColor;
+    height: 55px;
+    width: 295px;
+    background-color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600 !important;
+    color: $mainColor;
+    transition: $transition;
+    &:hover {
+        background-color: $mainColor;
+        color: white !important;
+    }
+}
 .content-media {
     padding: 0 !important;
     .title-media {
@@ -1179,11 +1194,11 @@ nav {
         margin-left: 2%;
         box-shadow: none !important;
         cursor: pointer;
-        -webkit-transition: $transition time;
-        -moz-transition: $transition time;
-        -ms-transition: $transition time;
-        -o-transition: $transition time;
-        transition: $transition time;
+        -webkit-transition: $transition;
+        -moz-transition: $transition;
+        -ms-transition: $transition;
+        -o-transition: $transition;
+        transition: $transition;
         &:hover {
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.10) !important;
             border: 1px solid transparent;
@@ -1354,23 +1369,32 @@ nav {
         position: relative;
         height: 200px;
         margin-top: 30px;
+        padding-bottom: 50px;
         a {
             text-decoration: none !important;
             .source-media-news {
                 font-size: 14px;
                 position: absolute;
                 top: 10px;
-                margin-left: 10px;
+                //margin-left: 10px;
                 display: block;
                 color: #EB205E;
             }
             .title-media-news {
-                margin-top: 80px;
+                margin-top: 60px;
                 font-size: 15px;
                 font-weight: bold;
-                margin-left: 10px;
+                //margin-left: 10px;
                 display: block;
                 padding-right: 30px;
+                font-family: $titleFont;
+            }
+            .date-media-news {
+                position: absolute;
+                bottom: 30px;
+                // margin-left: 10px;
+                color: #A5A5A5;
+                font-size: 12px;
             }
         }
         hr {

@@ -36,6 +36,10 @@ Route::get('anniversary', function() {
     return view('anniversary');
 });
 
+Route::get('contacts', function() {
+    return view('contacts');
+});
+
 Route::get('partners', 'PartnerController@index');
 
 /**
