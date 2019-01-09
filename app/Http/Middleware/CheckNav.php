@@ -16,11 +16,7 @@ class CheckNav
     public function handle($request, Closure $next)
     {
         $active = explode('/',$request->url());
-        if (($active[3] === 'public' && count($active) <= 4) || (!$active[2] === 'public' && count($active) <= 3)) {
-            $result = 'main';
-        } else {
-            $result = $public ? $active[4] : $active[3];
-        }
+        $result = count($active) <= 3 ? 'main' : $active[3] === 'public' ? $active[4] : $active[3];
         $request->merge(['active' => $result]);
         return $next($request);
     }
