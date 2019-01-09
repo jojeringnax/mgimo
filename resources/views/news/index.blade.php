@@ -104,7 +104,7 @@
                     <div class="container">
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                {{ Form::open(array('action' => 'AdminController@createSubscriber', 'files' => true, 'class'=>'news-form')) }}
+                                {{ Form::open(array('action' => 'AdminController@createArticle', 'files' => true, 'class'=>'news-form')) }}
 
                                 {{ Form::label('title', 'Заголовок') }}
                                 {{ Form::text('title', '',['class' => 'form-control item-form-news-add','placeholder' => 'Введите заголовок новости']) }}
