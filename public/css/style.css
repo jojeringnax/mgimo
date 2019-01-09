@@ -310,19 +310,19 @@ nav {
           flex-direction: row;
           justify-content: space-between; }
           .contents .news .small-news .small-new article .img-small-new {
-            width: 50%;
+            width: 46%;
             display: flex;
             justify-content: flex-start;
             align-items: center; }
             .contents .news .small-news .small-new article .img-small-new img {
-              height: 248px; }
+              max-height: 248px;
+              max-width: 100%; }
           .contents .news .small-news .small-new article .content-small-new {
             width: 50%;
             display: flex;
             flex-direction: column;
             align-items: start;
             justify-content: center;
-            padding: 0 0 0 15px;
             font-family: "Playfair Display"; }
             .contents .news .small-news .small-new article .content-small-new a {
               margin-top: 1px;
