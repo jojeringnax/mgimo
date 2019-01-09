@@ -31,7 +31,7 @@
                                          @endforeach
                                         </span>
                                         <span class="title-card-news">{{ $article->title }}</span>
-                                        <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                        <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                     </div>
                                 </a>
                             @endif
@@ -50,7 +50,7 @@
                                                 @endforeach
                                             </span>
                                             <span class="title-card-news">{{ $article->title }}</span>
-                                            <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                            <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                             {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
                                         </div>
                                         {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
@@ -72,7 +72,7 @@
                                                 @endforeach
                                             </span>
                                             <span class="title-card-news">{{ $article->title }}</span>
-                                            <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('m', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                            <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                         </div>
                                     </div>
                                 </a>
@@ -90,7 +90,7 @@
     </div>
 
     <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
-        <div class="modal-dialog" role="document" style="max-width: 80%;">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Добавьте свою новость</h5>
@@ -100,12 +100,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <div class="row">
+                        <div class="row d-flex justify-content-center">
                             <div class="col-9">
                                 {{ Form::open(array('action' => 'AdminController@createSubscriber', 'files' => true, 'class'=>'news-form')) }}
 
                                 {{ Form::label('title', 'Заголовок') }}
-                                {{ Form::text('title', '',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
+                                {{ Form::text('title', '',['class' => 'form-control item-form-news-add','placeholder' => 'Введите заголовок новости']) }}
 
                                 <div id="editor" class="col-12 item-form-news-add"></div>
                                 <input type="hidden" name="content" id="content-news"/>
@@ -113,7 +113,7 @@
                                 <div class="d-flex col-12 flex-wrap item-form-news-add justify-content-between" style="margin-top: 25px">
                                     <div class="input-group col-xl-5 item-form-news-add">
                                         <div class="input-group-prepend clear">
-                                            <span class="input-group-text" id="photo_area" data-file="главное">Upload</span>
+                                            <span class="input-group-text" id="photo_area" data-file="главное"></span>
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo', ['class' => 'input-default-js', 'area-describedby' => 'photo_area', 'id' => 'photo']) }}
@@ -123,7 +123,7 @@
 
                                     <div class="input-group col-xl-5 item-form-news-add">
                                         <div class="input-group-prepend clear">
-                                            <span class="input-group-text" id="photo1_area" data-file="первое">Upload</span>
+                                            <span class="input-group-text" id="photo1_area" data-file="первое"></span>
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo1', ['class' => 'input-default-js', 'area-describedby' => 'photo1_area', 'id' => 'photo1']) }}
@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="input-group col-xl-5 item-form-news-add">
                                         <div class="input-group-prepend clear">
-                                            <span class="input-group-text" id="photo2_area" data-file="второе">Upload</span>
+                                            <span class="input-group-text" id="photo2_area" data-file="второе"></span>
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo2', ['class' => 'input-default-js', 'area-describedby' => 'photo2_area', 'id' => 'photo2']) }}
@@ -141,7 +141,7 @@
                                     </div>
                                     <div class="input-group col-xl-5 item-form-news-add">
                                         <div class="input-group-prepend clear">
-                                            <span class="input-group-text" id="photo3_area" data-file="третье">Upload</span>
+                                            <span class="input-group-text" id="photo3_area" data-file="третье"></span>
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo3', ['class' => 'input-default-js', 'area-describedby' => 'photo3_area', 'id' => 'photo3'])}}
@@ -151,7 +151,7 @@
                                 </div>
 
                                 {{ Form::label('tags', 'Тэги') }}
-                                {{ Form::text('tags', isset($tags) ? implode(',', $tags) : '',['class' => 'form-control item-form-news-add','placeholder' => 'Культура'] ) }}
+                                {{Form::select('tags',['СПОРТ' => 'СПОРТ','ИСКУССТВО' => 'ИСКУССТВО','НАУКА' => 'НАУКА','ОБРАЗОВАНИЕ' => 'ОБРАЗОВАНИЕ','МЕЖДУНАРОДНЫЕ СВЯЗИ' => 'МЕЖДУНАРОДНЫЕ СВЯЗИ','ВСТРЕЧИ ВЫПУСКНИКОВ' => 'ВСТРЕЧИ ВЫПУСКНИКОВ','КОНЦЕРТЫ' => 'КОНЦЕРТЫ','ЮБИЛЕИ' => 'ЮБИЛЕИ','ПРЕЗЕНТАЦИИ' => 'ПРЕЗЕНТАЦИИ','ИЗДАНИЯ' =>'ИЗДАНИЯ' ],null,['class' => 'custom-select'])}}
 
                                 {{ Form::submit('Сохранить',['class' => 'btn btn-primary item-form-news-add-btn'] ) }}
 
@@ -162,7 +162,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>
@@ -177,16 +177,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                {{ Form::open(array('action' => 'AdminController@createSubscriber', 'class'=>'subscribe-form')) }}
                 <div class="modal-body mx-3 subscribes">
-                    {{ Form::open(array('action' => 'AdminController@createSubscriber', 'class'=>'subscribe-form')) }}
                     <div class="md-form mb-5">
                         <i class="fas fa-user prefix grey-text"></i>
-                        <input name="name" type="text" id="orangeForm-name" class="form-control validate">
+                        <input name="name" type="text" id="orangeForm-name" class="form-control validate" required>
                         <label data-error="Вы не ввели имя" data-success="Готово" for="orangeForm-name">*Ваше Имя</label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
-                        <input name="email" type="email" id="sub_news-email" class="form-control validate">
+                        <input name="email" type="email" id="sub_news-email" class="form-control validate" required>
                         <label data-error="Вы не ввели e-mail" data-success="right" for="orangeForm-email">*Ваш e-mail</label>
                     </div>
                     <div class="md-form mb-5">
@@ -223,18 +223,31 @@
     <script src="{{asset('js/news.js')}}"></script>
     <script>
         $(document).ready( function() {
+            $('.close').click(function(){
+                $('.subscribe-form').removeClass('hide');
+                $('.modal-title').html('<h4>'+ 'Подписаться на новости'+ '</h4>')
+            });
+
            $('.subscribe-form').submit( function(e) {
                e.preventDefault();
+               $('#sub_news-course').attr('value',  $('#sub_news-course').val() ? '' : 0);
+               $('#sub_news-faculty').attr('value',  $('#sub_news-faculty').val() ? '' : 0);
+               $('#sub_news-work').attr('value',  $('#sub_news-work').val() ? '' : 0);
+               $('#sub_news-post').attr('value',  $('#sub_news-post').val() ? '' : 0);
                $.ajax({
                    url: "{{ url('admin/subscribers/create') }}",
                    dataType: 'json',
                    data: $(this).serialize(),
                    type: 'POST',
                    error: function(data) {
-                        $('.subscribes').html('К сожалению, что-то пошло не так. Пожалуйста, напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!');
+                        $('.modal-title').html('<span>'+'К сожалению, что-то пошло не так. Пожалуйста, напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!'+'</span>');
+                        $('.subscribe-form').addClass('hide');
+                       document.querySelector('.subscribe-form').reset();
                    },
                    success: function(data) {
-                       $('.subscribes').html('Ваша заявка успешно отправлена');
+                       $('.modal-title').html('<span>'+'Ваша заявка успешно отправлена'+'</span>');
+                       $('.subscribe-form').addClass('hide');
+                       document.querySelector('.subscribe-form').reset();
                    }
                });
             });
@@ -286,7 +299,7 @@
                                 '<div class="card-body d-flex flex-column align-items-start">' +
                                 '<span class="tags-news-page"><span class="tag"><i></i><span>' + el.tag + '</span></span></span>' +
                                 '<span class="title-card-news">' + el.title + '</span>' +
-                                '<span class="date-news-page">17 декабря 2018</span>' +
+                                '<span class="date-news-page">'+'{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}' +'</span>' +
                                 '</div>' +
                                 '</div>' +
                                 '</a>'

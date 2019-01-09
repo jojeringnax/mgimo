@@ -31,31 +31,16 @@ $(document).ready(function () {
         $(this).parent().parent().children('.clear').click(function(){
             input.attr('value', '');
             input.parent().children('label').html('Загрузите ' + input.parent().parent().children('.clear').children('span').data('file') + ' фото');
-            input.parent().parent().children('.clear').children('span').html('Upload');
+            input.parent().parent().children('.clear').children('span').html('');
             input.parent().parent().children('.clear').children('span').css({'cursor':'default'});
         });
     });
 
-
     $('.news-form').submit(function(){
         $('#content-news').attr('value', $('#editor > .ql-editor').html());
-        //alert($('#content-news').val())
-        console.log($('#content-news').val(), 'asd', $('#editor > .ql-editor').html())
         return true;
     });
 
-/*    $('.item-card-news').mouseover(function(){
-        $(this).children('.card-body ').css({'background-color':'#0054B9'});
-        $(this).children('.card-body ').children('.title-card-news').css({'color':'white'});
-        $(this).children('.card-body ').children('.date-news-page').css({'color':'white'});
-        $(this).animate({'border':'none'},1000);
-    });
-    $('.item-card-news').mouseout(function(){
-        $(this).children('.card-body ').css({'background-color':'transparent'});
-        $(this).children('.card-body ').children('.title-card-news').css({'color':'#1A2F3F'});
-        $(this).children('.card-body ').children('.date-news-page').css({'color':'#1A2F3F'});
-
-    });*/
 
     let colorTags = {
         'СПОРТ': '#05C386',
@@ -70,11 +55,7 @@ $(document).ready(function () {
         'ИЗДАНИЯ':'#1A2F3F'
     };
     $('.tag').each(function(){
-        $(this).children('i').css({'background-color': colorTags[$(this).children('span').text()]}) ;
-        console.log($(this).children('i'),$(this).children('span').text(), colorTags[$(this).children('span').text()])
+        $(this).children('i').css({'background-color': colorTags[$(this).children('span').text().toUpperCase()]}) ;
     });
 
-    $('.btn-download-news-page').click(function(){
-
-    });
 });

@@ -1,5 +1,5 @@
 // Set the date we're counting down to
-let countDownDate = new Date("Jan 1, 2019 00:00:00").getTime();
+let countDownDate = new Date("Jun 17, 2019 00:00:00").getTime();
 
 // Update the count down every 1 second
 let x = setInterval(function() {
@@ -41,7 +41,6 @@ let x = setInterval(function() {
 }, 1000);
 
 $(document).ready(function(){
-
     $('.big-news').mouseover(function(){
         $('.layout-big-new').css({'background':'black','cursor':'pointer'});
         $('.layout-big-new').animate({'opacity':'0.7'});
@@ -50,6 +49,7 @@ $(document).ready(function(){
             document.location.href = $(this).children('article').children('a').attr('href');
         });
     });
+
     $('.big-news').mouseout(function(){
         $('.layout-big-new').css({'background':'linear-gradient(to bottom, transparent, black)'});
         $('.layout-big-new').animate({'opacity':'0.7'});
@@ -72,15 +72,15 @@ $(document).ready(function(){
             }
         }
     });
+
     $(".next").click(function(){
-        console.log('next');
         owl.trigger('next.owl');
     });
+
     $(".prev").click(function(){
         owl.trigger('prev.owl');
     });
 
-    $('.arrow')
     $('body').css({"background-color":"white"});
 
     let colorTags = {
@@ -97,7 +97,7 @@ $(document).ready(function(){
     };
 
     $('.tag').each(function(){
-        $(this).children('i').css({'background-color': colorTags[$(this).children('span').text()]}) ;
+        $(this).children('i').css({'background-color': colorTags[$(this).children('span').text().toUpperCase()]}) ;
     });
 
     $('.item-congratulations > img').click(function(){
@@ -106,12 +106,14 @@ $(document).ready(function(){
         $('.layout-img > .img-source-layout').css({'margin-top': $(window).scrollTop() + 120});
         $('.layout-img > .img-source-layout > img').css({'height': window.innerHeight*82/100});
     });
+
     $(document).mousedown(function(e){
         let divImg = $('.layout-img > .img-source-layout > img');
         if (!$(e.target).closest(divImg).length) {
             $('.layout-img').addClass('hide');
         }
     });
+
     $(window).scroll(function(){
         if($(window).scrollTop() >= 80) {
             //console.log($('nav'))
@@ -128,10 +130,9 @@ $(document).ready(function(){
          }
 
     });
+
     $('.arrow-top').click(function(){
         console.log('kuku')
         $('html,body').stop().animate({scrollTop:0},1000);
     });
-    $('.banner-header').css({'height':$(window).outerHeight()});
-
 });

@@ -26,7 +26,8 @@ strong {
   font-family: GraphikLCGRegular; }
 
 body {
-  position: relative; }
+  position: relative;
+  min-height: 100vh; }
 
 .layout-img {
   width: 100%;
@@ -82,11 +83,12 @@ nav {
   justify-content: center;
   margin-top: 120px;
   position: relative;
-  height: 126px; }
+  height: 126px;
+  flex-wrap: wrap; }
   .time .logo {
     position: relative;
     display: flex;
-    height: 100%;
+    min-height: 10vh;
     width: 139px; }
     .time .logo hr {
       height: 100%;
@@ -100,7 +102,8 @@ nav {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+  min-height: 80vh; }
 
 .banner {
   bottom: 0;
@@ -108,7 +111,7 @@ nav {
   width: 100%;
   height: 400px;
   background-image: url("../img/layout/banner.png");
-  background-size: 102%;
+  background-size: 100%;
   background-position: center bottom;
   display: flex;
   position: relative;
@@ -202,12 +205,10 @@ nav {
           display: block;
           width: 20px;
           height: 11px;
-          top: calc(40% - 15px);
+          margin-top: -3px;
           right: 25px; }
-      .contents .buttons-news a:after {
-        content: ''; }
     .contents .buttons-news .btn-event-page {
-      margin-left: 15px;
+      margin-left: 10px;
       transition: 0.5s; }
       .contents .buttons-news .btn-event-page:hover {
         background-color: #1A2F3F !important;
@@ -222,7 +223,7 @@ nav {
           right: 25px;
           margin-top: -4px; }
   .contents .news {
-    padding: 0 30px 0 0; }
+    padding: 0 30px 120px 0; }
     .contents .news .title-news span {
       font-size: 18px; }
     .contents .news .big-news {
@@ -407,6 +408,24 @@ nav {
   margin-top: 40px;
   padding: 0; }
 
+#btn-download-smis-page {
+  border: 1px solid #1A2F3F;
+  height: 55px;
+  width: 295px;
+  background-color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+  color: #1A2F3F;
+  transition: 0.5s; }
+  #btn-download-smis-page:hover {
+    background-color: #1A2F3F;
+    color: white !important; }
+
 .content-media {
   padding: 0 !important; }
   .content-media .title-media {
@@ -484,7 +503,7 @@ nav {
         height: 11px;
         top: 0;
         right: 25px;
-        margin-top: -2px; }
+        margin-top: -3px; }
 
 /*===================CONGRTATULATIONS===================*/
 #congratulations {
@@ -529,7 +548,7 @@ nav {
     transition: 0.5s; }
     .content-congratulations div .item-congratulations:hover {
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1) !important;
-      border: none; }
+      border: 1px solid white; }
     .content-congratulations div .item-congratulations img {
       cursor: pointer;
       height: 80%;
@@ -688,7 +707,7 @@ nav {
         .gallery-content .text-gallery a:hover span {
           top: 0;
           background-image: url("../img/icon/partner/white-arrow.svg");
-          margin-top: -2px;
+          margin-top: -3px;
           right: 25px;
           margin-left: 15px;
           display: block;
@@ -713,7 +732,7 @@ nav {
       flex-direction: column;
       height: 100%; }
       .content-partners .partners .item .item-partner {
-        width: 145px;
+        width: 200px;
         height: 135px;
         display: flex;
         flex-direction: column;
@@ -721,12 +740,15 @@ nav {
         align-items: center;
         justify-content: center; }
         .content-partners .partners .item .item-partner a {
-          height: 100%; }
+          width: 100%; }
           .content-partners .partners .item .item-partner a img {
-            height: 100%; }
+            width: 100%; }
 
 .prtn .item .item-partner a img {
   max-height: 70px; }
+
+.hide-text {
+  display: none; }
 
 .anniversary-content {
   padding-left: 40px !important; }
@@ -796,16 +818,16 @@ nav {
       margin-top: -2px;
       right: 25px; }
 
-@media screen and (max-width: 900px) {
-  .arrow.next {
-    right: 30px; }
-  .arrow.prev {
-    left: 30px; } }
 @media screen and (max-width: 1500px) {
   .arrow.next {
     right: 40px; }
   .arrow.prev {
     left: 40px; } }
+@media screen and (max-width: 900px) {
+  .arrow.next {
+    right: 30px !important; }
+  .arrow.prev {
+    left: 30px !important; } }
 /*===================NEWS-PAGES===================*/
 .tags-news-page .tag {
   font-size: 12px;
@@ -907,14 +929,14 @@ nav {
     margin-left: 2%;
     box-shadow: none !important;
     cursor: pointer;
-    -webkit-transition: 0.5s time;
-    -moz-transition: 0.5s time;
-    -ms-transition: 0.5s time;
-    -o-transition: 0.5s time;
-    transition: 0.5s time; }
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s; }
     .news .item-card-news:hover {
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1) !important;
-      border: none; }
+      border: 1px solid transparent; }
     .news .item-card-news img {
       min-height: 180px; }
     .news .item-card-news a {
@@ -1059,23 +1081,28 @@ nav {
     align-items: start;
     position: relative;
     height: 200px;
-    margin-top: 30px; }
+    margin-top: 30px;
+    padding-bottom: 50px; }
     .media-page .item-media-news a {
       text-decoration: none !important; }
       .media-page .item-media-news a .source-media-news {
         font-size: 14px;
         position: absolute;
         top: 10px;
-        margin-left: 10px;
         display: block;
         color: #EB205E; }
       .media-page .item-media-news a .title-media-news {
-        margin-top: 80px;
+        margin-top: 60px;
         font-size: 15px;
         font-weight: bold;
-        margin-left: 10px;
         display: block;
-        padding-right: 30px; }
+        padding-right: 30px;
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif; }
+      .media-page .item-media-news a .date-media-news {
+        position: absolute;
+        bottom: 30px;
+        color: #A5A5A5;
+        font-size: 12px; }
     .media-page .item-media-news hr {
       position: absolute;
       background-color: #1A2F3F;
@@ -1213,7 +1240,6 @@ nav {
       font-size: 14px;
       color: #0054B9;
       background-color: white;
-      display: block;
       text-align: left;
       display: block;
       padding-left: 10px;
@@ -1311,8 +1337,7 @@ nav {
         left: 1px;
         margin-top: 0; }
         .event-page .content-event-page .items-event-page .item span.location-item i {
-          height: 14px;
-          width: 10px;
+          width: 14px;
           background-repeat: no-repeat;
           background-image: url("../img/icon/location-red.svg");
           display: block;
@@ -1324,6 +1349,9 @@ nav {
       width: 1px;
       background-color: #707070;
       opacity: 0.2; }
+
+.modal-dialog {
+  max-width: 60% !important; }
 
 @media screen and (max-width: 1300px) {
   .content {
@@ -1352,7 +1380,7 @@ nav {
         color: white; }
   .congratulations-page .item-congratulations-page {
     border: 1px solid #1A2F3F;
-    height: 400px;
+    min-height: 400px;
     width: 49%;
     margin-top: 2%;
     display: flex;
@@ -1401,8 +1429,15 @@ nav {
 .items-gallery {
   position: relative;
   height: 270px;
-  border: 1px solid black;
   margin-top: 14px; }
+  .items-gallery .layout-gallery {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6; }
+    .items-gallery .layout-gallery:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15) !important; }
   .items-gallery .layout-partner-page {
     position: absolute;
     width: 100%;
@@ -1435,7 +1470,7 @@ nav {
     margin-bottom: 20px;
     text-align: center; }
     .layout_news #photos-news .item-img-news img {
-      width: 60% !important; }
+      width: 100% !important; }
 
 p {
   margin: 0 !important; }
@@ -1583,23 +1618,17 @@ footer {
         background-color: white;
         color: #17427C; }
         footer .button-footer a:hover span {
-          margin-right: 25px;
-          display: block;
-          width: 22px;
-          height: 22px;
-          background-image: url("../img/checked-blue.svg");
-          top: calc(40% - 9px);
-          right: 25px;
-          background-repeat: no-repeat; }
+          background-image: url("../img/checked-blue.svg"); }
       footer .button-footer a span {
         margin-right: 25px;
         display: block;
         width: 22px;
         height: 22px;
         background-image: url("../img/icon/checked.svg");
-        top: calc(40% - 9px);
         right: 25px;
-        background-repeat: no-repeat; }
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100%; }
     footer .button-footer span {
       text-align: center;
       color: white;
@@ -1635,7 +1664,6 @@ footer {
 .book_title {
   text-align: center;
   font-size: 16px;
-  text-align: center;
   color: #1A2F3F; }
 
 .link-book-pay {
@@ -1758,7 +1786,7 @@ footer {
     outline: none; }
 
 .partners-page:first-child {
-  margin-top: 0px; }
+  margin-top: 0; }
 
 .item-form-partner-add {
   margin-top: 15px;
@@ -1850,7 +1878,45 @@ footer {
 
   .contents .news {
     margin: 0 !important; } }
+.anniversary-content {
+  display: flex; }
+
 @media screen and (max-width: 500px) {
+  .partners .item .item-partner {
+    width: 100% !important; }
+
+  .btn-partners {
+    margin: 0 auto; }
+
+  .anniversary-content {
+    display: none !important; }
+
+  .hide-text {
+    display: block; }
+
+  .anniversary-img .item-img-news img {
+    margin-bottom: 20px; }
+
+  .time {
+    margin-top: 0; }
+    .time .logo {
+      margin-bottom: 20px;
+      justify-content: center; }
+      .time .logo hr {
+        display: none; }
+    .time .timerr {
+      margin-top: 50px; }
+      .time .timerr .timer-lay {
+        margin-left: 0 !important; }
+      .time .timerr .title-timer {
+        margin-left: 0 !important;
+        text-align: center; }
+
+  .content-media .media-news .item-media-news hr {
+    height: 1px;
+    width: 100%;
+    bottom: 2px; }
+
   .buttons-news {
     position: static !important;
     display: flex;
@@ -1933,7 +1999,7 @@ footer {
 
   footer {
     position: static !important;
-    padding-top: 0px !important; }
+    padding-top: 0 !important; }
 
   body {
     padding: 0 !important; } }
