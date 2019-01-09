@@ -49,7 +49,40 @@
     <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
     <script src="{{asset('bootstrap/js/mdb.js')}}"></script>
     <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+    <script>
+        $(document).ready( function() {
+            $('.close').click(function(){
+                $('.subscribe-form').removeClass('hide');
+                $('.modal-title').html('<h4>'+ 'Подписаться на новости'+ '</h4>')
+            });
+
+            $('.subscribe-form').submit( function(e) {
+                e.preventDefault();
+                $('#sub_news-course').attr('value',  $('#sub_news-course').val() ? '' : 0);
+                $('#sub_news-faculty').attr('value',  $('#sub_news-faculty').val() ? '' : 0);
+                $('#sub_news-work').attr('value',  $('#sub_news-work').val() ? '' : 0);
+                $('#sub_news-post').attr('value',  $('#sub_news-post').val() ? '' : 0);
+                $.ajax({
+                    url: "{{ url('admin/subscribers/create') }}",
+                    dataType: 'json',
+                    data: $(this).serialize(),
+                    type: 'POST',
+                    error: function(data) {
+                        $('.modal-title').html('<span>'+'К сожалению, что-то пошло не так. Пожалуйста, напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!'+'</span>');
+                        $('.subscribe-form').addClass('hide');
+                        document.querySelector('.subscribe-form').reset();
+                    },
+                    success: function(data) {
+                        $('.modal-title').html('<span>'+'Ваша заявка успешно отправлена'+'</span>');
+                        $('.subscribe-form').addClass('hide');
+                        document.querySelector('.subscribe-form').reset();
+                    }
+                });
+            });
+        });
+    </script>
     @yield('script')
+
     <footer>
         <div class="container">
             <div class="row">
@@ -95,5 +128,56 @@
             </div>
         </div>
     </footer>
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" id="sub" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Подписаться на новости</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {{ Form::open(array('action' => 'AdminController@createSubscriber', 'class'=>'subscribe-form')) }}
+            <div class="modal-body mx-3 subscribes">
+                <div class="md-form mb-5">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input name="name" type="text" id="orangeForm-name" class="form-control validate" required>
+                    <label data-error="Вы не ввели имя" data-success="Готово" for="orangeForm-name">*Ваше Имя</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input name="email" type="email" id="sub_news-email" class="form-control validate" required>
+                    <label data-error="Вы не ввели e-mail" data-success="right" for="orangeForm-email">*Ваш e-mail</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input name="course" type="number" id="sub_news-course" class="form-control">
+                    <label for="sub_news-course">Курс</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input name="faculty" type="text" id="sub_news-faculty" class="form-control validate">
+                    <label for="sub_news-faculty">Факультет</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input name="work" type="text" id="sub_news-work" class="form-control validate">
+                    <label for="sub_news-work">Место работы</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input name="post" type="text" id="sub_news-post" class="form-control validate">
+                    <label for="sub_news-post">Должность</label>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button class="btn  btn-rounded btn-primary">Отправить заявку</button>
+            </div>
+            {{ Form::close() }}
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
