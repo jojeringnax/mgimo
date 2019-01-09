@@ -10,15 +10,13 @@
     <script src="{{asset('js/jquery-3.3.1.js')}}"></script>
     <script>
         $(document).ready( function() {
-            $('a#{{ request('active') }}').addClass('active');
+            $('a#{{ request('active') }}').addClass('active-link');
         });
     </script>
     @yield('link')
 </head>
 <body>
-<div class="arrow-top">
-    <img src="img/arrow-top.svg" alt="">
-</div>
+<div class="arrow-top hide"></div>
     <header class="header" style="">
         <div class="container">
             <div class="row" style="width:100%;">
@@ -34,6 +32,7 @@
                             <li class="nav-item"><a class="nav-link" id="anniversary" href="{{url('anniversary')}}">О юбилее</a></li>
                             <li class="nav-item"><a class="nav-link" id="news" href={{url('news')}}>Новости</a></li>
                             <li class="nav-item"><a class="nav-link" id="events" href="{{url('events')}}">Мероприятия</a></li>
+                            <li class="nav-item"><a class="nav-link" id="smis" href="{{url('smis')}}">СМИ</a></li>
                             <li class="nav-item"><a class="nav-link" id="congratulations" href="{{url('congratulations')}}">Поздравления</a></li>
                             <li class="nav-item"><a class="nav-link" id="books" href="{{url('books')}}">Издательская программа</a></li>
                             <li class="nav-item"><a class="nav-link" id="gallery" href="{{url('gallery')}}">Галерея</a></li>
@@ -62,13 +61,15 @@
                                 <li><a href="{{url('anniversary')}}">О юбилее</a></li>
                                 <li><a href="{{url('news')}}">Новости</a></li>
                                 <li><a href="{{url('events')}}">Мероприятия</a></li>
-                                <li><a href="{{url('congratulations')}}">Поздравления</a></li>
+                                <li><a href="{{url('smis')}}">СМИ</a></li>
+
                             </ul>
-                            <ul class="d-flex flex-column justify-content-start">
+                            <ul class="d-flex flex-column justify-content-between"">
+                                <li><a href="{{url('congratulations')}}">Поздравления</a></li>
                                 <li><a href="{{url('books')}}">Издательская программа</a></li>
-                                <li style="margin-top: 7.5px"><a href="{{url('gallery')}}">Галерея</a></li>
-                                <li style="margin-top: 7.5px"><a href="{{url('partners')}}">Партнеры</a></li>
-                                <li style="margin-top: 7.5px"><a href="">Контакты</a></li>
+                                <li><a href="{{url('gallery')}}">Галерея</a></li>
+                                <li><a href="{{url('partners')}}">Партнеры</a></li>
+                                <li><a href="">Контакты</a></li>
                             </ul>
                         </nav>
                     </div>

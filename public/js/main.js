@@ -1,5 +1,5 @@
 // Set the date we're counting down to
-let countDownDate = new Date("Jun 17, 2019 00:00:00").getTime();
+let countDownDate = new Date("Oct 14, 2019 00:00:00").getTime();
 
 // Update the count down every 1 second
 let x = setInterval(function() {
@@ -68,7 +68,7 @@ $(document).ready(function(){
                 items:2
             },
             1000:{
-                items:3
+                items:4
             }
         }
     });
@@ -123,16 +123,6 @@ $(document).ready(function(){
             $('.nav-top').css({'background-color': 'transparent'});
             $('.nav-top').removeClass('box-sd');
         }
-         if ($(window).scrollTop() > $(window).outerHeight()*3) {
-             $('.arrow-top').css({'display': 'block'});
-         } else if($(window).scrollTop() < $(window).outerHeight()) {
-             $('.arrow-top').css({'display': 'none'});
-         }
 
-    });
-
-    $('.arrow-top').click(function(){
-        console.log('kuku')
-        $('html,body').stop().animate({scrollTop:0},1000);
     });
 });

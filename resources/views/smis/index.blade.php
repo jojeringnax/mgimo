@@ -15,7 +15,7 @@
                 @if(!$smis->isEmpty())
                     <div class="media-page-content d-flex justify-content-between flex-wrap" style="width:100%">
                         @foreach($smis as $smi)
-                            <div class="col-3 item-media-news d-flex">
+                            <div class="col-xl-3 col-lg-3 col-md-4  col-sm-6 col-12 item-media-news d-flex">
                                 <a href="{{ $smi->link }}" target="_blank">
                                     <span class="source-media-news">{{ $smi->link_view }}</span>
                                     <span class="title-media-news">{{ $smi->title }}</span>
@@ -29,9 +29,11 @@
                     <!-- Вывод, если новостей нет --><div>Нет новостей</div>
                 @endif
             </div>
-            <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
-                <a id="btn-download-smis-page" href="">ПОКАЗАТЬ ЕЩЕ СМИ О НАС</a>
-            </div>
+            @if(count($smis) > 12)
+                <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
+                    <a id="btn-download-smis-page" href="">ПОКАЗАТЬ ЕЩЕ СМИ О НАС</a>
+                </div>
+            @endif
         </div>
     </div>
 @endsection
@@ -50,4 +52,5 @@
             });
         });
     </script>
+    <script src="{{asset('js/locations.js')}}"></script>
 @endsection

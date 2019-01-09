@@ -136,7 +136,10 @@
                     @endforeach
                 </div>
             </div>
-            <div class="d-flex justify-content-center" style="width: 100%; margin-top: 60px;"><a id="btn-download-event-page" href="" class="">Показать еще мероприятия</a></div>
+            @if(count($events) > 12)
+                <div class="d-flex justify-content-center" style="width: 100%; margin-top: 60px;"><a id="btn-download-event-page" href="" class="">Показать еще мероприятия</a></div>
+            @endif
+
         </div>
     </div>
 
@@ -155,7 +158,7 @@
                             <div class="col-8 d-flex flex-column">
                                 {{ Form::open(array('action' => 'AdminController@createEvent', 'class'=>'event-form', 'files' => true)) }}
                                 <div class="item-form-event">
-                                    {{ Form::label('title', 'Заколовок') }}
+                                    {{ Form::label('title', 'Заголовок') }}
                                     {{ Form::text('title','', ['class' => 'form-control']) }}
                                 </div>
                                 <div class="item-form-event">
@@ -168,7 +171,7 @@
                                     {{ Form::date('date', \Carbon\Carbon::now(), ['class' => 'form-control datepicker']) }}
                                 </div>
                                 <div class="item-form-event">
-                                    {{ Form::label('location', 'Местоположение') }}
+                                    {{ Form::label('location', 'Город') }}
                                     {{ Form::text('location','', ['class' => 'form-control']) }}
                                 </div>
                                 <div class="input-group">
@@ -260,4 +263,5 @@
             });
         });
     </script>
+    <script src="{{asset('js/locations.js')}}"></script>
 @endsection
