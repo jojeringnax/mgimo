@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/mdb.css') }}">
     <script src="{{asset('js/jquery-3.3.1.js')}}"></script>
+    <script>
+        $(document).ready( function() {
+            $('a#{{ request('active') }}').addClass('active');
+        });
+    </script>
     @yield('link')
 </head>
 <body>
@@ -25,15 +30,15 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="container navbar-nav d-flex justify-content-between" style="padding: 0">
-                            <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Главная</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{url('anniversary')}}">О юбилее</a></li>
-                            <li class="nav-item"><a class="nav-link" href={{url('news')}}>Новости</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{url('events')}}">Мероприятия</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{url('congratulations')}}">Поздравления</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{url('books')}}">Издательская программа</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{url('gallery')}}">Галерея</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{url('partners')}}">Партнеры</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{url('contacts')}}">Контакты</a></li>
+                            <li class="nav-item"><a class="nav-link" id="main" href="{{url('/')}}">Главная</a></li>
+                            <li class="nav-item"><a class="nav-link" id="anniversary" href="{{url('anniversary')}}">О юбилее</a></li>
+                            <li class="nav-item"><a class="nav-link" id="news" href={{url('news')}}>Новости</a></li>
+                            <li class="nav-item"><a class="nav-link" id="events" href="{{url('events')}}">Мероприятия</a></li>
+                            <li class="nav-item"><a class="nav-link" id="congratulations" href="{{url('congratulations')}}">Поздравления</a></li>
+                            <li class="nav-item"><a class="nav-link" id="books" href="{{url('books')}}">Издательская программа</a></li>
+                            <li class="nav-item"><a class="nav-link" id="gallery" href="{{url('gallery')}}">Галерея</a></li>
+                            <li class="nav-item"><a class="nav-link" id="partners" href="{{url('partners')}}">Партнеры</a></li>
+                            <li class="nav-item"><a class="nav-link" id="contacts" href="{{url('contacts')}}">Контакты</a></li>
                         </ul>
                     </div>
                 </nav>
