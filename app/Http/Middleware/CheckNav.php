@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Mockery\Exception;
 
 class CheckNav
 {
@@ -15,9 +16,19 @@ class CheckNav
      */
     public function handle($request, Closure $next)
     {
-        $active = explode('/',$request->url());
-        $result = count($active) <= 3 ? 'main' : $active[3] === 'public' ? $active[4] : $active[3];
-        $request->merge(['active' => $result]);
-        return $next($request);
+
+        try {
+
+            $active = explode('/', $request->url());
+
+            $result = count($active) <= 3 ? 'main' : $active[3] === 'public' ? $active[4] : $active[3];
+
+            $request->merge(['active' => $result]);
+
+            return $next($request);
+        } catch (Exception $e) {
+            $request->merge(['active' => 'main']);
+            return $next($request);
+        }
     }
 }
