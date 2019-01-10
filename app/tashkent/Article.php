@@ -12,6 +12,6 @@ class Article extends Model
 
     public $fillable = [
         'title',
-        'content'
+        'link'
     ];
 }

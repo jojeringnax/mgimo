@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TashkentCreateTableNews extends Migration
+class TashkentCreateTableProgramm extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class TashkentCreateTableNews extends Migration
      */
     public function up()
     {
-        Schema::connection('tashkent')->create('news', function (Blueprint $table) {
+        Schema::connection('tashkent')->create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('title');
-            $table->text('link');
-            $table->boolean('moderated');
+            $table->date('date');
+            $table->time('time_from');
+            $table->time('time_to');
+            $table->string('pre_title', 64)->nullable();
+            $table->string('title', 255);
         });
     }
 
@@ -29,6 +31,6 @@ class TashkentCreateTableNews extends Migration
      */
     public function down()
     {
-        Schema::connection('tashkent')->drop('news');
+        Schema::connection('tashkent')->drop('events');
     }
 }

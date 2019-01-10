@@ -1,8 +1,7 @@
 {{ Form::open() }}
 
 {{ Form::text('title') }}
-
-{{ Form::textarea('content') }}
+{{ Form::text('link') }}
 
 {{ Form::submit() }}
 

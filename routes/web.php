@@ -146,9 +146,38 @@ Route::get('admin/subscribers', function() {
  */
 
 
-Route::get('admin/tashkent', 'tashkent\AdminController@index');
+Route::get('admin/tashkent', 'tashkent\AdminController@index')->name('adminIndexTashkent');
 
-Route::get('admin/tashkent/news', 'tashkent\AdminController@news');
+Route::get('admin/tashkent/news', 'tashkent\AdminController@news')->name('newsAdminIndexTashkent');
 
-Route::post('admin/tashkent/news/create', 'tashkent\AdminController@createArticle');
-Route::get('admin/tashkent/news/create', 'tashkent\AdminController@createArticle');
+Route::post('admin/tashkent/news/create', 'tashkent\AdminController@storeArticle');
+Route::post('admin/tashkent/news/update/{id}', 'tashkent\AdminController@storeArticle');
+
+Route::get('admin/tashkent/news/delete/{id}', 'tashkent\AdminController@deleteArticle');
+Route::get('admin/tashkent/news/update/{id}', function ($id) {
+    return view('tashkent.admin.news.update', [
+        'article' => \App\tashkent\Article::find($id)->first()
+    ]);
+})->name('updateArticleTashkent');
+
+Route::get('admin/tashkent/news/create', function () {
+    return view('tashkent.admin.news.create');
+})->name('createArticleTashkent');
+
+
+
+Route::get('admin/tashkent/program', 'tashkent\AdminController@program');
+Route::get('admin/tashkent/program/create', function() {
+    return view('tashkent.admin.program.create');
+})->name('createEventTashkent');
+
+Route::get('admin/tashkent/program/update/{id}', function ($id) {
+    return view('tashkent.admin.program.update', [
+        'event' => \App\tashkent\Event::find($id)->first()
+    ]);
+})->name('updateArticleTashkent');
+
+
+Route::post('admin/tashkent/program/create', 'tashkent\AdminController@storeProgram');
+Route::post('admin/tashkent/program/update/{id}', 'tashkent\AdminController@storeProgram');
+Route::get('admin/tashkent/program/delete/{id}', 'tashkent\AdminController@deleteProgram');
