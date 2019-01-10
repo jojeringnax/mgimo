@@ -93,7 +93,7 @@ class PhotoController extends Controller
                     'photo' => $album->lastPhoto()->path
                 ];
             }
-            return isset($resultArray) ? json_encode($resultArray) : null;
+            return isset($resultArray) ? json_encode($resultArray) : [];
         }
     }
 
