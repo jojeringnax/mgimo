@@ -79,7 +79,18 @@ class PhotoController extends Controller
     {
         if($request->ajax()) {
             $tag = Tag::where('word', $date)->first();
-            return $tag->albums()->toJson();
+            if ($tag === null) {
+                return null;
+            }
+            $albums = $tag->albums()->toArray();
+            foreach ($albums as $album) {
+                $resultArray[] = [
+                    'id' => $album->id,
+                    'name' => $album->name,
+                    'photo' => $album->lastPhoto()->path
+                ];
+            }
+            return isset($resultArray) ? $resultArray : null;
         }
     }
 

@@ -46,6 +46,11 @@ class Album extends Model
     }
 
 
+    public function lastPhoto()
+    {
+        return Photo::where('album_id', $this->id)->orderBy('id asc')->first();
+    }
+
     /**
      * Return tags as array.
      *
