@@ -833,6 +833,16 @@ class AdminController extends Controller
      return 0;
     }
 
+    /**
+     * @param $id
+     * @return int
+     */
+    public function deleteAlbum($id)
+    {
+        $album = Album::findOrFail($id);
+        $album->delete();
+        return 1;
+    }
 
 
     /**

@@ -139,3 +139,14 @@ Route::get('admin/subscribers', function() {
 })->name('subscribers_index');
 
 
+/**
+ * TASHKENT ROUTES
+ */
+
+
+Route::get('admin/tashkent', 'tashkent\AdminController@index');
+
+Route::get('admin/tashkent/news', 'tashkent\AdminController@news');
+
+Route::post('admin/tashkent/news/create', 'tashkent\AdminController@createArticle');
+Route::get('admin/tashkent/news/create', 'tashkent\AdminController@createArticle');
