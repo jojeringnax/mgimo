@@ -80,11 +80,11 @@ class PhotoController extends Controller
         if($request->ajax()) {
             $tag = Tag::where('word', $date)->first();
             if ($tag === null) {
-                return null;
+                return [];
             }
             $albums = $tag->albums();
             if ($albums === null) {
-                return null;
+                return [];
             }
             foreach ($albums as $album) {
                 $resultArray[] = [
