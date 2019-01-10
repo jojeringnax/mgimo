@@ -1579,8 +1579,6 @@ nav {
     .layout_news #photos-news .item-img-news {
       margin-bottom: 20px;
       text-align: center; }
-      .layout_news #photos-news .item-img-news img {
-        width: 100% !important; }
 
 p {
   margin: 0 !important; }
