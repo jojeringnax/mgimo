@@ -834,20 +834,22 @@ class AdminController extends Controller
                     $tagConnect->save();
                 }
             }
-            $files = $request->allFiles()['photos'];
-            foreach ($files as $file) {
-                $photo = new Photo();
-                $photo->type = PhotoConnect::GALLERY;
-                $photo->path = '';
-                $photo->sizeX = getimagesize($file->getPathname())[0];
-                $photo->sizeY = getimagesize($file->getPathname())[1];
-                $photo->album_id = $id;
-                $photo->save();
-                $path = 'gallery/album_' . $id . '/' . $photo->id . '.' . $file->getClientOriginalExtension();
-                Storage::put($path, file_get_contents($file->getPathname()));
-                $path = '/storage/photo/' . $path;
-                $photo->path = $path;
-                $photo->save();
+            if (isset($request->allFiles()['photos'])) {
+                $files = $request->allFiles()['photos'];
+                foreach ($files as $file) {
+                    $photo = new Photo();
+                    $photo->type = PhotoConnect::GALLERY;
+                    $photo->path = '';
+                    $photo->sizeX = getimagesize($file->getPathname())[0];
+                    $photo->sizeY = getimagesize($file->getPathname())[1];
+                    $photo->album_id = $id;
+                    $photo->save();
+                    $path = 'gallery/album_' . $id . '/' . $photo->id . '.' . $file->getClientOriginalExtension();
+                    Storage::put($path, file_get_contents($file->getPathname()));
+                    $path = '/storage/photo/' . $path;
+                    $photo->path = $path;
+                    $photo->save();
+                }
             }
             $album->save();
             return redirect()->route('album_fill', ['id' => $id]);
