@@ -39,4 +39,10 @@ class Tag extends Model
     {
         return $this->hasMany(TagConnect::class, 'id', 'id');
     }
+
+    public function albums()
+    {
+        $tagConnects = TagConnect::where('id', $this->id)->where('type', TagConnect::GALLERY)->select('connect_id')->get()->toArray();
+        return Album::whereIn('id', array_flatten($tagConnects))->get();
+    }
 }

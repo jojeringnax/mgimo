@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use App\Photo;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class PhotoController extends Controller
@@ -67,6 +68,19 @@ class PhotoController extends Controller
             ];
         }
         return isset($resultArray) ? $resultArray : 0;
+    }
+
+    /**
+     * @param Request $request
+     * @param $date
+     * @return mixed
+     */
+    public function getFiltred(Request $request, $date)
+    {
+        if($request->ajax()) {
+            $tag = Tag::where('word', $date)->first();
+            return $tag->albums()->toJson();
+        }
     }
 
 

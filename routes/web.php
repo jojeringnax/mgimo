@@ -116,6 +116,8 @@ Route::get('events/add_events/{data}', 'EventsController@addEvents');
 Route::get('congratulations/add_congratulations/{data}', 'CongratulationController@addCongratulations');
 Route::get('books/add_books/{data}', 'BookController@addBooks');
 Route::get('gallery/add_albums/{data}', 'PhotoController@addAlbums');
+Route::get('gallery/delete_album/{id}', 'PhotoController@deleteAlbum');
+Route::get('gallery/albums/{date}', 'PhotoController@getFiltred');
 
 
 Route::get('admin/congratulations', function() {
