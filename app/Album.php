@@ -44,4 +44,25 @@ class Album extends Model
     {
         return $this->hasMany(Photo::class, 'album_id', 'id');
     }
+
+
+    /**
+     * Return tags as array.
+     *
+     * @return array
+     */
+    public function getTags()
+    {
+        $resultArray = [];
+        $tagConnects = TagConnect::photo($this->id);
+        if($tagConnects->isEmpty()) {return [];}
+        foreach($tagConnects as $tagConnect) {
+            $idsArray[] = $tagConnect->id;
+        }
+        $tags = Tag::whereIn('id', $idsArray)->get();
+        foreach($tags as $tag) {
+            $resultArray[] = $tag->word;
+        }
+        return $resultArray;
+    }
 }
