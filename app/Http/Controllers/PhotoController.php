@@ -86,7 +86,6 @@ class PhotoController extends Controller
             if ($albums === null) {
                 return null;
             }
-            $albums = $albums->toArray();
             foreach ($albums as $album) {
                 $resultArray[] = [
                     'id' => $album->id,
