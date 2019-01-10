@@ -82,7 +82,11 @@ class PhotoController extends Controller
             if ($tag === null) {
                 return null;
             }
-            $albums = $tag->albums()->toArray();
+            $albums = $tag->albums();
+            if ($albums === null) {
+                return null;
+            }
+            $albums = $albums->toArray();
             foreach ($albums as $album) {
                 $resultArray[] = [
                     'id' => $album->id,
@@ -90,7 +94,7 @@ class PhotoController extends Controller
                     'photo' => $album->lastPhoto()->path
                 ];
             }
-            return isset($resultArray) ? $resultArray : null;
+            return isset($resultArray) ? json_encode($resultArray) : null;
         }
     }
 
