@@ -797,7 +797,6 @@ class AdminController extends Controller
         return 0;
     }
 
-
     /**
      * @param $id
      * @param Request $request
@@ -808,7 +807,33 @@ class AdminController extends Controller
         $album = Album::find($id);
         if ($request->isMethod('post')) {
 
-
+            $album->name = $request->post('name');
+            if ($tags = $request->post('tags')) {
+                $tags = preg_split('/,/', $tags);
+                if(!(($tagConnects = TagConnect::photo($album->id))->isEmpty())) {
+                    foreach ($tagConnects as $tagConnect) {
+                        $tag = $tagConnect->tag;
+                        $tag->update(['count_news' => $tag->count_news - 1]);
+                        $tagConnect->delete();
+                    }
+                };
+                foreach ($tags as $tag) {
+                    $tagModel = Tag::where('word', $tag)->first();
+                    if ($tagModel === null) {
+                        $tagModel = new Tag();
+                        $tagModel->word = $tag;
+                        $tagModel->count_news = 1;
+                        $tagModel->save();
+                    } else {
+                        $tagModel->update(['count_news' => $tagModel->count_news + 1]);
+                    }
+                    $tagConnect = new TagConnect();
+                    $tagConnect->id = $tagModel->id;
+                    $tagConnect->connect_id = $article->id;
+                    $tagConnect->type = TagConnect::NEWS;
+                    $tagConnect->save();
+                }
+            }
             $files = $request->allFiles()['photos'];
             foreach ($files as $file) {
                 $photo = new Photo();
@@ -824,6 +849,7 @@ class AdminController extends Controller
                 $photo->path = $path;
                 $photo->save();
             }
+            $album->save();
             return redirect()->route('album_fill', ['id' => $id]);
 
         } elseif ($request->isMethod('get')) {
