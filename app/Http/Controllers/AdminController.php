@@ -813,7 +813,7 @@ class AdminController extends Controller
                 if(!(($tagConnects = TagConnect::photo($album->id))->isEmpty())) {
                     foreach ($tagConnects as $tagConnect) {
                         $tag = $tagConnect->tag;
-                        $tag->update(['count_news' => $tag->count_news - 1]);
+                        $tag->update(['count_photos' => $tag->count_photos - 1]);
                         $tagConnect->delete();
                     }
                 };
@@ -825,12 +825,12 @@ class AdminController extends Controller
                         $tagModel->count_news = 1;
                         $tagModel->save();
                     } else {
-                        $tagModel->update(['count_news' => $tagModel->count_news + 1]);
+                        $tagModel->update(['count_photos' => $tagModel->count_photos + 1]);
                     }
                     $tagConnect = new TagConnect();
                     $tagConnect->id = $tagModel->id;
-                    $tagConnect->connect_id = $article->id;
-                    $tagConnect->type = TagConnect::NEWS;
+                    $tagConnect->connect_id = $album->id;
+                    $tagConnect->type = TagConnect::GALLERY;
                     $tagConnect->save();
                 }
             }
