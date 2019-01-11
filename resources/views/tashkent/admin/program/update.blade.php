@@ -20,7 +20,7 @@
                 </div>
                 <div class="item-form">
                     {{ Form::label('all_day', 'В течение дня') }}
-                    {{ Form::checkbox('all_day',$event->all_day) }}
+                    {{ Form::checkbox('all_day', $event->all_day, ['checked' => $event->all_day ? 'checked' : false]) }}
                 </div>
 
                 <div class="item-form d-flex justify-content-center">
