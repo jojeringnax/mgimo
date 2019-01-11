@@ -2411,7 +2411,9 @@ footer {
         }
     }
 }
-
+#albums_wrapper {
+    padding-left: 0 !important;
+}
 .item-book-page {
     display: flex;
     align-items: stretch;
@@ -2711,6 +2713,62 @@ footer {
 
 .anniversary-content {
     display: flex;
+}
+.select-container {
+    position: relative;
+    width: 100px;
+    height: 26px;
+    #select-location {
+        width: 100px;
+        height: 26px;
+        border-style: solid;
+        border-color: $mainColor;
+        border-width: 0 0 1px 0;
+        outline: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        &:focus {
+            outline: none;
+        }
+    }
+    #filter-album {
+        width: 100px;
+        height: 26px;
+        border-style: solid;
+        border-color: $mainColor;
+        border-width: 0 0 1px 0;
+        outline: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        &:focus {
+            outline: none;
+        }
+    }
+    span.select-arrow {
+        right:0;
+        top: 6px;
+        width:12px;
+        height: 12px;
+        position:absolute;
+        display:block;
+        z-index: 11231230;
+        pointer-events:none;
+        background-image: url("../img/icon/arrow_select.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100%;
+    }
+}
+
+
+select::-ms-expand {
+    display: none;
 }
 
 @media screen and (max-width: 500px){

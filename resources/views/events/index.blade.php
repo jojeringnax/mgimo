@@ -100,20 +100,21 @@
                     </div>
 
                 </div>
-                <select id="select-location">
-                    @foreach($locations as $location)
-                        <option value="{{$location}}">{{$location}}</option>
-                    @endforeach
-                </select>
+                <div class="select-container">
+                    <span class="select-arrow"></span>
+                    <select id="select-location">
+                        @foreach($locations as $location)
+                            <option value="{{$location}}">{{$location}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div id="events_wrapper" class="content-event-page d-flex flex-wrap">
                     @foreach($events as $event)
                         <div class="d-flex col-xl-4 col-lg-4 col-ms-4 col-sm-6 col-12" style="padding: 10px;">
                             <div class="items-event-page d-flex flex-wrap flex-column justify-content-around col-xl-12">
                                 <a href="{{url('events/show/'.$event->id)}}">
                                     <div class="item">
-                                        <span class="title-item">
-                                            {{ $event->title }}
-                                        </span>
+                                        <span class="title-item">{{ $event->title }}</span>
                                         <span class="date-item"><i></i>{{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('n', strtotime($event->date))], date('Y', strtotime($event->date))]) }}</span>
                                         <span class="location-item"><i></i>{{ $event->location }}</span>
                                     </div>
@@ -218,6 +219,34 @@
                    dataType: 'json',
                    success: function (response) {
                        console.log(response);
+                       let events = '';
+                       let hr = '';
+                       response.forEach(function(el, index, arr){
+                           if(index%3 !== 2) {
+                               if(index === arr.length-1) {
+                                   hr = '';
+                               } else {
+                                   hr = '<hr/>';
+                               }
+                           } else {
+                               hr = '';
+                           }
+                           events +=
+                               '<div class="d-flex col-xl-4 col-lg-4 col-ms-4 col-sm-6 col-12" style="padding: 10px;">' +
+                                   '<div class="items-event-page d-flex flex-wrap flex-column justify-content-around col-xl-12">' +
+                                        '<a class="" href="{{url('events/show')}}' +'/'+el.id + '">' +
+                                            '<div class="item">' +
+                                                '<span class="title-item">'+el.title+'</span>'+
+                                                '<span class="date-item"><i></i>'+el.date+'</span>' +
+                                                '<span class="location-item"><i></i>'+el.location+'</span>' +
+                                            '</div>' +
+                                        '</a>' +
+                                        hr+
+                                    '</div>' +
+                               '</div>';
+
+                       });
+                       $('#events_wrapper').html(events);
                    },
                    error: function(response) {
                        console.log(response);

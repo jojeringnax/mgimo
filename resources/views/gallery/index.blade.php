@@ -16,8 +16,9 @@
     <div class="container" style="margin-top: 150px; padding-bottom: 120px;">
         <div class="row">
             <div class="gallery-page d-flex flex-wrap">
-                <div class="filter">
-                    {{  Form::select('tags', \App\Congratulation::getDatesArray(),  null, ['class' => 'custom-select', 'id' => 'filter-album']) }}
+                <div class="filter select-container">
+                    <span class="select-arrow"></span>
+                    {{  Form::select('tags', \App\Congratulation::getDatesArray(),  null, ['class' => '', 'id' => 'filter-album']) }}
                 </div>
                 <div id="albums_wrapper" class="d-flex col-12 flex-wrap">
                     @foreach($albums as $album)
@@ -25,7 +26,7 @@
                             $photos = $album->photos;
                         @endphp
                         @foreach($photos as $photo)
-                            <a class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}">
+                            <a class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
                                 <div class="item-card-album card" style="width: 100%">
                                     <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
                                     <div class="card-body d-flex flex-column align-items-start">
@@ -62,7 +63,7 @@
                     }
                     d.forEach(function(el) {
                         $('#albums_wrapper').append(
-                            '<a class="col-3 item-album" href="' + el.link + '">' +
+                            '<a class="col-3 item-album" href="' + el.link + '"style="padding-left: 0; padding-right: 30px">' +
                                 '<div  style="background-image: url(' + el.photo + '); background-size: cover;">' +
                                     '<div class="items-gallery">' +
                                         '<span>{{ $album->name }}</span>' +
@@ -85,7 +86,7 @@
                     let albums = '';
                     response.forEach(function(el){
                         albums +=
-                            '<a class="col-3 item-album" href="{{url('gallery/show')}}' +'/'+el.id + '">' +
+                            '<a class="col-3 item-album" href="{{url('gallery/show')}}' +'/'+el.id + '"style="padding-left: 0; padding-right: 30px">' +
                                 '<div class="item-card-album card" style="width: 100%">' +
                                     '<img class="card-img-top" src="'+ el.photo +'" alt="Card image cap">' +
                                     '<div class="card-body d-flex flex-column align-items-start">' +

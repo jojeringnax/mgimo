@@ -30,7 +30,7 @@
                             </td>
                             <td>{{$element->created_at}}</td>
                             <td width="20%">{{ $element->title }}</td>
-                            <td width="55%">{!!mb_strimwidth((html_entity_decode($element->content)),0,230,'...')!!}</td>
+                            <td width="55%">{!!cut_html($element->content)!!}</td>
                             <td width="55%">{{$element->moderated ? 'Активна' : 'Не активна'}}</td>
                             <td width="10%" class="action">
                                 {{ link_to_action('AdminController@updateArticle', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
