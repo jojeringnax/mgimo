@@ -62,5 +62,9 @@ class AdminController extends Controller
     }
 
 
-
+    public function isExistForTodayForAllDay($date)
+    {
+        $event = Event::where('date', $date)->where('all_day', true)->first();
+        return $event !== null;
+    }
 }

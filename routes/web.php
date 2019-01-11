@@ -188,3 +188,5 @@ Route::get('admin/tashkent/program/update/{id}', function ($id) {
 Route::post('admin/tashkent/program/create', 'tashkent\AdminController@storeProgram');
 Route::post('admin/tashkent/program/update/{id}', 'tashkent\AdminController@storeProgram');
 Route::get('admin/tashkent/program/delete/{id}', 'tashkent\AdminController@deleteProgram');
+
+Route::get('admin/tashkent/program/is_exist_all_day/{date}', 'tashkent\AdminController@isExistForTodayForAllDay');

@@ -29,11 +29,13 @@ class Event extends Model
 
     public static function getAsArrayWithDates()
     {
-        $models = self::all();
+        $models = self::orderBy('date')->orderBy('time_to')->get();
         $resultArray = [];
         foreach ($models as $model) {
             $resultArray[$model->date][] = $model;
         }
         return $resultArray;
     }
+
+
 }
