@@ -4,6 +4,7 @@
     <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
 @endsection
 @section('content')
+    <h1 class="text-center">РАЗДЕЛ: МЕРОПРИЯТИЯ</h1>
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-8 d-flex flex-column">
@@ -18,7 +19,7 @@
                 </div>
                 <div class="item-form-event">
                     {{ Form::label('date', 'Дата') }}
-                    {{ Form::date('date',  !isset($event) ? \Carbon\Carbon::now() : $event->date, ['class' => 'form-control datepicker']) }}
+                    {{ Form::text('date',  !isset($event) ? \Carbon\Carbon::now() : $event->date, ['class' => 'form-control datepicker']) }}
                 </div>
                 <div class="item-form-event">
                     {{ Form::label('tags', 'Тэги') }}

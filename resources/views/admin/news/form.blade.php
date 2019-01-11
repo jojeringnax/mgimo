@@ -4,8 +4,9 @@
     <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
 @endsection
 @section('content')
+    <h1 class="text-center">РАЗДЕЛ: НОВОСТИ</h1>
     <div class="container">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             <div class="col-9">
                 {{ !isset($article) ? Form::open(array('action' => 'AdminController@createArticle', 'files' => true, 'class'=>'news-form')) : Form::model($article, ['files' => true, 'class'=>'news-form']) }}
 

@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="/public/css/open-iconic-bootstrap.css">
 @endsection
 @section('content')
+    <h1 class="text-center">РАЗДЕЛ: НОВОСТИ</h1>
     <div class="container">
         <div class="row">
             <div class="admin dmin-news" style="width:100%">

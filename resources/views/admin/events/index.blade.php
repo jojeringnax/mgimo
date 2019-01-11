@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+    <h1 class="text-center">РАЗДЕЛ: МЕРОПРИЯТИЯ</h1>
     <div class="container">
         <div class="row">
             <div class="admin admin-events" style="width: 100%">

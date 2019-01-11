@@ -1,3 +1,7 @@
+@php
+    $arr = \App\Congratulation::getDatesArray();
+
+@endphp
 @extends('layout')
 
 @section('link')
@@ -12,6 +16,9 @@
     <div class="container" style="margin-top: 150px; padding-bottom: 120px;">
         <div class="row">
             <div class="gallery-page d-flex flex-wrap">
+                <div class="filter">
+                    {{  Form::select('tags', \App\Congratulation::getDatesArray(),  null, ['class' => 'custom-select', 'id' => 'filter-album']) }}
+                </div>
                 <div id="albums_wrapper" class="d-flex col-12 flex-wrap">
                     @foreach($albums as $album)
                         @php
@@ -67,7 +74,37 @@
                 }
             });
         });
+
+        $('#filter-album').change(function(){
+            let url = "{{url('gallery/albums/')}}" + '/' + $(this).val();
+            $.ajax({
+                url: url,
+                type: 'get',
+                dataType: 'json',
+                success: function(response) {
+                    let albums = '';
+                    response.forEach(function(el){
+                        albums +=
+                            '<a class="col-3 item-album" href="{{url('gallery/show')}}' +'/'+el.id + '">' +
+                                '<div class="item-card-album card" style="width: 100%">' +
+                                    '<img class="card-img-top" src="'+ el.photo +'" alt="Card image cap">' +
+                                    '<div class="card-body d-flex flex-column align-items-start">' +
+                                        '<span class="title-card-album">' +el.name+ '</span>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</a>';
+
+                    });
+                    $('#albums_wrapper').html(albums);
+
+                },
+
+                error: function(response) {
+                }
+            })
+        })
     });
 </script>
 <script src="{{asset('js/locations.js')}}"></script>
+
 @endsection

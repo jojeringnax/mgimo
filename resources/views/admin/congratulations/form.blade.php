@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+    <h1 class="text-center">РАЗДЕЛ: ПОЗДРАВЛЕНИЯ</h1>
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-8 d-flex flex-column" style="height:100%">
