@@ -182,7 +182,7 @@ Route::get('admin/tashkent/program/update/{id}', function ($id) {
     return view('tashkent.admin.program.update', [
         'event' => \App\tashkent\Event::find($id)->first()
     ]);
-})->name('updateArticleTashkent');
+})->name('updateEventTashkent');
 
 
 Route::post('admin/tashkent/program/create', 'tashkent\AdminController@storeProgram');

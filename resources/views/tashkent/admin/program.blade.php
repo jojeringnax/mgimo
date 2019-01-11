@@ -9,9 +9,8 @@
                 <table class="table table-striped table-bordered">
                     <thead>
                     <tr class="text-center">
-                        <th scope="col">id</th>
                         <th scope="col">Время</th>
-                        <th scope="col">Эпитет</th>
+                        <th scope="col">Эпиграф</th>
                         <th scope="col">Заголовок</th>
                         <th>Action</th>
                     </tr>
@@ -21,12 +20,11 @@
                             <tr><td colspan="5" style="text-align: center">{{ $date }}</td></tr>
                             @foreach($eventModels as $event)
                                 <tr>
-                                <td>{{ $event->id }}</td>
                                 <td>{{ $event->all_day ? "В течение дня" : $event->time_from . '-' . $event->time_to }}</td>
                                 <td>{{ $event->pre_title }}</td>
                                 <td>{{ $event->title }}</td>
                                 <td class="action">
-                                    {{ link_to_route('updateArticleTashkent', '', ['id' => $event->id], ['class' => 'oi oi-pencil']) }}
+                                    {{ link_to_route('updateEventTashkent', '', ['id' => $event->id], ['class' => 'oi oi-pencil']) }}
                                     {{ link_to_action('tashkent\AdminController@deleteProgram', '', ['id' => $event->id], ['class' => 'oi oi-delete delete-admin']) }}
                                 </td>
                                 </tr>
