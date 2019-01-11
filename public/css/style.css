@@ -2304,5 +2304,12 @@ select::-ms-expand {
 
   .gallery-content {
     padding: 100px 0 100px 0; } }
+/*===================tashkent===========================*/
+.form-tashkent-prog-create {
+  height: 100%; }
+  .form-tashkent-prog-create form {
+    padding: 40px 0 40px 0; }
+    .form-tashkent-prog-create form .item-form {
+      margin-bottom: 20px; }
 
 /*# sourceMappingURL=style.css.map */

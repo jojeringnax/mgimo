@@ -1,19 +1,45 @@
 @extends('layouts.admin')
 
 @section('content')
-{{ Form::open() }}
+    <div class="container">
+        <div class="row">
+            <div class="form-tashkent-prog-create d-flex flex-column col-12 justify-content-center align-items-center border">
+                {{ Form::open(['class' => 'd-flex flex-column col-7']) }}
+                <div class="item-form">
+                    {{ Form::label('pre_title', 'Заголовок') }}
+                    {{ Form::text('pre_title', '',['class' => 'form-control']) }}
+                </div>
+                <div class="item-form">
+                    {{ Form::label('title', 'Эпиграф') }}
+                    {{ Form::text('title', '',['class' => 'form-control']) }}
+                </div>
 
-{{ Form::date('date') }}
+                <div class="item-form">
+                    {{ Form::label('date', 'Дата') }}
+                    {{ Form::date('date','', ['class' => 'form-control']) }}
+                </div>
+                <div class="item-form">
+                    {{ Form::label('all_day', 'В течение дня') }}
+                    {{ Form::checkbox('all_day') }}
+                </div>
 
+                <div class="item-form d-flex justify-content-center">
+                    <div class="item-choice col-xl-5">
+                        {{ Form::label('time_from', 'От', ['class' => '']) }}
+                        {{ Form::time('time_from', null,['class' => 'form-control']) }}
+                    </div>
+                    <div class="item-choice col-xl-5">
+                        {{ Form::label('time_to', 'До', ['class' => '']) }}
+                        {{ Form::time('time_to', null,['class' => 'form-control']) }}
+                    </div>
 
-{{ Form::time('time_from') }}
-{{ Form::time('time_to') }}
-{{ Form::text('pre_title') }}
-{{ Form::text('title') }}
-{{ Form::checkbox('all_day') }}
-{{ Form::submit() }}
+                </div>
+                {{ Form::submit('Сохранить',['class' => 'btn btn-primary']) }}
 
-{{ Form::close() }}
+                {{ Form::close() }}
+            </div>
+        </div>
+    </div>
 @endsection
 @section('script')
     <script>

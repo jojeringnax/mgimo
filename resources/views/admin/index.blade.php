@@ -4,7 +4,9 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">Dashboard</div>
+                    <div class="card-header">
+                        {{ link_to('admin/tashkent', 'АДМИНКА ТАШКЕНТА', ['class' => 'card d-flex justify-content-center align-items-center text-center']) }}
+                    </div>
                     <div class="card-body">
                         <a href="{{ url('register') }}">Добавить пользователя</a>
                         <div class="admin-sections d-flex flex-wrap">
