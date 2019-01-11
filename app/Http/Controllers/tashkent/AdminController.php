@@ -50,6 +50,7 @@ class AdminController extends Controller
     {
         $event = $id === null ? new Event() : Event::findOrFail($id);
         $event->fill($r->post());
+        if($r->post('all_day') === null) $event->all_day = false;
         $event->save();
         return redirect('admin/tashkent/program');
     }

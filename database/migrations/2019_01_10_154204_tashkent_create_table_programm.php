@@ -17,8 +17,9 @@ class TashkentCreateTableProgramm extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->date('date');
-            $table->time('time_from');
-            $table->time('time_to');
+            $table->time('time_from')->nullable();
+            $table->time('time_to')->nullable();
+            $table->boolean('all_day');
             $table->string('pre_title', 64)->nullable();
             $table->string('title', 255);
         });

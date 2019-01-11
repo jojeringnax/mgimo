@@ -22,7 +22,7 @@
                             @foreach($eventModels as $event)
                                 <tr>
                                 <td>{{ $event->id }}</td>
-                                <td>{{ $event->time_from }} - {{ $event->time_to }}</td>
+                                <td>{{ $event->all_day ? "В течение дня" : $event->time_from . '-' . $event->time_to }}</td>
                                 <td>{{ $event->pre_title }}</td>
                                 <td>{{ $event->title }}</td>
                                 <td class="action">

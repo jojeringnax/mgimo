@@ -15,7 +15,8 @@ class Event extends Model
         'time_from',
         'time_to',
         'pre_title',
-        'title'
+        'title',
+        'all_day'
     ];
 
     /**

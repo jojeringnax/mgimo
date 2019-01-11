@@ -8,6 +8,7 @@
 {{ Form::text('pre_title', $event->pre_title) }}
 {{ Form::text('title', $event->title) }}
 
+{{ Form::checkbox('all_day', $event->all_day) }}
 {{ Form::submit() }}
 
 {{ Form::close() }}
