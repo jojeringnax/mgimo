@@ -117,6 +117,6 @@ class Event extends Model
      */
     public static function getEventsForLocation($location)
     {
-        return self::where('loction', $location)->get();
+        return self::where('location', $location)->where('main', true)->get();
     }
 }
