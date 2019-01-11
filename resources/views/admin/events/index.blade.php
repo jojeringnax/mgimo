@@ -23,7 +23,7 @@
                                 <td width="10%">{{ $event->title }}</td>
                                 <td width="10%">{{ $event->location }}</td>
                                 <td width="10%">{{ $event->date }}</td>
-                                <td width="55%" style="word-wrap:break-word">{!!mb_strimwidth((html_entity_decode($event->content)),0,280,'...')!!}</td>
+                                <td width="55%" style="word-wrap:break-word">{!!cut_html($event->content)!!}</td>
                                 <td width="5%">{{$event->main ? 'Активна' : 'Не активна'}}</td>
                                 <td width="5%" class="action">
                                     {{ link_to_action('AdminController@updateEvent', '', ['id' => $event->id], ['class' => 'oi oi-pencil']) }}
