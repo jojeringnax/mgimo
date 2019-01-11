@@ -1,6 +1,7 @@
 
 @extends('layouts.admin')
 @section('content')
+    <h1 class="text-center">РАЗДЕЛ: ГАЛЕРЕЯ</h1>
     <div class="container" style="margin-top:100px;">
         <div class="row d-flex justify-content-center">
             <div class="col-12 d-flex flex-column align-items-center">

@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-
+    <h1 class="text-center">РАЗДЕЛ: КНИГИ</h1>
 <div class="container">
     <div class="row">
         <div class="form-book col-12 d-flex justify-content-center">

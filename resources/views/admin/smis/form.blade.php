@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 @section('content')
+    <h1 class="text-center">РАЗДЕЛ: СМИ О НАС</h1>
     <div class="container" style="margin-top:100px;">
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex  flex-column justify-content-center align-items-center">
             <div class="col-9">
                 {{ !isset($smi) ? Form::open(array('action' => 'AdminController@createSmi')) : Form::model($smi) }}
                     {{ Form::label('title', 'Заголовок', ['class' => 'form-crate-smis']) }}

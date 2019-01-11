@@ -8,29 +8,14 @@
 @section('color')
     background-color: white !important;
 @endsection
-<script>
-    let nameMonth = {
-        1: 'Января',
-        2: 'Февраля',
-        3: 'Марта',
-        4: 'Апреля',
-        5: 'Мая',
-        6: 'Июня',
-        7: 'Июля',
-        8: 'Августа',
-        9: 'Сентября',
-        10: 'Октября',
-        11: 'Ноября',
-        12: 'Декабря'
-    }
-</script>
+
 @section('content')
     <div class="container" style="margin-top: 100px; padding-bottom: 100px !important;">
         <div class="row">
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex flex-row align-items-center">
                     {{--<span>Мероприятия</span>--}}
-                    <a data-toggle="modal" data-target="#congratulationModule" class="modal-button button-event-page" style="margin-left: 58px;">Добавить мероприятие<span></span></a>
+                    <a data-toggle="modal" data-target="#congratulationModule" class="modal-button button-event-page" style="margin-left: 58px;">Скачать график мероприятий<span></span></a>
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
@@ -115,6 +100,11 @@
                     </div>
 
                 </div>
+                <select id="select-location">
+                    @foreach($locations as $location)
+                        <option value="{{$location}}">{{$location}}</option>
+                    @endforeach
+                </select>
                 <div id="events_wrapper" class="content-event-page d-flex flex-wrap">
                     @foreach($events as $event)
                         <div class="d-flex col-xl-4 col-lg-4 col-ms-4 col-sm-6 col-12" style="padding: 10px;">
@@ -139,7 +129,6 @@
             @if(count($events) > 12)
                 <div class="d-flex justify-content-center" style="width: 100%; margin-top: 60px;"><a id="btn-download-event-page" href="" class="">Показать еще мероприятия</a></div>
             @endif
-
         </div>
     </div>
 
@@ -223,6 +212,18 @@
                     }
                 });
             });
+            $('#select-location').change(function(){
+               $.ajax({
+                   url: '{{url('events/get_by_location/')}}' + '/' + $(this).val(),
+                   dataType: 'json',
+                   success: function (response) {
+                       console.log(response);
+                   },
+                   error: function(response) {
+                       console.log(response);
+                   }
+               })
+            });
         });
     </script>
     <script>
@@ -261,6 +262,8 @@
                     }
                 });
             });
+
+
         });
     </script>
     <script src="{{asset('js/locations.js')}}"></script>

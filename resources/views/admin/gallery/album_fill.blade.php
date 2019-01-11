@@ -1,26 +1,38 @@
+@php
+    if( isset($album)) {
+        $tags = $album->getTags();
+        $myArray = \App\Congratulation::getDatesArray();
+        if(!empty($tags)){
+            $key = $tags[0];
+            $myArray = array($key => $myArray[$key]) + $myArray;
+        }
 
+    }
+
+@endphp
 @extends('layouts.admin')
 
 @section('link')
     <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
 @endsection
 @section('content')
+    <h1 class="text-center">РАЗДЕЛ: ГАЛЕРЕЯ</h1>
     <div class="forms-albums container">
         {{ Form::model($album, ['class'=>'album-form form-group', 'files' => true]) }}
+        {{ Form::text('name', !isset($album) ? '' : $album->name, ['class' => 'form-control col-xl-6', 'placeholder' => 'Введите название альбома']) }}
+        {{  Form::select('tags', $myArray,  null, ['class' => 'custom-select col-xl-6' ]) }}
         <div class="input-group">
-            {{--<div class="input-group-prepend">--}}
-                {{--<span class="input-group-text" id="inputGroupFileAddon01">Upload</span>--}}
-            {{--</div>--}}
             <div class="custom-file">
                 {{ Form::file('photos[]', ['class' => 'input-default-js custom-file-input', 'area-describedby' => 'photo_area', 'id' => 'photo', 'multiple' => 'multiple']) }}
                 <label class="custom-file-label" for="inputGroupFile01">Choose files</label>
             </div>
         </div>
 
-        {{ Form::submit('Загрузить фото', ['class' => 'btn btn-primary']) }}
+        {{ Form::submit('Обновить', ['class' => 'btn btn-primary']) }}
 
         {{ Form::close() }}
     </div>
+
 
     @php
         $photos = $album->photos;

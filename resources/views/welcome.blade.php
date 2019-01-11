@@ -144,31 +144,9 @@
                 </div>
             </div>
         </div>
+        <hr class="section-hr">
     </div>
 
-    <div id="media" class="container">
-        <div class="row" style="margin: 0; padding: 0">
-            <div class="content-media col-12">
-                <div class="title-media">Сми о нас</div>
-                <div class="media-news col-12 d-flex fle-wrap justify-content-between">
-                    @foreach($smis as $smi)
-                        <div data-smis="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 item-media-news d-flex">
-                            <a href="{{ $smi->link }}" target="_blank">
-                                <span class="source-media-news">{{ $smi->link_view }}</span>
-                                <span class="title-media-news">{{ $smi->title }}</span>
-                                <span class="date-media-news">{{ implode(' ', [date('d', strtotime($smi->created_at)), \App\News::nameMonth[date('n', strtotime($smi->created_at))], date('Y', strtotime($smi->created_at))]) }}</span>
-                            </a>
-                            @if (($loop->index + 1)%4) <hr> @endif
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <div class="btn-media">
-                <a href="{{url('smis')}}" target="_blank">Смотреть все новости СМИ<span></span></a>
-            </div>
-            <hr class="section-hr">
-        </div>
-    </div>
     <div id="congratulationss" class="container">
         <div class="row" style="margin:0; padding: 0">
             <div class="content-congratulations col-12" style="padding: 0">
@@ -262,6 +240,30 @@
                         </div>
                     </div>
             <a href="{{url('partners')}}" class="btn-partners">Смотреть всех партнеров <span></span></a>
+        </div>
+    </div>
+
+    <div id="media" class="container">
+        <div class="row" style="margin: 0; padding: 0">
+            <div class="content-media col-12">
+                <div class="title-media">Сми о юбилее МГИМО</div>
+                <div class="media-news col-12 d-flex fle-wrap justify-content-between">
+                    @foreach($smis as $smi)
+                        <div data-smis="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 item-media-news d-flex">
+                            <a href="{{ $smi->link }}" target="_blank">
+                                <span class="source-media-news">{{ $smi->link_view }}</span>
+                                <span class="title-media-news">{{ $smi->title }}</span>
+                                <span class="date-media-news">{{ implode(' ', [date('d', strtotime($smi->created_at)), \App\News::nameMonth[date('n', strtotime($smi->created_at))], date('Y', strtotime($smi->created_at))]) }}</span>
+                            </a>
+                            @if (($loop->index + 1)%4) <hr> @endif
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="btn-media">
+                <a href="{{url('smis')}}" target="_blank">Смотреть все новости СМИ<span></span></a>
+            </div>
+
         </div>
     </div>
     <div class="modal" tabindex="-1" role="dialog" id="congratulationModule">

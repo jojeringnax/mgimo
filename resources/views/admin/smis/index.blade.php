@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+    <h1 class="text-center">РАЗДЕЛ: СМИ О НАС</h1>
     <div class="container">
         <div class="row">
             <div class="admin admin-smis" style="width:100%">

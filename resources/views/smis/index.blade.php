@@ -7,15 +7,13 @@
 @endsection
 @section('content')
     <div class="container" style="margin-top: 150px; padding-bottom: 120px">
+        <a class="button-smis-page" href="https://mgimo.ru/about/structure/press/" target="_blank">Пресс-служба МГИМО<span></span></a>
         <div class="row">
             <div class="media-page d-flex flex-column" style="width:100%">
-                <div class="title-media">
-                    <span>СМИ о нас</span>
-                </div>
                 @if(!$smis->isEmpty())
                     <div class="media-page-content d-flex justify-content-between flex-wrap" style="width:100%">
                         @foreach($smis as $smi)
-                            <div class="col-xl-3 col-lg-3 col-md-4  col-sm-6 col-12 item-media-news d-flex">
+                            <div data-index="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-4  col-sm-6 col-12 item-media-news d-flex">
                                 <a href="{{ $smi->link }}" target="_blank">
                                     <span class="source-media-news">{{ $smi->link_view }}</span>
                                     <span class="title-media-news">{{ $smi->title }}</span>
