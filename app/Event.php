@@ -94,4 +94,29 @@ class Event extends Model
     {
         return self::where('main', true)->orderBy('date', 'asc')->limit($limit)->skip($offset)->get();
     }
+
+    /**
+     * @return array
+     */
+    public static function getAllLocations()
+    {
+        $events = self::all();
+        $resultArray = [];
+        foreach ($events as $event) {
+            if (!in_array($event->location, $resultArray)) {
+                $resultArray[] = $event->location;
+            }
+        }
+        return $resultArray;
+    }
+
+
+    /**
+     * @param $location
+     * @return mixed
+     */
+    public static function getEventsForLocation($location)
+    {
+        return self::where('loction', $location)->get();
+    }
 }

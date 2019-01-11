@@ -19,10 +19,17 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view('events.index', ['events' => Event::getModerated()]);
+        return view('events.index', [
+            'events' => Event::getModerated(),
+            'locations' => Event::getAllLocations()
+        ]);
     }
 
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($id)
     {
         $event = Event::findOrFail($id);
@@ -33,6 +40,10 @@ class EventsController extends Controller
     }
 
 
+    /**
+     * @param $data
+     * @return int|string
+     */
     public function addEvents($data)
     {
         $events = Event::getModerated(12, $data);
@@ -46,6 +57,15 @@ class EventsController extends Controller
             ];
         }
         return isset($resultArray) ? json_encode($resultArray, JSON_UNESCAPED_UNICODE) : 0;
+    }
+
+    /**
+     * @param $location
+     * @return mixed
+     */
+    public function getByLocation($location)
+    {
+        return Event::getEventsForLocation($location)->toJson();
     }
 
 }

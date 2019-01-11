@@ -106,6 +106,8 @@ Route::get('admin/events', function() {
     return view('admin.events.index', ['events' => \App\Event::all()]);
 })->name('events_index');
 
+Route::get('events/get_by_location/{location}', 'EventsController@getByLocation');
+
 Route::get('admin/gallery', function() {
     return view('admin.gallery.index', ['albums' => \App\Album::all()]);
 })->name('album_index');
@@ -113,6 +115,8 @@ Route::get('admin/gallery', function() {
 Route::post('admin/gallery/deletePhotos', 'PhotoController@deletePhotos');
 Route::get('news/add_news/{data}', 'NewsController@addNews');
 Route::get('events/add_events/{data}', 'EventsController@addEvents');
+
+
 Route::get('congratulations/add_congratulations/{data}', 'CongratulationController@addCongratulations');
 Route::get('books/add_books/{data}', 'BookController@addBooks');
 Route::get('gallery/add_albums/{data}', 'PhotoController@addAlbums');
@@ -139,6 +143,9 @@ Route::get('admin/partners', function() {
 Route::get('admin/subscribers', function() {
     return view('admin.subscribers.index', ['subscribers' => \App\Subscriber::all()]);
 })->name('subscribers_index');
+
+
+
 
 
 /**
