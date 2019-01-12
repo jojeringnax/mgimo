@@ -2139,6 +2139,12 @@ select::-ms-expand {
   display: none; }
 
 @media screen and (max-width: 500px) {
+  #albums_wrapper {
+    padding: 0 15px 0 15px !important;
+    justify-content: center; }
+    #albums_wrapper .item-album {
+      padding: 0 !important; }
+
   .partners-page {
     width: 100%; }
     .partners-page .logo {

@@ -86,7 +86,7 @@
                     let albums = '';
                     response.forEach(function(el){
                         albums +=
-                            '<a class="col-3 item-album" href="{{url('gallery/show')}}' +'/'+el.id + '"style="padding-left: 0; padding-right: 30px">' +
+                            '<a class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 item-album" href="{{url('gallery/show')}}' +'/'+el.id + '"style="padding-left: 0; padding-right: 30px">' +
                                 '<div class="item-card-album card" style="width: 100%">' +
                                     '<img class="card-img-top" src="'+ el.photo +'" alt="Card image cap">' +
                                     '<div class="card-body d-flex flex-column align-items-start">' +

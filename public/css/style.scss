@@ -2498,9 +2498,6 @@ footer {
         position: relative;
         margin-top: 40px;
         padding: 25px;
-        input {
-
-        }
         .check-box-delete-item {
             position: absolute;
             top: 2px;
@@ -2791,6 +2788,14 @@ select::-ms-expand {
 }
 
 @media screen and (max-width: 500px){
+    #albums_wrapper {
+        padding: 0 15px 0 15px !important;
+        justify-content: center;
+        .item-album {
+            padding: 0!important;
+        }
+    }
+
     .partners-page {
         .logo {
             text-align: center;
