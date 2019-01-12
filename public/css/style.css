@@ -2145,6 +2145,10 @@ select::-ms-expand {
     #albums_wrapper .item-album {
       padding: 0 !important; }
 
+  .gallery-page .items-partners {
+    margin-top: 40px;
+    justify-content: space-around; }
+
   .partners-page {
     width: 100%; }
     .partners-page .logo {

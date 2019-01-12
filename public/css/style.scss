@@ -2795,7 +2795,13 @@ select::-ms-expand {
             padding: 0!important;
         }
     }
+    .gallery-page {
 
+        .items-partners {
+            margin-top: 40px;
+            justify-content: space-around;
+        }
+    }
     .partners-page {
         .logo {
             text-align: center;
