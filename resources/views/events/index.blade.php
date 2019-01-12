@@ -15,7 +15,7 @@
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex flex-row align-items-center">
                     {{--<span>Мероприятия</span>--}}
-                    <a data-toggle="modal" data-target="#congratulationModule" class="modal-button button-event-page" style="margin-left: 58px;">Скачать график мероприятий<span></span></a>
+                    <a data-toggle="modal" data-target="#congratulationModule" class="modal-button button-event-page btn-link" style="margin-left: 58px;"><span class="text-btn">Скачать график мероприятий</span><span class="arrow-btn"></span></a>
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">

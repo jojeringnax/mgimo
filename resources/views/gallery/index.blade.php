@@ -63,7 +63,7 @@
                     }
                     d.forEach(function(el) {
                         $('#albums_wrapper').append(
-                            '<a class="col-3 item-album" href="' + el.link + '"style="padding-left: 0; padding-right: 30px">' +
+                            '<a class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 item-album" href="' + el.link + '"style="padding-left: 0; padding-right: 30px">' +
                                 '<div  style="background-image: url(' + el.photo + '); background-size: cover;">' +
                                     '<div class="items-gallery">' +
                                         '<span>{{ $album->name }}</span>' +

@@ -2,7 +2,7 @@ $mainColor : #1A2F3F;
 $linkColor: #e74237;
 $titleFont: "Playfair Display", Georgia, "Times New Roman", serif;
 $hoverLinkColor: #EB205E;
-$transition : 0.5s;
+$transition : 0.7s;
 
 @font-face {
     font-family: 'PlayfairDisplayRegular';
@@ -1056,9 +1056,15 @@ nav {
     }
     p {
         font-size: 16px !important;
+        a {
+            font-size: 16px !important;
+        }
     }
     li {
         font-size: 16px !important;
+        a {
+            font-size: 16px !important;
+        }
     }
 }
 
@@ -1530,18 +1536,14 @@ nav {
         bottom: -50px;
     }
 }
+
 .event-page {
     .title-event-page {
         margin-top: 40px;
         display: flex;
-        span {
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-right: 50px;
-        }
         a {
-            width: 337px;
+            position: relative;
+            width: 336px;
             height: 55px;
             background-color: white;
             color: $mainColor;
@@ -1557,21 +1559,38 @@ nav {
             -ms-transition: $transition;
             -o-transition: $transition;
             transition: $transition;
-            span {
+            span.arrow-btn {
                 display: none;
+                position: absolute;
+                top: calc(22.5px - 5px);
+                right: -70px;
+                opacity: 0;
+            }
+            span.text-btn {
+                color: $mainColor;
+                font-size: 16px;
+                text-transform: uppercase;
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                //left: calc((336px - 290px)/2);
             }
             &:hover {
+                transition: $transition;
                 background-color: $mainColor;
                 color: white !important;
-                span {
+                span.arrow-btn {
                     background-image: url("../img/icon/red-arrow.svg");
-                    margin-left: 15px;
-                    display: block;
                     width: 20px;
                     height: 11px;
-                    margin-top: -4px;
-                    right: 5px;
-                    margin-right: 0 !important;
+                    right: -34px;
+                    //opacity: 0;
+                    top: calc(22.5px - 2px);
+                    position: absolute;
+                }
+                span.text-btn {
+                    color: white !important;
+                    position: absolute;
                 }
             }
         }

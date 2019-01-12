@@ -22,7 +22,7 @@
                     @foreach($partners as $partner)
                         @if($partner->category == \App\Partner::ORGANIZATORS)
                             <a href="{{ $partner->link }}">
-                                <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="height: 100%" />
+                                <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="" />
                             </a>
                         @endif
                     @endforeach
@@ -34,7 +34,7 @@
                         @foreach($partners as $partner)
                             @if($partner->category == \App\Partner::GENERAL_SPONSORS)
                                 <a href="{{ $partner->link }}">
-                                    <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="height: 100%" />
+                                    <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="" />
                                 </a>
                             @endif
                         @endforeach
@@ -46,7 +46,7 @@
                         @foreach($partners as $partner)
                             @if($partner->category == \App\Partner::SPONSORS)
                                 <a href="{{ $partner->link }}">
-                                    <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="height: 100%" />
+                                    <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="" />
                                 </a>
                             @endif
                         @endforeach
@@ -58,7 +58,7 @@
                         @foreach($partners as $partner)
                             @if($partner->category == \App\Partner::INFORM_PARTNERS)
                                 <a href="{{ $partner->link }}">
-                                    <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="height: 100%" />
+                                    <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="" />
                                 </a>
                             @endif
                         @endforeach
