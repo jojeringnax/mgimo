@@ -12,19 +12,17 @@
                 </div>
 
                 <div class="input-group col-xl-12 item-form-partner-add">
-
                     {{ Form::label('title', 'Название компании-партнера') }}
                     {{ Form::text('title', isset($partner) ? $partner->title : null,['class' => 'form-control','placeholder' => 'Название', 'id' => 'select-partner-title']) }}
                 </div>
 
 
                 <div class="input-group col-xl-12 item-form-partner-add">
-
                     {{ Form::label('position', 'Должность') }}
-                    {{ Form::text('position', isset($partner) ? $partner->name : null,['class' => 'form-control','placeholder' => 'Должность', 'id' => 'select-partner-position']) }}
+                    {{ Form::text('position', isset($partner) ? $partner->position : null,['class' => 'form-control','placeholder' => 'Должность', 'id' => 'select-partner-position']) }}
                 </div>
 
-                <div class="input-group col-xl-12 item-form-partner-add">
+                <div class="input-group col-xl-12 item-form-partner-add inp-category">
 
                     {{ Form::label('category', 'Категория') }}
                     {{ Form::select('category',[
@@ -50,7 +48,7 @@
                     {{--<div class="input-group-prepend clear">--}}
                         {{--<span class="input-group-text" id="photo_area" data-file="главное">Upload</span>--}}
                     {{--</div>--}}
-                    <div class="custom-file">
+                    <div class="custom-file inp-file">
                         {{ Form::file('photo', ['class' => 'input-default-js logo-partner-file', 'area-describedby' => 'photo_area', 'id' => 'photo']) }}
                         <label class="custom-file-label" for="photo">Загрузите логотип партнера</label>
                     </div>
@@ -71,13 +69,31 @@
                 $('.custom-file-label').html($(this).val());
             });
 
+            if(parseInt($('#select-partner-type').val()) === 1) {
+                $('#select-partner-position').prop('disabled', false);
+                //$('#select-partner-title').prop('disabled', false);
+                $('.inp-file > input').prop('disabled', 'disabled');
+                $('.inp-file').addClass('hide');
+                $('.inp-category').addClass('hide');
+            } else {
+                $('#select-partner-position').prop('disabled', 'disabled');
+                //$('#select-partner-title').prop('disabled', 'disabled');
+                $('.inp-file').removeClass('hide');
+                $('.inp-category').removeClass('hide');
+            }
+
             $('#select-partner-type').change( function() {
-               if ($(this).val() === 1) {
+               if (parseInt($(this).val()) === 1) {
                    $('#select-partner-position').prop('disabled', false);
-                   $('#select-partner-title').prop('disabled', false);
+                   //$('#select-partner-title').prop('disabled', false);
+                   $('.inp-file > input').prop('disabled', 'disabled');
+                   $('.inp-file').addClass('hide');
+                   $('.inp-category').addClass('hide');
                } else {
                    $('#select-partner-position').prop('disabled', 'disabled');
-                   $('#select-partner-title').prop('disabled', 'disabled');
+                   //$('#select-partner-title').prop('disabled', 'disabled');
+                   $('.inp-file').removeClass('hide');
+                   $('.inp-category').removeClass('hide');
                }
             });
         })
