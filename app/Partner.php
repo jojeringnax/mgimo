@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property int $priority
  * @property int $photo_id
+ * @property integer $type
  * @property string $created_at
  * @property string $updated_at
  * @property Photo $photo
@@ -24,6 +25,9 @@ class Partner extends Model
     const GENERAL_SPONSORS = 1;
     const SPONSORS = 2;
     const INFORM_PARTNERS = 3;
+
+    const TYPE_COMPANY = 0;
+    const TYPE_INDIVIDUAL = 1;
 
 
     /**

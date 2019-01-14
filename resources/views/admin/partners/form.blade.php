@@ -13,8 +13,15 @@
 
                 <div class="input-group col-xl-12 item-form-partner-add">
 
-                    {{ Form::label('name', 'Имя партнера') }}
-                    {{ Form::text('name', isset($partner) ? $partner->name : '',['class' => 'form-control','placeholder' => 'Наименование']) }}
+                    {{ Form::label('title', 'Название компании-партнера') }}
+                    {{ Form::text('title', isset($partner) ? $partner->title : null,['class' => 'form-control','placeholder' => 'Название', 'id' => 'select-partner-title']) }}
+                </div>
+
+
+                <div class="input-group col-xl-12 item-form-partner-add">
+
+                    {{ Form::label('position', 'Должность') }}
+                    {{ Form::text('position', isset($partner) ? $partner->name : null,['class' => 'form-control','placeholder' => 'Должность', 'id' => 'select-partner-position']) }}
                 </div>
 
                 <div class="input-group col-xl-12 item-form-partner-add">
@@ -26,6 +33,15 @@
                         \App\Partner::SPONSORS => 'Спонсоры',
                         \App\Partner::INFORM_PARTNERS => 'Информационные партнеры'
                     ], null, ['class' => 'custom-select']) }}
+                </div>
+
+                <div class="input-group col-xl-12 item-form-partner-add">
+
+                    {{ Form::label('type', 'Тип партнера') }}
+                    {{ Form::select('type',[
+                        \App\Partner::TYPE_COMPANY => 'Компания',
+                        \App\Partner::TYPE_INDIVIDUAL => 'Индивидуальный предприниматель',
+                    ], null, ['class' => 'custom-select', 'id' => 'select-partner-type']) }}
                 </div>
 
                 {{ Form::number('priority', isset($partner) ? $partner->priority : '5',['class' => 'form-control hide','placeholder' => 'МГИМО лучший вуз в мире']) }}
@@ -52,8 +68,18 @@
     <script>
         $(document).ready(function () {
             $('.logo-partner-file').change(function () {
-                $('.custom-file-label').html($(this).val())
-            })
+                $('.custom-file-label').html($(this).val());
+            });
+
+            $('#select-partner-type').change( function() {
+               if ($(this).val() === 1) {
+                   $('#select-partner-position').prop('disabled', false);
+                   $('#select-partner-title').prop('disabled', false);
+               } else {
+                   $('#select-partner-position').prop('disabled', 'disabled');
+                   $('#select-partner-title').prop('disabled', 'disabled');
+               }
+            });
         })
     </script>
 @endsection

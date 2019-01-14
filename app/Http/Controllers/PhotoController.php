@@ -78,11 +78,15 @@ class PhotoController extends Controller
     public function getFiltred(Request $request, $date)
     {
         if($request->ajax()) {
-            $tag = Tag::where('word', $date)->first();
-            if ($tag === null) {
-                return [];
+            if ($date == 0)
+                $albums = Album::all();
+            else {
+                $tag = Tag::where('word', $date)->first();
+                if ($tag === null) {
+                    return [];
+                }
+                $albums = $tag->albums();
             }
-            $albums = $tag->albums();
             if ($albums === null) {
                 return [];
             }

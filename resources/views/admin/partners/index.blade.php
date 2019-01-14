@@ -16,7 +16,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($partners as $element)
+                    @foreach($partnersCompany as $element)
                         <tr class="text-center">
                             <td width="5%">{{ $element->id }}</td>
                             <td>{{ $element->name }}</td>

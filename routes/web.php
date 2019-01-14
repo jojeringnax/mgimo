@@ -137,7 +137,10 @@ Route::get('admin/smis', function() {
 })->name('smis_index');
 
 Route::get('admin/partners', function() {
-    return view('admin.partners.index', ['partners' => \App\Partner::all()]);
+    return view('admin.partners.index', [
+        'partnersCompany' => \App\Partner::where('type', \App\Partner::TYPE_COMPANY),
+        'partnersIndividual' => \App\Partner::where('type', \App\Partner::TYPE_INDIVIDUAL)
+    ]);
 })->name('partners_index');
 
 Route::get('admin/subscribers', function() {

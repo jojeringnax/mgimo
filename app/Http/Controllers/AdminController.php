@@ -677,11 +677,12 @@ class AdminController extends Controller
             $partner = new Partner();
             $partner->link = $request->post('link');
             $partner->name = $request->post('name');
+            $partner->type = $request->post('type');
             $partner->priority = $request->post('priority');
             $partner->category = $request->post('category');
             $partner->save();
             if ($file = $request->file('photo')) {
-                if($partner->cover_photo_id !== null) {
+                if($partner->photo_id !== null) {
                     $partner->update(['photo_id' => null]);
                     $partner->photo->delete();
                 }
@@ -715,10 +716,11 @@ class AdminController extends Controller
             $partner = Partner::find($partnerId);
             $partner->link = $request->post('link');
             $partner->name = $request->post('name');
+            $partner->type = $request->post('type');
             $partner->category = $request->post('category');
             $partner->priority = $request->post('priority');
             if ($file = $request->file('photo')) {
-                if($partner->cover_photo_id !== null) {
+                if($partner->photo_id !== null) {
                     $partner->update(['photo_id' => null]);
                     $partner->photo->delete();
                 }

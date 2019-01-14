@@ -67,9 +67,8 @@ class Congratulation extends Model
         $diff = $dateFrom->diff($dateTo)->y;
         $diff = $diff/10;
         $dateTo->setDate(1961, 0,0);
-        $resultArray = array(
-            '19411950' => '1941 - 1950'
-        );
+        $resultArray[0] = 'Выберите дату';
+        $resultArray['19411950'] = '1941 - 1950';
         foreach(range(0,$diff) as $i) {
             $resultArray[$dateFrom->format('Y').$dateTo->format('Y')] = $dateFrom->format('Y').' - '.$dateTo->format('Y');
             $dateFrom->modify('+10 years');
