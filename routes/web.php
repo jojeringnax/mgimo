@@ -138,8 +138,8 @@ Route::get('admin/smis', function() {
 
 Route::get('admin/partners', function() {
     return view('admin.partners.index', [
-        'partnersCompany' => \App\Partner::where('type', \App\Partner::TYPE_COMPANY),
-        'partnersIndividual' => \App\Partner::where('type', \App\Partner::TYPE_INDIVIDUAL)
+        'partnersCompany' => \App\Partner::where('type', \App\Partner::TYPE_COMPANY)->get(),
+        'partnersIndividual' => \App\Partner::where('type', \App\Partner::TYPE_INDIVIDUAL)->get()
     ]);
 })->name('partners_index');
 
