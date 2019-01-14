@@ -101,7 +101,7 @@ class Event extends Model
     public static function getAllLocations()
     {
         $events = self::all();
-        $resultArray = [];
+        $resultArray[0] = 'Выберите город';
         foreach ($events as $event) {
             if (!in_array($event->location, $resultArray)) {
                 $resultArray[] = $event->location;
@@ -117,7 +117,7 @@ class Event extends Model
      */
     public static function getEventsForLocation($location)
     {
-        return self::where('location', $location)->where('main', true)->get();
+        return $location == 0 ? self::all() : self::where('location', $location)->where('main', true)->get();
     }
 
     /**
