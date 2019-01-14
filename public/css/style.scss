@@ -1961,8 +1961,21 @@ nav {
     }
 }
 
+.partner-ind {
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 25px;
+    .name-ind-partner {
+        font-weight: 600 !important;
+        font-size: 18px;
+    }
+    .name-pos-partner {
+        font-size: 16px;
+    }
+}
 
 .partners-page {
+    width: 100%;
     div {
         padding: 10px;
         .item-partners-page {
@@ -2599,10 +2612,11 @@ footer {
         margin-top: 0;
     }
     .title-partners-page {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         padding-left: 0 !important;
         font-size: 16px;
         color: $mainColor;
+        font-weight: 600 !important;
     }
     img {
         //height: 70px !important;
@@ -2611,6 +2625,10 @@ footer {
     a {
         margin-right: 50px;
     }
+}
+
+.item-partners-page {
+    width: 100%;
 }
 
 .title-contacts-page {
@@ -2636,9 +2654,7 @@ footer {
             a {
                 width: 250px;
                 font-size: 12px;
-
             }
-
         }
     }
     .date-events {
@@ -2646,8 +2662,6 @@ footer {
         align-items: center;
         padding-left: 25px !important;
         .icon-date-events {
-            //height: 12px !important;
-            //width: 12px !important;
             margin-top: 0 !important;
         }
 
@@ -2742,7 +2756,7 @@ footer {
 }
 .select-container {
     position: relative;
-    width: 100px;
+    width: 140px;
     height: 26px;
     margin-left: 25px;
     margin-top: $offsetSections;
@@ -2763,7 +2777,7 @@ footer {
         }
     }
     #filter-album {
-        width: 100px;
+        width: 140px;
         height: 26px;
         border-style: solid;
         border-color: $mainColor;
@@ -2794,6 +2808,12 @@ footer {
     }
 }
 
+#town-filter {
+    width: 140px !important;
+    #select-location {
+        width: 140px !important;
+    }
+}
 
 select::-ms-expand {
     display: none;

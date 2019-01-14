@@ -45,9 +45,6 @@
                 {{ Form::number('priority', isset($partner) ? $partner->priority : '5',['class' => 'form-control hide','placeholder' => 'МГИМО лучший вуз в мире']) }}
 
                 <div class="input-group col-xl-12 item-form-partner-add">
-                    {{--<div class="input-group-prepend clear">--}}
-                        {{--<span class="input-group-text" id="photo_area" data-file="главное">Upload</span>--}}
-                    {{--</div>--}}
                     <div class="custom-file inp-file">
                         {{ Form::file('photo', ['class' => 'input-default-js logo-partner-file', 'area-describedby' => 'photo_area', 'id' => 'photo']) }}
                         <label class="custom-file-label" for="photo">Загрузите логотип партнера</label>

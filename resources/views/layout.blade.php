@@ -48,11 +48,11 @@
                             <li class="nav-item"><a class="nav-link" id="anniversary" href="{{url('anniversary')}}">О юбилее</a></li>
                             <li class="nav-item"><a class="nav-link" id="news" href={{url('news')}}>Новости</a></li>
                             <li class="nav-item"><a class="nav-link" id="events" href="{{url('events')}}">Мероприятия</a></li>
-                            <li class="nav-item"><a class="nav-link" id="smis" href="{{url('smis')}}">СМИ</a></li>
                             <li class="nav-item"><a class="nav-link" id="congratulations" href="{{url('congratulations')}}">Поздравления</a></li>
                             <li class="nav-item"><a class="nav-link" id="books" href="{{url('books')}}">Издательская программа</a></li>
                             <li class="nav-item"><a class="nav-link" id="gallery" href="{{url('gallery')}}">Галерея</a></li>
                             <li class="nav-item"><a class="nav-link" id="partners" href="{{url('partners')}}">Партнеры</a></li>
+                            <li class="nav-item"><a class="nav-link" id="smis" href="{{url('smis')}}">СМИ</a></li>
                             <li class="nav-item"><a class="nav-link" id="contacts" href="{{url('contacts')}}">Контакты</a></li>
                         </ul>
                     </div>
@@ -110,14 +110,13 @@
                                 <li><a href="{{url('anniversary')}}">О юбилее</a></li>
                                 <li><a href="{{url('news')}}">Новости</a></li>
                                 <li><a href="{{url('events')}}">Мероприятия</a></li>
-                                <li><a href="{{url('smis')}}">СМИ</a></li>
-
+                                <li><a href="{{url('congratulations')}}">Поздравления</a></li>
                             </ul>
                             <ul class="d-flex flex-column justify-content-between"">
-                                <li><a href="{{url('congratulations')}}">Поздравления</a></li>
                                 <li><a href="{{url('books')}}">Издательская программа</a></li>
                                 <li><a href="{{url('gallery')}}">Галерея</a></li>
                                 <li><a href="{{url('partners')}}">Партнеры</a></li>
+                                <li><a href="{{url('smis')}}">СМИ</a></li>
                                 <li><a href="">Контакты</a></li>
                             </ul>
                         </nav>

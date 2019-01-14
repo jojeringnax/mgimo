@@ -15,7 +15,7 @@
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex flex-row align-items-center">
                     {{--<span>Мероприятия</span>--}}
-                    <a data-toggle="modal" data-target="#congratulationModule" class="modal-button button-event-page btn-link" style="margin-left: 58px;"><span class="text-btn">Скачать график мероприятий</span><span class="arrow-btn"></span></a>
+                    <a href="{{ \App\Event::getMainFilePhotoModel()->path }}" class="modal-button button-event-page btn-link" style="margin-left: 58px;" download><span class="text-btn">Скачать график мероприятий</span><span class="arrow-btn"></span></a>
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
@@ -100,7 +100,7 @@
                     </div>
 
                 </div>
-                <div class="select-container">
+                <div id="town-filter" class="select-container">
                     <span class="select-arrow"></span>
                     <select id="select-location">
                         @foreach($locations as $location)
@@ -130,61 +130,6 @@
             @if(count($events) > 12)
                 <div class="d-flex justify-content-center" style="width: 100%; margin-top: 60px;"><a id="btn-download-event-page" href="" class="">Показать еще мероприятия</a></div>
             @endif
-        </div>
-    </div>
-
-    <div class="modal" tabindex="-1" role="dialog" id="congratulationModule">
-        <div class="modal-dialog" role="document" style="max-width: 80%;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Добавьте своё мероприятие</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-8 d-flex flex-column">
-                                {{ Form::open(array('action' => 'AdminController@createEvent', 'class'=>'event-form', 'files' => true)) }}
-                                <div class="item-form-event">
-                                    {{ Form::label('title', 'Заголовок') }}
-                                    {{ Form::text('title','', ['class' => 'form-control']) }}
-                                </div>
-                                <div class="item-form-event">
-                                    {{ Form::label('title', 'Введите текст') }}
-                                    <div id="editor" class="col-12 item-form-news-add"></div>
-                                    <input type="hidden" name="content" id="content-event"/>
-                                </div>
-                                <div class="item-form-event">
-                                    {{ Form::label('date', 'Дата') }}
-                                    {{ Form::date('date', \Carbon\Carbon::now(), ['class' => 'form-control datepicker']) }}
-                                </div>
-                                <div class="item-form-event">
-                                    {{ Form::label('location', 'Город') }}
-                                    {{ Form::text('location','', ['class' => 'form-control']) }}
-                                </div>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupFileAddon01"></span>
-                                    </div>
-                                    <div class="custom-file">
-                                        {{ Form::file('photos[]', ['class' => 'input-default-js custom-file-input', 'area-describedby' => 'photo_area', 'id' => 'photo', 'multiple' => 'multiple']) }}
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose files</label>
-                                    </div>
-                                </div>
-
-                                {{ Form::submit('Сохранить',['class' => 'item-form-event-btn btn btn-raised btn-primary']) }}
-
-                                {{ Form::close() }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                </div>
-            </div>
         </div>
     </div>
 @endsection
