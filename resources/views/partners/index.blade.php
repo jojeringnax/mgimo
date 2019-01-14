@@ -63,7 +63,7 @@
                         @endif
                     @endforeach
                 </div>
-                <div class="inf-partners item-partners-page d-flex flex-wrap">
+                <div class="inf-partners item-partners-page flex-wrap">
                     <div class="title-partners-page col-12">
                        А ТАКЖЕ
                     </div>
@@ -87,8 +87,10 @@
         $(document).ready(function(){
             $('.item-partners-page').each(function () {
                 if($(this).children('a').length === 0) {
+                    console.log($(this))
+                    $(this).css({'display': 'none'});
                     $(this).addClass('hide');
-                    $(this).css({'display': 'none !important'});
+
                 }
             })
         })
