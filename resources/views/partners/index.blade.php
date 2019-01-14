@@ -72,7 +72,6 @@
                             <a class="partner-ind d-flex flex-column col-xl-4" href="{{ $partner->link }}">
                                 <span class="name-ind-partner">{{$partner->title}}</span>
                                 <span class="name-pos-partner">{{$partner->position}}</span>
-                                <span></span>
                             </a>
                         @endif
                     @endforeach
@@ -89,9 +88,9 @@
             $('.item-partners-page').each(function () {
                 if($(this).children('a').length === 0) {
                     $(this).addClass('hide');
+                    $(this).css({'display': 'none !important'});
                 }
             })
-
         })
     </script>
 @endsection

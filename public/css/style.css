@@ -1751,6 +1751,8 @@ p {
 
 #congratulations_wrapper {
   margin-top: 50px; }
+  #congratulations_wrapper .item-congratulations {
+    margin-top: 25px; }
 
 .item-book-admin {
   margin-top: 20px; }
