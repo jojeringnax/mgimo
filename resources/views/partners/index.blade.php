@@ -63,7 +63,7 @@
                         @endif
                     @endforeach
                 </div>
-                <div class="inf-partners item-partners-page flex-wrap">
+                <div class="ind-partners item-partners-page flex-wrap">
                     <div class="title-partners-page col-12">
                        А ТАКЖЕ
                     </div>
