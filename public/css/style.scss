@@ -3,6 +3,7 @@ $linkColor: #e74237;
 $titleFont: "Playfair Display", Georgia, "Times New Roman", serif;
 $hoverLinkColor: #EB205E;
 $transition : 0.7s;
+$offsetSections: 50px;
 
 @font-face {
     font-family: 'PlayfairDisplayRegular';
@@ -535,8 +536,6 @@ nav {
                     background-repeat: no-repeat;
                     left: 10px;
                     margin-top: 2px;
-
-
                 }
 
             }
@@ -544,10 +543,14 @@ nav {
     }
 }
 
+#news-events {
+    margin-top: $offsetSections;
+}
 /*===================MEDIA===================*/
 #media {
-    margin-top: 40px;
+    margin-top: 0;
     padding: 0;
+    padding-bottom: 100px;
 }
 
 .button-smis-page {
@@ -700,14 +703,14 @@ nav {
 
 /*===================CONGRTATULATIONS===================*/
 #congratulationss {
-    margin-top: 30px;
+    margin-top: 0;
     padding: 0;
 }
 
 .content-congratulations {
     padding: 0;
     .title-congratulations {
-        margin: 90px 0 44px 0;
+        margin: $offsetSections 0 $offsetSections 0;
         span {
             font-size: 18px;
             text-transform: uppercase;
@@ -741,7 +744,7 @@ nav {
             border: 1px solid #EAEAEA;
             height: 250px;
             width: 49%;
-            margin-top: 2%;
+            //margin-top: 2%;
             display: flex;
             align-items: center;
             flex-direction: row;
@@ -904,7 +907,7 @@ nav {
     background-color: $mainColor;
     opacity: 0.2;
     width: 100%;
-    margin-top: 100px;
+    margin-top: $offsetSections;
 }
 .active-item-tags-congratulations {
     background-color: $mainColor;
@@ -922,7 +925,7 @@ nav {
 .bg-gallery {
     width: 100%;
     background-color: #F5F5F5;
-    margin-top: 155px;
+    margin-top: $offsetSections;
 }
 
 .gallery-content {
@@ -989,7 +992,7 @@ nav {
 
 .content-partners {
     position: relative;
-    margin-top: 100px;
+    margin-top: $offsetSections;
     .title-partners {
         span {
             font-size: 18px;
@@ -998,7 +1001,7 @@ nav {
         }
     }
     .partners {
-        margin-top: 50px;
+        margin-top: 0;
         .item {
             display: flex;
             justify-content: center;
@@ -1463,7 +1466,7 @@ nav {
 }
 /*===================MEDIA-PAGES===================*/
 .media-page {
-    margin-top: 40px;
+    margin-top: $offsetSections;
     position: relative;
     .title-media {
         span {
@@ -1753,7 +1756,7 @@ nav {
     }
     .content-event-page {
         position: relative;
-        margin-top: 30px;
+        margin-top: 0;
         .tags-event-page {
             position: absolute;
             margin-top: 30px;
@@ -1773,7 +1776,7 @@ nav {
             width: 23%;
             max-height: 250px;
             padding: 15px;
-            margin-top: 25px;
+            margin-top: 0;
             position: relative;
             .item {
                 position: relative;
@@ -1831,6 +1834,9 @@ nav {
             }
         }
     }
+}
+.filter {
+    margin-left: 0 !important;
 }
 
 .attr {
@@ -2221,6 +2227,10 @@ p {
             }
         }
     }
+}
+
+#congratulations_wrapper {
+    margin-top: $offsetSections;
 }
 
 .item-book-admin {
@@ -2734,6 +2744,8 @@ footer {
     position: relative;
     width: 100px;
     height: 26px;
+    margin-left: 25px;
+    margin-top: $offsetSections;
     #select-location {
         width: 100px;
         height: 26px;

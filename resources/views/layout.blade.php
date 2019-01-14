@@ -122,24 +122,24 @@
                             </ul>
                         </nav>
                     </div>
-                <div class="button-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-center">
-                    <a data-toggle="modal" data-target="#modalRegisterForm" href="#"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
-                    <span class="text-center">
-                        МГИМО 75<br>Ассоциация выпускников МГИМО<br>Эндаумент МГИМО
-                    </span>
-                </div>
-                <div class="contact-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch d-flex flex-column">
-                    <span class="">
-                        <span class="location-footer">Москва, проспект Вернадского, 76<br></span>
-                        <span class="number-footer">+7 495 229-40-49</span>
-                    </span>
-                    <div class="soc-net d-flex justify-content-end">
-                        <a target="_blank" href="https://vk.com/" class="item-soc-net vk"></a>
-                        <a target="_blank" href="https://www.facebook.com/" class="item-soc-net fb"></a>
-                        <a target="_blank" href="https://www.instagram.com/" class="item-soc-net inst"></a>
-                        <a target="_blank" href="https://www.youtube.com/" class="item-soc-net yt"></a>
+                    <div class="button-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-center">
+                        <a data-toggle="modal" data-target="#modalRegisterForm" href="#"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
+                        <span class="text-center">
+                            МГИМО 75<br>Ассоциация выпускников МГИМО<br>Эндаумент МГИМО
+                        </span>
                     </div>
-                </div>
+                    <div class="contact-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch d-flex flex-column">
+                        <span class="">
+                            <span class="location-footer">Москва, проспект Вернадского, 76<br></span>
+                            <span class="number-footer">+7 495 229-40-49</span>
+                        </span>
+                        <div class="soc-net d-flex justify-content-end">
+                            <a target="_blank" href="https://vk.com/public175809098" class="item-soc-net vk"></a>
+                            <a target="_blank" href="https://www.facebook.com/groups/284420799092549/about/" class="item-soc-net fb"></a>
+                            <a target="_blank" href="https://www.instagram.com/alumni_mgimo/" class="item-soc-net inst"></a>
+                            <a target="_blank" href="https://www.youtube.com/playlist?list=PLuF7IO74aQSJ-l67YvzYHoTJ-7GZ9YYAi" class="item-soc-net yt"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

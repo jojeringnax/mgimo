@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="container" style="margin-top: 50px">
+    <div class="container" id="news-events">
         <div class="row">
             <div class="contents d-flex flex-wrap">
                 <div class="item-contents news col-xl-8 col-lg-8 col-md-8 col-12">
