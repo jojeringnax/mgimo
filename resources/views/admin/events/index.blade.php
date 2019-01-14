@@ -4,6 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="admin admin-events" style="width: 100%">
+                {{ link_to_action('AdminController@createEvent', 'create',[], ['class' => 'btn btn-secondary']) }}
+                {{Form::open(array( 'class'=>'border event-form-add-file', 'files' => true))}}
+                    {{ Form::file('event-gr', ['class' => '', 'area-describedby' => '', 'id' => '']) }}
+                    {{ Form::submit('Добавить файл',['class' => 'item-form-event-btn btn btn-raised btn-primary']) }}
+                {{ Form::close() }}
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr class="text-center">
@@ -33,8 +38,6 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ link_to_action('AdminController@createEvent', 'create',[], ['class' => 'btn btn-secondary']) }}
-
             </div>
         </div>
     </div>
