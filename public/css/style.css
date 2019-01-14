@@ -417,10 +417,14 @@ nav {
           left: 10px;
           margin-top: 2px; }
 
+#news-events {
+  margin-top: 50px; }
+
 /*===================MEDIA===================*/
 #media {
-  margin-top: 40px;
-  padding: 0; }
+  margin-top: 0;
+  padding: 0;
+  padding-bottom: 100px; }
 
 .button-smis-page {
   border: 1px solid #1A2F3F;
@@ -549,13 +553,13 @@ nav {
 
 /*===================CONGRTATULATIONS===================*/
 #congratulationss {
-  margin-top: 30px;
+  margin-top: 0;
   padding: 0; }
 
 .content-congratulations {
   padding: 0; }
   .content-congratulations .title-congratulations {
-    margin: 90px 0 44px 0; }
+    margin: 50px 0 50px 0; }
     .content-congratulations .title-congratulations span {
       font-size: 18px;
       text-transform: uppercase;
@@ -582,7 +586,6 @@ nav {
     border: 1px solid #EAEAEA;
     height: 250px;
     width: 49%;
-    margin-top: 2%;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -719,7 +722,7 @@ nav {
   background-color: #1A2F3F;
   opacity: 0.2;
   width: 100%;
-  margin-top: 100px; }
+  margin-top: 50px; }
 
 .active-item-tags-congratulations {
   background-color: #1A2F3F;
@@ -734,7 +737,7 @@ nav {
 .bg-gallery {
   width: 100%;
   background-color: #F5F5F5;
-  margin-top: 155px; }
+  margin-top: 50px; }
 
 .gallery-content {
   display: flex;
@@ -791,13 +794,13 @@ nav {
 
 .content-partners {
   position: relative;
-  margin-top: 100px; }
+  margin-top: 50px; }
   .content-partners .title-partners span {
     font-size: 18px;
     font-weight: 500 !important;
     text-transform: uppercase; }
   .content-partners .partners {
-    margin-top: 50px; }
+    margin-top: 0; }
     .content-partners .partners .item {
       display: flex;
       justify-content: center;
@@ -1160,7 +1163,7 @@ nav {
 
 /*===================MEDIA-PAGES===================*/
 .media-page {
-  margin-top: 40px;
+  margin-top: 50px;
   position: relative; }
   .media-page .title-media span {
     font-size: 18px;
@@ -1393,7 +1396,7 @@ nav {
       margin-left: 130px; }
 .event-page .content-event-page {
   position: relative;
-  margin-top: 30px; }
+  margin-top: 0; }
   .event-page .content-event-page .tags-event-page {
     position: absolute;
     margin-top: 30px;
@@ -1410,7 +1413,7 @@ nav {
     width: 23%;
     max-height: 250px;
     padding: 15px;
-    margin-top: 25px;
+    margin-top: 0;
     position: relative; }
     .event-page .content-event-page .items-event-page .item {
       position: relative;
@@ -1458,6 +1461,9 @@ nav {
       width: 1px;
       background-color: #707070;
       opacity: 0.2; }
+
+.filter {
+  margin-left: 0 !important; }
 
 .attr {
   display: flex;
@@ -1730,6 +1736,9 @@ p {
   padding: 0; }
 .admin table tbody tr td.action a {
   margin-left: 10px; }
+
+#congratulations_wrapper {
+  margin-top: 50px; }
 
 .item-book-admin {
   margin-top: 20px; }
@@ -2092,7 +2101,9 @@ footer {
 .select-container {
   position: relative;
   width: 100px;
-  height: 26px; }
+  height: 26px;
+  margin-left: 25px;
+  margin-top: 50px; }
   .select-container #select-location {
     width: 100px;
     height: 26px;
