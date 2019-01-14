@@ -15,6 +15,7 @@ class AddColumnTitleToPartners extends Migration
     {
         Schema::table('partners', function (Blueprint $table) {
             $table->string('name')->nullable()->change();
+            $table->string('link')->nullable()->change();
             $table->renameColumn('name', 'position');
             $table->string('title', 64)->nullable();
             $table->tinyInteger('type')->default(0);

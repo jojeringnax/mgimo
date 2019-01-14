@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @property int $id
  * @property string $link
- * @property string $name
+ * @property string $title
  * @property int $priority
  * @property int $photo_id
  * @property integer $type

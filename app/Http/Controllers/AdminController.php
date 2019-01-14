@@ -676,7 +676,7 @@ class AdminController extends Controller
         if($request->isMethod('post')) {
             $partner = new Partner();
             $partner->link = $request->post('link');
-            $partner->name = $request->post('name');
+            $partner->title = $request->post('title');
             $partner->type = $request->post('type');
             $partner->priority = $request->post('priority');
             $partner->category = $request->post('category');
@@ -715,7 +715,7 @@ class AdminController extends Controller
         if($request->isMethod('post')) {
             $partner = Partner::find($partnerId);
             $partner->link = $request->post('link');
-            $partner->name = $request->post('name');
+            $partner->title = $request->post('title');
             $partner->type = $request->post('type');
             $partner->category = $request->post('category');
             $partner->priority = $request->post('priority');
