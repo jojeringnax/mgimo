@@ -5,9 +5,13 @@
         <div class="row">
             <div class="admin admin-events" style="width: 100%">
                 {{ link_to_action('AdminController@createEvent', 'create',[], ['class' => 'btn btn-secondary']) }}
+
+                @if($mainFile !== null)
+                    <a href="{{ $mainFile->path }}" download>Скачать файл</a>
+                @endif
                 {{Form::open(array( 'class'=>'border event-form-add-file', 'files' => true))}}
                     {{ Form::file('event-gr', ['class' => '', 'area-describedby' => '', 'id' => '']) }}
-                    {{ Form::submit('Добавить файл',['class' => 'item-form-event-btn btn btn-raised btn-primary']) }}
+                    {{ Form::submit($mainFile !== null ? 'Изменить' : 'Добавить файл',['class' => 'item-form-event-btn btn btn-raised btn-primary']) }}
                 {{ Form::close() }}
                 <table class="table table-striped table-bordered">
                     <thead>

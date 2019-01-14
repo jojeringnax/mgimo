@@ -32,6 +32,8 @@ class PhotoConnect extends Model
     const GALLERY = 4;
     const EVENT = 5;
 
+    const MAIN_PHOTO_EVENTS = 6;
+
     /**
      * Return Photo of this Model.
      *

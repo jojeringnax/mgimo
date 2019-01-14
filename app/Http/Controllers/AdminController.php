@@ -381,6 +381,32 @@ class AdminController extends Controller
 
     /**
      * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function addFileEvents(Request $request)
+    {
+        if(!$request->post()) {
+            return redirect('/admin/partners');
+        }
+        $file = $request->file('event-gr');
+        $fileModel = Event::getMainFilePhotoModel();
+        if ($fileModel !== null) {
+            $fileModel->delete();
+        }
+        $fileModel = new Photo();
+        $fileModel->type = PhotoConnect::MAIN_PHOTO_EVENTS;
+        $fileModel->sizeX = 1;
+        $fileModel->sizeY = 1;
+        $path = 'events/main_file.'.$file->getClientOriginalExtension();
+        Storage::put($path, file_get_contents($file->getPathname()));
+        $fileModel->path = '/storage/photo/' . $path;
+        $fileModel->save();
+        return redirect('/admin/events');
+    }
+
+
+    /**
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
      */
     public function createSmi(Request $request)

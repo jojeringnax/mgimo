@@ -103,8 +103,13 @@ Route::get('test', function() {
 });
 
 Route::get('admin/events', function() {
-    return view('admin.events.index', ['events' => \App\Event::all()]);
+    return view('admin.events.index', [
+        'events' => \App\Event::all(),
+        'mainFile' => \App\Event::getMainFilePhotoModel()
+    ]);
 })->name('events_index');
+
+Route::post('admin/events', 'AdminController@addFileEvents');
 
 Route::get('events/get_by_location/{location}', 'EventsController@getByLocation');
 

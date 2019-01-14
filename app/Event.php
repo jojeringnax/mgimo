@@ -119,4 +119,12 @@ class Event extends Model
     {
         return self::where('location', $location)->where('main', true)->get();
     }
+
+    /**
+     * @return Photo
+     */
+    public static function getMainFilePhotoModel()
+    {
+        return Photo::where('type', PhotoConnect::MAIN_PHOTO_EVENTS)->first();
+    }
 }
