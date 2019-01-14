@@ -1558,11 +1558,23 @@ nav {
         font-size: 20px;
         font-weight: bold; }
 
-.partners-page div {
-  padding: 10px; }
-  .partners-page div .item-partners-page {
-    height: 90px;
-    border: 1px solid #1A2F3F; }
+.partner-ind {
+  padding-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 25px; }
+  .partner-ind .name-ind-partner {
+    font-weight: 600 !important;
+    font-size: 18px; }
+  .partner-ind .name-pos-partner {
+    font-size: 16px; }
+
+.partners-page {
+  width: 100%; }
+  .partners-page div {
+    padding: 10px; }
+    .partners-page div .item-partners-page {
+      height: 90px;
+      border: 1px solid #1A2F3F; }
 
 /*=====================GALLERY-PAGE=====================*/
 .album-names {
@@ -2022,14 +2034,18 @@ footer {
   .item-partners-page:first-child {
     margin-top: 0; }
   .item-partners-page .title-partners-page {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     padding-left: 0 !important;
     font-size: 16px;
-    color: #1A2F3F; }
+    color: #1A2F3F;
+    font-weight: 600 !important; }
   .item-partners-page img {
     width: 180px; }
   .item-partners-page a {
     margin-right: 50px; }
+
+.item-partners-page {
+  width: 100%; }
 
 .title-contacts-page {
   font-size: 20px;
@@ -2100,7 +2116,7 @@ footer {
 
 .select-container {
   position: relative;
-  width: 100px;
+  width: 140px;
   height: 26px;
   margin-left: 25px;
   margin-top: 50px; }
@@ -2119,7 +2135,7 @@ footer {
     .select-container #select-location:focus {
       outline: none; }
   .select-container #filter-album {
-    width: 100px;
+    width: 140px;
     height: 26px;
     border-style: solid;
     border-color: #1A2F3F;
@@ -2145,6 +2161,11 @@ footer {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100%; }
+
+#town-filter {
+  width: 140px !important; }
+  #town-filter #select-location {
+    width: 140px !important; }
 
 select::-ms-expand {
   display: none; }
