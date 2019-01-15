@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MGIMO75</title>
+    <title>75 лет МГИМО</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/mdb.css') }}">

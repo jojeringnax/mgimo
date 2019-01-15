@@ -70,7 +70,7 @@ body {
 .press-btn {
     width: 100%;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 100px;
     a {
         border: 1px solid $mainColor;
         height: 50px;
@@ -204,6 +204,12 @@ nav {
     background-image: url("../img/banner_new.svg");
     background-position: center bottom;
 
+}
+
+.hr-contacts {
+    height: 100%;
+    width: 1px;
+    background-color: #EAEAEA;
 }
 
 #btn-participant {
