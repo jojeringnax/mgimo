@@ -14,10 +14,10 @@ class AddColumnTitleToPartners extends Migration
     public function up()
     {
         Schema::table('partners', function (Blueprint $table) {
-            $table->string('name')->nullable()->change();
             $table->string('link')->nullable()->change();
-            $table->renameColumn('name', 'position');
+            $table->string('name')->nullable()->change();
             $table->string('title', 64)->nullable();
+            $table->renameColumn('name', 'position');
             $table->tinyInteger('type')->default(0);
         });
     }
@@ -31,6 +31,7 @@ class AddColumnTitleToPartners extends Migration
     {
         Schema::table('partners', function (Blueprint $table) {
             $table->dropColumn('title');
+            $table->renameColumn('position', 'name');
             $table->dropColumn('type');
         });
     }
