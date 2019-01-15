@@ -216,13 +216,13 @@ nav {
 .timer-lay {
   top: 0;
   z-index: 123;
-  margin-left: 20px;
+  margin-left: 30px;
   height: 100%; }
   .timer-lay .timer {
     margin-top: -20px;
     font-size: 12vh;
     font-weight: bold;
-    width: 340px;
+    max-width: 450px;
     display: block;
     background-color: transparent;
     padding: 10px; }
