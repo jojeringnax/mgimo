@@ -234,6 +234,7 @@ nav {
 }
 
 .logo-main-page {
+    flex-wrap: wrap;
     margin-top: 8vh;
     img {
         margin-right: 50px;
@@ -329,6 +330,13 @@ nav {
         }
     }
 }
+
+.img-item-congratulations {
+    iframe {
+        width: 100%;
+    }
+}
+
 
 /*===================SECTION-NEWS===================*/
 .contents {
@@ -2954,7 +2962,46 @@ select::-ms-expand {
     display: none;
 }
 
+.navbar-toggler-icon {
+
+}
+
 @media screen and (max-width: 500px){
+
+    .nav-top {
+        justify-content: flex-end !important;
+    }
+    .show-logo {
+        display: none;
+    }
+    .hidden-logo {
+        display: block !important;
+    }
+    .time {
+        height: 100%;
+    }
+    #btn-participant {
+        margin-top:  0 !important;
+        width: 240px;
+        font-size: 12px;
+    }
+
+    .logo-main-page {
+        margin-top: 10px !important;
+        img {
+            margin-top: 15px;
+            margin-right: 15px !important;
+            height: 6vh !important;
+            &#mgimo {
+              height: 9vh !important;
+            }
+
+        }
+
+    }
+    .content-item-congratulations {
+        padding: 15px 15px 15px 15px !important;
+    }
     #albums_wrapper {
         padding: 0 15px 0 15px !important;
         justify-content: center;
@@ -3051,20 +3098,41 @@ select::-ms-expand {
         }
     }
 
+    .banner-header {
+        background-image: url("../img/banner-mobile.svg");
+    }
     .time {
         margin-top: 0;
         .logo {
+            margin-top: 20px;
             margin-bottom: 20px;
             justify-content: center;
+            height: 13vh !important;
             hr {
                 display: none;
             }
         }
 
         .timerr {
-            margin-top: 50px;
+            margin-top: 20px;
             .timer-lay {
                 margin-left: 0 !important;
+                .timer {
+                    font-size: 7vh !important;
+                    padding-left: 10px !important;
+                    .item-timer {
+                        font-size: 7vh !important;
+                        .num {
+                            font-size: 7vh !important;
+                        }
+                        .point {
+                            font-size: 12px;
+                        }
+                        .sm-colon {
+                            font-size: 7vh !important;
+                        }
+                    }
+                }
             }
 
             .title-timer {

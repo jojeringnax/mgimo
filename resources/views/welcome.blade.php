@@ -37,10 +37,13 @@
                         <a target="_blank" href="https://alumni.mgimo.ru">
                             <img src="img/logo1.svg" alt="" style="height: 7vh">
                         </a>
-                        <a target="_blank" href="https://mgimo.ru/">
-                            <img src="img/logo2.svg" alt="" style="height: 9vh">
+                        <a class="hidden-logo" target="_blank" href="http://fund.mgimo.ru/" style="display: none">
+                            <img src="img/logo3.svg" alt="" style="height: 7vh; margin-right: 0 !important">
                         </a>
-                        <a target="_blank" href="http://fund.mgimo.ru/">
+                        <a  target="_blank" href="https://mgimo.ru/">
+                            <img id="mgimo" src="img/logo2.svg" alt="" style="height: 9vh">
+                        </a>
+                        <a class="show-logo" target="_blank" href="http://fund.mgimo.ru/">
                             <img src="img/logo3.svg" alt="" style="height: 7vh; margin-right: 0">
                         </a>
                     </div>
