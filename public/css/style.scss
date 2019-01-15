@@ -2988,16 +2988,22 @@ select::-ms-expand {
 
     .logo-main-page {
         margin-top: 10px !important;
-        img {
-            margin-top: 15px;
-            margin-right: 15px !important;
-            height: 6vh !important;
-            &#mgimo {
-              height: 9vh !important;
+        flex-wrap: wrap;
+        a {
+            flex-basis: 40%;
+            text-align: center;
+            img {
+                margin-top: 30px;
+                margin-right: 15px !important;
+                height: 5vh !important;
+                &#mgimo {
+                    margin-top: 30px;
+                    height: 9vh !important;
+                    margin-right: 0 !important;
+                }
+
             }
-
         }
-
     }
     .content-item-congratulations {
         padding: 15px 15px 15px 15px !important;
