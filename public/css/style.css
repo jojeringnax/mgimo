@@ -176,6 +176,7 @@ nav {
     border: 1px solid #1A2F3F; }
 
 .logo-main-page {
+  flex-wrap: wrap;
   margin-top: 8vh; }
   .logo-main-page img {
     margin-right: 50px; }
@@ -248,6 +249,9 @@ nav {
         text-align: center;
         display: flex;
         align-items: center; }
+
+.img-item-congratulations iframe {
+  width: 100%; }
 
 /*===================SECTION-NEWS===================*/
 .contents {
@@ -2280,6 +2284,35 @@ select::-ms-expand {
   display: none; }
 
 @media screen and (max-width: 500px) {
+  .nav-top {
+    justify-content: flex-end !important; }
+
+  .show-logo {
+    display: none; }
+
+  .hidden-logo {
+    display: block !important; }
+
+  .time {
+    height: 100%; }
+
+  #btn-participant {
+    margin-top: 0 !important;
+    width: 240px;
+    font-size: 12px; }
+
+  .logo-main-page {
+    margin-top: 10px !important; }
+    .logo-main-page img {
+      margin-top: 15px;
+      margin-right: 15px !important;
+      height: 6vh !important; }
+      .logo-main-page img#mgimo {
+        height: 9vh !important; }
+
+  .content-item-congratulations {
+    padding: 15px 15px 15px 15px !important; }
+
   #albums_wrapper {
     padding: 0 15px 0 15px !important;
     justify-content: center; }
@@ -2349,17 +2382,33 @@ select::-ms-expand {
   .anniversary-img .item-img-news img {
     margin-bottom: 20px; }
 
+  .banner-header {
+    background-image: url("../img/banner-mobile.svg"); }
+
   .time {
     margin-top: 0; }
     .time .logo {
+      margin-top: 20px;
       margin-bottom: 20px;
-      justify-content: center; }
+      justify-content: center;
+      height: 13vh !important; }
       .time .logo hr {
         display: none; }
     .time .timerr {
-      margin-top: 50px; }
+      margin-top: 20px; }
       .time .timerr .timer-lay {
         margin-left: 0 !important; }
+        .time .timerr .timer-lay .timer {
+          font-size: 7vh !important;
+          padding-left: 10px !important; }
+          .time .timerr .timer-lay .timer .item-timer {
+            font-size: 7vh !important; }
+            .time .timerr .timer-lay .timer .item-timer .num {
+              font-size: 7vh !important; }
+            .time .timerr .timer-lay .timer .item-timer .point {
+              font-size: 12px; }
+            .time .timerr .timer-lay .timer .item-timer .sm-colon {
+              font-size: 7vh !important; }
       .time .timerr .title-timer {
         margin-left: 0 !important;
         text-align: center; }

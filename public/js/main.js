@@ -28,7 +28,7 @@ let x = setInterval(function() {
         + "<div class='hours d-flex flex-column justify-content-center item-timer'>" +
             "<span class='num'>" + minutes + "</span>" +
             "<span class='point'>Минут</span>" +
-        "</div>" + "<div class='sm-colon'><span class='colon'>:</span></div>" + "<div class='hours d-flex flex-column justify-content-center item-timer'>" +
+        "</div>" + "<div class='sm-colon'><span class='colon'>:</span></div>" + "<div class='hours d-flex flex-column justify-content-center item-timer' style='margin-right: 0'>" +
             "<span class='num'>" + seconds + "</span>" +
             "<span class='point'>Секунд</span>" +
         "</div>";
@@ -121,7 +121,7 @@ $(document).ready(function(){
             $('.nav-top').css({'background-color': 'white'});
             $('.nav-top').addClass('box-sd');
         }else if($(window).scrollTop() <=150){
-            $('.nav-top').css({'background-color': 'transparent'});
+            $('.nav-top').css({'background-color': '#F2FBFF'});
             $('.nav-top').removeClass('box-sd');
         }
 
