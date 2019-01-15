@@ -141,10 +141,10 @@
                                         <span class="name-events">{{ $event->title }}</span>
                                     </article>
                                     <div class="d-flex flex-wrap justify-content-between">
-                                    <span class="date-events col-6"><span class='icon-date-events'></span>
+                                    <span class="date-events col-7"><span class='icon-date-events'></span>
                                         {{$event->date}}
                                     </span>
-                                        <span class="location col-6"><span class="icon-location-events"></span>{{ $event->location }}</span>
+                                        <span class="location col-5"><span class="icon-location-events"></span>{{ $event->location }}</span>
                                     </div>
                                     @if ($loop->index !== 7)
                                         <hr>
