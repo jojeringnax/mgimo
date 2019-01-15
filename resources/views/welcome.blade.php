@@ -139,7 +139,7 @@
                                     </article>
                                     <div class="d-flex flex-wrap justify-content-between">
                                     <span class="date-events col-6"><span class='icon-date-events'></span>
-                                        {{ implode(' ', [date('d', strtotime($event->date)), \App\News::nameMonth[date('n', strtotime($event->date))], date('Y', strtotime($event->date))]) }}
+                                        {{$event->date}}
                                     </span>
                                         <span class="location col-6"><span class="icon-location-events"></span>{{ $event->location }}</span>
                                     </div>

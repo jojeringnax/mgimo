@@ -454,14 +454,14 @@ nav {
         color: #1A2F3F;
         position: relative;
         display: flex;
-        justify-content: center; }
+        justify-content: flex-start;
+        align-items: center; }
         .contents .events .item-events .date-events .icon-date-events {
-          position: absolute;
+          margin-right: 10px;
           height: 14px;
           width: 14px;
           background-image: url("../img/icon/clock-circular-red.svg");
-          background-repeat: no-repeat;
-          left: 10px; }
+          background-repeat: no-repeat; }
       .contents .events .item-events .location {
         font-size: 12px;
         margin: 18px 0 0 0;
