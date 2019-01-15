@@ -10,8 +10,8 @@
                     <a href="{{ $mainFile->path }}" download>Скачать файл</a>
                 @endif
                 {{Form::open(array( 'class'=>'border event-form-add-file', 'files' => true))}}
-                    {{ Form::file('event-gr', ['class' => '', 'area-describedby' => '', 'id' => '']) }}
-                    {{ Form::submit($mainFile !== null ? 'Изменить' : 'Добавить файл',['class' => 'item-form-event-btn btn btn-raised btn-primary']) }}
+                    {{ Form::file('event-gr', ['class' => '', 'area-describedby' => '', 'id' => 'event-file']) }}
+                    {{ Form::submit($mainFile !== null ? 'Изменить' : 'Добавить файл',['class' => 'item-form-event-btn btn btn-raised btn-primary', 'disabled' => 'disabled']) }}
                 {{ Form::close() }}
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -45,4 +45,14 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('#event-file').change(function () {
+                $('.item-form-event-btn').prop('disabled', false)
+            })
+        });
+    </script>
 @endsection

@@ -32,6 +32,18 @@
         <div class="container" style="">
             <div class="row d-flex flex-column justify-content-center">
                 <div class="banner">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSezXMVdZ__pKNosXVuey-RsX9EL6GiBXsH85H24FrvhTSlzOw/viewform" id="btn-participant">заявка на участие</a>
+                    <div class="logo-main-page d-flex justify-content-center align-items-center">
+                        <a target="_blank" href="https://alumni.mgimo.ru">
+                            <img src="img/logo1.svg" alt="" style="height: 56px">
+                        </a>
+                        <a target="_blank" href="https://mgimo.ru/">
+                            <img src="img/logo2.svg" alt="" style="height: 100px">
+                        </a>
+                        <a target="_blank" href="http://fund.mgimo.ru/">
+                            <img src="img/logo3.svg" alt="" style="margin-right: 0" style="height: 56px">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
