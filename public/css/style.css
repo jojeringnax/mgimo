@@ -2302,13 +2302,19 @@ select::-ms-expand {
     font-size: 12px; }
 
   .logo-main-page {
-    margin-top: 10px !important; }
-    .logo-main-page img {
-      margin-top: 15px;
-      margin-right: 15px !important;
-      height: 6vh !important; }
-      .logo-main-page img#mgimo {
-        height: 9vh !important; }
+    margin-top: 10px !important;
+    flex-wrap: wrap; }
+    .logo-main-page a {
+      flex-basis: 40%;
+      text-align: center; }
+      .logo-main-page a img {
+        margin-top: 30px;
+        margin-right: 15px !important;
+        height: 5vh !important; }
+        .logo-main-page a img#mgimo {
+          margin-top: 30px;
+          height: 9vh !important;
+          margin-right: 0 !important; }
 
   .content-item-congratulations {
     padding: 15px 15px 15px 15px !important; }
