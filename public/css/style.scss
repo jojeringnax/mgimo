@@ -584,14 +584,16 @@ nav {
                 color: $mainColor;
                 position: relative;
                 display: flex;
-                justify-content: center;
+                justify-content: flex-start;
+                align-items: center;
                 .icon-date-events {
-                    position: absolute;
+                    //position: absolute;
+                    margin-right: 10px;
                     height: 14px;
                     width: 14px;
                     background-image: url("../img/icon/clock-circular-red.svg");
                     background-repeat: no-repeat;
-                    left: 10px;
+                    //left: 10px;
                 }
             }
             .location {
