@@ -52,7 +52,8 @@ $(document).ready(function () {
         'КОНЦЕРТЫ':'#1DB5ED',
         'ЮБИЛЕИ':'#FF6C00',
         'ПРЕЗЕНТАЦИИ':'#9946B2',
-        'ИЗДАНИЯ':'#1A2F3F'
+        'ИЗДАНИЯ':'#1A2F3F',
+        'ПАРТНЕРЫ':'#A1B2FC'
     };
     $('.tag').each(function(){
         $(this).children('i').css({'background-color': colorTags[$(this).children('span').text().toUpperCase()]}) ;

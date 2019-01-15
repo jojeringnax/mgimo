@@ -206,7 +206,7 @@
                             <div class="prtn" style="display: flex;justify-content: space-around;align-items: center;flex-direction: row;">
                         @endif
                                 @foreach($partners as $partner)
-                                    @if($loop->count <= 3)
+                                    @if($loop->count <= 3 && $partner->type !== 1)
                                         <div class="item" style="width: 200px;height: 50px">
                                             <div class="item-partner">
                                                 <a href="{{ $partner->link }}">
@@ -217,18 +217,20 @@
                                             </div>
                                         </div>
                                     @else
-                                        <div class="item-partner">
-                                            <a href="{{ $partner->link }}">
-                                                <div style="height: 100%">
-                                                    <img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" />
-                                                </div>
-                                            </a>
-                                        </div>
-                                        @if($loop->iteration%2 === 0 && $loop->index !== 0 && !$loop->last)
-                                            </div><div class="item">
-                                        @endif
-                                        @if($loop->last)
+                                        @if($partner->type !== 1)
+                                            <div class="item-partner">
+                                                <a href="{{ $partner->link }}">
+                                                    <div style="height: 100%">
+                                                        <img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" />
+                                                    </div>
+                                                </a>
                                             </div>
+                                            @if($loop->iteration%2 === 0 && $loop->index !== 0 && !$loop->last)
+                                                </div><div class="item">
+                                            @endif
+                                            @if($loop->last)
+                                                </div>
+                                            @endif
                                         @endif
                                     @endif
                                 @endforeach
@@ -242,30 +244,30 @@
             <a href="{{url('partners')}}" class="btn-partners">Смотреть всех партнеров <span></span></a>
         </div>
     </div>
-
-    <div id="media" class="container">
-        <div class="row" style="margin: 0; padding: 0">
-            <div class="content-media col-12">
-                <div class="title-media">Сми о юбилее МГИМО</div>
-                <div class="media-news col-12 d-flex fle-wrap justify-content-between">
-                    @foreach($smis as $smi)
-                        <div data-smis="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 item-media-news d-flex">
-                            <a href="{{ $smi->link }}" target="_blank">
-                                <span class="source-media-news">{{ $smi->link_view }}</span>
-                                <span class="title-media-news">{{ $smi->title }}</span>
-                                <span class="date-media-news">{{ implode(' ', [date('d', strtotime($smi->created_at)), \App\News::nameMonth[date('n', strtotime($smi->created_at))], date('Y', strtotime($smi->created_at))]) }}</span>
-                            </a>
-                            @if (($loop->index + 1)%4) <hr> @endif
-                        </div>
-                    @endforeach
+    <section id="media">
+        <div class="container">
+            <div class="row" style="margin: 0; padding: 0">
+                <div class="content-media col-12">
+                    <div class="title-media">Сми о юбилее МГИМО</div>
+                    <div class="media-news col-12 d-flex fle-wrap justify-content-between">
+                        @foreach($smis as $smi)
+                            <div data-smis="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 item-media-news d-flex">
+                                <a href="{{ $smi->link }}" target="_blank">
+                                    <span class="source-media-news">{{ $smi->link_view }}</span>
+                                    <span class="title-media-news">{{ $smi->title }}</span>
+                                    <span class="date-media-news">{{ implode(' ', [date('d', strtotime($smi->created_at)), \App\News::nameMonth[date('n', strtotime($smi->created_at))], date('Y', strtotime($smi->created_at))]) }}</span>
+                                </a>
+                                @if (($loop->index + 1)%4) <hr> @endif
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="btn-media">
+                    <a href="{{url('smis')}}" target="_blank">Смотреть все новости СМИ<span></span></a>
                 </div>
             </div>
-            <div class="btn-media">
-                <a href="{{url('smis')}}" target="_blank">Смотреть все новости СМИ<span></span></a>
-            </div>
-
         </div>
-    </div>
+    </section>
     <div class="modal" tabindex="-1" role="dialog" id="congratulationModule">
         <div class="modal-dialog" role="document" style="max-width: 80%;">
             <div class="modal-content">
