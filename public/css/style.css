@@ -216,18 +216,19 @@ nav {
 .timer-lay {
   top: 0;
   z-index: 123;
-  margin-left: 20px;
-  height: 100%; }
+  margin-left: 30px;
+  height: 100%;
+  text-align: left; }
   .timer-lay .timer {
     margin-top: -20px;
-    font-size: 12vh;
+    font-size: 10vh;
     font-weight: bold;
-    width: 340px;
+    max-width: 450px;
     display: block;
     background-color: transparent;
-    padding: 10px; }
+    padding: 10px 10px 10px 0; }
     .timer-lay .timer .item-timer {
-      margin: 0 10px 0 10px; }
+      margin: 0 10px 0 0; }
     .timer-lay .timer div {
       font-size: 47px; }
       .timer-lay .timer div span.num {
