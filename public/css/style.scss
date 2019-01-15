@@ -173,14 +173,14 @@ nav {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 120px;
+    margin-top: 100px;
     position: relative;
     height: 126px;
     flex-wrap: wrap;
     .logo {
         position: relative;
         display: flex;
-        min-height: 10vh;
+        height: 17vh;
         width: 139px;
         hr {
             height: 100%;
@@ -197,7 +197,7 @@ nav {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 90vh;
+    min-height: 100vh;
     background-size: 100%;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -220,16 +220,21 @@ nav {
     font-size: 14px;
     font-weight: 600 !important;
     margin: 0 auto;
-    margin-top: 70px;
+    margin-top: 10vh;
     text-align: center;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
+    &:hover {
+        background-color: white;
+        color: $mainColor;
+        border: 1px solid $mainColor;
+    }
 }
 
 .logo-main-page {
-    margin-top: 70px;
+    margin-top: 8vh;
     img {
         margin-right: 50px;
     }
@@ -287,7 +292,7 @@ nav {
 
     .timer {
         margin-top: -20px;
-        font-size: 47px;
+        font-size: 12vh;
         font-weight: bold;
         width: 340px;
         display: block;
@@ -299,7 +304,7 @@ nav {
         div {
             font-size: 47px;
             span.num {
-                font-size: 47px;
+                font-size: 8vh;
                 text-align: center;
                 font-family: PlayfairDisplayRegular;
             }

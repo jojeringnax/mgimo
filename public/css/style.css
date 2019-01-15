@@ -123,14 +123,14 @@ nav {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 120px;
+  margin-top: 100px;
   position: relative;
   height: 126px;
   flex-wrap: wrap; }
   .time .logo {
     position: relative;
     display: flex;
-    min-height: 10vh;
+    height: 17vh;
     width: 139px; }
     .time .logo hr {
       height: 100%;
@@ -144,7 +144,7 @@ nav {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
+  min-height: 100vh;
   background-size: 100%;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -164,15 +164,19 @@ nav {
   font-size: 14px;
   font-weight: 600 !important;
   margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 10vh;
   text-align: center;
   text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center; }
+  #btn-participant:hover {
+    background-color: white;
+    color: #1A2F3F;
+    border: 1px solid #1A2F3F; }
 
 .logo-main-page {
-  margin-top: 70px; }
+  margin-top: 8vh; }
   .logo-main-page img {
     margin-right: 50px; }
 
@@ -216,7 +220,7 @@ nav {
   height: 100%; }
   .timer-lay .timer {
     margin-top: -20px;
-    font-size: 47px;
+    font-size: 12vh;
     font-weight: bold;
     width: 340px;
     display: block;
@@ -227,7 +231,7 @@ nav {
     .timer-lay .timer div {
       font-size: 47px; }
       .timer-lay .timer div span.num {
-        font-size: 47px;
+        font-size: 8vh;
         text-align: center;
         font-family: PlayfairDisplayRegular; }
       .timer-lay .timer div span.point {
