@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div id="press-btn-contact" class="press-btn col-12">
-                <a href="https://mgimo.ru/about/structure/press/">Пресс служба <span></span></a>
+                <a target="_blank" href="https://mgimo.ru/about/structure/press/">Пресс служба <span></span></a>
             </div>
         </div>
     </div>
