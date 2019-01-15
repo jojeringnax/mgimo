@@ -10,15 +10,17 @@
         <div class="row d-flex justify-content-center">
             <div class="img-contacts d-flex col-xl-7 col-lg-7 col-md-10 col-sm-12 flex-wrap justify-content-between" style="margin-top: 80px;">
                 <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 d-flex align-items-center flex-column">
+                    <a target="_blank" href="alumni.mgimo.ru" style="height: 150px"><img src="img/contacts1.jpg" alt="" style="width: 100%"></a>
                     <span class="title-contacts-page text-center">Ассоциация <br /> выпускников МГИМО</span><br/>
                     <span class="text-contacts-page text-center">
                         <a href="tel:+74952254049">+7(495)225-40-49 </a><br />
                         <a href="mailto:alumni@mgimo.ru">alumni@mgimo.ru</a> <br />
                         По вопросам участия в мероприятиях
                     </span>
-                    <a target="_blank" href="alumni.mgimo.ru"><img src="img/contacts1.jpg" alt="" style="width: 100%"></a>
                 </div>
+                <hr class="hr-contacts" />
                 <div class="col-xl-5 col-lg-5 col-md-6 colsm-12 d-flex align-items-center flex-column justify-content-center">
+                    <a target="_blank" href="http://fund.mgimo.ru/" style="height: 150px"><img src="img/contacts2.jpg" alt="" style="width: 100%"></a>
                     <span class="title-contacts-page text-center">
                         Фонд развития МГИМО
                     </span>
@@ -28,7 +30,6 @@
                         <a href="mailto:fund@mgimo.ru">fund@mgimo.ru</a> <br />
                         По вопросам сотрудничества<br />
                     </span>
-                    <a target="_blank" href="http://fund.mgimo.ru/"><img src="img/contacts2.jpg" alt="" style="width: 100%"></a>
                 </div>
             </div>
             <div id="press-btn-contact" class="press-btn col-12">
