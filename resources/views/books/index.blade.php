@@ -11,7 +11,7 @@
 @section('content')
     <div class="container" style="margin-top: 130px; padding-bottom: 100px !important">
         <div class="row" id="books_wrapper">
-            <div class="links-books d-flex justify-content-between col-12">
+            <div class="links-books d-flex justify-content-between col-12 flex-wrap">
                 <a target="_blank" href="https://mgimo.ru/library/scientific-library/">Научная библиотека</a>
                 <a target="_blank" href="https://mgimo.ru/library/resources/">Электронные ресурсы</a>
                 <a target="_blank" href="https://mgimo.ru/about/structure/period/">Периодические издания</a>
