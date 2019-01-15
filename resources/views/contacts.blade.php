@@ -16,7 +16,7 @@
                         <a href="mailto:alumni@mgimo.ru">alumni@mgimo.ru</a> <br />
                         По вопросам участия в мероприятиях
                     </span>
-                    <img src="img/contacts1.jpg" alt="" style="width: 100%">
+                    <a target="_blank" href="alumni.mgimo.ru"><img src="img/contacts1.jpg" alt="" style="width: 100%"></a>
                 </div>
                 <div class="col-xl-5 col-lg-5 col-md-6 colsm-12 d-flex align-items-center flex-column justify-content-center">
                     <span class="title-contacts-page text-center">
@@ -28,8 +28,11 @@
                         <a href="mailto:fund@mgimo.ru">fund@mgimo.ru</a> <br />
                         По вопросам сотрудничества<br />
                     </span>
-                    <img src="img/contacts2.jpg" alt="" style="width: 100%">
+                    <a target="_blank" href="http://fund.mgimo.ru/"><img src="img/contacts2.jpg" alt="" style="width: 100%"></a>
                 </div>
+            </div>
+            <div id="press-btn-contact" class="press-btn col-12">
+                <a href="https://mgimo.ru/about/structure/press/">Пресс служба <span></span></a>
             </div>
         </div>
     </div>

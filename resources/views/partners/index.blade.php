@@ -14,6 +14,7 @@
             <div class="partners-page d-flex flex-wrap flex-column">
                 <div class="logo">
                     <img src="{{asset('img/icon/logo.svg')}}" alt="logo-mgimo" style="width: 100px;">
+                    <a href="">Стать партнером<span></span></a>
                 </div>
                 <div class="organizers item-partners-page">
                     <div class="title-partners-page">
@@ -21,7 +22,7 @@
                     </div>
                     @foreach($partners as $partner)
                         @if($partner->category == \App\Partner::ORGANIZATORS && $partner->type === 0)
-                            <a class="organizers-a" href="{{ $partner->link }}">
+                            <a class="partner organizers-a" href="{{ $partner->link }}">
                                 <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="" />
                             </a>
                         @endif
@@ -33,7 +34,7 @@
                     </div>
                     @foreach($partners as $partner)
                         @if($partner->category == \App\Partner::GENERAL_SPONSORS && $partner->type === 0)
-                            <a class="gener-sponsors-a" href="{{ $partner->link }}">
+                            <a class="partner gener-sponsors-a" href="{{ $partner->link }}">
                                 <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="" />
                             </a>
                         @endif
@@ -45,7 +46,7 @@
                     </div>
                     @foreach($partners as $partner)
                         @if($partner->category == \App\Partner::SPONSORS && $partner->type === 0)
-                            <a class="sponsors-a" href="{{ $partner->link }}">
+                            <a class="partner sponsors-a" href="{{ $partner->link }}">
                                 <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="" />
                             </a>
                         @endif
@@ -57,7 +58,7 @@
                     </div>
                     @foreach($partners as $partner)
                         @if($partner->category == \App\Partner::INFORM_PARTNERS && $partner->type === 0)
-                            <a class="inf-partners-a" href="{{ $partner->link }}">
+                            <a class="partner inf-partners-a" href="{{ $partner->link }}">
                                 <img title="{{ $partner->name }}" src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="{{ $partner->name }}" style="" />
                             </a>
                         @endif
@@ -69,10 +70,10 @@
                     </div>
                     @foreach($partners as $partner)
                         @if($partner->type === 1)
-                            <a class="partner-ind d-flex flex-column col-xl-4" href="{{ $partner->link }}">
+                            <div class="partner partner-ind d-flex flex-column col-xl-4">
                                 <span class="name-ind-partner">{{$partner->title}}</span>
                                 <span class="name-pos-partner">{{$partner->position}}</span>
-                            </a>
+                            </div>
                         @endif
                     @endforeach
                 </div>
@@ -86,11 +87,9 @@
     <script>
         $(document).ready(function(){
             $('.item-partners-page').each(function () {
-                if($(this).children('a').length === 0) {
-                    console.log($(this))
+                if($(this).children('.partner').length === 0) {
                     $(this).css({'display': 'none'});
                     $(this).addClass('hide');
-
                 }
             })
         })

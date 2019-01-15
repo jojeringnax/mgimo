@@ -62,33 +62,36 @@
 @section('script')
     <script>
         $(document).ready(function () {
+            $('.partner-form').submit(function(){
+                $('#select-partner-position').prop('disabled', false);
+            });
             $('.logo-partner-file').change(function () {
                 $('.custom-file-label').html($(this).val());
             });
 
             if(parseInt($('#select-partner-type').val()) === 1) {
                 $('#select-partner-position').prop('disabled', false);
-                //$('#select-partner-title').prop('disabled', false);
                 $('.inp-file > input').prop('disabled', 'disabled');
                 $('.inp-file').addClass('hide');
                 $('.inp-category').addClass('hide');
             } else {
+                $('#select-partner-position').val('company');
                 $('#select-partner-position').prop('disabled', 'disabled');
-                //$('#select-partner-title').prop('disabled', 'disabled');
                 $('.inp-file').removeClass('hide');
                 $('.inp-category').removeClass('hide');
             }
 
             $('#select-partner-type').change( function() {
                if (parseInt($(this).val()) === 1) {
+                   $('#select-partner-position').val('');
                    $('#select-partner-position').prop('disabled', false);
-                   //$('#select-partner-title').prop('disabled', false);
                    $('.inp-file > input').prop('disabled', 'disabled');
                    $('.inp-file').addClass('hide');
                    $('.inp-category').addClass('hide');
                } else {
+                   $('#select-partner-position').val('company');
                    $('#select-partner-position').prop('disabled', 'disabled');
-                   //$('#select-partner-title').prop('disabled', 'disabled');
+                   $('.inp-file > input').prop('disabled', false);
                    $('.inp-file').removeClass('hide');
                    $('.inp-category').removeClass('hide');
                }

@@ -11,6 +11,13 @@
 @section('content')
     <div class="container" style="margin-top: 130px; padding-bottom: 100px !important">
         <div class="row" id="books_wrapper">
+            <div class="links-books d-flex justify-content-between col-12">
+                <a target="_blank" href="https://mgimo.ru/library/scientific-library/">Научная библиотека</a>
+                <a target="_blank" href="https://mgimo.ru/library/resources/">Электронные ресурсы</a>
+                <a target="_blank" href="https://mgimo.ru/about/structure/period/">Периодические издания</a>
+                <a target="_blank" href="https://mgimo.ru/about/news/issues/">Новые издания</a>
+                <a target="_blank" href="https://mgimo.ru/library/publications/">Публикации издательства и преподавателей</a>
+            </div>
             @foreach($books as $book)
                 <div class="col-xl-3 item-book-page">
                     <div class="card-book" style="width: 100%">
