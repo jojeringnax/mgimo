@@ -2440,8 +2440,7 @@ select::-ms-expand {
     padding: 0 !important; }
 
   .content-congratulations div .item-congratulations {
-    flex-wrap: wrap !important;
-    min-height: 250px; }
+    flex-wrap: wrap !important; }
     .content-congratulations div .item-congratulations img {
       width: 140px !important; }
 
