@@ -11,14 +11,14 @@
                 {{ !isset($article) ? Form::open(array('action' => 'AdminController@createArticle', 'files' => true, 'class'=>'news-form')) : Form::model($article, ['files' => true, 'class'=>'news-form']) }}
 
                 {{ Form::label('title', 'Заголовок') }}
-                {{ Form::text('title', isset($article) ? $article->title : '',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире']) }}
+                {{ Form::text('title', isset($article) ? $article->title : '',['class' => 'form-control item-form-news-add','placeholder' => 'МГИМО лучший вуз в мире', 'required' => 'required']) }}
 
                 {{ Form::label('moderated', 'Активна') }}
                 {{ Form::checkbox('moderated', isset($article) ? $article->moderated : true) }}
                 <div id="editor" class="col-12 item-form-news-add">
                     {!! isset($article) ? html_entity_decode($article->content) : '' !!}
                 </div>
-                <input type="hidden" name="content" id="content-news"/>
+                <input type="hidden" name="content" id="content-news" required/>
 
                 <div class="d-flex col-12 flex-wrap item-form-news-add justify-content-between" style="margin-top: 25px">
                     <div class="input-group col-xl-5 item-form-news-add">

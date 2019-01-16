@@ -65,6 +65,9 @@ $(document).ready(function(){
                 items:1
             },
             600:{
+                items:1
+            },
+            900:{
                 items:2
             },
             1000:{

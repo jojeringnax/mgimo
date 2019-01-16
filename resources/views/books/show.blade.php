@@ -9,10 +9,10 @@
     background-color: white !important;
 @endsection
 @section('content')
-    <div class="container" style="margin-top: 120px; padding-bottom: 120px;">
+    <div class="container container-content" style="margin-top: 120px; padding-bottom: 120px;">
         <div class="row">
             <div class="layout_news d-flex flex-wrap">
-                <div id="photos-news" class="col-5 d-flex flex-column">
+                <div id="photos-news" class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12 d-flex flex-column">
                     <div class="item-img-news" style="text-align: center">
                         <img src="{{ $article->CoverPhoto->path }}" alt="" style="width: 55%;">
                     </div>
@@ -25,7 +25,7 @@
 
                     </div>
                 </div>
-                <div class="col-7 d-flex flex-column align-items-start justify-content-start">
+                <div class="description-book col-xl-7 col-lg-7 col-md-6 col-sm-12 col-12 d-flex flex-column align-items-start justify-content-start">
                     <div class="title-news">
                         <h2>{{ $article->title }}</h2>
                     </div>

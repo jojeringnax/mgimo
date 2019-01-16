@@ -2185,9 +2185,25 @@ footer {
     .date-events .icon-date-events {
       margin-top: 0 !important; } }
 @media screen and (max-width: 1000px) {
-  .container {
-    max-width: 1320px !important;
-    padding: 0 20px 0 20px !important; }
+  .link-book-pay-pages {
+    height: 55px !important; }
+
+  .container-content {
+    padding-bottom: 180px !important; }
+
+  #gallery-page-container {
+    padding-bottom: 180px !important; }
+
+  .footers {
+    justify-content: center; }
+    .footers .contact-footer {
+      justify-content: center;
+      margin-top: 30px; }
+      .footers .contact-footer span {
+        align-items: center !important;
+        text-align: center !important; }
+    .footers .soc-net {
+      justify-content: center !important; }
 
   .content-congratulations div .item-congratulations img {
     width: 140px !important; }
@@ -2283,7 +2299,61 @@ footer {
 select::-ms-expand {
   display: none; }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 780px) {
+  .item-events a article {
+    margin-left: 0 !important; }
+  .item-events a div .date-events {
+    padding-left: 0 !important; }
+
+  #media {
+    padding: 0 5px 0 5px; }
+
+  .title-partners {
+    margin-left: 20px; }
+
+  .title-news {
+    margin-left: 20px; }
+
+  .title-congratulations {
+    margin-left: 20px !important; }
+
+  .items-congr {
+    padding: 20px; }
+
+  .title-events {
+    margin-left: 20px; }
+
+  .contents .events .bg-events {
+    padding: 0 20px 120px 20px; }
+
+  .item-partners-page a {
+    margin-top: 20px !important;
+    margin-right: 0; }
+
+  #photos-news {
+    padding-left: 15px !important; }
+
+  .description-book {
+    margin-top: 100px !important; }
+
+  .item-congratulations {
+    height: 100% !important; }
+
+  .container-content {
+    padding-bottom: 300px !important; }
+
+  .button-footer {
+    margin-top: 120px; }
+
+  .nav-bot nav {
+    justify-content: center !important; }
+
+  #gallery-page-container {
+    padding-bottom: 300px !important; } }
+@media screen and (max-width: 600px) {
+  .item-card-news {
+    margin-left: 0 !important; }
+
   .nav-top {
     justify-content: flex-end !important; }
 
@@ -2432,9 +2502,12 @@ select::-ms-expand {
 
   .btns-congratulations {
     justify-content: center !important;
-    display: flex; }
+    width: 100%; }
     .btns-congratulations .btn-congr {
       margin-left: 0 !important; }
+
+  .filter {
+    margin-left: 15px !important; }
 
   .item-contents {
     padding: 0 !important; }
