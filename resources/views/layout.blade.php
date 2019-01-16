@@ -103,7 +103,7 @@
         <div class="container">
             <div class="row">
                 <div class="d-flex flex-wrap col-12 footers" style="padding: 0">
-                    <div class="nav-bot col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch">
+                    <div class="nav-bot col-xl-4 col-lg-4 col-md-6 col-12 align-items-stretch">
                         <nav class="d-flex" style="height: 100%">
                             <ul class="d-flex flex-column justify-content-between" style="padding: 0">
                                 <li><a href="{{url('/')}}">Главная</a></li>
@@ -121,13 +121,13 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="button-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-center">
+                    <div class="button-footer col-xl-4 col-lg-4 col-md-6 col-12 align-items-center">
                         <a data-toggle="modal" data-target="#modalRegisterForm" href="#"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
                         <span class="text-center">
                             МГИМО 75<br>Ассоциация выпускников МГИМО<br>Эндаумент МГИМО
                         </span>
                     </div>
-                    <div class="contact-footer col-xl-4 col-lg-4 col-md-12 col-12 align-items-stretch d-flex flex-column">
+                    <div class="contact-footer col-xl-4 col-lg-4 col-md-6 col-12 align-items-stretch d-flex flex-column">
                         <span class="">
                             <span class="location-footer">Москва, проспект Вернадского, 76<br></span>
                             <span class="number-footer">+7 495 229-40-49</span>

@@ -7,17 +7,17 @@
                 {{ isset($subscriber) ? Form::model($subscriber) : Form::open(array('action' => 'AdminController@createSubscriber', 'class'=>'subscribe-form')) }}
                 <div class="md-form mb-5">
                     <i class="fas fa-user prefix grey-text"></i>
-                    <input name="name" type="text" id="orangeForm-name" class="form-control validate" value="{{ isset($subscriber) ? $subscriber->name : '' }}">
+                    <input name="name" type="text" id="orangeForm-name" class="form-control validate" value="{{ isset($subscriber) ? $subscriber->name : '' }}" required>
                     <label data-error="Вы не ввели имя" data-success="Готово" for="orangeForm-name">*Ваше Имя</label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
-                    <input name="email" type="email" id="sub_news-email" class="form-control validate" value="{{ isset($subscriber) ? $subscriber->email : '' }}">
+                    <input name="email" type="email" id="sub_news-email" class="form-control validate" value="{{ isset($subscriber) ? $subscriber->email : '' }}" required>
                     <label data-error="Вы не ввели e-mail" data-success="right" for="orangeForm-email">*Ваш e-mail</label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
-                    <input name="course" type="number" id="sub_news-course" class="form-control" value="{{ isset($subscriber) ? $subscriber->course : '' }}">
+                    <input name="course" type="number" id="sub_news-course" class="form-control" value="{{ isset($subscriber) ? $subscriber->course : '' }}" required>
                     <label for="sub_news-course">Курс</label>
                 </div>
                 <div class="md-form mb-5">

@@ -9,7 +9,7 @@
     background-color: white !important;
 @endsection
 @section('content')
-    <div class="container" style="margin-top: 120px; padding-bottom: 100px !important">
+    <div class="container container-content" style="margin-top: 120px; padding-bottom: 100px">
         <div class="row">
             <div class="layout_news d-flex flex-wrap">
                 <div id="photos-news " class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12 d-flex flex-column justify-content-start">

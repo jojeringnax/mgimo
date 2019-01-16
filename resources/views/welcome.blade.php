@@ -29,7 +29,7 @@
             </div>
 
         </div>
-        <div class="container" style="">
+        <div class="container " style="">
             <div class="row d-flex flex-column justify-content-center">
                 <div class="banner">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSezXMVdZ__pKNosXVuey-RsX9EL6GiBXsH85H24FrvhTSlzOw/viewform" id="btn-participant">заявка на участие</a>
@@ -168,7 +168,7 @@
                 <div class="title-congratulations">
                     <span>Поздравления</span>
                 </div>
-                <div class="d-flex flex-wrap justify-content-between">
+                <div class="items-congr d-flex flex-wrap justify-content-between">
                     @foreach ($congratulations as $congratulation)
                     <div class="item-congratulations">
                         @if(!preg_match('/<iframe*/', $congratulation->content))
@@ -260,7 +260,7 @@
         </div>
     </div>
     <section id="media">
-        <div class="container">
+        <div class="container container-content">
             <div class="row" style="margin: 0; padding: 0">
                 <div class="content-media col-12">
                     <div class="title-media">Сми о юбилее МГИМО</div>
