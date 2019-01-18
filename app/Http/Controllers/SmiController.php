@@ -20,7 +20,7 @@ class SmiController extends Controller
             'smis' => Smi::all()
         ]);
     }
-    
+
     public function add_smis($offset)
     {
         return Smi::limit(12)->offset($offset)->toArray()->get();
