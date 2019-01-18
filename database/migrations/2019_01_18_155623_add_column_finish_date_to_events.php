@@ -14,6 +14,9 @@ class AddColumnFinishDateToEvents extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
+            $table->dropColumn('date');
+        });
+        Schema::table('events', function (Blueprint $table) {
             $table->date('date')->nullable();
             $table->date('finish_date')->nullable();
         });
