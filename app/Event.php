@@ -135,7 +135,7 @@ class Event extends Model
      */
     public function getDatesAsString()
     {
-        if ($this->finish_date === null) {
+        if ($this->finish_date === null || $this->finish_date === $this->date) {
             if ($this->date === null) {
                 return null;
             }
