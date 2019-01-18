@@ -52,7 +52,7 @@ class EventsController extends Controller
             $resultArray[] = [
                 'id' => $event->id,
                 'title' => $event->title,
-                'date' => $event->date,
+                'date' => $event->getDatesAsString(),
                 'link' => url('events/show', ['id' => $event->id]),
                 'location' => $event->location
             ];
