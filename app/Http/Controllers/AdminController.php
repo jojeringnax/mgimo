@@ -239,6 +239,7 @@ class AdminController extends Controller
             $event->title = $request->post('title');
             $event->content = $request->post('content');
             $event->date = $request->post('date');
+            $event->finish_date = $request->post('finish_date');
             $event->location = $request->post('location');
             $event->main = $main;
             $event->save();
@@ -300,6 +301,7 @@ class AdminController extends Controller
             $event = Event::find($eventId);
             $event->content = $request->post('content');
             $event->date = $request->post('date');
+            $event->finish_date = $request->post('finish_date');
             $event->title = $request->post('title');
             $event->location = $request->post('location');
             $event->main = $request->post('main') === null ? 0 : 1;

@@ -18,9 +18,15 @@
                     <input type="hidden" name="content" id="content-event"/>
                 </div>
                 <div class="item-form-event">
-                    {{ Form::label('date', 'Дата') }}
-                    {{ Form::text('date',  !isset($event) ? \Carbon\Carbon::now() : $event->date, ['class' => 'form-control datepicker', 'required' => 'required']) }}
+                    {{ Form::label('date', 'Дата начала') }}
+                    {{ Form::date('date',  !isset($event) ? \Carbon\Carbon::now() : $event->date, ['class' => 'form-control datepicker', 'required' => 'required']) }}
                 </div>
+
+                <div class="item-form-event">
+                    {{ Form::label('finish_date', 'Дата окончания') }}
+                    {{ Form::date('finish_date',  !isset($event) ? \Carbon\Carbon::now() : $event->finish_date, ['class' => 'form-control datepicker', 'required' => 'required']) }}
+                </div>
+
                 <div class="item-form-event">
                     {{ Form::label('tags', 'Тэги') }}
                     {{ Form::text('tags', !isset($event) ? '' : implode(',', $event->getTags()), ['class' => 'form-control', 'required' => 'required']) }}
@@ -30,7 +36,7 @@
                     {{ Form::text('location', !isset($event) ? '' : $event->location, ['class' => 'form-control', 'required' => 'required']) }}
                 </div>
                 <div class="item-form-event custom-control custom-checkbox">
-                    <input name="main" type="checkbox" class="custom-control-input" id="main">
+                    <input name="main" type="checkbox" class="custom-control-input" id="main" {{ $event->main ? 'checked' : ''}}>
                     <label class="custom-control-label" for="main">Активна</label>
                 </div>
                 <div class="input-group">

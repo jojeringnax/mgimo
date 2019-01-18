@@ -115,7 +115,7 @@
                                 <a href="{{url('events/show/'.$event->id)}}">
                                     <div class="item">
                                         <span class="title-item">{{ $event->title }}</span>
-                                        <span class="date-item"><i></i>{{$event->date}}</span>
+                                        <span class="date-item"><i></i>{{ $event->getDatesAsString() }}</span>
                                         <span class="location-item"><i></i>{{ $event->location }}</span>
                                     </div>
                                 </a>

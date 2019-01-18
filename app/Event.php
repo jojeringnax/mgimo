@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $title
  * @property string $content
  * @property string $date
+ * @property string $finish_date
  * @property boolean $main
  * @property string $location
  */
@@ -126,5 +127,39 @@ class Event extends Model
     public static function getMainFilePhotoModel()
     {
         return Photo::where('type', PhotoConnect::MAIN_PHOTO_EVENTS)->first();
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getDatesAsString()
+    {
+        if ($this->finish_date === null) {
+            if ($this->date === null) {
+                return null;
+            }
+            return date('d', strtotime($this->date)) . ' ' .
+                News::nameMonth[date('n', strtotime($this->date))] . ' ' .
+                date('Y', strtotime($this->date));
+        }
+        $startDate = \DateTime::createFromFormat('Y-m-d', $this->date);
+        $finishDate = \DateTime::createFromFormat('Y-m-d', $this->finish_date);
+        $isSameMonth = $startDate->format('m') === $finishDate->format('m');
+        $isSameYear = $startDate->format('Y') === $finishDate->format('Y');
+
+        return $isSameMonth ?
+            $startDate->format('d') . '-' .
+            $finishDate->format('d') . ' ' .
+            News::nameMonth[$finishDate->format('n')] . ' ' .
+            $finishDate->format('Y') :
+
+            $startDate->format('d') . ' ' .
+            News::nameMonth[$startDate->format('n')] . ' ' .
+            (!$isSameYear ? $startDate->format('Y') : '') . ' - ' .
+                $finishDate->format('d') . ' ' .
+                News::nameMonth[$finishDate->format('n')] . ' ' .
+                $finishDate->format('Y')
+            ;
     }
 }
