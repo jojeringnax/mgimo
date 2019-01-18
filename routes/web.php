@@ -120,6 +120,7 @@ Route::get('admin/gallery', function() {
 Route::post('admin/gallery/deletePhotos', 'PhotoController@deletePhotos');
 Route::get('news/add_news/{data}', 'NewsController@addNews');
 Route::get('events/add_events/{data}', 'EventsController@addEvents');
+Route::get('events/add_smis/{data}', 'SmiController@add_smis');
 
 
 Route::get('congratulations/add_congratulations/{data}', 'CongratulationController@addCongratulations');
