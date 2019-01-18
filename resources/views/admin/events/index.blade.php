@@ -33,7 +33,7 @@
                                 <td width="10%">{{ $event->title }}</td>
                                 <td width="10%">{{ $event->location }}</td>
                                 <td width="10%">{{ $event->date }}</td>
-                                <td width="10%">{{ $event->date }}</td>
+                                <td width="10%">{{ $event->finish_date }}</td>
                                 <td width="45%" style="word-wrap:break-word">{!!cut_html($event->content)!!}</td>
                                 <td width="5%">{{$event->main ? 'Активна' : 'Не активна'}}</td>
                                 <td width="5%" class="action">

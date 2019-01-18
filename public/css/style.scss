@@ -3,7 +3,7 @@ $linkColor: #e74237;
 $titleFont: "Playfair Display", Georgia, "Times New Roman", serif;
 $hoverLinkColor: #EB205E;
 $transition : 0.7s;
-$offsetSections: 50px;
+$offsetSections: 90px;
 
 @font-face {
     font-family: 'PlayfairDisplayRegular';
@@ -754,7 +754,7 @@ nav {
     }
 }
 .btn-media {
-    margin-top: 40px;
+    margin-top: $offsetSections;
     a {
         border: 1px solid $mainColor;
         height: 50px;
@@ -1203,7 +1203,7 @@ nav {
 }
 
 .btn-partners {
-    margin-top: 150px;
+    margin-top: 50px;
     margin-bottom: 0;
     margin-left: 0;
     border: 1px solid $mainColor;
@@ -2068,7 +2068,9 @@ nav {
             color: $mainColor;
             //text-decoration: underline;
             text-decoration-color: $mainColor;
-            border-bottom: 1.5px solid $mainColor;
+            //border-bottom: 1.5px solid $mainColor;
+            text-decoration: underline;
+            text-decoration-color: $mainColor;
         }
     }
 }

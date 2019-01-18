@@ -17,13 +17,14 @@ class SmiController extends Controller
     public function index()
     {
         return view('smis.index', [
-            'smis' => Smi::all()
+            'smis' => Smi::limit(12)->get(),
+            'smisNumber' => Smi::all()->count()
         ]);
     }
 
-    public function add_smis($offset)
+    public function add_smis($data)
     {
-        return Smi::limit(12)->offset($offset)->toArray()->get();
+        return Smi::limit(12)->offset($data)->get()->toArray();
     }
 
 }

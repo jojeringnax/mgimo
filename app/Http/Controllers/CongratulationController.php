@@ -16,7 +16,7 @@ class CongratulationController
 {
     public function index()
     {
-        return view('congratulations.index', ['congratulations' => Congratulation::getModerated()]);
+        return view('congratulations.index', ['congratulations' => Congratulation::getModerated(), 'congratulationsNumber' => Congratulation::all()->count()]);
     }
 
     public function addCongratulations($data, Request $request)

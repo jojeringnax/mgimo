@@ -70,9 +70,7 @@
                                         <div class="content-small-new">
                                             <div class="tag">
                                                 <i></i>
-                                                @foreach($article->getTags() as $tag)
-                                                    <span class="">{{ $tag }}</span>
-                                                @endforeach
+                                                <span class="">{{ $article->getTag() }}</span>
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
@@ -90,9 +88,7 @@
                                         <div class="content-small-new">
                                             <div class="tag">
                                                 <i></i>
-                                                @foreach($article->getTags() as $tag)
-                                                    <span class="">{{ $tag }}</span>
-                                                @endforeach
+                                                <span class="">{{ $article->getTag() }}</span>
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
@@ -111,9 +107,7 @@
                                         <div class="content-small-new">
                                             <div class="tag">
                                                 <i></i>
-                                                @foreach($article->getTags() as $tag)
-                                                    <span class="">{{ $tag }}</span>
-                                                @endforeach
+                                                <span class="">{{ $article->getTag() }}</span>
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">

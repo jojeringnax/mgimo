@@ -483,7 +483,7 @@ nav {
           margin-top: 2px; }
 
 #news-events {
-  margin-top: 50px; }
+  margin-top: 90px; }
 
 /*===================MEDIA===================*/
 #media {
@@ -590,7 +590,7 @@ nav {
         right: 15px; }
 
 .btn-media {
-  margin-top: 40px; }
+  margin-top: 90px; }
   .btn-media a {
     border: 1px solid #1A2F3F;
     height: 50px;
@@ -625,7 +625,7 @@ nav {
 .content-congratulations {
   padding: 0; }
   .content-congratulations .title-congratulations {
-    margin: 50px 0 50px 0; }
+    margin: 90px 0 90px 0; }
     .content-congratulations .title-congratulations span {
       font-size: 18px;
       text-transform: uppercase;
@@ -788,7 +788,7 @@ nav {
   background-color: #1A2F3F;
   opacity: 0.2;
   width: 100%;
-  margin-top: 50px; }
+  margin-top: 90px; }
 
 .active-item-tags-congratulations {
   background-color: #1A2F3F;
@@ -803,7 +803,7 @@ nav {
 .bg-gallery {
   width: 100%;
   background-color: #F5F5F5;
-  margin-top: 50px; }
+  margin-top: 90px; }
 
 .gallery-content {
   display: flex;
@@ -860,7 +860,7 @@ nav {
 
 .content-partners {
   position: relative;
-  margin-top: 50px; }
+  margin-top: 90px; }
   .content-partners .title-partners span {
     font-size: 18px;
     font-weight: 500 !important;
@@ -945,7 +945,7 @@ nav {
       box-shadow: 0 5px 15px rgba(0, 84, 185, 0.3); }
 
 .btn-partners {
-  margin-top: 150px;
+  margin-top: 50px;
   margin-bottom: 0;
   margin-left: 0;
   border: 1px solid #1A2F3F;
@@ -1229,7 +1229,7 @@ nav {
 
 /*===================MEDIA-PAGES===================*/
 .media-page {
-  margin-top: 50px;
+  margin-top: 90px;
   position: relative; }
   .media-page .title-media span {
     font-size: 18px;
@@ -1642,7 +1642,8 @@ nav {
     font-size: 16px;
     color: #1A2F3F;
     text-decoration-color: #1A2F3F;
-    border-bottom: 1.5px solid #1A2F3F; }
+    text-decoration: underline;
+    text-decoration-color: #1A2F3F; }
 
 .partners-page {
   width: 100%; }
@@ -1857,7 +1858,7 @@ p {
   margin-left: 10px; }
 
 #congratulations_wrapper {
-  margin-top: 50px; }
+  margin-top: 90px; }
   #congratulations_wrapper .item-congratulations {
     margin-top: 25px; }
 
@@ -2244,7 +2245,7 @@ footer {
   width: 140px;
   height: 26px;
   margin-left: 25px;
-  margin-top: 50px; }
+  margin-top: 90px; }
   .select-container #select-location {
     width: 100px;
     height: 26px;

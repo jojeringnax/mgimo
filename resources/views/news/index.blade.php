@@ -26,9 +26,7 @@
                                     <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
                                     <div class="card-body d-flex flex-column align-items-start">
                                         <span class="tags-news-page">
-                                         @foreach($article->getTags() as $tag)
-                                                <span class="tag"><i></i><span>{{ $tag }}</span></span>
-                                         @endforeach
+                                            <span class="tag"><i></i><span>{{ $article->getTag() }}</span></span>
                                         </span>
                                         <span class="title-card-news">{{ $article->title }}</span>
                                         <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
@@ -45,9 +43,7 @@
                                         <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
                                         <div class="card-body d-flex flex-column align-items-start">
                                             <span class="tags-news-page">
-                                                @foreach($article->getTags() as $tag)
-                                                    <span class="tag"><i></i><span>{{ $tag }}</span></span>
-                                                @endforeach
+                                                <span class="tag"><i></i><span>{{ $article->getTag() }}</span></span>
                                             </span>
                                             <span class="title-card-news">{{ $article->title }}</span>
                                             <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
@@ -67,9 +63,7 @@
                                         <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
                                         <div class="card-body d-flex flex-column align-items-start">
                                             <span class="tags-news-page">
-                                                @foreach($article->getTags() as $tag)
-                                                    <span class="tag"><i></i><span>{{ $tag }}</span></span>
-                                                @endforeach
+                                                <span class="tag"><i></i><span>{{ $article->getTag() }}</span></span>
                                             </span>
                                             <span class="title-card-news">{{ $article->title }}</span>
                                             <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
@@ -81,8 +75,8 @@
                     </div>
                 </div>
             </div>
-            @if(count($news) > 10)
-                <div class="container" style="margin-top:120px;">
+            @if($newsNumber > 10)
+                <div class="container" style="margin-top:20px;">
                     <div class="row d-flex justify-content-center">
                         <a id="btn-download-news-page" class="">Показать еще новости</a>
                     </div>
@@ -295,7 +289,7 @@
                         }
                         d.forEach(function (el) {
                             $('div[data-col=' + i + ']').append(
-                                '<a href="' + el.link + '" class="item-card-news card" style="display:block;width: 100%">' +
+                                '<a href="' + el.link + '" class="" style="display:block;width: 100%">' +
                                 '<div class="item-card-news card" style="width: 100%">' +
                                 '<img class="card-img-top" src="' + el.photo + '" alt="Card image cap">' +
                                 '<div class="card-body d-flex flex-column align-items-start">' +

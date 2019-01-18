@@ -56,4 +56,11 @@
 @endsection
 @section('script')
     <script src="{{asset('js/congratulation_form.js')}}"></script>
+    <script>
+        $(document).ready(function(){
+           $('#photo-main').change(function(){
+               $('#content').val('none');
+           })
+        });
+    </script>
 @endsection

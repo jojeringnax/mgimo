@@ -16,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('news.index', ['news' => News::getModerated()]);
+        return view('news.index', ['news' => News::getModerated(), 'newsNumber' => News::all()->count()]);
     }
 
     /**
@@ -47,7 +47,7 @@ class NewsController extends Controller
                 'content' => $article->content,
                 'photo' => $article->mainPhoto !== null ? $article->mainPhoto->path : url('img/no-image.png'),
                 'link' => url('news/show', ['id' => $article->id]),
-                'tag' => $article->getTags()[0]
+                'tag' => $article->getTag()
             ];
         }
         return isset($resultArray) ? json_encode($resultArray, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) : 0;
