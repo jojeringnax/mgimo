@@ -21,6 +21,7 @@ class EventsController extends Controller
     {
         return view('events.index', [
             'events' => Event::getModerated(),
+            'eventsNumber' => Event::all()->count(),
             'locations' => Event::getAllLocations()
         ]);
     }
