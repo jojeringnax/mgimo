@@ -32,11 +32,11 @@ class TagConnect extends Model
 
     /**
      * @param $id
-     * @return self[] | null
+     * @return Model
      */
     public static function article($id)
     {
-        return self::where('type', TagConnect::NEWS)->where('connect_id', $id)->get();
+        return self::where('type', TagConnect::NEWS)->where('connect_id', $id);
     }
 
     /**

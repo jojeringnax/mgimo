@@ -105,19 +105,10 @@ class News extends Model
      *
      * @return array
      */
-    public function getTags()
+    public function getTag()
     {
-        $resultArray = [];
-        $tagConnects = TagConnect::article($this->id);
-        if($tagConnects->isEmpty()) {return [];}
-        foreach($tagConnects as $tagConnect) {
-            $idsArray[] = $tagConnect->id;
-        }
-        $tags = Tag::whereIn('id', $idsArray)->get();
-        foreach($tags as $tag) {
-            $resultArray[] = $tag->word;
-        }
-        return $resultArray;
+        $connect = TagConnect::article($this->id)->first();
+        return $connect === null ? null : $connect->tag->word;
     }
 
 }

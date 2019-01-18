@@ -24,9 +24,7 @@
                         <tr class="text-center">
                             <td width="5%">{{ $element->id }}</td>
                             <td width="10%">
-                                @foreach($element->getTags() as $tag)
-                                    {{ $tag }}
-                                @endforeach
+                                {{ $element->getTag() }}
                             </td>
                             <td>{{$element->created_at}}</td>
                             <td width="20%">{{ $element->title }}</td>

@@ -175,12 +175,13 @@ class AdminController extends Controller
             }
             if ($tags = $request->post('tags')) {
                 $tags = preg_split('/,/', $tags);
-                if(!(($tagConnects = TagConnect::article($articleId))->isEmpty())) {
-                    foreach ($tagConnects as $tagConnect) {
-                        $tag = $tagConnect->tag;
-                        $tag->update(['count_news' => $tag->count_news - 1]);
-                        $tagConnect->delete();
-                    }
+                $tagConnectQuery = TagConnect::article($articleId);
+                $tagConnect = $tagConnectQuery->first();
+                if ($tagConnect !== null) {
+                    $tag = $tagConnect->tag;
+                    $tag->count_news += 1;
+                    $tag->save();
+                    $tagConnectQuery->delete();
                 };
                 foreach ($tags as $tag) {
                     $tagModel = Tag::where('word', $tag)->first();
@@ -205,7 +206,7 @@ class AdminController extends Controller
             $article = News::find($articleId);
             return view('admin.news.form', [
                 'article' => $article,
-                'tags' => $article->getTags(),
+                'tag' => $article->tag,
                 'photos' => $article->getPhotos()
             ]);
         };
