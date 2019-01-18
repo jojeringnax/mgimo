@@ -2668,11 +2668,6 @@ footer {
             position: absolute;
             top: 2px;
             left: 5px;
-            label {
-                &:before {
-                    //background-color: #303f9f;
-                }
-            }
         }
     }
 }
@@ -2756,7 +2751,7 @@ footer {
     }
     .title-partners-page {
         margin-bottom: 20px;
-        padding-left: 0 !important;
+        padding-left: 0;
         font-size: 16px;
         color: $mainColor;
         font-weight: 600 !important;
@@ -2801,7 +2796,6 @@ footer {
         }
     }
     .date-events {
-        font-size: 10px !important;
         align-items: center;
         padding-left: 25px !important;
         .icon-date-events {
@@ -2899,9 +2893,6 @@ footer {
         }
     }
 
-    .name-events {
-        font-size: 14px !important;
-    }
     .date-link {
         margin-bottom: 140px;
     }
@@ -2990,6 +2981,19 @@ select::-ms-expand {
 }
 
 @media screen and (max-width: 780px){
+    .logo {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        a {
+            margin-top: 30px !important;
+        }
+    }
+    .title-partners-page {
+        padding-left: 10px !important;
+    }
     .item-events {
         a {
             article {

@@ -2148,7 +2148,7 @@ footer {
     margin-top: 0; }
   .item-partners-page .title-partners-page {
     margin-bottom: 20px;
-    padding-left: 0 !important;
+    padding-left: 0;
     font-size: 16px;
     color: #1A2F3F;
     font-weight: 600 !important; }
@@ -2179,7 +2179,6 @@ footer {
     font-size: 12px; }
 
   .date-events {
-    font-size: 10px !important;
     align-items: center;
     padding-left: 25px !important; }
     .date-events .icon-date-events {
@@ -2231,9 +2230,6 @@ footer {
     font-size: 14px !important; }
   .item-media-news a .date-media-news {
     font-size: 12px !important; }
-
-  .name-events {
-    font-size: 14px !important; }
 
   .date-link {
     margin-bottom: 140px; }
@@ -2300,6 +2296,18 @@ select::-ms-expand {
   display: none; }
 
 @media screen and (max-width: 780px) {
+  .logo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; }
+    .logo a {
+      margin-top: 30px !important; }
+
+  .title-partners-page {
+    padding-left: 10px !important; }
+
   .item-events a article {
     margin-left: 0 !important; }
   .item-events a div .date-events {

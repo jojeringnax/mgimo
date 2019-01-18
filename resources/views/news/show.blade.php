@@ -5,7 +5,9 @@
 @section('color')
     background-color: white !important;
 @endsection
-
+@section('link')
+    <meta property="og:title" content="{{ $article->title }}" />
+@endsection
 @section('content')
     <div class="container" style="margin-top: 120px; padding-bottom: 100px !important">
         <div class="row">
@@ -24,7 +26,7 @@
                     <div class="title-news">
                         <h2>{{ $article->title }}</h2>
                     </div>
-                    <div class="text-news">
+                    <div class="text-news" style="word-wrap: break-word;">
                         {!! html_entity_decode($article->content) !!}
                     </div>
                     <div id="vk-share"></div>
