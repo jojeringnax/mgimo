@@ -59,6 +59,7 @@
                     <div class="title-news">
                         <span>НОВОСТИ</span>
                     </div>
+                    
                     @foreach($news as $article)
                         @if($loop->index == 0)
                             <div class="small-news">
