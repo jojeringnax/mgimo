@@ -14,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('books.index', ['books' => Book::limit(12)->get()]);
+        return view('books.index', ['books' => Book::limit(12)->get(), 'booksNumber' => Book::all()->count()]);
     }
 
     /**

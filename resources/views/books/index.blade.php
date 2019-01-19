@@ -35,7 +35,7 @@
                 </div>
             @endforeach
         </div>
-        @if(count($books) > 12)
+        @if($booksNumber > 12)
             <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
                 <a id="btn-download-books-page" href="">ПОКАЗАТЬ ЕЩЕ КНИГИ</a>
             </div>

@@ -29,7 +29,7 @@
             </div>
 
         </div>
-        <div class="container " style="">
+        <div class="container button-logo" style="">
             <div class="row d-flex flex-column justify-content-center">
                 <div class="banner">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSezXMVdZ__pKNosXVuey-RsX9EL6GiBXsH85H24FrvhTSlzOw/viewform" id="btn-participant">заявка на участие</a>
@@ -55,10 +55,11 @@
     <div class="container" id="news-events">
         <div class="row">
             <div class="contents d-flex flex-wrap">
-                <div class="item-contents news col-xl-8 col-lg-8 col-md-8 col-12">
+                <div class="item-contents news col-xl-8 col-lg-8 col-md-12 col-12">
                     <div class="title-news">
                         <span>НОВОСТИ</span>
                     </div>
+                    
                     @foreach($news as $article)
                         @if($loop->index == 0)
                             <div class="small-news">
@@ -70,9 +71,7 @@
                                         <div class="content-small-new">
                                             <div class="tag">
                                                 <i></i>
-                                                @foreach($article->getTags() as $tag)
-                                                    <span class="">{{ $tag }}</span>
-                                                @endforeach
+                                                <span class="">{{ $article->getTag() }}</span>
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
@@ -90,9 +89,7 @@
                                         <div class="content-small-new">
                                             <div class="tag">
                                                 <i></i>
-                                                @foreach($article->getTags() as $tag)
-                                                    <span class="">{{ $tag }}</span>
-                                                @endforeach
+                                                <span class="">{{ $article->getTag() }}</span>
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
@@ -111,9 +108,7 @@
                                         <div class="content-small-new">
                                             <div class="tag">
                                                 <i></i>
-                                                @foreach($article->getTags() as $tag)
-                                                    <span class="">{{ $tag }}</span>
-                                                @endforeach
+                                                <span class="">{{ $article->getTag() }}</span>
                                             </div>
                                             {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
                                             <div class="date-link d-flex justify-content-between" style="width: 100%">
@@ -129,13 +124,13 @@
                         <a href={{url('news')}}>Смотреть все новости <span></span></a>
                     </div>
                 </div>
-                <div class="item-contents events col-xl-4 col-lg-4 col-md-4 d-flex flex-column">
+                <div class="item-contents events col-xl-4 col-lg-4 col-md-12 d-flex flex-column">
                     <div class="title-events">
                         <span>БЛИЖАЙШИЕ МЕРОПРИЯТИЯ </span>
                     </div>
                     <div class="bg-events">
                         @foreach($events as $event)
-                            <div class="item-events">
+                            <div class="item-events col-lg-12 col-md-6 col-sm-6 col-12">
                                 <a href="{{url('events/show/'.$event->id)}}">
                                     <article>
                                         <span class="name-events">{{ $event->title }}</span>
@@ -266,7 +261,7 @@
                     <div class="title-media">Сми о юбилее МГИМО</div>
                     <div class="media-news col-12 d-flex fle-wrap justify-content-between">
                         @foreach($smis as $smi)
-                            <div data-smis="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 item-media-news d-flex">
+                            <div data-smis="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 item-media-news d-flex">
                                 <a href="{{ $smi->link }}" target="_blank">
                                     <span class="source-media-news">{{ $smi->link_view }}</span>
                                     <span class="title-media-news">{{ $smi->title }}</span>

@@ -127,7 +127,7 @@
                     @endforeach
                 </div>
             </div>
-            @if(count($events) > 12)
+            @if($eventsNumber > 12)
                 <div class="d-flex justify-content-center" style="width: 100%; margin-top: 60px;"><a id="btn-download-event-page" href="" class="">Показать еще мероприятия</a></div>
             @endif
         </div>
@@ -225,7 +225,7 @@
                                     '<span class="location-item"><i></i>' + el.location + '</span>' +
                                     '</div>' +
                                     '</a>';
-                                if (i % 3 !== 2) {
+                                if (i % 3 !== 2 && i !== d.length-1) {
                                     text += '<hr>';
                                 }
                                 text += '</div></div>';

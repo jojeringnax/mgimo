@@ -41,7 +41,7 @@
                         </div>
                     @endforeach
                 </div>
-                @if(count($congratulations) > 4)
+                @if($congratulationsNumber > 4)
                     <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
                         <a id="btn-download-congratulations-page" href="">ПОКАЗАТЬ ЕЩЕ ПОЗДРАВЛЕНИЯ</a>
                     </div>

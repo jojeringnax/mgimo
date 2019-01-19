@@ -18,71 +18,68 @@
                         <a  data-toggle="modal" data-target="#modalRegisterForm" class="btn-news-page-sub"><span></span>Подписаться на новости</a>
                     </div>
                 </div>
-                <div class="news d-flex flex-wrap justify-content-start">
-                    <div data-col="1" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
-                        @foreach($news as $article)
-                            @if($loop->index%3 == 0 )
-                                <a href="{{ url('news/show', ['id' => $article->id]) }}" class="item-card-news card" style="display:block;width: 100%">
-                                    <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
-                                    <div class="card-body d-flex flex-column align-items-start">
+                <div id="wrapper_news">
+                    <div class="news d-flex flex-wrap justify-content-start">
+                        <div data-col="1" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
+                            @foreach($news as $article)
+                                @if($loop->index%3 == 0 )
+                                    <a href="{{ url('news/show', ['id' => $article->id]) }}" class="item-card-news card" style="display:block;width: 100%">
+                                        <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
+                                        <div class="card-body d-flex flex-column align-items-start">
                                         <span class="tags-news-page">
-                                         @foreach($article->getTags() as $tag)
-                                                <span class="tag"><i></i><span>{{ $tag }}</span></span>
-                                         @endforeach
+                                            <span class="tag"><i></i><span>{{ $article->getTag() }}</span></span>
                                         </span>
-                                        <span class="title-card-news">{{ $article->title }}</span>
-                                        <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
-                                    </div>
-                                </a>
-                            @endif
-                        @endforeach
-                    </div>
-                    <div data-col="2" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
-                        @foreach($news as $article)
-                            @if($loop->index%3 == 1 )
-                                <a href={{url('news/show/'.$article->id)}}>
-                                    <div class="item-card-news card" style="width: 100%">
-                                        <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
-                                        <div class="card-body d-flex flex-column align-items-start">
-                                            <span class="tags-news-page">
-                                                @foreach($article->getTags() as $tag)
-                                                    <span class="tag"><i></i><span>{{ $tag }}</span></span>
-                                                @endforeach
-                                            </span>
-                                            <span class="title-card-news">{{ $article->title }}</span>
-                                            <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
-                                            {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
-                                        </div>
-                                        {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
-                                    </div>
-                                </a>
-                            @endif
-                        @endforeach
-                    </div>
-                    <div data-col="3" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
-                        @foreach($news as $article)
-                            @if($loop->index%3 == 2 )
-                                <a href={{url('news/show/'.$article->id)}}>
-                                    <div class="item-card-news card" style="width: 100%">
-                                        <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
-                                        <div class="card-body d-flex flex-column align-items-start">
-                                            <span class="tags-news-page">
-                                                @foreach($article->getTags() as $tag)
-                                                    <span class="tag"><i></i><span>{{ $tag }}</span></span>
-                                                @endforeach
-                                            </span>
                                             <span class="title-card-news">{{ $article->title }}</span>
                                             <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
                                         </div>
-                                    </div>
-                                </a>
-                            @endif
-                        @endforeach
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                        <div data-col="2" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
+                            @foreach($news as $article)
+                                @if($loop->index%3 == 1 )
+                                    <a href={{url('news/show/'.$article->id)}}>
+                                        <div class="item-card-news card" style="width: 100%">
+                                            <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                            <span class="tags-news-page">
+                                                <span class="tag"><i></i><span>{{ $article->getTag() }}</span></span>
+                                            </span>
+                                                <span class="title-card-news">{{ $article->title }}</span>
+                                                <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                                {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
+                                            </div>
+                                            {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
+                                        </div>
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                        <div data-col="3" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
+                            @foreach($news as $article)
+                                @if($loop->index%3 == 2 )
+                                    <a href={{url('news/show/'.$article->id)}}>
+                                        <div class="item-card-news card" style="width: 100%">
+                                            <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                            <span class="tags-news-page">
+                                                <span class="tag"><i></i><span>{{ $article->getTag() }}</span></span>
+                                            </span>
+                                                <span class="title-card-news">{{ $article->title }}</span>
+                                                <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
                 </div>
+
             </div>
-            @if(count($news) > 10)
-                <div class="container" style="margin-top:120px;">
+            @if($newsNumber > 10)
+                <div class="container" style="margin-top:20px;">
                     <div class="row d-flex justify-content-center">
                         <a id="btn-download-news-page" class="">Показать еще новости</a>
                     </div>
@@ -284,6 +281,9 @@
             $('#btn-download-news-page').click(function (e) {
                 e.preventDefault();
                 let data = $('.item-card-news').length;
+                let oldHeightWrapper = $('.news').outerHeight() + $('#btn-download-news-page').outerHeight();
+                let newHeightWrapper = 0;
+                console.log()
                 $.ajax({
                     url: "{{ url('news/add_news') }}/" + data,
                     dataType: 'json',
@@ -293,10 +293,11 @@
                         if (d === 0) {
                             return false;
                         }
+                        $('#wrapper_news').css({"height":oldHeightWrapper, "overflow":"hidden"});
                         d.forEach(function (el) {
                             $('div[data-col=' + i + ']').append(
-                                '<a href="' + el.link + '" class="item-card-news card" style="display:block;width: 100%">' +
-                                '<div class="item-card-news card" style="width: 100%">' +
+                                '<a class="item-card-news card" href="' + el.link + '" class="" style="display:block;width: 100%; opacity:0">' +
+                                '<div  style="width: 100%">' +
                                 '<img class="card-img-top" src="' + el.photo + '" alt="Card image cap">' +
                                 '<div class="card-body d-flex flex-column align-items-start">' +
                                 '<span class="tags-news-page"><span class="tag"><i></i><span>' + el.tag + '</span></span></span>' +
@@ -308,6 +309,22 @@
                             );
                             i++;
                         });
+                        newHeightWrapper = $('.news').height();
+                        console.log(oldHeightWrapper, newHeightWrapper)
+                        $('.item-card-news').animate({opacity:'1'},500);
+                        $("#wrapper_news").stop().animate({height:newHeightWrapper},600);
+                        data = $('.item-card-news').length;
+                        $.ajax({
+                            url: "{{ url('news/add_news') }}/" + data,
+                            type: 'get',
+                            success: function (d) {
+
+                                if (d == 0) {
+                                    console.log('sss', d);
+                                    $('#btn-download-news-page').css({'opacity': "0.3"});
+                                }
+                            }
+                        })
                     }
                 });
             });

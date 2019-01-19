@@ -27,7 +27,7 @@
                     <!-- Вывод, если новостей нет --><div>Нет новостей</div>
                 @endif
             </div>
-            @if(count($smis) > 12)
+            @if($smisNumber > 12)
                 <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
                     <a id="btn-download-smis-page" href="">ПОКАЗАТЬ ЕЩЕ СМИ О НАС</a>
                 </div>
@@ -41,11 +41,34 @@
             $('#btn-download-smis-page').click( function(e) {
                 e.preventDefault();
                 let data = $('.item-media-news').length;
+                let text = '';
                 $.ajax({
-                    url: "add_smis",
+                    url: "{{url('add_smis')}}/" + data,
                     dataType: 'json',
-                    data: data,
-                    type: 'POST'
+                    data: {data:data},
+                    type: 'get',
+                    success: function (response) {
+                        let i = 1;
+                        response.forEach(function(el, ) {
+                            text +=
+                                '<div data-index="'+el.index+'" class="col-xl-3 col-lg-3 col-md-4  col-sm-6 col-12 item-media-news d-flex">' +
+                                '<a href="'+el.link+'" target="_blank">' +
+                                '<span class="source-media-news">'+el.link_view+'</span>' +
+                                '<span class="title-media-news">'+el.title+'</span>' +
+                                '<span class="date-media-news">{{ implode(' ', [date('d', strtotime($smi->created_at)), \App\News::nameMonth[date('n', strtotime($smi->created_at))], date('Y', strtotime($smi->created_at))]) }}</span>' +
+                                '</a>';
+                            if (i % 4 !== 0 && i !== response.length) {
+                                text += '<hr>'+ '</div>';
+                            }else {
+                                text +='</div>';
+                            }
+                            i++
+                        });
+                        $('.media-page-content').append(text);
+                    },
+                    error: function (response) {
+                        console.log(response)
+                    }
                 });
             });
         });

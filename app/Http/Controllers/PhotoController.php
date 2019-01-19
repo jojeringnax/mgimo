@@ -19,7 +19,8 @@ class PhotoController extends Controller
     public function index()
     {
         return view('gallery.index', [
-            'albums' => Album::limit(4)->get()
+            'albums' => Album::limit(4)->get(),
+            'albumsNumber' => Album::all()->count()
         ]);
     }
 
