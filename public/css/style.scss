@@ -197,13 +197,11 @@ nav {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     background-size: 100%;
     background-position: center bottom;
     background-repeat: no-repeat;
     background-image: url("../img/banner_new.svg");
-    background-position: center bottom;
-
 }
 
 .hr-contacts {
@@ -2809,6 +2807,26 @@ footer {
 }
 
 @media screen and (max-width: 1000px){
+    .contents {
+        .buttons-news {
+            a {
+                width: 250px !important;
+                text-align: center;
+            }
+        }
+    }
+    .contents {
+        .events {
+            padding-left: 0 !important;
+            .item-events {
+                article {
+                    .name-events {
+                        font-size: 12px !important;
+                    }
+                }
+            }
+        }
+    }
     .link-book-pay-pages {
         height: 55px !important;
     }
@@ -2900,7 +2918,12 @@ footer {
     }
     .contents {
         .events {
+            .bg-events {
+                display: flex;
+                flex-wrap: wrap;
+            }
             //margin: 40px 0 0 0 !important;
+
         }
     }
     .contents {
@@ -3080,12 +3103,13 @@ select::-ms-expand {
         display: block !important;
     }
     .time {
-        height: 100%;
+        height: 43vh;
     }
     #btn-participant {
         margin-top:  0 !important;
-        width: 240px;
-        font-size: 12px;
+        width: 180px;
+        font-size: 10px;
+        height: 35px;
     }
 
     .logo-main-page {
@@ -3095,11 +3119,11 @@ select::-ms-expand {
             flex-basis: 40%;
             text-align: center;
             img {
-                margin-top: 30px;
+                margin-top: 20px;
                 margin-right: 15px !important;
                 height: 5vh !important;
                 &#mgimo {
-                    margin-top: 30px;
+                    margin-top: 20px;
                     height: 9vh !important;
                     margin-right: 0 !important;
                 }
@@ -3209,35 +3233,54 @@ select::-ms-expand {
     .banner-header {
         background-image: url("../img/banner-mobile.svg");
     }
+    .button-logo {
+        margin-top: 0 !important;
+    }
     .time {
         margin-top: 0;
         .logo {
-            margin-top: 20px;
+            margin-top: 60px;
             margin-bottom: 20px;
             justify-content: center;
             height: 13vh !important;
+            img {
+                height: 100%;
+            }
             hr {
                 display: none;
             }
         }
 
         .timerr {
-            margin-top: 20px;
+            .title-timer {
+                font-size: 12px;
+            }
+            margin-top: -10px !important;
             .timer-lay {
                 margin-left: 0 !important;
                 .timer {
-                    font-size: 7vh !important;
+                    font-size: 5vh !important;
                     padding-left: 10px !important;
+                    div {
+                        font-size: 15vh !important;
+                    }
+                    .sm-colon {
+                        display: flex;
+                        align-items: center;
+                        margin-right: 5px;
+                        span.colon {
+                            font-size: 5vh !important;
+                            margin-top: -10px;
+                        }
+                    }
                     .item-timer {
-                        font-size: 7vh !important;
+                        font-size: 5vh !important;
+                        margin-right: 5px !important;
                         .num {
-                            font-size: 7vh !important;
+                            font-size: 5vh !important;
                         }
                         .point {
                             font-size: 12px;
-                        }
-                        .sm-colon {
-                            font-size: 7vh !important;
                         }
                     }
                 }
@@ -3356,7 +3399,8 @@ select::-ms-expand {
         }
     }
     .banner {
-        height: 250px;
+        height: 100%;
+
     }
     .footers {
         align-items: center !important;
@@ -3396,9 +3440,6 @@ select::-ms-expand {
                 margin: 0 !important;
             }
         }
-    }
-    .container {
-        margin-top: 40px !important;
     }
 
     footer {
