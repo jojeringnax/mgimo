@@ -3237,6 +3237,9 @@ select::-ms-expand {
         margin-top: 0 !important;
     }
     .time {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         margin-top: 0;
         .logo {
             margin-top: 60px;
