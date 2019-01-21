@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    <div class="container" style="margin-top: 100px; padding-bottom: 100px !important;">
+    <div class="container container-content" style="margin-top: 100px; padding-bottom: 100px">
         <div class="row">
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex flex-row align-items-center">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
-                        <a id="link_tashkent" href="" style="top: 29%; left: 6px; position: absolute">Подробнее</a>
+                        <a id="link_tashkent" href="alumniforum.mgimo.ru" style="top: 29%; left: 6px; position: absolute">Подробнее</a>
                     </div>
                     <div class="mob-event">
                         <div class="item-event-mob">
@@ -27,7 +27,7 @@
                             <div class="data">
                                 <div class="date">12 – 14 апреля 2019 г.</div>
                                 <div class="text">Международный форум выпускников МГИМО в Ташкенте</div>
-                                <a class="link">Подробнее</a>
+                                <a href="alumniforum.mgimo.ru" class="link">Подробнее</a>
                             </div>
                         </div>
                         <div class="item-event-mob">
@@ -100,7 +100,7 @@
                 <div id="events_wrapper" class="content-event-page d-flex flex-wrap">
                     @foreach($events as $event)
                         <div class="d-flex col-xl-4 col-lg-4 col-ms-4 col-sm-6 col-12" style="padding: 10px;">
-                            <div class="items-event-page d-flex flex-wrap flex-column justify-content-around col-xl-12">
+                            <div class="items-event-page d-flex flex-wrap flex-column justify-content-around col-12">
                                 <a href="{{url('events/show/'.$event->id)}}">
                                     <div class="item">
                                         <span class="title-item">{{ $event->title }}</span>

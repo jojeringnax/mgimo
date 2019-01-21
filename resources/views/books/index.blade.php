@@ -9,7 +9,7 @@
     background-color: white !important;
 @endsection
 @section('content')
-    <div class="container" style="margin-top: 130px; padding-bottom: 100px !important">
+    <div class="container container-content" style="margin-top: 130px; padding-bottom: 100px">
         <div class="row" id="books_wrapper">
             <div class="links-books d-flex justify-content-between col-12 flex-wrap">
                 <a target="_blank" href="https://mgimo.ru/library/scientific-library/">Научная библиотека</a>
@@ -19,7 +19,7 @@
                 <a target="_blank" href="https://mgimo.ru/library/publications/">Публикации издательства и преподавателей</a>
             </div>
             @foreach($books as $book)
-                <div class="col-xl-3 item-book-page">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 item-book-page">
                     <div class="card-book" style="width: 100%">
                         <a href="{{url('books/show/'.$book->id)}}">
                             <div class="card-head d-flex flex-column justify-content-start align-items-center" style="min-height: 200px">
