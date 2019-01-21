@@ -81,7 +81,7 @@
             @if($newsNumber > 10)
                 <div class="container" style="margin-top:20px;">
                     <div class="row d-flex justify-content-center">
-                        <a id="btn-download-news-page" class="">Показать еще новости</a>
+                        <a id="btn-download-news-page" class="btn-download-news-page">Показать еще новости</a>
                     </div>
                 </div>
             @endif
@@ -312,7 +312,7 @@
                         newHeightWrapper = $('.news').height();
                         console.log(oldHeightWrapper, newHeightWrapper)
                         $('.item-card-news').animate({opacity:'1'},500);
-                        $("#wrapper_news").stop().animate({height:newHeightWrapper},600);
+                        $("#wrapper_news").stop().animate({height:newHeightWrapper+100},600);
                         data = $('.item-card-news').length;
                         $.ajax({
                             url: "{{ url('news/add_news') }}/" + data,
@@ -321,7 +321,8 @@
 
                                 if (d == 0) {
                                     console.log('sss', d);
-                                    $('#btn-download-news-page').css({'opacity': "0.3"});
+                                    $('#btn-download-news-page').css({'opacity': "0.3", "hover": ""});
+                                    $('#btn-download-news-page').removeAttr('id');
                                 }
                             }
                         })

@@ -19,82 +19,71 @@
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
-
+                        <a id="link_tashkent" href="" style="top: 29%; left: 6px; position: absolute">Подробнее</a>
                     </div>
-                    <div class="d-flex" style="margin-top: 56px;">
-                        <div class="col-xl-4 item-banner-event-page">
-                            <div class="title-event-page-banner">
-                                <span class="icon-event-page"></span>
-                                <span>Март 2019 г.</span>
-                            </div>
-                            <div class="content">
-                                Универсиада МГИМО.
-                                «Спортивные
-                                поколения»
+                    <div class="mob-event">
+                        <div class="item-event-mob">
+                            <div class="palka"></div>
+                            <div class="data">
+                                <div class="date">12 – 14 апреля 2019 г.</div>
+                                <div class="text">Международный форум выпускников МГИМО в Ташкенте</div>
+                                <a class="link">Подробнее</a>
                             </div>
                         </div>
-                        <div class="col-xl-4 item-banner-event-page">
-                            <div class="title-event-page-banner">
-                                <span class="icon-event-page"></span>
-                                <span style="width: 50%">12 – 14 апреля 2019 г.</span>
-                            </div>
-                            <div class="content">
-                                Международный форум
-                                выпускников МГИМО
-                                в Ташкенте
+                        <div class="item-event-mob">
+                            <div class="palka"></div>
+                            <div class="data">
+                                <div class="date">18 – 19 мая 2019 г.</div>
+                                <div class="text">Универсиада МГИМО. «Спортивные поколения» </div>
+                                {{--<div class="link">Подробнее</div>--}}
                             </div>
                         </div>
-                        <div class="col-xl-4 item-banner-event-page">
-                            <div class="title-event-page-banner">
-                                <span class="icon-event-page"></span>
-                                <span style="width: 35%; padding-left: 10px;">24 мая 2019 г.</span>
-                            </div>
-                            <div class="content">
-                                Кубок Ректора МГИМО
-                                по гольфу к 75-летию
-                                МГИМО
+                        <div class="item-event-mob">
+                            <div class="palka"></div>
+                            <div class="data">
+                                <div class="date">24 мая 2019 г.</div>
+                                <div class="text">Кубок Ректора МГИМО по гольфу к 75-летию МГИМО</div>
+                                {{--<div class="link">Подробнее</div>--}}
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex">
-                        <div class="col-xl-6 item-banner-event-page">
-                            <div class="title-event-page-banner">
-                                <span class="icon-event-page"></span>
-                                <span>Октябрь 2019 г.</span>
-                            </div>
-                            <div class="content">
-                                XII Конвент РАМИ<br>
-                                «Мир регионов VS.<br> Регионы мира»
+                        <div class="item-event-mob">
+                            <div class="palka"></div>
+                            <div class="data">
+                                <div class="date">18 – 19 мая 2019 г.</div>
+                                <div class="text">Универсиада МГИМО. «Спортивные поколения» </div>
+                                {{--<div class="link">Подробнее</div>--}}
                             </div>
                         </div>
-                        <div class="col-xl-6 five item-banner-event-page">
-                            <div class="title-event-page-banner">
-                                <span class="icon-event-page"></span>
-                                <span>Октябрь 2019 г.</span>
-                            </div>
-                            <div class="content">
-                                «Возвращаемся к Крымскому мосту». Молодежный вечер МГИМО в Парке Горького и Фестиваль живой музыки в Зеленом театре Парка
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex">
-                        <div class="col-xl-5 last item-banner-event-page">
-                            <div class="title-event-page-banner">
-                                <span class="icon-event-page"></span>
-                                <span>Октябрь 2019 г.</span>
-                            </div>
-                            <div class="content">
-                                Арт-выставка выпускников МГИМО. «О МГИМО и о Москве»
+                        <div class="item-event-mob">
+                            <div class="palka"></div>
+                            <div class="data">
+                                <div class="date">Июнь 2019 г.</div>
+                                <div class="text">«Возвращаемся к Крымскому мосту». Молодежный вечер МГИМО в Парке Горького и Фестиваль живой музыки в Зеленом театре Парка</div>
+                                {{--<div class="link">Подробнее</div>--}}
                             </div>
                         </div>
-                        <div class="col-xl-5 last item-banner-event-page">
-                            <div class="title-event-page-banner">
-                                <span class="icon-event-page"></span>
-                                <span>Октябрь 2019 г.</span>
+                        <div class="item-event-mob">
+                            <div class="palka"></div>
+                            <div class="data">
+                                <div class="date">Октябрь 2019 г.</div>
+                                <div class="text">XII Конвент РАМИ  «Мир регионов VS. Регионы мира»</div>
+                                {{--<div class="link">Подробнее</div>--}}
                             </div>
-                            <div class="content">
-                                Торжественный вечер
-                                в Большом театре
+                        </div>
+                        <div class="item-event-mob">
+                            <div class="palka"></div>
+                            <div class="data">
+                                <div class="date">Октябрь 2019 г.</div>
+                                <div class="text">Арт-выставка выпускников МГИМО. «О МГИМО и о Москве»</div>
+                                {{--<div class="link">Подробнее</div>--}}
+                            </div>
+                        </div>
+                        <div class="item-event-mob">
+                            <div class="palka last"></div>
+                            <div class="data">
+                                <div class="date">15 октября 2019 г..</div>
+                                <div class="text">Торжественный юбилейный вечер</div>
+                                {{--<div class="link">Подробнее</div>--}}
                             </div>
                         </div>
                     </div>
@@ -120,7 +109,9 @@
                                     </div>
                                 </a>
                                 @if($loop->index%3 !== 2)
-                                    <hr>
+                                    <hr >
+                                @else
+                                    <hr class="event-page-none-hr">
                                 @endif
                             </div>
                         </div>
