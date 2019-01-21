@@ -197,7 +197,7 @@ nav {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 130vh;
+    min-height: 100vh;
     background-size: 100%;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -1427,7 +1427,7 @@ nav {
         bottom: -50px;
     }
 }
-#btn-download-news-page {
+.btn-download-news-page {
     display: flex;
     align-items: center;
     text-align: center;
@@ -1445,6 +1445,8 @@ nav {
     -ms-transition: $transition;
     -o-transition: $transition;
     transition: $transition;
+}
+a#btn-download-news-page{
     &:hover {
         background-color: $mainColor;
         color: white;
@@ -1687,13 +1689,13 @@ nav {
             width: 90%;
             height: 80%;
             background-repeat: no-repeat;
-            background-image: url("../img/py.svg");
-            background-size: 98%;
+            background-image: url("../img/event_des.svg");
+            background-size: 100%;
             background-position: center;
         }
         margin-top: 0;
         padding: 50px;
-        height: 680px !important;
+        min-height: 680px;
         .item-banner-event-page {
             min-height: 170px;
         }
@@ -1917,6 +1919,8 @@ nav {
         }
     }
 }
+
+
 .filter {
     margin-left: 0 !important;
 }
@@ -2787,6 +2791,12 @@ footer {
 }
 
 @media screen and(max-width: 1200px){
+    .navbar-collapse {
+        .container {
+            margin: 0 !important;
+            max-width: 100%;
+        }
+    }
     .contents {
         .buttons-news {
             a {
@@ -2802,6 +2812,109 @@ footer {
             margin-top: 0 !important;
         }
 
+    }
+
+    #link_tashkent {
+        top: 32% !important;
+    }
+
+}
+
+@media screen and(max-width: 970px){
+    #link_tashkent {
+        top: 37% !important;
+        font-size: 14px !important;
+    }
+}
+
+.layout-banner-event-page {
+    display: block;
+}
+
+.item-event-mob {
+    display: none;
+}
+@media screen and(max-width: 768px){
+    .layout-banner-event-page {
+        display: none;
+    }
+    .item-event-mob {
+        display: block;
+        position: relative;
+        .palka {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            background-image: url("../img/palka.png");
+            width: 17px;
+            background-size: 100%;
+        }
+        .palka.last {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            background-image: url("../img/krug.svg");
+            width: 17px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+        .data {
+            margin-left: 30px;
+            padding-bottom: 20px;
+            .date {
+                color: #0054B9;
+                font-size: 14px;
+            }
+            .text {
+                color: #1a2f3f;
+                font-family: $titleFont;
+                font-size: 22px;
+                font-weight: bold;
+
+            }
+            a {
+                font-size: 16px;
+                color: #0054B9 !important;
+                margin-top: 10px;
+                display: block;
+            }
+        }
+
+    }
+    //#link_tashkent {
+    //    top: 9% !important;
+    //    font-size: 16px !important;
+    //    left: 90px !important;
+    //}
+    //.layout-banner-event-page {
+    //    background-image: url("../img/event_mob.svg") !important;
+    //    background-size: 100% !important;
+    //    height: 100% !important;
+    //    background-position: top center !important;
+    //    width: 100% !important;
+    //}
+    //
+    .event-page {
+        .banner-event-page {
+            padding: 0 !important;
+            min-heiht: 1200px !important;
+            margin-top: 50px !important;
+
+        }
+    }
+
+    .title-event-page {
+        justify-content: center;
+        a {
+            margin-left: 0 !important;
+        }
+    }
+    span.location-item {
+        margin-top: 7px !important;
+        i {
+            background-size: 100%;
+            background-position: center center;
+        }
     }
 
 }
@@ -3087,8 +3200,26 @@ select::-ms-expand {
     }
 }
 
-@media screen and (max-width: 600px){
+.event-page-none-hr {
+    display: none;
+}
 
+.logo-main-page {
+    a {
+        img {
+            height: 7vh;
+            &#mgimo {
+                height: 9vh;
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .banner-header {
+        height: 130vh;
+    }
     .item-card-news {
         margin-left: 0 !important;
     }
@@ -3121,10 +3252,10 @@ select::-ms-expand {
             img {
                 margin-top: 35px;
                 margin-right: 15px !important;
-                height: 6vh !important;
+                height: 6vh;
                 &#mgimo {
                     margin-top: 35px;
-                    height: 12vh !important;
+                    height: 12vh;
                     margin-right: 0 !important;
                 }
 
@@ -3170,7 +3301,20 @@ select::-ms-expand {
                 hr {
                     width: 100%;
                     height: 1px;
-                    bottom: -5px;
+                    bottom: -20px;
+                }
+                .event-page-none-hr {
+                    width: 100%;
+                    height: 1px;
+                    bottom: -20px;
+                    display: block;
+                }
+                a {
+                    .item {
+                        .title-item {
+                            font-size: 16px;
+                        }
+                    }
                 }
             }
         }
@@ -3257,29 +3401,29 @@ select::-ms-expand {
             .title-timer {
                 font-size: 16px;
             }
-            margin-top: -10px !important;
+            margin-top: -10px;
             .timer-lay {
-                margin-left: 0 !important;
+                margin-left: 0;
                 .timer {
-                    font-size: 8vh !important;
-                    padding-left: 10px !important;
+                    font-size: 8vh;
+                    padding-left: 10px;
                     div {
-                        font-size: 15vh !important;
+                        font-size: 15vh;
                     }
                     .sm-colon {
                         display: flex;
                         align-items: center;
                         margin-right: 8px;
                         span.colon {
-                            font-size: 8vh !important;
+                            font-size: 8vh;
                             margin-top: -10px;
                         }
                     }
                     .item-timer {
-                        font-size: 8vh !important;
-                        margin-right: 8px !important;
+                        font-size: 8vh;
+                        margin-right: 8px;
                         .num {
-                            font-size: 8vh !important;
+                            font-size: 8vh;
                         }
                         .point {
                             font-size: 16px;
@@ -3455,7 +3599,83 @@ select::-ms-expand {
     .gallery-content {
         padding: 100px 0 100px 0 ;
     }
+    .item-media-news {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+    .btn-download-news-page {
+        width: 300px;
+    }
 
+}
+
+@media screen and (max-width: 420px){
+    #btn-download-event-page {
+        width: 290px;
+    }
+    .btn-media a {
+        margin: 0 auto;
+        width: 280px;
+        font-size: 13px
+    }
+
+    .logo-main-page {
+        flex-direction: column;
+        a {
+            img {
+                height: 5vh !important;
+                &#mgimo {
+                    height: 9vh !important;
+                }
+            }
+        }
+    }
+
+    .timerr {
+        .title-timer {
+            font-size: 12px !important;
+        }
+        margin-top: -10px !important;
+
+        .logo {
+
+            height: 17vh !important;
+        }
+        .timer-lay {
+            margin-left: 0 !important;
+            .timer {
+                font-size: 5vh !important;
+                padding-left: 10px !important;
+                div {
+                    font-size: 12vh !important;
+                }
+                .sm-colon {
+                    display: flex;
+                    align-items: center;
+                    margin-right: 5px;
+                    span.colon {
+                        font-size: 5vh !important;
+                        margin-top: -10px;
+                    }
+                }
+                .item-timer {
+                    font-size: 5vh !important;
+                    margin-right: 5px !important;
+                    .num {
+                        font-size: 5vh !important;
+                    }
+                    .point {
+                        font-size: 12px !important;
+                    }
+                }
+            }
+        }
+
+        .title-timer {
+            margin-left: 0 !important;
+            text-align: center;
+        }
+    }
 }
 
 /*===================tashkent===========================*/
