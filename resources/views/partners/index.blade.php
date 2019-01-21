@@ -9,7 +9,7 @@
     background-color: white !important;
 @endsection
 @section('content')
-    <div class="container" style="margin-top: 100px; padding-bottom: 120px">
+    <div class="container container-content" style="margin-top: 100px; padding-bottom: 120px">
         <div class="row">
             <div class="partners-page d-flex flex-wrap flex-column">
                 <div class="logo">

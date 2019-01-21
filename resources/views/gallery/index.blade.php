@@ -13,7 +13,7 @@
     background-color: white !important;
 @endsection
 @section('content')
-    <div id="gallery-page-container" class="container" style="margin-top: 150px; padding-bottom: 120px;">
+    <div id="gallery-page-container" class="container container-content" style="margin-top: 150px; padding-bottom: 120px;">
         <div class="row">
             <div class="gallery-page d-flex flex-wrap">
                 <div class="filter select-container">
