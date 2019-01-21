@@ -38,7 +38,7 @@
                         @endforeach
                     @endforeach
                 </div>
-                @if($albums > 12)
+                @if($albumsNumber > 12)
                     <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
                         <a id="btn-download-galley-page" href="">ПОКАЗАТЬ ЕЩЕ АЛЬБОМЫ</a>
                     </div>

@@ -197,7 +197,7 @@ nav {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 130vh;
     background-size: 100%;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -3107,24 +3107,24 @@ select::-ms-expand {
     }
     #btn-participant {
         margin-top:  0 !important;
-        width: 180px;
-        font-size: 10px;
-        height: 35px;
+        width: 280px;
+        font-size: 14px;
+        height: 55px;
     }
 
     .logo-main-page {
-        margin-top: 10px !important;
+        margin-top: 50px !important;
         flex-wrap: wrap;
         a {
             flex-basis: 40%;
             text-align: center;
             img {
-                margin-top: 20px;
+                margin-top: 35px;
                 margin-right: 15px !important;
-                height: 5vh !important;
+                height: 6vh !important;
                 &#mgimo {
-                    margin-top: 20px;
-                    height: 9vh !important;
+                    margin-top: 35px;
+                    height: 12vh !important;
                     margin-right: 0 !important;
                 }
 
@@ -3234,18 +3234,17 @@ select::-ms-expand {
         background-image: url("../img/banner-mobile.svg");
     }
     .button-logo {
-        margin-top: 0 !important;
+        margin-top: 70px !important;
     }
     .time {
         display: flex;
         align-items: center;
-        flex-direction: column;
         margin-top: 0;
         .logo {
             margin-top: 60px;
             margin-bottom: 20px;
             justify-content: center;
-            height: 13vh !important;
+            height: 20vh !important;
             img {
                 height: 100%;
             }
@@ -3256,13 +3255,13 @@ select::-ms-expand {
 
         .timerr {
             .title-timer {
-                font-size: 12px;
+                font-size: 16px;
             }
             margin-top: -10px !important;
             .timer-lay {
                 margin-left: 0 !important;
                 .timer {
-                    font-size: 5vh !important;
+                    font-size: 8vh !important;
                     padding-left: 10px !important;
                     div {
                         font-size: 15vh !important;
@@ -3270,20 +3269,20 @@ select::-ms-expand {
                     .sm-colon {
                         display: flex;
                         align-items: center;
-                        margin-right: 5px;
+                        margin-right: 8px;
                         span.colon {
-                            font-size: 5vh !important;
+                            font-size: 8vh !important;
                             margin-top: -10px;
                         }
                     }
                     .item-timer {
-                        font-size: 5vh !important;
-                        margin-right: 5px !important;
+                        font-size: 8vh !important;
+                        margin-right: 8px !important;
                         .num {
-                            font-size: 5vh !important;
+                            font-size: 8vh !important;
                         }
                         .point {
-                            font-size: 12px;
+                            font-size: 16px;
                         }
                     }
                 }
