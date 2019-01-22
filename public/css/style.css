@@ -45,8 +45,8 @@ body {
   margin-top: 100px; }
   .press-btn a {
     border: 1px solid #1A2F3F;
-    height: 50px;
-    width: 255px;
+    height: 55px;
+    width: 290px;
     background-color: transparent;
     font-size: 14px;
     display: flex;
@@ -57,18 +57,6 @@ body {
     color: #1A2F3F;
     transition: 0.7s;
     margin: 0 auto; }
-    .press-btn a:hover {
-      background-color: #1A2F3F;
-      color: white !important; }
-      .press-btn a:hover span {
-        background-image: url("../img/icon/red-arrow.svg");
-        margin-left: 15px;
-        display: block;
-        width: 20px;
-        height: 11px;
-        top: 0;
-        right: 25px;
-        margin-top: -3px; }
 
 .layout-img {
   width: 100%;
@@ -161,7 +149,6 @@ nav {
   background-color: #17427C;
   color: white;
   font-size: 14px;
-  font-weight: 600 !important;
   margin: 0 auto;
   margin-top: 10vh;
   text-align: center;
@@ -249,8 +236,10 @@ nav {
         display: flex;
         align-items: center; }
 
-.img-item-congratulations iframe {
-  width: 100%; }
+.img-item-congratulations {
+  max-width: 100%; }
+  .img-item-congratulations iframe {
+    width: 100%; }
 
 /*===================SECTION-NEWS===================*/
 .contents {
@@ -263,7 +252,6 @@ nav {
     .contents .buttons-news a {
       border: 1px solid #1A2F3F;
       height: 55px;
-      width: 295px;
       background-color: white;
       font-size: 14px;
       display: flex;
@@ -271,35 +259,21 @@ nav {
       justify-content: center;
       cursor: pointer;
       text-transform: uppercase;
-      font-weight: 600 !important;
       color: #1A2F3F;
+      transition: 0.7s;
+      -webkit-transition: 0.7s;
+      -moz-transition: 0.7s;
+      -ms-transition: 0.7s;
+      -o-transition: 0.7s;
       transition: 0.7s; }
-      .contents .buttons-news a:hover {
-        background-color: #1A2F3F;
-        color: white !important; }
-        .contents .buttons-news a:hover span {
-          background-image: url("../img/icon/red-arrow.svg");
-          margin-left: 15px;
-          display: block;
-          width: 20px;
-          height: 11px;
-          margin-top: -3px;
-          right: 25px; }
     .contents .buttons-news .btn-event-page {
       margin-left: 10px;
+      transition: 0.7s;
+      -webkit-transition: 0.7s;
+      -moz-transition: 0.7s;
+      -ms-transition: 0.7s;
+      -o-transition: 0.7s;
       transition: 0.7s; }
-      .contents .buttons-news .btn-event-page:hover {
-        background-color: #1A2F3F !important;
-        color: white !important;
-        transition-duration: 0.4s; }
-        .contents .buttons-news .btn-event-page:hover span {
-          background-image: url("../img/icon/red-arrow.svg");
-          margin-left: 15px;
-          display: block;
-          width: 20px;
-          height: 11px;
-          right: 25px;
-          margin-top: -4px; }
   .contents .news {
     padding: 0 30px 120px 0; }
     .contents .news .title-news span {
@@ -382,7 +356,7 @@ nav {
               max-height: 248px;
               max-width: 100%; }
           .contents .news .small-news .small-new article .content-small-new {
-            width: 50%;
+            width: 48%;
             display: flex;
             flex-direction: column;
             align-items: start;
@@ -432,7 +406,7 @@ nav {
     padding-right: 0; }
     .contents .events .bg-events {
       background-color: #F5F5F5;
-      padding: 0 30px 0 25px;
+      padding: 0 30px 120px 25px;
       flex-grow: 1; }
     .contents .events .title-events {
       margin-bottom: 18px; }
@@ -482,11 +456,11 @@ nav {
           margin-top: 2px; }
 
 #news-events {
-  margin-top: 90px; }
+  margin-top: 60px; }
 
 /*===================MEDIA===================*/
 #media {
-  margin-top: 50px;
+  margin-top: 90px;
   padding: 0;
   padding-bottom: 100px;
   background-color: #F5F5F5; }
@@ -494,7 +468,6 @@ nav {
 .button-smis-page {
   border: 1px solid #1A2F3F;
   height: 55px;
-  width: 295px;
   background-color: white;
   font-size: 14px;
   display: flex;
@@ -502,27 +475,13 @@ nav {
   justify-content: center;
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: 600 !important;
   color: #1A2F3F;
   margin-left: -15px;
   transition: 0.7s; }
-  .button-smis-page:hover {
-    background-color: #1A2F3F !important;
-    color: white !important;
-    transition-duration: 0.4s; }
-    .button-smis-page:hover span {
-      background-image: url("../img/icon/red-arrow.svg");
-      margin-left: 15px;
-      display: block;
-      width: 20px;
-      height: 11px;
-      right: 25px;
-      margin-top: -4px; }
 
 #btn-download-smis-page {
   border: 1px solid #1A2F3F;
   height: 55px;
-  width: 295px;
   background-color: white;
   font-size: 14px;
   display: flex;
@@ -530,7 +489,6 @@ nav {
   justify-content: center;
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: 600 !important;
   color: #1A2F3F;
   transition: 0.7s; }
   #btn-download-smis-page:hover {
@@ -543,7 +501,7 @@ nav {
     font-size: 18px;
     text-transform: uppercase;
     font-weight: 500 !important;
-    margin: 50px 0 50px 0; }
+    margin: 60px 0 30px 0; }
   .content-media .media-news {
     display: flex;
     flex-wrap: wrap;
@@ -589,11 +547,10 @@ nav {
         right: 15px; }
 
 .btn-media {
-  margin-top: 90px; }
+  margin-top: 60px; }
   .btn-media a {
     border: 1px solid #1A2F3F;
-    height: 50px;
-    width: 295px;
+    height: 55px;
     background-color: transparent;
     font-size: 14px;
     display: flex;
@@ -603,18 +560,6 @@ nav {
     text-transform: uppercase;
     color: #1A2F3F;
     transition: 0.7s; }
-    .btn-media a:hover {
-      background-color: #1A2F3F;
-      color: white !important; }
-      .btn-media a:hover span {
-        background-image: url("../img/icon/red-arrow.svg");
-        margin-left: 15px;
-        display: block;
-        width: 20px;
-        height: 11px;
-        top: 0;
-        right: 25px;
-        margin-top: -3px; }
 
 /*===================CONGRTATULATIONS===================*/
 #congratulationss {
@@ -624,7 +569,7 @@ nav {
 .content-congratulations {
   padding: 0; }
   .content-congratulations .title-congratulations {
-    margin: 90px 0 90px 0; }
+    margin: 60px 0 30px 0; }
     .content-congratulations .title-congratulations span {
       font-size: 18px;
       text-transform: uppercase;
@@ -651,6 +596,7 @@ nav {
     border: 1px solid #EAEAEA;
     height: 250px;
     width: 49%;
+    margin-top: 2%;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -696,10 +642,8 @@ nav {
     .content-congratulations .btns-congratulations .btn-watch-congr {
       border: 1px solid #1A2F3F;
       height: 55px;
-      width: 295px;
       color: #1A2F3F;
       background-color: white;
-      font-weight: 600 !important;
       font-size: 14px;
       display: flex;
       align-items: center;
@@ -708,23 +652,9 @@ nav {
       margin-top: 20px;
       text-transform: uppercase;
       transition: 0.7s; }
-      .content-congratulations .btns-congratulations .btn-watch-congr:hover {
-        background-color: #1A2F3F;
-        color: white; }
-        .content-congratulations .btns-congratulations .btn-watch-congr:hover .congr_watch {
-          background-image: url("../img/icon/red-arrow.svg");
-          margin-left: 15px;
-          display: block;
-          width: 20px;
-          height: 11px;
-          top: 0;
-          right: 25px;
-          margin-top: -2px; }
     .content-congratulations .btns-congratulations .btn-congr {
       border: 0;
-      font-weight: 600 !important;
       height: 55px;
-      width: 295px;
       font-size: 14px;
       display: flex;
       align-items: center;
@@ -739,8 +669,7 @@ nav {
       .content-congratulations .btns-congratulations .btn-congr:hover {
         background-color: white;
         color: #0054B9;
-        border: 1px solid #0054B9;
-        font-weight: 600 !important; }
+        border: 1px solid #0054B9; }
         .content-congratulations .btns-congratulations .btn-congr:hover .congr_icon {
           background-image: url("../img/icon/partner/confetti-blue.svg"); }
       .content-congratulations .btns-congratulations .btn-congr .congr_icon {
@@ -752,11 +681,73 @@ nav {
         top: calc(40% - 9px);
         right: 25px; }
 
+.btn-mgimo {
+  width: 290px;
+  height: 55px; }
+
+.btn-linkk-photo {
+  position: relative; }
+  .btn-linkk-photo span.arrow-btn {
+    display: none;
+    position: absolute;
+    top: calc(22.5px - 5px);
+    right: 0;
+    opacity: 0; }
+  .btn-linkk-photo span.text-btn {
+    color: #0054B9;
+    font-size: 14px !important;
+    text-transform: uppercase;
+    position: absolute;
+    width: 100%;
+    text-align: center; }
+  .btn-linkk-photo:hover {
+    transition: 0.7s;
+    background-color: #0054B9 !important;
+    color: white !important; }
+    .btn-linkk-photo:hover span.arrow-btn {
+      background-image: url("../img/icon/partner/white-arrow.svg");
+      width: 20px;
+      height: 11px;
+      right: -0;
+      top: calc(22.5px - 2.5px) !important;
+      position: absolute; }
+    .btn-linkk-photo:hover span.text-btn {
+      color: white !important;
+      position: absolute; }
+
+.btn-linkk {
+  position: relative; }
+  .btn-linkk span.arrow-btn {
+    display: none;
+    position: absolute;
+    top: calc(22.5px - 5px);
+    right: 0;
+    opacity: 0; }
+  .btn-linkk span.text-btn {
+    color: #1A2F3F;
+    font-size: 14px !important;
+    text-transform: uppercase;
+    position: absolute;
+    width: 100%;
+    text-align: center; }
+  .btn-linkk:hover {
+    transition: 0.7s;
+    background-color: #1A2F3F !important;
+    color: white !important; }
+    .btn-linkk:hover span.arrow-btn {
+      background-image: url("../img/icon/red-arrow.svg");
+      width: 20px;
+      height: 11px;
+      right: -0;
+      top: calc(22.5px - 2.5px) !important;
+      position: absolute; }
+    .btn-linkk:hover span.text-btn {
+      color: white !important;
+      position: absolute; }
+
 .btns-congratulations .btn-congr {
   border: 0;
-  font-weight: 600 !important;
   height: 55px;
-  width: 295px;
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -770,8 +761,7 @@ nav {
   .btns-congratulations .btn-congr:hover {
     background-color: white;
     color: #0054B9;
-    border: 1px solid #0054B9;
-    font-weight: 600 !important; }
+    border: 1px solid #0054B9; }
     .btns-congratulations .btn-congr:hover .congr_icon {
       background-image: url("../img/icon/partner/confetti-blue.svg"); }
   .btns-congratulations .btn-congr .congr_icon {
@@ -785,7 +775,7 @@ nav {
 
 .section-hr {
   background-color: #1A2F3F;
-  opacity: 0.2;
+  opacity: 0.1;
   width: 100%;
   margin-top: 90px; }
 
@@ -802,7 +792,7 @@ nav {
 .bg-gallery {
   width: 100%;
   background-color: #F5F5F5;
-  margin-top: 90px; }
+  margin-top: 60px; }
 
 .gallery-content {
   display: flex;
@@ -811,7 +801,7 @@ nav {
   min-height: 500px;
   width: 100%;
   flex-wrap: wrap;
-  padding: 100px 100px 100px 0; }
+  padding: 80px 80px 80px 0; }
   .gallery-content .big-photo {
     opacity: 1; }
     .gallery-content .big-photo img {
@@ -821,7 +811,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: flex-start; }
-    .gallery-content .text-gallery span {
+    .gallery-content .text-gallery span.title-text-gallery {
       margin-left: 20px;
       font-size: 26px;
       font-weight: bold;
@@ -829,12 +819,11 @@ nav {
     .gallery-content .text-gallery a {
       margin-left: 20px;
       margin-top: 40px;
-      width: 295px;
       height: 55px;
       font-size: 14px;
       font-weight: bold;
       border: 1px solid #0054B9;
-      color: #0054B9;
+      color: #0054B9 !important;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -842,24 +831,10 @@ nav {
       background-color: transparent;
       text-transform: uppercase;
       transition: 0.7s; }
-      .gallery-content .text-gallery a:hover {
-        background-color: #0054B9;
-        color: white; }
-        .gallery-content .text-gallery a:hover span {
-          top: 0;
-          background-image: url("../img/icon/partner/white-arrow.svg");
-          margin-top: -3px;
-          right: 25px;
-          margin-left: 15px;
-          display: block;
-          width: 20px;
-          height: 11px; }
-      .gallery-content .text-gallery a span {
-        display: none; }
 
 .content-partners {
   position: relative;
-  margin-top: 90px; }
+  margin-top: 60px; }
   .content-partners .title-partners span {
     font-size: 18px;
     font-weight: 500 !important;
@@ -944,12 +919,11 @@ nav {
       box-shadow: 0 5px 15px rgba(0, 84, 185, 0.3); }
 
 .btn-partners {
-  margin-top: 50px;
+  margin-top: 60px;
   margin-bottom: 0;
   margin-left: 0;
   border: 1px solid #1A2F3F;
   height: 55px;
-  width: 295px;
   background-color: white;
   font-size: 14px;
   display: flex;
@@ -957,25 +931,12 @@ nav {
   justify-content: center;
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: bold;
   color: #1A2F3F;
   -webkit-transition: 0.7s;
   -moz-transition: 0.7s;
   -ms-transition: 0.7s;
   -o-transition: 0.7s;
   transition: 0.7s; }
-  .btn-partners:hover {
-    background-color: #1A2F3F;
-    color: white; }
-    .btn-partners:hover span {
-      background-image: url("../img/icon/red-arrow.svg");
-      margin-left: 15px;
-      display: block;
-      width: 20px;
-      height: 11px;
-      top: 0;
-      margin-top: -2px;
-      right: 25px; }
 
 @media screen and (max-width: 1500px) {
   .arrow.next {
@@ -1029,15 +990,14 @@ nav {
   .news-page .title-news-page .btn-news-page a.btn-news-page-add {
     border: 1px solid #1A2F3F;
     height: 55px;
-    width: 296px;
+    width: 290px;
     background-color: white;
     font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold; }
+    text-transform: uppercase; }
     .news-page .title-news-page .btn-news-page a.btn-news-page-add span {
       margin-right: 25px;
       display: block;
@@ -1054,15 +1014,14 @@ nav {
   .news-page .title-news-page .btn-news-page a.btn-news-page-sub {
     border: 1px solid #1A2F3F;
     height: 55px;
-    width: 296px;
+    width: 290px;
     background-color: white;
     font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold; }
+    text-transform: uppercase; }
     .news-page .title-news-page .btn-news-page a.btn-news-page-sub span {
       margin-right: 25px;
       display: block;
@@ -1229,7 +1188,7 @@ a#btn-download-news-page:hover {
 
 /*===================MEDIA-PAGES===================*/
 .media-page {
-  margin-top: 90px;
+  margin-top: 60px;
   position: relative; }
   .media-page .title-media span {
     font-size: 18px;
@@ -1285,7 +1244,6 @@ a#btn-download-news-page:hover {
     bottom: -50px; }
 
 .event-page .title-event-page {
-  margin-top: 40px;
   display: flex; }
   .event-page .title-event-page a {
     position: relative;
@@ -1309,7 +1267,7 @@ a#btn-download-news-page:hover {
       display: none;
       position: absolute;
       top: calc(22.5px - 5px);
-      right: -70px;
+      right: 0;
       opacity: 0; }
     .event-page .title-event-page a span.text-btn {
       color: #1A2F3F;
@@ -1326,7 +1284,7 @@ a#btn-download-news-page:hover {
         background-image: url("../img/icon/red-arrow.svg");
         width: 20px;
         height: 11px;
-        right: -34px;
+        right: 0;
         top: calc(22.5px - 2px);
         position: absolute; }
       .event-page .title-event-page a:hover span.text-btn {
@@ -1519,7 +1477,8 @@ a#btn-download-news-page:hover {
           background-repeat: no-repeat;
           background-image: url("../img/icon/location-red.svg");
           display: block;
-          margin-right: 10px; }
+          margin-right: 10px;
+          background-position: center; }
     .event-page .content-event-page .items-event-page hr {
       position: absolute;
       right: 0;
@@ -1653,8 +1612,8 @@ a#btn-download-news-page:hover {
     padding-right: 0; }
     .partners-page .logo a {
       border: 1px solid #1A2F3F;
-      height: 50px;
-      width: 255px;
+      height: 55px;
+      width: 290px;
       background-color: transparent;
       font-size: 14px;
       display: flex;
@@ -1664,18 +1623,6 @@ a#btn-download-news-page:hover {
       text-transform: uppercase;
       color: #1A2F3F;
       transition: 0.7s; }
-      .partners-page .logo a:hover {
-        background-color: #1A2F3F;
-        color: white !important; }
-        .partners-page .logo a:hover span {
-          background-image: url("../img/icon/red-arrow.svg");
-          margin-left: 15px;
-          display: block;
-          width: 20px;
-          height: 11px;
-          top: 0;
-          right: 25px;
-          margin-top: -3px; }
   .partners-page div {
     padding: 10px; }
     .partners-page div .item-partners-page {
@@ -1858,7 +1805,7 @@ p {
   margin-left: 10px; }
 
 #congratulations_wrapper {
-  margin-top: 90px; }
+  margin-top: 60px; }
   #congratulations_wrapper .item-congratulations {
     margin-top: 25px; }
 
@@ -1906,7 +1853,6 @@ footer {
     footer .button-footer a {
       border: 1px solid white;
       height: 55px;
-      width: 298px;
       background-color: transparent;
       font-size: 14px;
       display: flex;
@@ -1914,7 +1860,6 @@ footer {
       justify-content: center;
       cursor: pointer;
       text-transform: uppercase;
-      font-weight: bold;
       color: white;
       transition: 0.7s; }
       footer .button-footer a:hover {
@@ -2194,7 +2139,10 @@ footer {
 @media screen and (max-width: 970px) {
   #link_tashkent {
     top: 37% !important;
-    font-size: 14px !important; } }
+    font-size: 14px !important; }
+
+  nav {
+    background-color: #f2fbff; } }
 .layout-banner-event-page {
   display: block; }
 
@@ -2202,6 +2150,15 @@ footer {
   display: none; }
 
 @media screen and (max-width: 768px) {
+  .contents .buttons-news {
+    width: 100%; }
+    .contents .buttons-news a {
+      margin-left: 0 !important;
+      font-size: 12px; }
+
+  .btn-media {
+    width: 100%; }
+
   .layout-banner-event-page {
     display: none; }
 
@@ -2338,7 +2295,7 @@ footer {
   width: 140px;
   height: 26px;
   margin-left: 25px;
-  margin-top: 90px; }
+  margin-top: 0; }
   .select-container #select-location {
     width: 100px;
     height: 26px;

@@ -10,12 +10,12 @@
 @endsection
 
 @section('content')
-    <div class="container container-content" style="margin-top: 100px; padding-bottom: 100px">
+    <div class="container container-content" style="margin-top: 120px; padding-bottom: 100px">
         <div class="row">
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex flex-row align-items-center">
                     {{--<span>Мероприятия</span>--}}
-                    <a href="{{ \App\Event::getMainFilePhotoModel()->path }}" class="modal-button button-event-page btn-link" style="margin-left: 58px;" download><span class="text-btn">Скачать график мероприятий</span><span class="arrow-btn"></span></a>
+                    <a href="{{ \App\Event::getMainFilePhotoModel()->path }}" class="modal-button button-event-page btn-linkk" style="margin-left: 58px;" download><span class="text-btn">Скачать график мероприятий</span><span class="arrow-btn"></span></a>
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">

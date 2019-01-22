@@ -9,7 +9,7 @@
     background-color: white !important;
 @endsection
 @section('content')
-    <div class="container container-content" style="margin-top: 130px; padding-bottom: 100px">
+    <div class="container container-content" style="margin-top: 120px; padding-bottom: 100px">
         <div class="row" id="books_wrapper">
             <div class="links-books d-flex justify-content-between col-12 flex-wrap">
                 <a target="_blank" href="https://mgimo.ru/library/scientific-library/">Научная библиотека</a>

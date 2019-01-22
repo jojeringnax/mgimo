@@ -9,12 +9,12 @@
     background-color: white !important;
 @endsection
 @section('content')
-    <div class="container container-content" style="margin-top: 100px; padding-bottom: 120px">
+    <div class="container container-content" style="margin-top: 120px; padding-bottom: 120px">
         <div class="row">
             <div class="partners-page d-flex flex-wrap flex-column">
                 <div class="logo">
                     <img src="{{asset('img/icon/logo.svg')}}" alt="logo-mgimo" style="width: 100px;">
-                    <a href="">Стать партнером<span></span></a>
+                    <a class="btn-linkk" href=""><span class="text-btn">Стать партнером</span><span class="arrow-btn"></span></a>
                 </div>
                 <div class="organizers item-partners-page">
                     <div class="title-partners-page">
