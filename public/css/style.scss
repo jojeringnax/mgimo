@@ -3,7 +3,7 @@ $linkColor: #e74237;
 $titleFont: "Playfair Display", Georgia, "Times New Roman", serif;
 $hoverLinkColor: #EB205E;
 $transition : 0.7s;
-$offsetSections: 90px;
+$offsetSections: 60px;
 
 @font-face {
     font-family: 'PlayfairDisplayRegular';
@@ -73,8 +73,8 @@ body {
     margin-top: 100px;
     a {
         border: 1px solid $mainColor;
-        height: 50px;
-        width: 255px;
+        height: 55px;
+        width: 290px;
         background-color: transparent;
         font-size: 14px;
         display: flex;
@@ -85,20 +85,6 @@ body {
         color: $mainColor;
         transition: $transition;
         margin: 0 auto;
-        &:hover {
-            background-color: $mainColor;
-            color: white !important;
-            span {
-                background-image: url("../img/icon/red-arrow.svg");
-                margin-left: 15px;
-                display: block;
-                width: 20px;
-                height: 11px;
-                top: 0;
-                right: 25px;
-                margin-top: -3px;
-            }
-        }
     }
 }
 
@@ -216,7 +202,7 @@ nav {
     background-color: #17427C;
     color: white;
     font-size: 14px;
-    font-weight: 600 !important;
+    //font-weight: 600 !important;
     margin: 0 auto;
     margin-top: 10vh;
     text-align: center;
@@ -330,6 +316,7 @@ nav {
 }
 
 .img-item-congratulations {
+    max-width: 100%;
     iframe {
         width: 100%;
     }
@@ -348,7 +335,7 @@ nav {
         a {
             border: 1px solid $mainColor;
             height: 55px;
-            width: 295px;
+            //width: 295px;
             background-color: white;
             font-size: 14px;
             display: flex;
@@ -356,40 +343,24 @@ nav {
             justify-content: center;
             cursor: pointer;
             text-transform: uppercase;
-            font-weight: 600 !important;
+            //font-weight: 600 !important;
             color: $mainColor;
             transition: $transition;
-            &:hover {
-                background-color: $mainColor;
-                color: white !important;
-                span {
-                    background-image: url("../img/icon/red-arrow.svg");
-                    margin-left: 15px;
-                    display: block;
-                    width: 20px;
-                    height: 11px;
-                    margin-top: -3px;
-                    right: 25px;
-                }
-            }
+            -webkit-transition: $transition;
+            -moz-transition: $transition;
+            -ms-transition: $transition;
+            -o-transition: $transition;
+            transition: $transition;
         }
+
         .btn-event-page {
             margin-left: 10px;
             transition: $transition;
-            &:hover {
-                background-color: $mainColor !important;
-                color:white !important;
-                transition-duration: 0.4s;
-                span {
-                    background-image: url("../img/icon/red-arrow.svg");
-                    margin-left: 15px;
-                    display: block;
-                    width: 20px;
-                    height: 11px;
-                    right: 25px;
-                    margin-top: -4px;
-                }
-            }
+            -webkit-transition: $transition;
+            -moz-transition: $transition;
+            -ms-transition: $transition;
+            -o-transition: $transition;
+            transition: $transition;
         }
     }
     .news {
@@ -490,7 +461,7 @@ nav {
                         }
                     }
                     .content-small-new {
-                        width :50%;
+                        width :48%;
                         display: flex;
                         flex-direction: column;
                         align-items: start;
@@ -560,7 +531,7 @@ nav {
         padding-right: 0;
         .bg-events {
             background-color: #F5F5F5;
-            padding: 0 30px 0 25px;
+            padding: 0 30px 120px 25px;
             flex-grow: 1;
         }
         .title-events {
@@ -629,7 +600,7 @@ nav {
 }
 /*===================MEDIA===================*/
 #media {
-    margin-top: 50px;
+    margin-top: 90px;
     padding: 0;
     padding-bottom: 100px;
     background-color: #F5F5F5;
@@ -638,7 +609,7 @@ nav {
 .button-smis-page {
     border: 1px solid $mainColor;
     height: 55px;
-    width: 295px;
+   // width: 295px;
     background-color: white;
     font-size: 14px;
     display: flex;
@@ -646,29 +617,16 @@ nav {
     justify-content: center;
     cursor: pointer;
     text-transform: uppercase;
-    font-weight: 600 !important;
+    //font-weight: 600 !important;
     color: $mainColor;
     margin-left: -15px;
     transition: $transition;
-    &:hover {
-        background-color: $mainColor !important;
-        color:white !important;
-        transition-duration: 0.4s;
-        span {
-            background-image: url("../img/icon/red-arrow.svg");
-            margin-left: 15px;
-            display: block;
-            width: 20px;
-            height: 11px;
-            right: 25px;
-            margin-top: -4px;
-        }
-    }
 }
+
 #btn-download-smis-page {
     border: 1px solid $mainColor;
     height: 55px;
-    width: 295px;
+    //width: 295px;
     background-color: white;
     font-size: 14px;
     display: flex;
@@ -676,7 +634,7 @@ nav {
     justify-content: center;
     cursor: pointer;
     text-transform: uppercase;
-    font-weight: 600 !important;
+    //font-weight: 600 !important;
     color: $mainColor;
     transition: $transition;
     &:hover {
@@ -690,7 +648,7 @@ nav {
         font-size: 18px;
         text-transform: uppercase;
         font-weight: 500 !important;
-        margin: 50px 0 50px 0;
+        margin: 60px 0 30px 0;
     }
     .media-news {
         display: flex;
@@ -755,8 +713,8 @@ nav {
     margin-top: $offsetSections;
     a {
         border: 1px solid $mainColor;
-        height: 50px;
-        width: 295px;
+        height: 55px;
+        //width: 295px;
         background-color: transparent;
         font-size: 14px;
         display: flex;
@@ -766,20 +724,6 @@ nav {
         text-transform: uppercase;
         color: $mainColor;
         transition: $transition;
-        &:hover {
-            background-color: $mainColor;
-            color: white !important;
-            span {
-                background-image: url("../img/icon/red-arrow.svg");
-                margin-left: 15px;
-                display: block;
-                width: 20px;
-                height: 11px;
-                top: 0;
-                right: 25px;
-                margin-top: -3px;
-            }
-        }
     }
 }
 
@@ -792,7 +736,7 @@ nav {
 .content-congratulations {
     padding: 0;
     .title-congratulations {
-        margin: $offsetSections 0 $offsetSections 0;
+        margin: 60px 0 30px 0;
         span {
             font-size: 18px;
             text-transform: uppercase;
@@ -826,7 +770,7 @@ nav {
             border: 1px solid #EAEAEA;
             height: 250px;
             width: 49%;
-            //margin-top: 2%;
+            margin-top: 2%;
             display: flex;
             align-items: center;
             flex-direction: row;
@@ -839,7 +783,7 @@ nav {
 
             img {
                 cursor: pointer;
-                //width: 180px;
+                //max-width: 50%;
                 height: 80%;
                 margin-left: 30px;
                 transition:width 0.5s ease;
@@ -885,10 +829,10 @@ nav {
         .btn-watch-congr {
             border: 1px solid $mainColor;
             height: 55px;
-            width: 295px;
+            //width: 295px;
             color: $mainColor;
             background-color: white;
-            font-weight: 600 !important;
+            //font-weight: 600 !important;
             font-size: 14px;
             display: flex;
             align-items: center;
@@ -897,26 +841,13 @@ nav {
             margin-top: 20px;
             text-transform: uppercase;
             transition: $transition;
-            &:hover {
-                background-color: $mainColor;
-                color: white;
-                .congr_watch {
-                    background-image: url("../img/icon/red-arrow.svg");
-                    margin-left: 15px;
-                    display: block;
-                    width: 20px;
-                    height: 11px;
-                    top: 0;
-                    right: 25px;
-                    margin-top: -2px;
-                }
-            }
+
         }
         .btn-congr {
             border: 0;
-            font-weight: 600 !important;
+            //font-weight: 600 !important;
             height: 55px;
-            width: 295px;
+            //width: 295px;
             font-size: 14px;
             display: flex;
             align-items: center;
@@ -932,7 +863,7 @@ nav {
                 background-color: white;
                 color: #0054B9;
                 border: 1px solid #0054B9;
-                font-weight: 600 !important;
+                //font-weight: 600 !important;
                 .congr_icon {
                     background-image: url("../img/icon/partner/confetti-blue.svg");
                 }
@@ -949,12 +880,95 @@ nav {
         }
     }
 }
+
+.btn-mgimo {
+    width: 290px;
+    height: 55px;
+}
+
+.btn-linkk-photo {
+    position: relative;
+    span.arrow-btn {
+        display: none;
+        position: absolute;
+        top: calc(22.5px - 5px);
+        right: 0;
+        opacity: 0;
+    }
+    span.text-btn {
+        color: #0054B9;
+        font-size: 14px !important;
+        text-transform: uppercase;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        //left: calc((336px - 290px)/2);
+    }
+    &:hover {
+        transition: $transition;
+        background-color: #0054B9 !important;
+        color: white !important;
+        span.arrow-btn {
+            background-image: url("../img/icon/partner/white-arrow.svg");
+            width: 20px;
+            height: 11px;
+            right: -0;
+            //opacity: 0;
+            top: calc(22.5px - 2.5px) !important;
+            position: absolute;
+        }
+
+        span.text-btn {
+            color: white !important;
+            position: absolute;
+        }
+    }
+}
+
+.btn-linkk {
+    position: relative;
+    span.arrow-btn {
+        display: none;
+        position: absolute;
+        top: calc(22.5px - 5px);
+        right: 0;
+        opacity: 0;
+    }
+    span.text-btn {
+        color: $mainColor;
+        font-size: 14px !important;
+        text-transform: uppercase;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        //left: calc((336px - 290px)/2);
+    }
+    &:hover {
+        transition: $transition;
+        background-color: $mainColor !important;
+        color: white !important;
+        span.arrow-btn {
+            background-image: url("../img/icon/red-arrow.svg");
+            width: 20px;
+            height: 11px;
+            right: -0;
+            //opacity: 0;
+            top: calc(22.5px - 2.5px) !important;
+            position: absolute;
+        }
+
+        span.text-btn {
+            color: white !important;
+            position: absolute;
+        }
+    }
+}
 .btns-congratulations {
     .btn-congr {
         border: 0;
-        font-weight: 600 !important;
+        //font-weight: 600 !important;
         height: 55px;
-        width: 295px;
+        //width: 295px;
         font-size: 14px;
         display: flex;
         align-items: center;
@@ -969,7 +983,7 @@ nav {
             background-color: white;
             color: #0054B9;
             border: 1px solid #0054B9;
-            font-weight: 600 !important;
+            //font-weight: 600 !important;
             .congr_icon {
                 background-image: url("../img/icon/partner/confetti-blue.svg");
             }
@@ -987,9 +1001,9 @@ nav {
 }
 .section-hr {
     background-color: $mainColor;
-    opacity: 0.2;
+    opacity: 0.1;
     width: 100%;
-    margin-top: $offsetSections;
+    margin-top: 90px;
 }
 .active-item-tags-congratulations {
     background-color: $mainColor;
@@ -1017,7 +1031,7 @@ nav {
     min-height: 500px;
     width: 100%;
     flex-wrap: wrap;
-    padding: 100px 100px 100px 0;
+    padding: 80px 80px 80px 0;
     .big-photo {
         opacity: 1;
         img {
@@ -1029,7 +1043,7 @@ nav {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        span {
+        span.title-text-gallery {
             margin-left: 20px;
             font-size: 26px;
             font-weight: bold;
@@ -1038,12 +1052,12 @@ nav {
         a {
             margin-left: 20px;
             margin-top: 40px;
-            width: 295px;
+           // width: 295px;
             height: 55px;
             font-size: 14px;
             font-weight: bold;
             border: 1px solid #0054B9;
-            color: #0054B9;
+            color: #0054B9 !important;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -1051,23 +1065,6 @@ nav {
             background-color: transparent;
             text-transform: uppercase;
             transition: $transition;
-            &:hover {
-                background-color: #0054B9;
-                color: white;
-                span {
-                    top: 0;
-                    background-image: url("../img/icon/partner/white-arrow.svg");
-                    margin-top: -3px;
-                    right: 25px;
-                    margin-left: 15px;
-                    display: block;
-                    width: 20px;
-                    height: 11px;
-                }
-            }
-            span {
-                display: none;
-            }
         }
     }
 }
@@ -1201,12 +1198,12 @@ nav {
 }
 
 .btn-partners {
-    margin-top: 50px;
+    margin-top: 60px;
     margin-bottom: 0;
     margin-left: 0;
     border: 1px solid $mainColor;
     height: 55px;
-    width: 295px;
+    //width: 295px;
     background-color: white;
     font-size: 14px;
     display: flex;
@@ -1214,27 +1211,13 @@ nav {
     justify-content: center;
     cursor: pointer;
     text-transform: uppercase;
-    font-weight: bold;
+    //font-weight: bold;
     color: $mainColor;
     -webkit-transition: $transition;
     -moz-transition: $transition;
     -ms-transition: $transition;
     -o-transition: $transition;
     transition: $transition;
-    &:hover {
-        background-color: $mainColor;
-        color: white;
-        span {
-            background-image: url("../img/icon/red-arrow.svg");
-            margin-left: 15px;
-            display: block;
-            width: 20px;
-            height: 11px;
-            top: 0;
-            margin-top: -2px;
-            right: 25px;
-        }
-    }
 }
 
 @media screen and (max-width: 1500px) {
@@ -1314,7 +1297,7 @@ nav {
                 //margin-top: 40px;
                 border: 1px solid $mainColor;
                 height: 55px;
-                width: 296px;
+                width: 290px;
                 background-color: white;
                 font-size: 14px;
                 display: flex;
@@ -1322,7 +1305,7 @@ nav {
                 justify-content: center;
                 cursor: pointer;
                 text-transform: uppercase;
-                font-weight: bold;
+                //font-weight: bold;
 
                 span {
                     margin-right: 25px;
@@ -1346,7 +1329,7 @@ nav {
             a.btn-news-page-sub {
                 border: 1px solid $mainColor;
                 height: 55px;
-                width: 296px;
+                width: 290px;
                 background-color: white;
                 font-size: 14px;
                 display: flex;
@@ -1354,7 +1337,7 @@ nav {
                 justify-content: center;
                 cursor: pointer;
                 text-transform: uppercase;
-                font-weight: bold;
+                //font-weight: bold;
                 span {
                     margin-right: 25px;
                     display: block;
@@ -1626,7 +1609,6 @@ a#btn-download-news-page{
 
 .event-page {
     .title-event-page {
-        margin-top: 40px;
         display: flex;
         a {
             position: relative;
@@ -1650,7 +1632,7 @@ a#btn-download-news-page{
                 display: none;
                 position: absolute;
                 top: calc(22.5px - 5px);
-                right: -70px;
+                right: 0;
                 opacity: 0;
             }
             span.text-btn {
@@ -1670,7 +1652,7 @@ a#btn-download-news-page{
                     background-image: url("../img/icon/red-arrow.svg");
                     width: 20px;
                     height: 11px;
-                    right: -34px;
+                    right: 0;
                     //opacity: 0;
                     top: calc(22.5px - 2px);
                     position: absolute;
@@ -1905,6 +1887,7 @@ a#btn-download-news-page{
                             background-image: url("../img/icon/location-red.svg");
                             display: block;
                             margin-right: 10px;
+                            background-position: center;
                         }
                 }
             }
@@ -2085,8 +2068,8 @@ a#btn-download-news-page{
         padding-right: 0;
         a {
             border: 1px solid $mainColor;
-            height: 50px;
-            width: 255px;
+            height: 55px;
+            width: 290px;
             background-color: transparent;
             font-size: 14px;
             display: flex;
@@ -2096,20 +2079,6 @@ a#btn-download-news-page{
             text-transform: uppercase;
             color: $mainColor;
             transition: $transition;
-            &:hover {
-                background-color: $mainColor;
-                color: white !important;
-                span {
-                    background-image: url("../img/icon/red-arrow.svg");
-                    margin-left: 15px;
-                    display: block;
-                    width: 20px;
-                    height: 11px;
-                    top: 0;
-                    right: 25px;
-                    margin-top: -3px;
-                }
-            }
         }
     }
     div {
@@ -2446,7 +2415,7 @@ footer {
         a {
             border: 1px solid white;
             height: 55px;
-            width: 298px;
+            //width: 295px;
             background-color: transparent;
             font-size: 14px;
             display: flex;
@@ -2454,7 +2423,7 @@ footer {
             justify-content: center;
             cursor: pointer;
             text-transform: uppercase;
-            font-weight: bold;
+            //font-weight: bold;
             color: white;
             transition: $transition;
             &:hover {
@@ -2825,6 +2794,10 @@ footer {
         top: 37% !important;
         font-size: 14px !important;
     }
+
+    nav {
+        background-color: rgb(242, 251, 255);
+    }
 }
 
 .layout-banner-event-page {
@@ -2835,6 +2808,18 @@ footer {
     display: none;
 }
 @media screen and(max-width: 768px){
+    .contents {
+        .buttons-news {
+            width: 100%;
+            a {
+                margin-left: 0 !important;
+                font-size: 12px;
+            }
+        }
+    }
+    .btn-media {
+        width: 100%;
+    }
     .layout-banner-event-page {
         display: none;
     }
@@ -3071,7 +3056,7 @@ footer {
     width: 140px;
     height: 26px;
     margin-left: 25px;
-    margin-top: $offsetSections;
+    margin-top: 0;
     #select-location {
         width: 100px;
         height: 26px;

@@ -17,7 +17,7 @@
             <img src="" alt="">
         </div>
     </div>
-    <div id="congratulations" class="container container-content" style="padding-bottom: 100px; margin-top: 80px;">
+    <div id="congratulations" class="container container-content" style="padding-bottom: 120px; margin-top: 120px;">
         <div class="row" style="margin:0; padding: 0">
             <div class="btns-congratulations d-flex justify-content-xl-start justify-content-sm-center">
                 <a href=""data-toggle="modal" data-target="#congratulationModule" class="btn-congr"><span class="congr_icon"></span>Поздравить МГИМО</a>

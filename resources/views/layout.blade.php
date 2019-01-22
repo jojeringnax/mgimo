@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/mdb.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}" />
     <script src="{{asset('js/jquery-3.3.1.js')}}"></script>
     <script>
         $(document).ready( function() {
@@ -122,7 +123,7 @@
                         </nav>
                     </div>
                     <div class="button-footer col-xl-4 col-lg-4 col-md-6 col-12 align-items-center">
-                        <a data-toggle="modal" data-target="#modalRegisterForm" href="#"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
+                        <a data-toggle="modal" class="btn-mgimo" data-target="#modalRegisterForm" href="#"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
                         <span class="text-center">
                             МГИМО 75<br>Ассоциация выпускников МГИМО<br>Эндаумент МГИМО
                         </span>

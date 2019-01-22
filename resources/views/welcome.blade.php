@@ -122,7 +122,7 @@
                         @endif
                     @endforeach
                     <div class="buttons-news">
-                        <a href={{url('news')}}>Смотреть все новости <span></span></a>
+                        <a class="btn-linkk  btn-mgimo" href={{url('news')}}><span class="text-btn">Смотреть все новости </span><span class="arrow-btn"></span></a>
                     </div>
                 </div>
                 <div class="item-contents events col-xl-4 col-lg-4 col-md-12 d-flex flex-column">
@@ -149,13 +149,13 @@
                             </div>
                         @endforeach
                         <div id="btn-event" class="buttons-news" style="margin-top: 60px;">
-                            <a href="{{url('events')}}" class="btn-event-page" style=" background-color: transparent">Смотреть все мероприятия <span></span></a>
+                            <a href="{{url('events')}}" class="btn-event-page btn-linkk  btn-mgimo" style=" background-color: transparent"><span class="text-btn">Смотреть все мероприятия</span><span class="arrow-btn"></span></a>
                         </div>
                     </div>
                 </div>
+                <hr class="section-hr">
             </div>
         </div>
-        <hr class="section-hr">
     </div>
 
     <div id="congratulationss" class="container">
@@ -180,8 +180,8 @@
                 </div>
 
                 <div class="btns-congratulations d-flex justify-content-xl-start justify-content-sm-center">
-                    <a href="{{url('congratulations')}}" class="btn-watch-congr">Смотреть все поздравления <span class="congr_watch"></span></a>
-                    <a href=""data-toggle="modal" data-target="#congratulationModule" class="btn-congr"><span class="congr_icon"></span>Поздравить МГИМО</a>
+                    <a href="{{url('congratulations')}}" class="btn-watch-congr btn-linkk btn-mgimo"><span class="text-btn">Смотреть все поздравления</span><span class="congr_watch arrow-btn"></span></a>
+                    <a href="" data-toggle="modal" data-target="#congratulationModule" class="btn-congr btn-mgimo"><span class="congr_icon"></span>Поздравить МГИМО</a>
                 </div>
             </div>
         </div>
@@ -194,7 +194,7 @@
                     <div class="big-photo col-xl-8 col-lg-6 col-md-12"><img src="img/new_test/collage.png" alt=""></div>
                     <div class="text-gallery col-xl-4 col-lg-6 col-md-12">
                         <span class="title-text-gallery ">Мы собрали самые яркие воспоминания из жизни МГИМО</span>
-                        <a href="{{url('gallery')}}" class="">Смотреть фото <span></span></a>
+                        <a class="btn-linkk-photo btn-mgimo" href="{{url('gallery')}}" ><span class="text-btn">Смотреть фото </span><span class="arrow-btn"></span></a>
                     </div>
                 </div>
             </div>
@@ -252,7 +252,7 @@
                         @endif
                         </div>
                     </div>
-            <a href="{{url('partners')}}" class="btn-partners">Смотреть всех партнеров <span></span></a>
+            <a href="{{url('partners')}}" class="btn-partners btn-linkk  btn-mgimo"><span class="text-btn">Смотреть всех партнеров</span><span class="arrow-btn"></span></a>
         </div>
     </div>
     <section id="media">
@@ -274,7 +274,7 @@
                     </div>
                 </div>
                 <div class="btn-media">
-                    <a href="{{url('smis')}}" target="_blank">Смотреть все новости СМИ<span></span></a>
+                    <a class="btn-linkk btn-mgimo" href="{{url('smis')}}" target="_blank"><span class="text-btn">Смотреть все новости СМИ</span><span class="arrow-btn"></span></a>
                 </div>
             </div>
         </div>
