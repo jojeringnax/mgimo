@@ -172,7 +172,7 @@ Route::post('admin/tashkent/news/update/{id}', 'tashkent\AdminController@storeAr
 Route::get('admin/tashkent/news/delete/{id}', 'tashkent\AdminController@deleteArticle');
 Route::get('admin/tashkent/news/update/{id}', function ($id) {
     return view('tashkent.admin.news.update', [
-        'article' => \App\tashkent\Article::find($id)->first()
+        'article' => \App\tashkent\Article::findOrFail($id)
     ]);
 })->name('updateArticleTashkent');
 
