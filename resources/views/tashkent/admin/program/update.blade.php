@@ -55,6 +55,13 @@
                 }
                 $(this).val($(this)[0].checked ? 1 : 0);
             });
+
+            if($('input[name="all_day"]').val() === 1) {
+                $('input[name="all_day"]').prop('checked','checked');
+            } else {
+                //console.log('remove',$('input[name="all_day"]').val());
+                $('input[name="all_day"]').removeAttr('checked');
+            }
         });
     </script>
 @endsection
