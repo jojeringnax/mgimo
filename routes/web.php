@@ -189,7 +189,7 @@ Route::get('admin/tashkent/program/create', function() {
 
 Route::get('admin/tashkent/program/update/{id}', function ($id) {
     return view('tashkent.admin.program.update', [
-        'event' => \App\tashkent\Event::find($id)->first()
+        'event' => \App\tashkent\Event::findOrFail($id)
     ]);
 })->name('updateEventTashkent');
 
