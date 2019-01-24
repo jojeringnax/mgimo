@@ -56,7 +56,7 @@ Route::get('admin/smis/delete/{id}', 'AdminController@deleteSmi');
 Route::match(['get','post'], 'admin/gallery/create', 'AdminController@createAlbum');
 Route::match(['get','post'], 'admin/gallery/create/{id}', 'AdminController@albumFill');
 
-Route::match(['get','post'], 'admin/news/create', 'AdminController@createArticle');
+Route::match(['get','post'], 'admin/news/create', 'AdminController@createArticle')->middleware('guest');
 Route::match(['get','post'], 'admin/news/update/{id}', 'AdminController@updateArticle');
 Route::get('admin/news/delete/{id}', 'AdminController@deleteArticle');
 
@@ -82,7 +82,7 @@ Route::match(['get','post'], 'admin/gallery/create', 'AdminController@createAlbu
 Route::match(['get','post'], 'admin/gallery/update/{id}', 'AdminController@updateAlbum');
 Route::get('admin/gallery/delete/{id}', 'AdminController@deleteAlbum');
 
-Route::match(['get','post'], 'admin/subscribers/create', 'AdminController@createSubscriber');
+Route::match(['get','post'], 'admin/subscribers/create', 'AdminController@createSubscriber')->middleware('guest');
 Route::match(['get','post'], 'admin/subscribers/update/{id}', 'AdminController@updateSubscriber');
 Route::get('admin/subscribers/delete/{id}', 'AdminController@deleteSubscriber');
 
