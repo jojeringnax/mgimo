@@ -2143,6 +2143,9 @@ footer {
 
   nav {
     background-color: #f2fbff; } }
+#add-news-user {
+  max-width: 60%; }
+
 .layout-banner-event-page {
   display: block; }
 
@@ -2150,6 +2153,12 @@ footer {
   display: none; }
 
 @media screen and (max-width: 768px) {
+  .item-form-news-add-btn {
+    width: 100%; }
+
+  #add-news-user {
+    max-width: 100% !important; }
+
   .contents .buttons-news {
     width: 100%; }
     .contents .buttons-news a {

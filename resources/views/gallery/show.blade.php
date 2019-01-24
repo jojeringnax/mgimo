@@ -19,9 +19,9 @@
                 {{$album->name}}
             </div>
             <div class="gallery-page d-flex flex-wrap list-unstyled">
-                <div  id="lightgallery" class="items-partners d-flex col-12 flex-wrap" >
+                <div id="lightgallery" class="items-partners d-flex col-12 flex-wrap" >
                 @foreach($album->photos as $photo)
-                    <div data-sub-html="<h4>Bowness Bay</h4><p style='color: white'>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>"  class="d-flex align-items-center justify-content-center" data-src="{{ $photo->path }}" style="cursor: pointer">
+                    <div class="d-flex align-items-center justify-content-center" data-src="{{ $photo->path }}" style="cursor: pointer">
                         <img src="{{ $photo->path }}" style="height: 120px; margin-top: 30px; margin-left: 30px;" alt="thumbnail" class="img-thumbnail"/>
                     </div>
                 @endforeach
@@ -40,7 +40,7 @@
     <script src={{asset('js/photo-gallery/lg-hash.min.js')}}></script>
     <script src={{asset('js/photo-gallery/lg-autoplay.min.js')}}></script>
     <script>
-        lightGallery(document.getElementById('lightgallery'));
+        lightGallery(document.getElementById('.lightgallery'));
     </script>
     <script src="{{asset('js/locations.js')}}"></script>
 @endsection
