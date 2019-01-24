@@ -89,7 +89,7 @@
     </div>
 
     <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
-        <div class="modal-dialog" role="document">
+        <div id="add-news-user" class="modal-dialog  col-xl-10" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Добавьте свою новость</h5>
@@ -110,7 +110,7 @@
                                 <input type="hidden" name="content" id="content-news"/>
 
                                 <div class="d-flex col-12 flex-wrap item-form-news-add justify-content-between" style="margin-top: 25px">
-                                    <div class="input-group col-xl-5 item-form-news-add">
+                                    <div class="input-group col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 item-form-news-add">
                                         <div class="input-group-prepend clear">
                                             <span class="input-group-text" id="photo_area" data-file="главное"></span>
                                         </div>
@@ -120,7 +120,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="input-group col-xl-5 item-form-news-add">
+                                    <div class="input-group col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 item-form-news-add">
                                         <div class="input-group-prepend clear">
                                             <span class="input-group-text" id="photo1_area" data-file="первое"></span>
                                         </div>
@@ -129,7 +129,7 @@
                                             <label class="custom-file-label" for="photo1">Загрузите первое фото</label>
                                         </div>
                                     </div>
-                                    <div class="input-group col-xl-5 item-form-news-add">
+                                    <div class="input-group col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 item-form-news-add">
                                         <div class="input-group-prepend clear">
                                             <span class="input-group-text" id="photo2_area" data-file="второе"></span>
                                         </div>
@@ -138,7 +138,7 @@
                                             <label class="custom-file-label" for="photo2">Загрузите второе фото</label>
                                         </div>
                                     </div>
-                                    <div class="input-group col-xl-5 item-form-news-add">
+                                    <div class="input-group col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 item-form-news-add">
                                         <div class="input-group-prepend clear">
                                             <span class="input-group-text" id="photo3_area" data-file="третье"></span>
                                         </div>

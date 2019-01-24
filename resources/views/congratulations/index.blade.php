@@ -14,13 +14,13 @@
 
         </div>
         <div class="img-source-layout">
-            <img src="" alt="">
+            <a href="" download="proposed_file_name"><img src="" alt=""></a>
         </div>
     </div>
     <div id="congratulations" class="container container-content" style="padding-bottom: 120px; margin-top: 120px;">
         <div class="row" style="margin:0; padding: 0">
-            <div class="btns-congratulations d-flex justify-content-xl-start justify-content-sm-center">
-                <a href=""data-toggle="modal" data-target="#congratulationModule" class="btn-congr"><span class="congr_icon"></span>Поздравить МГИМО</a>
+            <div class="btns-congratulations d-flex justify-conte   nt-xl-start justify-content-sm-center">
+                <a href="" data-toggle="modal" data-target="#congratulationModule" class="btn-congr btn-mgimo"><span class="congr_icon"></span>Поздравить МГИМО</a>
             </div>
             <div class="content-congratulations col-12" style="padding: 0">
                 {{--<div class="title-congratulations">--}}
