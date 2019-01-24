@@ -40,7 +40,7 @@
     <script src={{asset('js/photo-gallery/lg-hash.min.js')}}></script>
     <script src={{asset('js/photo-gallery/lg-autoplay.min.js')}}></script>
     <script>
-        lightGallery(document.getElementById('.lightgallery'));
+        lightGallery(document.getElementById('lightgallery'));
     </script>
     <script src="{{asset('js/locations.js')}}"></script>
 @endsection
