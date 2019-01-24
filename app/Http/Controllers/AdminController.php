@@ -30,7 +30,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
 
@@ -913,10 +913,7 @@ class AdminController extends Controller
      */
     public function createSubscriber(Request $request)
     {
-        if($request->isMethod('post')) {
-            if ($request->ajax()) {
-                $this->middleware('guest');
-            }
+        if($request->isMethod('post') && $request->ajax()) {
             $subscriber = new Subscriber();
             $subscriber->name = $request->post('name');
             $subscriber->email = $request->post('email');
