@@ -913,8 +913,9 @@ class AdminController extends Controller
      */
     public function createSubscriber(Request $request)
     {
+        $this->middleware('guest');
         if($request->isMethod('post') && $request->ajax()) {
-            $this->middleware('guest');
+
             $subscriber = new Subscriber();
             $subscriber->name = $request->post('name');
             $subscriber->email = $request->post('email');
