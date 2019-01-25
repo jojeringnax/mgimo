@@ -419,8 +419,7 @@ nav {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        min-height: 50px;
-        margin-left: 10px; }
+        min-height: 50px; }
         .contents .events .item-events article .name-events {
           font-weight: bold;
           font-family: "Playfair Display";
@@ -432,7 +431,8 @@ nav {
         position: relative;
         display: flex;
         justify-content: flex-start;
-        align-items: center; }
+        align-items: center;
+        padding-left: 0 !important; }
         .contents .events .item-events .date-events .icon-date-events {
           margin-right: 10px;
           height: 14px;
@@ -2152,12 +2152,20 @@ footer {
 .item-event-mob {
   display: none; }
 
-.text-news a strong {
-  color: #007bff !important; }
-.text-news a:hover {
-  color: #0056b3 !important; }
 .text-news a {
   color: #007bff !important; }
+  .text-news a strong {
+    color: #007bff !important; }
+    .text-news a strong em {
+      color: #007bff !important; }
+      .text-news a strong em u {
+        color: #007bff !important; }
+  .text-news a em {
+    color: #007bff !important; }
+    .text-news a em u {
+      color: #007bff !important; }
+  .text-news a u {
+    color: #007bff !important; }
   .text-news a:hover {
     color: #0056b3 !important; }
 
