@@ -548,7 +548,7 @@ nav {
                 flex-direction: column;
                 justify-content: flex-start;
                 min-height: 50px;
-                margin-left: 10px;
+                //margin-left: 10px;
                 .name-events {
                     font-weight: bold;
                     font-family: "Playfair Display";
@@ -563,6 +563,7 @@ nav {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
+                padding-left: 0 !important;
                 .icon-date-events {
                     //position: absolute;
                     margin-right: 10px;
@@ -2810,6 +2811,37 @@ footer {
 
 .item-event-mob {
     display: none;
+}
+
+.text-news {
+    a {
+        color: #007bff !important;
+        strong {
+            color: #007bff !important;
+            em {
+                color: #007bff !important;
+                u {
+                    color: #007bff !important;
+                }
+            }
+        }
+        em {
+            color: #007bff !important;
+            u {
+                color: #007bff !important;
+            }
+        }
+        u {
+            color: #007bff !important;
+        }
+        &:hover {
+            color: #0056b3 !important;
+        }
+    }
+}
+
+.ql-snow .ql-tooltip input[type=text] {
+    width: 170px !important;
 }
 @media screen and(max-width: 768px){
     .item-form-news-add-btn {
