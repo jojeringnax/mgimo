@@ -80,7 +80,7 @@
                 $('#sub_news-work').attr('value',  $('#sub_news-work').val() ? '' : 0);
                 $('#sub_news-post').attr('value',  $('#sub_news-post').val() ? '' : 0);
                 $.ajax({
-                    url: "{{ url('admin/subscribers/create') }}",
+                    url: "{{ url('api/subscribers/create') }}",
                     dataType: 'json',
                     data: $(this).serialize(),
                     type: 'POST',

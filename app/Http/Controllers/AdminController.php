@@ -50,9 +50,6 @@ class AdminController extends Controller
     public function createArticle(Request $request)
     {
         if($request->isMethod('post')) {
-            if($request->ajax()) {
-                $this->middleware('guest');
-            }
             $news = new News();
             $news->title = $request->post('title');
             $news->content = $request->post('content');
@@ -913,7 +910,7 @@ class AdminController extends Controller
      */
     public function createSubscriber(Request $request)
     {
-        if($request->isMethod('post') && $request->ajax()) {
+        if($request->isMethod('post')) {
             $subscriber = new Subscriber();
             $subscriber->name = $request->post('name');
             $subscriber->email = $request->post('email');

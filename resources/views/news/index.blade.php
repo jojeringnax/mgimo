@@ -257,7 +257,7 @@
             $('.news-form').submit( function(e) {
                 e.preventDefault();
                 $.ajax({
-                    url: "{{ url('admin/news/create') }}",
+                    url: "{{ url('api/news/create') }}",
                     dataType: 'json',
                     data: new FormData($(this)[0]),
                     type: 'POST',
