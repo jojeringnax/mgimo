@@ -2152,6 +2152,14 @@ footer {
 .item-event-mob {
   display: none; }
 
+.text-news a {
+  color: #007bff !important; }
+  .text-news a:hover {
+    color: #0056b3 !important; }
+
+.ql-snow .ql-tooltip input[type=text] {
+  width: 170px !important; }
+
 @media screen and (max-width: 768px) {
   .item-form-news-add-btn {
     width: 100%; }
