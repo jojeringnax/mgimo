@@ -1,6 +1,9 @@
 <?php
 if (!function_exists('cut_html')) {
-    function cut_html(string $html, $offset=250) {
+    function cut_html($html, $offset=250) {
+        if (!is_string($html)) {
+            return '';
+        }
         $forIter = strlen($html)-$offset;
         for($i=0;$i<$forIter;$i++) {
             $g = substr($html, $offset-1, 15);
