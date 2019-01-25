@@ -1,4 +1,9 @@
 @extends('layouts.admin')
+@section('link')
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="{{asset('css/datatable/datatables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/datatable/datatables-select.min.css')}}">
+@endsection
 @section('content')
     <h1 class="text-center">РАЗДЕЛ: МЕРОПРИЯТИЯ</h1>
     <div class="container">
@@ -13,7 +18,7 @@
                     {{ Form::file('event-gr', ['class' => '', 'area-describedby' => '', 'id' => 'event-file']) }}
                     {{ Form::submit($mainFile !== null ? 'Изменить' : 'Добавить файл',['class' => 'item-form-event-btn btn btn-raised btn-primary', 'disabled' => 'disabled']) }}
                 {{ Form::close() }}
-                <table class="table table-striped table-bordered">
+                <table id="dtBasicExample" class="table table-striped table-bordered">
                     <thead>
                         <tr class="text-center">
                             <th scope="col">#</th>
@@ -50,11 +55,15 @@
 @endsection
 
 @section('script')
+    <script src="{{asset('js/table/datatables.min.js')}}"></script>
+    <script src="{{asset('js/table/datatables-select.min.js')}}"></script>
     <script>
         $(document).ready(function(){
             $('#event-file').change(function () {
                 $('.item-form-event-btn').prop('disabled', false)
             })
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
         });
     </script>
 @endsection
