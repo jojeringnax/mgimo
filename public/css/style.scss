@@ -2814,6 +2814,14 @@ footer {
 
 .text-news {
     a {
+        strong {
+            color: #007bff !important;
+        }
+        &:hover {
+            color: #0056b3 !important;
+        }
+    }
+    a {
         color: #007bff !important;
         &:hover {
             color: #0056b3 !important;

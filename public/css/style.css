@@ -2152,6 +2152,10 @@ footer {
 .item-event-mob {
   display: none; }
 
+.text-news a strong {
+  color: #007bff !important; }
+.text-news a:hover {
+  color: #0056b3 !important; }
 .text-news a {
   color: #007bff !important; }
   .text-news a:hover {
