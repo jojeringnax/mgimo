@@ -19,7 +19,7 @@
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
-                        <a id="link_tashkent" href="alumniforum.mgimo.ru" style="top: 29%; left: 6px; position: absolute">Подробнее</a>
+                        <a id="link_tashkent" href="http://alumniforum.mgimo.ru/" target="_blank" style="top: 29%; left: 6px; position: absolute">Подробнее</a>
                     </div>
                     <div class="mob-event">
                         <div class="item-event-mob">
@@ -27,7 +27,7 @@
                             <div class="data">
                                 <div class="date">12 – 14 апреля 2019 г.</div>
                                 <div class="text">Международный форум выпускников МГИМО в Ташкенте</div>
-                                <a href="alumniforum.mgimo.ru" class="link">Подробнее</a>
+                                <a href="http://alumniforum.mgimo.ru/" target="_blank" class="link">Подробнее</a>
                             </div>
                         </div>
                         <div class="item-event-mob">
