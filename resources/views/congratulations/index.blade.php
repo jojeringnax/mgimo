@@ -11,7 +11,6 @@
 @section('content')
     <div class="layout-img hide">
         <div class="layout">
-
         </div>
         <div class="img-source-layout">
             <a href="" download="proposed_file_name"><img src="" alt=""></a>
@@ -19,7 +18,7 @@
     </div>
     <div id="congratulations" class="container container-content" style="padding-bottom: 120px; margin-top: 120px;">
         <div class="row" style="margin:0; padding: 0">
-            <div class="btns-congratulations d-flex justify-conte   nt-xl-start justify-content-sm-center">
+            <div class="btns-congratulations d-flex justify-content-xl-start justify-content-sm-center">
                 <a href="" data-toggle="modal" data-target="#congratulationModule" class="btn-congr btn-mgimo"><span class="congr_icon"></span>Поздравить МГИМО</a>
             </div>
             <div class="content-congratulations col-12" style="padding: 0">
@@ -68,14 +67,11 @@
                                     </div>
                                     <div class="item-form-congratulation">
                                         {{ Form::label('content', 'Сыылка на видео') }}
-                                        {{ Form::text('content','',['class' => 'form-control item-form-news-add','placeholder' => 'Вставьте ссылку на видео.']) }}
+                                        {{ Form::text('content','',['class' => 'form-control item-form-news-add link-video','placeholder' => 'Вставьте ссылку на видео.']) }}
                                     </div>
 
                                     {{  Form::hidden('date','1',  null, ['class' => 'form-control' ]) }}
-                                    <div class="item-form-congratulation">
-                                        {{ Form::label('priority', 'Приоритет') }}
-                                        {{ Form::number('priority', '1',['class' => 'form-control item-form-news-add']) }}
-                                    </div>
+                                    {{ Form::hidden('priority', '5',['class' => 'form-control item-form-news-add']) }}
                                     <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
                                         <div class="custom-file">
                                             {{ Form::file('file', ['class' => 'form-control','area-describedby' => 'photo_area','id' => 'photo-main'])}}
