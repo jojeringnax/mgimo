@@ -10,6 +10,7 @@
                         <th scope="col">id</th>
                         <th scope="col">Заголовок</th>
                         <th scope="col">Фото или видео</th>
+                        <th scope="col">Приоритет</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -19,7 +20,14 @@
                         <tr class="text-center">
                             <td width="5%">{{ $element->id }}</td>
                             <td>{{ $element->title }}</td>
-                            <td></td>
+                            <td>
+                                @if(!preg_match('/<iframe*/', $element->content))
+                                    {{"Фото"}}
+                                @else
+                                    {{"Видео"}}
+                                @endif
+                            </td>
+                            <td>{{$element->priority}}</td>
                             <td width="10%" class="action">
                                 {{ link_to_action('AdminController@updateCongratulation', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
                                 {{ link_to_action('AdminController@deleteCongratulation', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}

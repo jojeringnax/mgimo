@@ -13,7 +13,8 @@ $(document).ready(function () {
     });
 
     $('.congratulation_ajax').submit(function(e) {
-        e.preventDefault();
+      e.preventDefault();
+      $('.link-video').attr('value', 'no video')
       $.ajax({
           url: "api/congratulations/create",
           dataType: 'json',

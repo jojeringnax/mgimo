@@ -59,7 +59,7 @@
     <script>
         $(document).ready(function(){
            $('#photo-main').change(function(){
-               $('#content').val('none');
+               $('#content').val('no video');
            })
         });
     </script>
