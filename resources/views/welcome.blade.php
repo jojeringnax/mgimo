@@ -292,7 +292,7 @@
                     <div class="container">
                         <div class="row d-flex justify-content-center">
                             <div class="col-8 d-flex flex-column" style="height:100%">
-                                {{Form::open(array('action' => 'AdminController@createCongratulation', 'files' => true, 'class' => 'congratulation_ajax')) }}
+                                {{Form::open(array('files' => true, 'class' => 'congratulation_ajax')) }}
                                 <div class="item-form-congratulation">
                                     {{ Form::label('title', 'Заголовок') }}
                                     {{ Form::text('title','',['class' => 'form-control']) }}

@@ -15,10 +15,10 @@ $(document).ready(function () {
     $('.congratulation_ajax').submit(function(e) {
         e.preventDefault();
       $.ajax({
-          url: "admin/congratulations/create",
+          url: "api/congratulations/create",
           dataType: 'json',
           data: new FormData($(this)[0]),
-          type: 'POST',
+          method: 'POST',
           async: false,
           cache:false,
           contentType: false,
@@ -29,7 +29,7 @@ $(document).ready(function () {
           success: function(data) {
               $('.modal-body > .container > .row').html('Спасибо за поздравление!');
           }
-      })
+      });
     });
 });
 
