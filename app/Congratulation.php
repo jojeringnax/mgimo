@@ -89,7 +89,7 @@ class Congratulation extends Model
      */
     public static function getModerated($limit=4,$offset=0)
     {
-        return self::where('moderated', true)->sortBy('priority')->limit($limit)->skip($offset)->get();
+        return self::where('moderated', true)->limit($limit)->skip($offset)->get()->sortBy('priority');
     }
 
     /**
