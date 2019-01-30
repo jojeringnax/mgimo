@@ -45,7 +45,11 @@ class Congratulation extends Model
      */
     public function delete()
     {
-        $this->mainPhoto->delete();
+        $photo = $this->mainPhoto;
+        $this->update(['main_photo_id' => null]);
+        if ($photo !== null) {
+            $photo->delete();
+        }
         return parent::delete();
     }
 
@@ -85,7 +89,7 @@ class Congratulation extends Model
      */
     public static function getModerated($limit=4,$offset=0)
     {
-        return self::where('moderated', true)->limit($limit)->skip($offset)->get();
+        return self::where('moderated', true)->sortBy('priority')->limit($limit)->skip($offset)->get();
     }
 
     /**
