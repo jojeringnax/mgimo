@@ -17,7 +17,7 @@ class SmiController extends Controller
     public function index()
     {
         return view('smis.index', [
-            'smis' => Smi::limit(12)->get(),
+            'smis' => Smi::limit(12)->orderBy('created_at', 'desc')->get(),
             'smisNumber' => Smi::all()->count()
         ]);
     }
