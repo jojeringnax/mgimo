@@ -17,7 +17,7 @@
                     {{  Form::hidden('date','1',  null, ['class' => 'form-control' ]) }}
                 <div class="item-form-congratulation">
                     {{ Form::label('priority', 'Приоритет') }}
-                    {{ Form::number('priority', '1',['class' => 'form-control item-form-news-add']) }}
+                    {{ Form::number('priority',isset($congratulation) ? $congratulation->priority : '',['class' => 'form-control item-form-news-add']) }}
                 </div>
                 <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
                     <div class="custom-file">
