@@ -21,7 +21,7 @@ class SiteController extends Controller
     {
         $news = News::getModerated(3);
         $events = Event::getModerated(6);
-        $smis = Smi::limit(4)->get();
+        $smis = Smi::limit(4)->orderBy('created_at', 'desc')->get();
         $congrats = Congratulation::getModerated();
         $partners = Partner::getInPriority();
         return view('welcome', [
