@@ -961,6 +961,6 @@ class AdminController extends Controller
     public function deleteSubscriber($subscriberId)
     {
         Subscriber::find($subscriberId)->delete();
-        return redirect()->route('congratulations_index');
+        return redirect()->route('subscribers_index');
     }
 }
