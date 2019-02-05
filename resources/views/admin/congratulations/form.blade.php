@@ -13,7 +13,6 @@
                     {{ Form::label('content', 'Сыылка на видео') }}
                     {{ Form::text('content',isset($congratulation) ? $congratulation->content : '',['class' => 'form-control item-form-news-add','placeholder' => 'Вставьте ссылку на видео.']) }}
                 </div>
-
                     {{  Form::hidden('date','1',  null, ['class' => 'form-control' ]) }}
                 <div class="item-form-congratulation">
                     {{ Form::label('priority', 'Приоритет') }}
