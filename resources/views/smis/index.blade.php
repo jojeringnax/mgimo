@@ -11,7 +11,7 @@
         <div class="row">
             <div class="media-page d-flex flex-column" style="width:100%">
                 @if(!$smis->isEmpty())
-                    <div class="media-page-content d-flex justify-content-between flex-wrap" style="width:100%">
+                    <div class="media-page-content d-flex justify-content-start flex-wrap" style="width:100%">
                         @foreach($smis as $smi)
                             <div data-index="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-4  col-sm-6 col-12 item-media-news d-flex">
                                 <a href="{{ $smi->link }}" target="_blank">
@@ -29,7 +29,7 @@
             </div>
             @if($smisNumber > 12)
                 <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
-                    <a id="btn-download-smis-page" href="">ПОКАЗАТЬ ЕЩЕ СМИ О НАС</a>
+                    <a id="btn-download-smis-page" class="btn-mgimo" href="">ПОКАЗАТЬ ЕЩЕ СМИ О НАС</a>
                 </div>
             @endif
         </div>
