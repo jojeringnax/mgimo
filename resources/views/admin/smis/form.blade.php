@@ -15,7 +15,7 @@
                     {{ Form::text('link', !isset($smi) ? '' : $smi->link, ['class' => 'item-form-smis form-control','required' => 'required']) }}
 
                     {{ Form::label('date', 'Дата', ['class' => 'label-inp-smis', 'id' => '']) }}
-                    {{ Form::date('date', !isset($smi) ? '' : $smi->link, ['class' => 'item-form-smis form-control','required' => 'required']) }}
+                    {{ Form::date('date', !isset($smi) ? '' : date('Y-m-d', strtotime($smi->date)), ['class' => 'item-form-smis form-control','required' => 'required']) }}
 
                     {{ Form::submit('Сохранить',['class' => 'item-form-smis-btn btn btn-raised btn-primary']) }}
                 </div>
@@ -24,4 +24,5 @@
         </div>
     </div>
 @endsection
+
 
