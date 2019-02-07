@@ -522,7 +522,7 @@ class AdminController extends Controller
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form');
         }
-        return 0;
+        return redirect()->route('congratulations_index');
     }
 
     /**
@@ -585,13 +585,12 @@ class AdminController extends Controller
                 }
             }
             $congratulation->save();
-            return redirect()->route('congratulations_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.congratulations.form', [
                 'congratulation' => Congratulation::find($congratulationId),
             ]);
         }
-        return 0;
+        return redirect()->route('congratulations_index');
     }
 
 
@@ -633,11 +632,10 @@ class AdminController extends Controller
                 $book->cover_photo_id = $photo->id;
                 $book->update(['cover_photo_id' => $photo->id]);
             }
-            return redirect()->route('books_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.books.form');
         }
-        return 0;
+        return redirect()->route('books_index');
     }
 
     /**
@@ -724,11 +722,10 @@ class AdminController extends Controller
                 $photo->save();
                 $partner->update(['photo_id' => $photo->id]);
             }
-            return redirect()->route('partners_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.partners.form');
         }
-        return 0;
+        return redirect()->route('partners_index');
     }
 
 
@@ -781,7 +778,7 @@ class AdminController extends Controller
     public function deletePartner($partnerId)
     {
         Partner::find($partnerId)->delete();
-        return 1;
+        return redirect()->route('partners_index');
     }
 
 
@@ -824,13 +821,14 @@ class AdminController extends Controller
         } elseif ($request->isMethod('get')) {
             return view('admin.gallery.form');
         };
-        return 0;
+        return redirect()->route('album_index');
     }
 
     /**
      * @param $id
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int|void
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View|int
+     * @throws \Exception
      */
     public function albumFill($id, Request $request)
     {
@@ -887,9 +885,9 @@ class AdminController extends Controller
         } elseif ($request->isMethod('get')) {
             return view('admin.gallery.album_fill', [
                 'album' => $album
-        ]);
-     }
-     return 0;
+            ]);
+        }
+    return redirect()->route('album_index');
     }
 
     /**
@@ -900,7 +898,7 @@ class AdminController extends Controller
     {
         $album = Album::findOrFail($id);
         $album->delete();
-        return 1;
+        return redirect()->route('album_index');
     }
 
 
@@ -920,11 +918,11 @@ class AdminController extends Controller
             $subscriber->post = $request->post('post');
             $subscriber->active = $request->post('active') === null ? false : true;
             $subscriber->save();
-            return 1;
+            return redirect()->route('subscribers_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.subscribers.form');
         }
-        return 0;
+        return redirect()->route('subscribers_index');
     }
 
 
@@ -945,13 +943,12 @@ class AdminController extends Controller
             $subscriber->post = $request->post('post');
             $subscriber->active = $request->post('active') === null ? false : true;
             $subscriber->save();
-            return redirect()->route('subscribers_index');
         } elseif ($request->isMethod('get')) {
             return view('admin.subscribers.form', [
                 'subscriber' => Subscriber::find($subscriberId)
             ]);
         }
-        return 0;
+        return redirect()->route('subscribers_index');
     }
 
     /**

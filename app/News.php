@@ -61,11 +61,17 @@ class News extends Model
             $tag->update(['count_news' => $tag->count_news - 1]);
         }
         parent::delete();
-        foreach($photos as $ph) {
-            $ph->delete();
+        if ($photos !== null) {
+            foreach ($photos as $ph) {
+                if ($ph !== null)
+                    $ph->delete();
+            }
         }
-        $photo->delete();
-        return $tagConnects->delete();
+        if ($photo !== null)
+            $photo->delete();
+        if ($tagConnects !== null)
+            $tagConnects->delete();
+        return true;
     }
 
 
