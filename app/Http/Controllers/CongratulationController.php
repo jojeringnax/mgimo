@@ -29,7 +29,7 @@ class CongratulationController
             $resultArray[] = [
                 'id' => $congratulation->id,
                 'title' => $congratulation->title,
-                'content' => !preg_match('/<iframe*/', $congratulation->content) ? $congratulation->mainPhoto !== null ? $congratulation->mainPhoto->path : url('img/no-image.png') : false,
+                'content' => !preg_match('/<iframe*/', $congratulation->content) ? $congratulation->mainPhoto !== null ? $congratulation->mainPhoto->path : url('img/no-image.png') : $congratulation->content,
                 'date' => $congratulation->date
             ];
         }
