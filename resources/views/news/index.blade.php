@@ -310,7 +310,7 @@
                             i++;
                         });
                         newHeightWrapper = $('.news').height();
-                        console.log(oldHeightWrapper, newHeightWrapper)
+                        console.log(oldHeightWrapper, newHeightWrapper);
                         $('.item-card-news').animate({opacity:'1'},500);
                         $("#wrapper_news").stop().animate({height:newHeightWrapper+100},600);
                         data = $('.item-card-news').length;

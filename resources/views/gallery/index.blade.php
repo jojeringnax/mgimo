@@ -63,20 +63,35 @@
                     }
                     d.forEach(function(el) {
                         $('#albums_wrapper').append(
-                            '<a class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 item-album" href="' + el.link + '"style="padding-left: 0; padding-right: 30px">' +
-                                '<div  style="background-image: url(' + el.photo + '); background-size: cover;">' +
-                                    '<div class="items-gallery">' +
-                                        '<span>{{ $album->name }}</span>' +
+                            '<a class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 item-album" href="{{url('gallery/show')}}' +'/'+el.id + '"style="padding-left: 0; padding-right: 30px">' +
+                                '<div class="item-card-album card" style="width: 100%">' +
+                                    '<img class="card-img-top" src="'+ el.photo +'" alt="Card image cap">' +
+                                    '<div class="card-body d-flex flex-column align-items-start">' +
+                                        '<span class="title-card-album">' +el.name+ '</span>' +
                                     '</div>' +
                                 '</div>' +
                             '</a>'
                         );
                     });
+
+                    data = $('.item-album').length;
+                    $.ajax({
+                        url: "{{ url('gallery/add_albums') }}/" + data,
+                        type: 'get',
+                        success: function (d) {
+                            if (d === 0) {
+                                console.log('sss', d);
+                                $('#btn-download-galley-page').css({'opacity': "0.3", "hover": ""});
+                                $('#btn-download-galley-page').removeAttr('id');
+                            }
+                        }
+                    })
                 }
             });
         });
 
         $('#filter-album').change(function(){
+            console.log($(this).val());
             let url = "{{url('gallery/albums/')}}" + '/' + $(this).val();
             $.ajax({
                 url: url,
@@ -94,7 +109,6 @@
                                     '</div>' +
                                 '</div>' +
                             '</a>';
-
                     });
                     $('#albums_wrapper').html(albums);
 
