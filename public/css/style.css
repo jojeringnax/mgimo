@@ -1850,7 +1850,7 @@ footer {
     justify-content: space-between;
     flex-direction: column;
     align-items: center; }
-    footer .button-footer a {
+    footer .button-footer .mod-btn-footer {
       border: 1px solid white;
       height: 55px;
       background-color: transparent;
@@ -1862,12 +1862,12 @@ footer {
       text-transform: uppercase;
       color: white;
       transition: 0.7s; }
-      footer .button-footer a:hover {
+      footer .button-footer .mod-btn-footer:hover {
         background-color: white;
         color: #17427C; }
-        footer .button-footer a:hover span {
+        footer .button-footer .mod-btn-footer:hover span {
           background-image: url("../img/checked-blue.svg"); }
-      footer .button-footer a span {
+      footer .button-footer .mod-btn-footer span {
         margin-right: 25px;
         display: block;
         width: 22px;
