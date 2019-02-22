@@ -14,7 +14,7 @@
             <div class="partners-page d-flex flex-wrap flex-column">
                 <div class="logo">
                     <img src="{{asset('img/icon/logo.svg')}}" alt="logo-mgimo" style="width: 100px;">
-                    <a class="btn-linkk" href=""><span class="text-btn">Стать партнером</span><span class="arrow-btn"></span></a>
+                    <a class="btn-linkk" href="http://alumni.mgimo.ru/resources/000/000/000/003/857/3857072.pdf" target="_blank"><span class="text-btn">Стать партнером</span><span class="arrow-btn"></span></a>
                 </div>
                 <div class="organizers item-partners-page">
                     <div class="title-partners-page">

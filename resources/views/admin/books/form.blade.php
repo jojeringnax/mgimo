@@ -21,11 +21,11 @@
                 <input type="hidden" name="description" id="description"/>
             </div>
             <div class="col-xl-12 item-book-admin">
-                {{Form::select('status',['0' => 'Ожидается', '1' => 'В продаже'],null,['class' => 'custom-select'])}}
+                {{Form::select('status',['0' => 'Ожидается', '1' => 'Активна'],null,['class' => 'custom-select'])}}
             </div>
             <div class="col-xl-12 item-book-admin">
-                {{ Form::label('link', '','Ссылка на покупку книги') }}
-                {{ Form::text('link', isset($book) ? $book->link : '', ['class' => 'form-control']) }}
+                {{ Form::label('link', '','Ссылка на книгу') }}
+                {{ Form::text('link', isset($book) ? $book->link : '', ['class' => 'form-control', 'required']) }}
             </div>
             {{ Form::hidden('price','1', ['class' => 'form-control']) }}
 

@@ -20,7 +20,7 @@
                         @if($article->status == 0)
                             <a class="btn-bad" style="opacity: 0.4">Ожидается</a>
                         @else
-                            <a class="btn-good" href="{{$article->link}}" style="text-align: center" target="_blank">Купить</a>
+                            <a class="btn-good" href="{{$article->link}}" style="text-align: center" target="_blank">Подробнее</a>
                         @endif
 
                     </div>
