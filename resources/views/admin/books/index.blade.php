@@ -22,7 +22,7 @@
                             <td width="5%" class="text-center">{{ $element->id }}</td>
                             <td class="text-center">{{ $element->title }}</td>
                             <td class="text-center">{!!cut_html($element->content)!!}</td>
-                            <td class="text-center">{{$element->status ? 'В продаже' : 'Ожидается'}} </td>
+                            <td class="text-center">{{$element->status ? 'Активна' : 'Ожидается'}} </td>
                             <td width="10%" class="text-center action">
                                 {{ link_to_action('AdminController@updateBook', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
                                 {{ link_to_action('AdminController@deleteBook', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}

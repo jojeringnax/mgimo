@@ -19,13 +19,20 @@
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
-                        <a id="link_tashkent" href="http://alumniforum.mgimo.ru/" target="_blank" style="top: 29%; left: 6px; position: absolute">Подробнее</a>
+                        <a id="link_tashkent" href="http://alumniforum.mgimo.ru/" target="_blank" style="top: 31%; left: 368px; position: absolute">Подробнее</a>
                     </div>
                     <div class="mob-event">
                         <div class="item-event-mob">
                             <div class="palka"></div>
                             <div class="data">
-                                <div class="date">12 – 14 апреля 2019 г.</div>
+                                <div class="date">20 – 21 апреля 2019 г.</div>
+                                <div class="text">Универсиада МГИМО. «Спортивные поколения» </div>
+                            </div>
+                        </div>
+                        <div class="item-event-mob">
+                            <div class="palka"></div>
+                            <div class="data">
+                                <div class="date">17 – 19 мая 2019 г.</div>
                                 <div class="text">Международный форум выпускников МГИМО в Ташкенте</div>
                                 <a href="http://alumniforum.mgimo.ru/" target="_blank" class="link">Подробнее</a>
                             </div>
@@ -33,15 +40,7 @@
                         <div class="item-event-mob">
                             <div class="palka"></div>
                             <div class="data">
-                                <div class="date">18 – 19 мая 2019 г.</div>
-                                <div class="text">Универсиада МГИМО. «Спортивные поколения» </div>
-                                {{--<div class="link">Подробнее</div>--}}
-                            </div>
-                        </div>
-                        <div class="item-event-mob">
-                            <div class="palka"></div>
-                            <div class="data">
-                                <div class="date">24 мая 2019 г.</div>
+                                <div class="date">25 мая 2019 г.</div>
                                 <div class="text">Кубок Ректора МГИМО по гольфу к 75-летию МГИМО</div>
                                 {{--<div class="link">Подробнее</div>--}}
                             </div>
@@ -49,8 +48,8 @@
                         <div class="item-event-mob">
                             <div class="palka"></div>
                             <div class="data">
-                                <div class="date">18 – 19 мая 2019 г.</div>
-                                <div class="text">Универсиада МГИМО. «Спортивные поколения» </div>
+                                <div class="date">7-25 октября 2019 г.</div>
+                                <div class="text">Арт-выставка выпускников МГИМО. «О МГИМО и о Москве»</div>
                                 {{--<div class="link">Подробнее</div>--}}
                             </div>
                         </div>
@@ -65,23 +64,15 @@
                         <div class="item-event-mob">
                             <div class="palka"></div>
                             <div class="data">
-                                <div class="date">Октябрь 2019 г.</div>
+                                <div class="date">21-22 октября 2019 г.</div>
                                 <div class="text">XII Конвент РАМИ  «Мир регионов VS. Регионы мира»</div>
-                                {{--<div class="link">Подробнее</div>--}}
-                            </div>
-                        </div>
-                        <div class="item-event-mob">
-                            <div class="palka"></div>
-                            <div class="data">
-                                <div class="date">Октябрь 2019 г.</div>
-                                <div class="text">Арт-выставка выпускников МГИМО. «О МГИМО и о Москве»</div>
                                 {{--<div class="link">Подробнее</div>--}}
                             </div>
                         </div>
                         <div class="item-event-mob">
                             <div class="palka last"></div>
                             <div class="data">
-                                <div class="date">15 октября 2019 г..</div>
+                                <div class="date">23 октября 2019 г..</div>
                                 <div class="text">Торжественный юбилейный вечер</div>
                                 {{--<div class="link">Подробнее</div>--}}
                             </div>

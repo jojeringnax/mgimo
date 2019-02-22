@@ -35,6 +35,7 @@
             <div id="press-btn-contact" class="press-btn col-12">
                 <a class="btn-linkk" target="_blank" href="https://mgimo.ru/about/structure/press/"><span class="text-btn">Пресс служба</span><span class="arrow-btn"></span></a>
             </div>
+            <a class="nav-link" href="https://mgimo.ru/about/today/logo/" style="font-size: 16px; margin-top: 15px; text-decoration: underline !important;" target="_blank">Скачать логотип</a>
         </div>
     </div>
 @endsection
