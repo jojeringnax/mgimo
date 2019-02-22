@@ -1914,6 +1914,11 @@ footer {
   font-size: 16px;
   color: #1A2F3F; }
 
+.link-footer {
+  color: white !important; }
+  .link-footer:hover {
+    color: #007bff !important; }
+
 .link-book-pay {
   cursor: pointer;
   margin-top: 30px;

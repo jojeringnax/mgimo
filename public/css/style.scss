@@ -2502,6 +2502,13 @@ footer {
     color: $mainColor;
 }
 
+.link-footer {
+    color: white !important;
+    &:hover {
+        color: #007bff !important;
+    }
+}
+
 .link-book-pay {
     cursor: pointer;
     margin-top: 30px;

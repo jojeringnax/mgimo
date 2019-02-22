@@ -125,7 +125,7 @@
                     <div class="button-footer col-xl-4 col-lg-4 col-md-6 col-12 align-items-center">
                         <a data-toggle="modal" class="btn-mgimo mod-btn-footer" data-target="#modalRegisterForm" href="#"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
                         <span class="text-center">
-                            МГИМО 75<br><a class="" href="http://alumni.mgimo.ru" style="color: white !important; text-decoration: underline" target="_blank">Ассоциация выпускников МГИМО</a><br><a class="" href="http://fund.mgimo.ru/" style="color: white !important; text-decoration: underline" target="_blank">Эндаумент МГИМО</a>
+                            МГИМО 75<br><a class="link-footer" href="http://alumni.mgimo.ru" style="" target="_blank">Ассоциация выпускников МГИМО</a><br><a class="link-footer" href="http://fund.mgimo.ru/" style="" target="_blank">Эндаумент МГИМО</a>
                         </span>
                     </div>
                     <div class="contact-footer col-xl-4 col-lg-4 col-md-6 col-12 align-items-stretch d-flex flex-column">
