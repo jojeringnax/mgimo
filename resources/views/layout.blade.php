@@ -113,7 +113,7 @@
                                 <li><a href="{{url('events')}}">Мероприятия</a></li>
                                 <li><a href="{{url('congratulations')}}">Поздравления</a></li>
                             </ul>
-                            <ul class="d-flex flex-column justify-content-between"">
+                            <ul class="d-flex flex-column justify-content-between">
                                 <li><a href="{{url('books')}}">Издательская программа</a></li>
                                 <li><a href="{{url('gallery')}}">Галерея</a></li>
                                 <li><a href="{{url('partners')}}">Партнеры</a></li>
@@ -123,9 +123,9 @@
                         </nav>
                     </div>
                     <div class="button-footer col-xl-4 col-lg-4 col-md-6 col-12 align-items-center">
-                        <a data-toggle="modal" class="btn-mgimo" data-target="#modalRegisterForm" href="#"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
+                        <a data-toggle="modal" class="btn-mgimo mod-btn-footer" data-target="#modalRegisterForm" href="#"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
                         <span class="text-center">
-                            МГИМО 75<br>Ассоциация выпускников МГИМО<br>Эндаумент МГИМО
+                            МГИМО 75<br><a class="" href="" style="color: white !important; text-decoration: underline">Ассоциация выпускников МГИМО</a><br><a class="" href="" style="color: white !important; text-decoration: underline">Эндаумент МГИМО</a>
                         </span>
                     </div>
                     <div class="contact-footer col-xl-4 col-lg-4 col-md-6 col-12 align-items-stretch d-flex flex-column">
@@ -134,7 +134,7 @@
                             <span class="number-footer">+7 495 229-40-49</span>
                         </span>
                         <div class="soc-net d-flex justify-content-end">
-                            <a target="_blank" href="https://vk.com/public175809098" class="item-soc-net vk"></a>
+                            <a target="_blank" href="https://vk.com/mgimo75" class="item-soc-net vk"></a>
                             <a target="_blank" href="https://www.facebook.com/groups/284420799092549/about/" class="item-soc-net fb"></a>
                             <a target="_blank" href="https://www.instagram.com/alumni_mgimo/" class="item-soc-net inst"></a>
                             <a target="_blank" href="https://www.youtube.com/playlist?list=PLuF7IO74aQSJ-l67YvzYHoTJ-7GZ9YYAi" class="item-soc-net yt"></a>
