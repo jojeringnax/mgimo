@@ -211,38 +211,21 @@
                     <div data-arrow = "right" class="arrow next"></div>
                     <div data-arrow = "left" class="arrow prev"></div>
                     <div class="d-flex justify-content-center">
-                            <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center" >
-                                <div class="item">
-                        @else
-                            <div class="prtn" style="display: flex;justify-content: space-around;align-items: center;flex-direction: row;">
-                        @endif
+                        <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center" >
+                            <div class="item">
                                 @foreach($partners as $partner)
-                                    @if($loop->count <= 3 && $partner->type !== 1)
-                                        <div class="item" style="width: 200px;height: 50px">
-                                            <div class="item-partner">
-                                                <a href="{{ $partner->link }}">
-                                                    <div style="height: 100%">
-                                                        <img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" />
-                                                    </div>
-                                                </a>
+                                    <div class="item-partner">
+                                        <a href="{{ $partner->link }}">
+                                            <div style="height: 100%">
+                                                <img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" />
                                             </div>
+                                        </a>
+                                    </div>
+                                    @if($loop->iteration%3 == 0 && $loop->index !== 0 && !$loop->last)
+                                        </div><div class="item">
+                                    @endif
+                                    @if($loop->last)
                                         </div>
-                                    @else
-                                        @if($partner->type !== 1)
-                                            <div class="item-partner">
-                                                <a href="{{ $partner->link }}">
-                                                    <div style="height: 100%">
-                                                        <img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            @if($loop->iteration%2 === 0 && $loop->index !== 0 && !$loop->last)
-                                                </div><div class="item">
-                                            @endif
-                                            @if($loop->last)
-                                                </div>
-                                            @endif
-                                        @endif
                                     @endif
                                 @endforeach
                             @if(count($partners) > 3)
@@ -251,6 +234,9 @@
                             </div>
                         @endif
                         </div>
+                @else
+                    <div class="prtn" style="display: flex;justify-content: space-around;align-items: center;flex-direction: row;">
+                @endif
                     </div>
             <a href="{{url('partners')}}" class="btn-partners btn-linkk  btn-mgimo"><span class="text-btn">Смотреть всех партнеров</span><span class="arrow-btn"></span></a>
         </div>

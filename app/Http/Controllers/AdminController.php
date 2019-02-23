@@ -120,7 +120,8 @@ class AdminController extends Controller
     /**
      * @param $articleId
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View|int
+     * @throws \Exception
      */
     public function updateArticle($articleId, Request $request)
     {
@@ -461,9 +462,9 @@ class AdminController extends Controller
 
 
     /**
-     * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
-     */
+ * @param Request $request
+ * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+ */
     public function createCongratulation(Request $request)
     {
         if($request->isMethod('post')) {
