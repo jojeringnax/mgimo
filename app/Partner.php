@@ -49,6 +49,6 @@ class Partner extends Model
 
     public static function getInPriority($type=0)
     {
-        return self::where('type', $type)->all()->sortBy('priority');
+        return self::where('type', $type)->get()->sortBy('priority');
     }
 }
