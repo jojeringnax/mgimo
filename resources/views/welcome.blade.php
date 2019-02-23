@@ -214,9 +214,6 @@
                         <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center" >
                             <div class="item">
                                 @foreach($partners as $partner)
-                                    @if($partner->type === 1)
-                                        @php continue; @endphp
-                                    @endif
                                     <div class="item-partner">
                                         <a href="{{ $partner->link }}">
                                             <div style="height: 100%">

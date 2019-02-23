@@ -47,8 +47,8 @@ class Partner extends Model
         return $this->hasOne(Photo::class, 'id','photo_id');
     }
 
-    public static function getInPriority()
+    public static function getInPriority($type=0)
     {
-        return self::all()->sortBy('priority');
+        return self::where('type', $type)->all()->sortBy('priority');
     }
 }
