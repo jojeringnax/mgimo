@@ -214,18 +214,20 @@
                         <div class="partners owl-carousel owl-theme col-xl-10 col-lg-8 col-md-6 col-6 justify-content-center" >
                             <div class="item">
                                 @foreach($partners as $partner)
-                                    <div class="item-partner">
-                                        <a href="{{ $partner->link }}">
-                                            <div style="height: 100%">
-                                                <img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    @if($loop->iteration%3 == 0 && $loop->index !== 0 && !$loop->last)
-                                        </div><div class="item">
-                                    @endif
-                                    @if($loop->last)
+                                    @if($partner->type !== 1)
+                                        <div class="item-partner">
+                                            <a href="{{ $partner->link }}">
+                                                <div style="height: 100%">
+                                                    <img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" />
+                                                </div>
+                                            </a>
                                         </div>
+                                        @if($loop->iteration%3 == 0 && $loop->index !== 0 && !$loop->last)
+                                            </div><div class="item">
+                                        @endif
+                                        @if($loop->last)
+                                            </div>
+                                        @endif
                                     @endif
                                 @endforeach
                             @if(count($partners) > 3)
