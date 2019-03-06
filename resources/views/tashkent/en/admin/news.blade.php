@@ -29,7 +29,7 @@
                                 {{ link_to_route('updateArticleTashkent_en', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
                                 {{ link_to_action('tashkent\en\AdminController@deleteArticle', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
                             </td>
-                        </tr> 
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>
