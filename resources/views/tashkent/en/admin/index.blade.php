@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">Dashboard</div>
+                    <div class="card-header">Dashboard EN Tashkent_2019</div>
                     <div class="card-body">
                         <a href="{{ url('register') }}">Добавить пользователя</a>
                         <div class="admin-sections d-flex flex-wrap">
@@ -17,6 +17,7 @@
                         </div>
                     </div>
                 </div>
+                {{ link_to('admin/', 'Назад', ['class' => 'btn btn-outline-primary']) }}
             </div>
         </div>
     </div>

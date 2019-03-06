@@ -80,7 +80,7 @@
                         type: 'get',
                         success: function (d) {
                             if (d === 0) {
-                                console.log('sss', d);
+                                //console.log('sss', d);
                                 $('#btn-download-galley-page').css({'opacity': "0.3", "hover": ""});
                                 $('#btn-download-galley-page').removeAttr('id');
                             }
@@ -91,7 +91,7 @@
         });
 
         $('#filter-album').change(function(){
-            console.log($(this).val());
+            //console.log($(this).val());
             let url = "{{url('gallery/albums/')}}" + '/' + $(this).val();
             $.ajax({
                 url: url,
