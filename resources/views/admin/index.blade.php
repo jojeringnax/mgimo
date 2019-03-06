@@ -4,8 +4,9 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">
-                        {{ link_to('admin/tashkent', 'АДМИНКА ТАШКЕНТА', ['class' => 'card d-flex justify-content-center align-items-center text-center']) }}
+                    <div class="card-header d-flex justify-content-around">
+                        {{ link_to('admin/tashkent', 'АДМИНКА ТАШКЕНТА', ['class' => 'link-admin card d-flex justify-content-center align-items-center text-center']) }}
+                        {{ link_to('admin/tashkent/en', 'АДМИНКА ТАШКЕНТА EN', ['class' => 'link-admin card d-flex justify-content-center align-items-center text-center']) }}
                     </div>
                     <div class="card-body">
                         <a href="{{ url('register') }}">Добавить пользователя</a>

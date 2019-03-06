@@ -29,11 +29,12 @@
                                 {{ link_to_route('updateArticleTashkent_en', '', ['id' => $element->id], ['class' => 'oi oi-pencil']) }}
                                 {{ link_to_action('tashkent\en\AdminController@deleteArticle', '', ['id' => $element->id], ['class' => 'oi oi-delete delete-admin']) }}
                             </td>
-                        </tr>
+                        </tr> 
                     @endforeach
                     </tbody>
                 </table>
                 {{ link_to_route('createArticleTashkent_en', 'create',[], ['class' => 'btn btn-secondary']) }}
+                {{ link_to('admin/tashkent/en', 'Назад', ['class' => 'btn btn-outline-primary']) }}
             </div>
         </div>
     </div>

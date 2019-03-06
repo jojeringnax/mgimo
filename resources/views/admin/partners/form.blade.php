@@ -5,7 +5,7 @@
     <div class="container" style="margin-top:100px;">
         <div class="row d-flex justify-content-center">
             <div class="col-12 d-flex flex-column align-items-center">
-                {{ !isset($partner) ? Form::open(array('action' => 'AdminController@createPartner', 'files' => true, 'class'=>'partner-form d-flex flex-column align-items-center')) : Form::model($partner, ['files' => true, 'class'=>'partner-form d-flex flex-column align-items-center']) }}
+                {{ !isset($partner) ? Form::open(array('action' => 'AdminController@createPartner', 'files' => true, 'class'=>'partner-form ')) : Form::model($partner, ['files' => true, 'class'=>'partner-form']) }}
                 <div class="input-group col-xl-12 item-form-partner-add">
                     {{ Form::label('link', 'Ссылка') }}
                     {{ Form::text('link', isset($partner) ? $partner->link : '',['class' => 'form-control','placeholder' => 'Ссылка на сайт партнера']) }}

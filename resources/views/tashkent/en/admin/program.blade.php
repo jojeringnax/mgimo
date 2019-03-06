@@ -33,6 +33,7 @@
                     </tbody>
                 </table>
                 {{ link_to_route('createEventTashkent_en', 'create',[], ['class' => 'btn btn-secondary']) }}
+                {{ link_to('admin/tashkent/en', 'Назад', ['class' => 'btn btn-outline-primary']) }}
             </div>
         </div>
     </div>
