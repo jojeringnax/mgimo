@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\tashkent;
+namespace App\Http\Controllers\tashkent\en;
 
-use App\tashkent\Article;
-use App\tashkent\Event;
+use App\tashkent\en\Article;
+use App\tashkent\en\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +19,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('tashkent.admin.index');
+        return view('tashkent.en.admin.index');
     }
 
 
@@ -29,7 +29,7 @@ class AdminController extends Controller
     public function news()
     {
         $news = Article::all();
-        return view('tashkent.admin.news', [
+        return view('tashkent.en.admin.news', [
             'news' => $news
         ]);
     }
@@ -46,7 +46,7 @@ class AdminController extends Controller
         $article->fill($r->post());
         $article->moderated = 1;
         $article->save();
-        return redirect('admin/tashkent/news');
+        return redirect('admin/tashkent/en/news');
     }
 
     /**
@@ -56,7 +56,7 @@ class AdminController extends Controller
     public function deleteArticle($id)
     {
         Article::findOrFail($id)->delete();
-        return redirect('admin/tashkent/news');
+        return redirect('admin/tashkent/en/news');
     }
 
 
@@ -65,7 +65,7 @@ class AdminController extends Controller
      */
     public function program()
     {
-        return view('tashkent.admin.program', [
+        return view('tashkent.en.admin.program', [
             'events' => Event::getAsArrayWithDates()
         ]);
     }
@@ -81,7 +81,7 @@ class AdminController extends Controller
         $event->fill($r->post());
         if($r->post('all_day') === null) $event->all_day = false;
         $event->save();
-        return redirect('admin/tashkent/program');
+        return redirect('admin/tashkent/en/program');
     }
 
     /**
@@ -91,7 +91,7 @@ class AdminController extends Controller
     public function deleteProgram($id)
     {
         Event::findOrFail($id)->delete();
-        return redirect('admin/tashkent/program');
+        return redirect('admin/tashkent/en/program');
     }
 
 

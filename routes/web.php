@@ -199,3 +199,48 @@ Route::post('admin/tashkent/program/update/{id}', 'tashkent\AdminController@stor
 Route::get('admin/tashkent/program/delete/{id}', 'tashkent\AdminController@deleteProgram');
 
 Route::get('admin/tashkent/program/is_exist_all_day/{date}', 'tashkent\AdminController@isExistForTodayForAllDay');
+
+
+
+/**
+ * TASHKENT ROUTES ENGLISH
+ */
+
+
+Route::get('admin/tashkent/en', 'tashkent\en\AdminController@index')->name('adminIndexTashkent_en');
+
+Route::get('admin/tashkent/en/news', 'tashkent\en\AdminController@news')->name('newsAdminIndexTashkent_en');
+
+Route::post('admin/tashkent/en/news/create', 'tashkent\en\AdminController@storeArticle');
+Route::post('admin/tashkent/en/news/update/{id}', 'tashkent\en\AdminController@storeArticle');
+
+Route::get('admin/tashkent/en/news/delete/{id}', 'tashkent\en\AdminController@deleteArticle');
+Route::get('admin/tashkent/en/news/update/{id}', function ($id) {
+    return view('tashkent.admin.news.update', [
+        'article' => \App\tashkent\en\Article::findOrFail($id)
+    ]);
+})->name('updateArticleTashkent_en');
+
+Route::get('admin/tashkent/en/news/create', function () {
+    return view('tashkent.admin.news.create');
+})->name('createArticleTashkent_en');
+
+
+
+Route::get('admin/tashkent/en/program', 'tashkent\en\AdminController@program');
+Route::get('admin/tashkent/en/program/create', function() {
+    return view('tashkent.admin.program.create');
+})->name('createEventTashkent_en');
+
+Route::get('admin/tashkent/en/program/update/{id}', function ($id) {
+    return view('tashkent.admin.program.update', [
+        'event' => \App\tashkent\en\Event::findOrFail($id)
+    ]);
+})->name('updateEventTashkent_en');
+
+
+Route::post('admin/tashkent/en/program/create', 'tashkent\en\AdminController@storeProgram');
+Route::post('admin/tashkent/en/program/update/{id}', 'tashkent\en\AdminController@storeProgram');
+Route::get('admin/tashkent/en/program/delete/{id}', 'tashkent\en\AdminController@deleteProgram');
+
+Route::get('admin/tashkent/en/program/is_exist_all_day/{date}', 'tashkent\en\AdminController@isExistForTodayForAllDay');
