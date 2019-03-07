@@ -6,7 +6,21 @@
 
 
 @section('content')
-
+    <pre>
+        ;aeg
+        a
+        ea
+        h
+        ea
+        h
+        e
+        h
+        ae
+        h
+        ae
+        h
+        <?= trans('messages.Добро пожаловать') ?>
+    </pre>
     <div class="layout-img hide">
         <div class="layout">
 
