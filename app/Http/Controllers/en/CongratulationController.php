@@ -6,10 +6,11 @@
  * Time: 15:01
  */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\en;
 
 
-use App\Congratulation;
+use App\en\Congratulation;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CongratulationController extends Controller
