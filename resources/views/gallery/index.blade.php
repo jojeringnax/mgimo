@@ -40,7 +40,7 @@
                 </div>
                 @if($albumsNumber > 12)
                     <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
-                        <a id="btn-download-galley-page" href="">ПОКАЗАТЬ ЕЩЕ АЛЬБОМЫ</a>
+                        <a id="btn-download-galley-page" href=""><?= trans('messages.gallery__more__albums') ?></a>
                     </div>
                 @endif
             </div>

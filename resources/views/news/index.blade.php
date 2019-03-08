@@ -14,8 +14,8 @@
             <div class="news-page">
                 <div class="title-news-page d-flex" style="padding-left: 25px;">
                     <div class="btn-news-page d-flex flex-wrap">
-                        <a  data-toggle="modal" data-target="#exampleModal" class="modal-button btn-news-page-add"><span></span>Добавить свою новость</a>
-                        <a  data-toggle="modal" data-target="#modalRegisterForm" class="btn-news-page-sub"><span></span>Подписаться на новости</a>
+                        <a  data-toggle="modal" data-target="#exampleModal" class="modal-button btn-news-page-add"><span></span><?= trans('messages.add__news') ?></a>
+                        <a  data-toggle="modal" data-target="#modalRegisterForm" class="btn-news-page-sub"><span></span><?= trans('messages.news__subs__btn') ?></a>
                     </div>
                 </div>
                 <div id="wrapper_news">
@@ -81,7 +81,7 @@
             @if($newsNumber > 10)
                 <div class="container" style="margin-top:20px;">
                     <div class="row d-flex justify-content-center">
-                        <a id="btn-download-news-page" class="btn-download-news-page">Показать еще новости</a>
+                        <a id="btn-download-news-page" class="btn-download-news-page"><?= trans('messages.news__more__news') ?></a>
                     </div>
                 </div>
             @endif
@@ -92,7 +92,7 @@
         <div id="add-news-user" class="modal-dialog  col-xl-10" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Добавьте свою новость</h5>
+                    <h5 class="modal-title"><?= trans('messages.news__add__your__news') ?></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -116,7 +116,7 @@
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo', ['class' => 'input-default-js', 'area-describedby' => 'photo_area', 'id' => 'photo']) }}
-                                            <label class="custom-file-label" for="photo">Загрузите первое фото</label>
+                                            <label class="custom-file-label" for="photo">><?= trans('messages.upload__main__photo') ?></label>
                                         </div>
                                     </div>
 
@@ -126,7 +126,7 @@
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo1', ['class' => 'input-default-js', 'area-describedby' => 'photo1_area', 'id' => 'photo1']) }}
-                                            <label class="custom-file-label" for="photo1">Загрузите первое фото</label>
+                                            <label class="custom-file-label" for="photo1"><?= trans('messages.news__add_photo_1') ?></label>
                                         </div>
                                     </div>
                                     <div class="input-group col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 item-form-news-add">
@@ -135,7 +135,7 @@
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo2', ['class' => 'input-default-js', 'area-describedby' => 'photo2_area', 'id' => 'photo2']) }}
-                                            <label class="custom-file-label" for="photo2">Загрузите второе фото</label>
+                                            <label class="custom-file-label" for="photo2"><?= trans('messages.news__add_photo_2') ?></label>
                                         </div>
                                     </div>
                                     <div class="input-group col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12 item-form-news-add">
@@ -144,7 +144,7 @@
                                         </div>
                                         <div class="custom-file">
                                             {{ Form::file('photo3', ['class' => 'input-default-js', 'area-describedby' => 'photo3_area', 'id' => 'photo3'])}}
-                                            <label class="custom-file-label" for="photo3">Загрузите третье фото</label>
+                                            <label class="custom-file-label" for="photo3"><?= trans('messages.news__add_photo_3') ?></label>
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +161,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><?= trans('messages.news__close__btn') ?></button>
                 </div>
             </div>
         </div>
@@ -171,7 +171,7 @@
         <div class="modal-dialog" id="sub" role="document">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Подписаться на новости</h4>
+                    <h4 class="modal-title w-100 font-weight-bold"><?= trans('messages.sub__to__news') ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -181,36 +181,36 @@
                     <div class="md-form mb-5">
                         <i class="fas fa-user prefix grey-text"></i>
                         <input name="name" type="text" id="orangeForm-name" class="form-control validate" required>
-                        <label data-error="Вы не ввели имя" data-success="Готово" for="orangeForm-name">*Ваше Имя</label>
+                        <label data-error="Вы не ввели имя" data-success="Готово" for="orangeForm-name"><?= trans('messages.sub__name') ?></label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
                         <input name="email" type="email" id="sub_news-email" class="form-control validate" required>
-                        <label data-error="Вы не ввели e-mail" data-success="right" for="orangeForm-email">*Ваш e-mail</label>
+                        <label data-error="Вы не ввели e-mail" data-success="right" for="orangeForm-email"><?= trans('messages.sub__email') ?></label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
                         <input name="course" type="number" id="sub_news-course" class="form-control">
-                        <label for="sub_news-course">Курс</label>
+                        <label for="sub_news-course"><?= trans('messages.sub__course') ?></label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
                         <input name="faculty" type="text" id="sub_news-faculty" class="form-control validate">
-                        <label for="sub_news-faculty">Факультет</label>
+                        <label for="sub_news-faculty"><?= trans('messages.sub__faculty') ?></label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
                         <input name="work" type="text" id="sub_news-work" class="form-control validate">
-                        <label for="sub_news-work">Место работы</label>
+                        <label for="sub_news-work"><?= trans('messages.sub__work__place') ?></label>
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
                         <input name="post" type="text" id="sub_news-post" class="form-control validate">
-                        <label for="sub_news-post">Должность</label>
+                        <label for="sub_news-post"><?= trans('messages.sub__position') ?></label>
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button class="btn  btn-rounded btn-primary">Отправить заявку</button>
+                    <button class="btn  btn-rounded btn-primary"><?= trans('messages.sub__send__btn') ?></button>
                 </div>
                 {{ Form::close() }}
             </div>
@@ -224,7 +224,7 @@
         $(document).ready( function() {
             $('.close').click(function(){
                 $('.subscribe-form').removeClass('hide');
-                $('.modal-title').html('<h4>'+ 'Подписаться на новости'+ '</h4>')
+                $('.modal-title').html('<h4>'+ <?= trans('messages.sub__to__news') ?> + '</h4>')
             });
 
            $('.subscribe-form').submit( function(e) {
@@ -239,12 +239,12 @@
                    data: $(this).serialize(),
                    type: 'POST',
                    error: function(data) {
-                        $('.modal-title').html('<span>'+'К сожалению, что-то пошло не так. Пожалуйста, напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!'+'</span>');
+                        $('.modal-title').html('<span>'+ <?= trans('messages.err__sub__news') ?> +'</span>');
                         $('.subscribe-form').addClass('hide');
                        document.querySelector('.subscribe-form').reset();
                    },
                    success: function(data) {
-                       $('.modal-title').html('<span>'+'Ваша заявка успешно отправлена'+'</span>');
+                       $('.modal-title').html('<span>'+ <?= trans('messages.submit__sub__news') ?> +'</span>');
                        $('.subscribe-form').addClass('hide');
                        document.querySelector('.subscribe-form').reset();
                    }

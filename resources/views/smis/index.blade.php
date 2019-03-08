@@ -7,7 +7,7 @@
 @endsection
 @section('content')
     <div class="container container-content" style="margin-top: 120px; padding-bottom: 120px">
-        <a class="button-smis-page btn-linkk btn-mgimo" href="https://mgimo.ru/about/structure/press/" target="_blank"><span class="text-btn">Пресс-служба МГИМО</span><span class="arrow-btn"></span></a>
+        <a class="button-smis-page btn-linkk btn-mgimo" href="https://mgimo.ru/about/structure/press/" target="_blank"><span class="text-btn"><?= trans('messages.smis__press__service') ?></span><span class="arrow-btn"></span></a>
         <div class="row">
             <div class="media-page d-flex flex-column" style="width:100%">
                 @if(!$smis->isEmpty())
@@ -29,7 +29,7 @@
             </div>
             @if($smisNumber > 12)
                 <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
-                    <a id="btn-download-smis-page" class="btn-mgimo" href="">ПОКАЗАТЬ ЕЩЕ СМИ О НАС</a>
+                    <a id="btn-download-smis-page" class="btn-mgimo" href=""><?= trans('messages.smis__more__media') ?></a>
                 </div>
             @endif
         </div>

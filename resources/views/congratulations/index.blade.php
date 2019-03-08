@@ -19,7 +19,7 @@
     <div id="congratulations" class="container container-content" style="padding-bottom: 120px; margin-top: 120px;">
         <div class="row" style="margin:0; padding: 0">
             <div class="btns-congratulations d-flex justify-content-xl-start justify-content-sm-center">
-                <a href="" data-toggle="modal" data-target="#congratulationModule" class="btn-congr btn-mgimo"><span class="congr_icon"></span>Поздравить МГИМО</a>
+                <a href="" data-toggle="modal" data-target="#congratulationModule" class="btn-congr btn-mgimo"><span class="congr_icon"></span><?= trans('messages.congratulate_mgimo') ?></a>
             </div>
             <div class="content-congratulations col-12" style="padding: 0">
                 {{--<div class="title-congratulations">--}}
@@ -42,7 +42,7 @@
                 </div>
                 @if($congratulationsNumber > 4)
                     <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
-                        <a id="btn-download-congratulations-page" href="">ПОКАЗАТЬ ЕЩЕ ПОЗДРАВЛЕНИЯ</a>
+                        <a id="btn-download-congratulations-page" href=""><?= trans('messages.congratulations__more__congratulations') ?></a>
                     </div>
                 @endif
             </div>
@@ -51,7 +51,7 @@
             <div class="modal-dialog" role="document" style="max-width: 80%;">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Заполните форму поздравления</h5>
+                        <h5 class="modal-title"><?= trans('messages.congr__title__form') ?></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -75,13 +75,13 @@
                                     <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
                                         <div class="custom-file">
                                             {{ Form::file('file', ['class' => 'form-control','area-describedby' => 'photo_area','id' => 'photo-main'])}}
-                                            <label class="custom-file-label" for="photo-main">Загрузите основное фото</label>
+                                            <label class="custom-file-label" for="photo-main"><?= trans('messages.upload__main__photo') ?></label>
                                         </div>
                                     </div>
                                     <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
                                         <div class="custom-file">
                                             {{ Form::file('photos[]', ['class' => 'form-control','area-describedby' => 'photo2_area','id' => 'photo', 'multiple' => 'multiple'])}}
-                                            <label class="custom-file-label" for="photo">Загрузите фото или видео</label>
+                                            <label class="custom-file-label" for="photo"><?= trans('messages.upload__mult__photo__btn') ?></label>
                                         </div>
                                     </div>
                                     {{ Form::submit('Сохранить', ['class' => 'btn btn-raised btn-primary']) }}
@@ -92,7 +92,7 @@
                         {{ Form::close() }}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?= trans('messages.news__close__btn') ?></button>
                     </div>
                 </div>
             </div>
