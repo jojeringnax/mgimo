@@ -45,16 +45,16 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="container navbar-nav d-flex justify-content-between" style="padding: 0">
-                            <li class="nav-item"><a class="nav-link" id="main" href="{{url('/')}}">Главная</a></li>
-                            <li class="nav-item"><a class="nav-link" id="anniversary" href="{{url('anniversary')}}">О юбилее</a></li>
-                            <li class="nav-item"><a class="nav-link" id="news" href={{url('news')}}>Новости</a></li>
-                            <li class="nav-item"><a class="nav-link" id="events" href="{{url('events')}}">Мероприятия</a></li>
-                            <li class="nav-item"><a class="nav-link" id="congratulations" href="{{url('congratulations')}}">Поздравления</a></li>
-                            <li class="nav-item"><a class="nav-link" id="books" href="{{url('books')}}">Издательская программа</a></li>
-                            <li class="nav-item"><a class="nav-link" id="gallery" href="{{url('gallery')}}">Галерея</a></li>
-                            <li class="nav-item"><a class="nav-link" id="partners" href="{{url('partners')}}">Партнеры</a></li>
-                            <li class="nav-item"><a class="nav-link" id="smis" href="{{url('smis')}}">СМИ</a></li>
-                            <li class="nav-item"><a class="nav-link" id="contacts" href="{{url('contacts')}}">Контакты</a></li>
+                            <li class="nav-item"><a class="nav-link" id="main" href="{{url('/')}}"><?= trans('messages.home') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="anniversary" href="{{url('anniversary')}}"><?= trans('messages.anniversary') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="news" href={{url('news')}}><?= trans('messages.news__nav') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="events" href="{{url('events')}}"><?= trans('messages.events') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="congratulations" href="{{url('congratulations')}}"><?= trans('messages.congratulations') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="books" href="{{url('books')}}"><?= trans('messages.books') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="gallery" href="{{url('gallery')}}"><?= trans('messages.gallery') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="partners" href="{{url('partners')}}"><?= trans('messages.partners__nav') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="smis" href="{{url('smis')}}"><?= trans('messages.media__nav') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="contacts" href="{{url('contacts')}}"><?= trans('messages.contacts__nav') ?></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -70,7 +70,7 @@
         $(document).ready( function() {
             $('.close').click(function(){
                 $('.subscribe-form').removeClass('hide');
-                $('.modal-title').html('<h4>'+ 'Подписаться на новости'+ '</h4>')
+                $('.modal-title').html('<h4>'+ <?= trans('messages.sub__to__news') ?>+ '</h4>')
             });
 
             $('.subscribe-form').submit( function(e) {
@@ -85,12 +85,12 @@
                     data: $(this).serialize(),
                     type: 'POST',
                     error: function(data) {
-                        $('.modal-title').html('<span>'+'К сожалению, что-то пошло не так. Пожалуйста, напишите нам на почту: mgimo@yandex.ru. В ближайшее время мы все починим!'+'</span>');
+                        $('.modal-title').html('<span>'+ <?= trans('messages.err__sub__news') ?>+'</span>');
                         $('.subscribe-form').addClass('hide');
                         document.querySelector('.subscribe-form').reset();
                     },
                     success: function(data) {
-                        $('.modal-title').html('<span>'+'Ваша заявка успешно отправлена'+'</span>');
+                        $('.modal-title').html('<span>'+ <?= trans('messages.submit__sub__news') ?>+ '</span>');
                         $('.subscribe-form').addClass('hide');
                         document.querySelector('.subscribe-form').reset();
                     }
@@ -107,30 +107,30 @@
                     <div class="nav-bot col-xl-4 col-lg-4 col-md-6 col-12 align-items-stretch">
                         <nav class="d-flex" style="height: 100%">
                             <ul class="d-flex flex-column justify-content-between" style="padding: 0">
-                                <li><a href="{{url('/')}}">Главная</a></li>
-                                <li><a href="{{url('anniversary')}}">О юбилее</a></li>
-                                <li><a href="{{url('news')}}">Новости</a></li>
-                                <li><a href="{{url('events')}}">Мероприятия</a></li>
-                                <li><a href="{{url('congratulations')}}">Поздравления</a></li>
+                                <li><a href="{{url('/')}}"><?= trans('messages.home') ?></a></li>
+                                <li><a href="{{url('anniversary')}}"><?= trans('messages.anniversary') ?></a></li>
+                                <li><a href="{{url('news')}}"><?= trans('messages.news__nav') ?></a></li>
+                                <li><a href="{{url('events')}}"><?= trans('messages.events') ?></a></li>
+                                <li><a href="{{url('congratulations')}}"><?= trans('messages.congratulations') ?></a></li>
                             </ul>
                             <ul class="d-flex flex-column justify-content-between">
-                                <li><a href="{{url('books')}}">Издательская программа</a></li>
-                                <li><a href="{{url('gallery')}}">Галерея</a></li>
-                                <li><a href="{{url('partners')}}">Партнеры</a></li>
-                                <li><a href="{{url('smis')}}">СМИ</a></li>
-                                <li><a href="">Контакты</a></li>
+                                <li><a href="{{url('books')}}"><?= trans('messages.books') ?></a></li>
+                                <li><a href="{{url('gallery')}}"><?= trans('messages.gallery') ?></a></li>
+                                <li><a href="{{url('partners')}}"><?= trans('messages.partners__nav') ?></a></li>
+                                <li><a href="{{url('smis')}}"><?= trans('messages.media__nav') ?></a></li>
+                                <li><a href=""><?= trans('messages.contacts__nav') ?></a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="button-footer col-xl-4 col-lg-4 col-md-6 col-12 align-items-center">
-                        <a data-toggle="modal" class="btn-mgimo mod-btn-footer" data-target="#modalRegisterForm" href="#"><span></span>ПОДПИСАТЬСЯ НА НОВОСТИ</a>
+                        <a data-toggle="modal" class="btn-mgimo mod-btn-footer" data-target="#modalRegisterForm" href="#"><span></span><?= trans('messages.sub__to__news__btn') ?></a>
                         <span class="text-center">
-                            МГИМО 75<br><a class="link-footer" href="http://alumni.mgimo.ru" style="" target="_blank">Ассоциация выпускников МГИМО</a><br><a class="link-footer" href="http://fund.mgimo.ru/" style="" target="_blank">Эндаумент МГИМО</a>
+                            <?= trans('messages.address') ?><br><a class="link-footer" href="http://alumni.mgimo.ru" style="" target="_blank"><?= trans('messages.MGIMO__alumni__association') ?></a><br><a class="link-footer" href="http://fund.mgimo.ru/" style="" target="_blank"><?= trans('messages.endaument__mgimo') ?></a>
                         </span>
                     </div>
                     <div class="contact-footer col-xl-4 col-lg-4 col-md-6 col-12 align-items-stretch d-flex flex-column">
                         <span class="">
-                            <span class="location-footer">Москва, проспект Вернадского, 76<br></span>
+                            <span class="location-footer"><?= trans('messages.address') ?><br></span>
                             <span class="number-footer">+7 495 229-40-49</span>
                         </span>
                         <div class="soc-net d-flex justify-content-end">
@@ -149,7 +149,7 @@
     <div class="modal-dialog" id="sub" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Подписаться на новости</h4>
+                <h4 class="modal-title w-100 font-weight-bold"><?= trans('messages.sub__to__news') ?></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -159,36 +159,36 @@
                 <div class="md-form mb-5">
                     <i class="fas fa-user prefix grey-text"></i>
                     <input name="name" type="text" id="orangeForm-name" class="form-control validate" required>
-                    <label data-error="Вы не ввели имя" data-success="Готово" for="orangeForm-name">*Ваше Имя</label>
+                    <label data-error="Вы не ввели имя" data-success="Готово" for="orangeForm-name"><?= trans('messages.sub__name') ?></label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input name="email" type="email" id="sub_news-email" class="form-control validate" required>
-                    <label data-error="Вы не ввели e-mail" data-success="right" for="orangeForm-email">*Ваш e-mail</label>
+                    <label data-error="Вы не ввели e-mail" data-success="right" for="orangeForm-email"><?= trans('messages.sub__email') ?></label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input name="course" type="number" id="sub_news-course" class="form-control">
-                    <label for="sub_news-course">Курс</label>
+                    <label for="sub_news-course"><?= trans('messages.sub__course') ?></label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input name="faculty" type="text" id="sub_news-faculty" class="form-control validate">
-                    <label for="sub_news-faculty">Факультет</label>
+                    <label for="sub_news-faculty"><?= trans('messages.sub__faculty') ?></label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input name="work" type="text" id="sub_news-work" class="form-control validate">
-                    <label for="sub_news-work">Место работы</label>
+                    <label for="sub_news-work"><?= trans('messages.sub__work__place') ?></label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
                     <input name="post" type="text" id="sub_news-post" class="form-control validate">
-                    <label for="sub_news-post">Должность</label>
+                    <label for="sub_news-post"><?= trans('messages.sub__position') ?></label>
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center">
-                <button class="btn  btn-rounded btn-primary">Отправить заявку</button>
+                <button class="btn  btn-rounded btn-primary"><?= trans('messages.sub__send__btn') ?></button>
             </div>
             {{ Form::close() }}
         </div>

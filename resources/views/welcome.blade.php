@@ -6,21 +6,6 @@
 
 
 @section('content')
-    <pre>
-        ;aeg
-        a
-        ea
-        h
-        ea
-        h
-        e
-        h
-        ae
-        h
-        ae
-        h
-        <?= trans('messages.Добро пожаловать') ?>
-    </pre>
     <div class="layout-img hide">
         <div class="layout">
 
@@ -36,7 +21,7 @@
                 <hr />
             </div>
             <div class="timerr">
-                <span class="title-timer">До юбилея осталось:</span>
+                <span class="title-timer"><?= trans('messages.before_anniversary_day') ?></span>
                 <div class="timer-lay">
                     <div id="timer" class="timer d-flex justify-content-center"></div>
                 </div>
@@ -46,7 +31,7 @@
         <div class="container button-logo" style="">
             <div class="row d-flex flex-column justify-content-center">
                 <div class="banner">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSezXMVdZ__pKNosXVuey-RsX9EL6GiBXsH85H24FrvhTSlzOw/viewform" id="btn-participant">заявка на участие</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSezXMVdZ__pKNosXVuey-RsX9EL6GiBXsH85H24FrvhTSlzOw/viewform" id="btn-participant"><?= trans('messages.btn__participant') ?></a>
                     <div class="logo-main-page d-flex justify-content-center align-items-center">
                         <a target="_blank" href="https://alumni.mgimo.ru">
                             <img src="img/logo1.svg" alt="" style="">
@@ -72,7 +57,7 @@
             <div class="contents d-flex flex-wrap">
                 <div class="item-contents news col-xl-8 col-lg-8 col-md-12 col-12">
                     <div class="title-news">
-                        <span>НОВОСТИ</span>
+                        <span><?= trans('messages.news') ?></span>
                     </div>
 
                     @foreach($news as $article)
@@ -136,12 +121,12 @@
                         @endif
                     @endforeach
                     <div class="buttons-news">
-                        <a class="btn-linkk  btn-mgimo" href={{url('news')}}><span class="text-btn">Смотреть все новости </span><span class="arrow-btn"></span></a>
+                        <a class="btn-linkk  btn-mgimo" href={{url('news')}}><span class="text-btn"></span><span class="arrow-btn"></span></a>
                     </div>
                 </div>
                 <div class="item-contents events col-xl-4 col-lg-4 col-md-12 d-flex flex-column">
                     <div class="title-events">
-                        <span>БЛИЖАЙШИЕ МЕРОПРИЯТИЯ </span>
+                        <span><?= trans('messages.up_events') ?></span>
                     </div>
                     <div class="bg-events">
                         @foreach($events as $event)
@@ -163,7 +148,7 @@
                             </div>
                         @endforeach
                         <div id="btn-event" class="buttons-news" style="margin-top: 60px;">
-                            <a href="{{url('events')}}" class="btn-event-page btn-linkk  btn-mgimo" style=" background-color: transparent"><span class="text-btn">Смотреть все мероприятия</span><span class="arrow-btn"></span></a>
+                            <a href="{{url('events')}}" class="btn-event-page btn-linkk  btn-mgimo" style=" background-color: transparent"><span class="text-btn"><?= trans('messages.more_events') ?></span><span class="arrow-btn"></span></a>
                         </div>
                     </div>
                 </div>
@@ -176,7 +161,7 @@
         <div class="row" style="margin:0; padding: 0">
             <div class="content-congratulations col-12" style="padding: 0">
                 <div class="title-congratulations">
-                    <span>Поздравления</span>
+                    <span><?= trans('messages.congratulations') ?></span>
                 </div>
                 <div class="items-congr d-flex flex-wrap justify-content-between">
                     @foreach ($congratulations as $congratulation)
@@ -194,8 +179,8 @@
                 </div>
 
                 <div class="btns-congratulations d-flex justify-content-xl-start justify-content-sm-center">
-                    <a href="{{url('congratulations')}}" class="btn-watch-congr btn-linkk btn-mgimo"><span class="text-btn">Смотреть все поздравления</span><span class="congr_watch arrow-btn"></span></a>
-                    <a href="" data-toggle="modal" data-target="#congratulationModule" class="btn-congr btn-mgimo"><span class="congr_icon"></span>Поздравить МГИМО</a>
+                    <a href="{{url('congratulations')}}" class="btn-watch-congr btn-linkk btn-mgimo"><span class="text-btn"><?= trans('messages.more__congratulations') ?></span><span class="congr_watch arrow-btn"></span></a>
+                    <a href="" data-toggle="modal" data-target="#congratulationModule" class="btn-congr btn-mgimo"><span class="congr_icon"></span><?= trans('messages.congratulate_mgimo') ?></a>
                 </div>
             </div>
         </div>
@@ -207,8 +192,8 @@
                 <div class="gallery-content d-flex ">
                     <div class="big-photo col-xl-8 col-lg-6 col-md-12"><img src="img/new_test/collage.png" alt=""></div>
                     <div class="text-gallery col-xl-4 col-lg-6 col-md-12">
-                        <span class="title-text-gallery ">Мы собрали самые яркие воспоминания из жизни МГИМО</span>
-                        <a class="btn-linkk-photo btn-mgimo" href="{{url('gallery')}}" ><span class="text-btn">Смотреть фото </span><span class="arrow-btn"></span></a>
+                        <span class="title-text-gallery "><?= trans('messages.banner_text_photo') ?></span>
+                        <a class="btn-linkk-photo btn-mgimo" href="{{url('gallery')}}" ><span class="text-btn"><?= trans('messages.look_photo') ?></span><span class="arrow-btn"></span></a>
                     </div>
                 </div>
             </div>
@@ -219,7 +204,7 @@
         <div class="row">
             <div class="content-partners" style="width: 100%">
                 <div class="title-partners">
-                    <span>Партнеры и спонсоры</span>
+                    <span><?= trans('messages.partners__&__sponsors') ?></span>
                 </div>
                 @if(count($partners) > 3)
                     <div data-arrow = "right" class="arrow next"></div>
@@ -252,14 +237,14 @@
                     <div class="prtn" style="display: flex;justify-content: space-around;align-items: center;flex-direction: row;">
                 @endif
                     </div>
-            <a href="{{url('partners')}}" class="btn-partners btn-linkk  btn-mgimo"><span class="text-btn">Смотреть всех партнеров</span><span class="arrow-btn"></span></a>
+            <a href="{{url('partners')}}" class="btn-partners btn-linkk  btn-mgimo"><span class="text-btn"><?= trans('messages.more__partners') ?></span><span class="arrow-btn"></span></a>
         </div>
     </div>
     <section id="media">
         <div class="container container-content">
             <div class="row" style="margin: 0; padding: 0">
                 <div class="content-media col-12">
-                    <div class="title-media">Сми о юбилее МГИМО</div>
+                    <div class="title-media"><?= trans('messages.media__title') ?></div>
                     <div class="media-news col-12 d-flex fle-wrap justify-content-between">
                         @foreach($smis as $smi)
                             <div data-smis="{{$loop->index}}" class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 item-media-news d-flex">
@@ -274,7 +259,7 @@
                     </div>
                 </div>
                 <div class="btn-media">
-                    <a class="btn-linkk btn-mgimo" href="{{url('smis')}}" target="_blank"><span class="text-btn">Смотреть все новости СМИ</span><span class="arrow-btn"></span></a>
+                    <a class="btn-linkk btn-mgimo" href="{{url('smis')}}" target="_blank"><span class="text-btn"><?= trans('messages.more__media') ?></span><span class="arrow-btn"></span></a>
                 </div>
             </div>
         </div>
@@ -283,7 +268,7 @@
         <div class="modal-dialog" role="document" style="max-width: 80%;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Заполните форму поздравления</h5>
+                    <h5 class="modal-title"><?= trans('messages.congr__title__form') ?></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -294,12 +279,12 @@
                             <div class="col-8 d-flex flex-column" style="height:100%">
                                 {{Form::open(array('files' => true, 'class' => 'congratulation_ajax')) }}
                                 <div class="item-form-congratulation">
-                                    {{ Form::label('title', 'Заголовок') }}
+                                    {{ Form::label('title', '') }}
                                     {{ Form::text('title','',['class' => 'form-control']) }}
                                 </div>
                                 <div class="item-form-congratulation">
-                                    {{ Form::label('content', 'Сыылка на видео') }}
-                                    {{ Form::text('content','',['class' => 'form-control item-form-news-add link-video','placeholder' => 'Если вы хотите загрузить видео, ты ссылку вставьте сюда.']) }}
+                                    {{ Form::label('content', '') }}
+                                    {{ Form::text('content','',['class' => 'form-control item-form-news-add link-video','placeholder' => '']) }}
                                 </div>
 
                                 {{  Form::hidden('date','1',  null, ['class' => 'form-control' ]) }}
@@ -307,16 +292,16 @@
                                 <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
                                     <div class="custom-file">
                                         {{ Form::file('file', ['class' => 'form-control','area-describedby' => 'photo_area','id' => 'photo-main'])}}
-                                        <label class="custom-file-label" for="photo-main">Загрузите основное фото</label>
+                                        <label class="custom-file-label" for="photo-main"><?= trans('messages.upload__main__photo') ?></label>
                                     </div>
                                 </div>
                                 <div class="item-form-congratulation input-group col-xl-6 item-form-news-add">
                                     <div class="custom-file">
                                         {{ Form::file('photos[]', ['class' => 'form-control','area-describedby' => 'photo2_area','id' => 'photo', 'multiple' => 'multiple'])}}
-                                        <label class="custom-file-label" for="photo">Загрузите фото или видео</label>
+                                        <label class="custom-file-label" for="photo"><?= trans('messages.upload__mult__photo__btn') ?></label>
                                     </div>
                                 </div>
-                                {{ Form::submit('Сохранить', ['class' => 'btn btn-raised btn-primary']) }}
+                                {{ Form::submit(trans('messages.save__btn'), ['class' => 'btn btn-raised btn-primary']) }}
                             </div>
                         </div>
                     </div>

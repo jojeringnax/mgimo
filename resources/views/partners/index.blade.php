@@ -14,11 +14,11 @@
             <div class="partners-page d-flex flex-wrap flex-column">
                 <div class="logo">
                     <img src="{{asset('img/icon/logo.svg')}}" alt="logo-mgimo" style="width: 100px;">
-                    <a class="btn-linkk" href="http://alumni.mgimo.ru/resources/000/000/000/003/857/3857072.pdf" target="_blank"><span class="text-btn">Стать партнером</span><span class="arrow-btn"></span></a>
+                    <a class="btn-linkk" href="http://alumni.mgimo.ru/resources/000/000/000/003/857/3857072.pdf" target="_blank"><span class="text-btn"><?= trans('messages.partners__become__partners') ?></span><span class="arrow-btn"></span></a>
                 </div>
                 <div class="organizers item-partners-page">
                     <div class="title-partners-page">
-                        ОРГАНИЗАТОРЫ
+                        <?= trans('messages.partners__organization') ?>
                     </div>
                     @foreach($partners as $partner)
                         @if($partner->category == \App\Partner::ORGANIZATORS && $partner->type === 0)
@@ -30,7 +30,7 @@
                 </div>
                 <div class="general-sponsors item-partners-page">
                     <div class="title-partners-page">
-                        ГЕНЕРАЛЬНЫЕ СПОНСОРЫ
+                        <?= trans('messages.partners__general__sponsors') ?>
                     </div>
                     @foreach($partners as $partner)
                         @if($partner->category == \App\Partner::GENERAL_SPONSORS && $partner->type === 0)
@@ -42,7 +42,7 @@
                 </div>
                 <div class="sponsors item-partners-page">
                     <div class="title-partners-page">
-                        СПОНСОРЫ И ПАРТНЕРЫ
+                        <?= trans('messages.partners__sponsors__&__partners') ?>
                     </div>
                     @foreach($partners as $partner)
                         @if($partner->category == \App\Partner::SPONSORS && $partner->type === 0)
@@ -54,7 +54,7 @@
                 </div>
                 <div class="inf-partners item-partners-page">
                     <div class="title-partners-page">
-                        ИНФОРМАЦИОННЫЕ ПАРТНЕРЫ
+                        <?= trans('messages.partners__information__partners') ?>
                     </div>
                     @foreach($partners as $partner)
                         @if($partner->category == \App\Partner::INFORM_PARTNERS && $partner->type === 0)
@@ -66,7 +66,7 @@
                 </div>
                 <div class="ind-partners item-partners-page flex-wrap">
                     <div class="title-partners-page col-12">
-                       А ТАКЖЕ
+                        <?= trans('messages.partners__and__also') ?>
                     </div>
                     @foreach($partners as $partner)
                         @if($partner->type === 1)

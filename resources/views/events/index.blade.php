@@ -110,7 +110,7 @@
                 </div>
             </div>
             @if($eventsNumber > 12)
-                <div class="d-flex justify-content-center" style="width: 100%; margin-top: 60px;"><a id="btn-download-event-page" href="" class="">Показать еще мероприятия</a></div>
+                <div class="d-flex justify-content-center" style="width: 100%; margin-top: 60px;"><a id="btn-download-event-page" href="" class=""><?= trans('messages.events__more__events') ?></a></div>
             @endif
         </div>
     </div>
