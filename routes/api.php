@@ -20,3 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('news/create', 'Api\SiteController@createArticle');
 Route::post('subscribers/create', 'Api\SiteController@createSubscriber');
 Route::post('congratulations/create', 'Api\SiteController@createCongratulation');
+
+Route::post('news/en/create', 'Api\SiteController@createArticle');
+Route::post('subscribers/en/create', 'Api\SiteController@createSubscriber');
+Route::post('congratulations/en/create', 'Api\SiteController@createCongratulation');
