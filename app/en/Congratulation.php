@@ -20,6 +20,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Congratulation extends Model
 {
+
+    /**
+     * @var string 
+     */
+    public $connection = 'mysql_en';
+
     /**
      * @var string
      */
