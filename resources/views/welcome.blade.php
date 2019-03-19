@@ -26,7 +26,6 @@
                     <div id="timer" class="timer d-flex justify-content-center"></div>
                 </div>
             </div>
-
         </div>
         <div class="container button-logo" style="">
             <div class="row d-flex flex-column justify-content-center">
@@ -80,43 +79,48 @@
                                         </div>
                                     </article>
                                 </div>
-                            @elseif($loop->index == 1)
-                                <div id="1" class="small-new col-12">
-                                    <article class="d-flex flex-wrap">
-                                        <div class="img-small-new">
-                                            <img src="{{ $article->mainPhoto->path }}" alt="">
-                                        </div>
-                                        <div class="content-small-new">
-                                            <div class="tag">
-                                                <i></i>
-                                                <span class="">{{ $article->getTag() }}</span>
+                                @if($loop->count == 1)
+                                    </div>
+                                @endif
+                                @elseif($loop->index == 1)
+                                    <div id="1" class="small-new col-12">
+                                        <article class="d-flex flex-wrap">
+                                            <div class="img-small-new">
+                                                <img src="{{ $article->mainPhoto->path }}" alt="">
                                             </div>
-                                            {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
-                                            <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news second">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
-
+                                            <div class="content-small-new">
+                                                <div class="tag">
+                                                    <i></i>
+                                                    <span class="">{{ $article->getTag() }}</span>
+                                                </div>
+                                                {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
+                                                <div class="date-link d-flex justify-content-between" style="width: 100%">
+                                                    <span class="date-news second">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            @elseif($loop->index == 2)
-                                <div id="2" class="small-new col-12">
-                                    <article class="d-flex flex-wrap">
-                                        <div class="img-small-new">
-                                            <img src="{{ $article->mainPhoto->path }}" alt="">
-                                        </div>
-                                        <div class="content-small-new">
-                                            <div class="tag">
-                                                <i></i>
-                                                <span class="">{{ $article->getTag() }}</span>
+                                        </article>
+                                    </div>
+                                @if($loop->count == 2)
+                                    </div>
+                                @endif
+                                @elseif($loop->index == 2)
+                                    <div id="2" class="small-new col-12">
+                                        <article class="d-flex flex-wrap">
+                                            <div class="img-small-new">
+                                                <img src="{{ $article->mainPhoto->path }}" alt="">
                                             </div>
-                                            {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
-                                            <div class="date-link d-flex justify-content-between" style="width: 100%">
-                                                <span class="date-news third">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                            <div class="content-small-new">
+                                                <div class="tag">
+                                                    <i></i>
+                                                    <span class="">{{ $article->getTag() }}</span>
+                                                </div>
+                                                {{ link_to('news/show/'.$article->id, $article->title, ['class' => '']) }}
+                                                <div class="date-link d-flex justify-content-between" style="width: 100%">
+                                                    <span class="date-news third">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </article>
-                                </div>
+                                        </article>
+                                    </div>
                             </div>
                         @endif
                     @endforeach
@@ -234,7 +238,7 @@
                         @endif
                         </div>
                 @else
-                    <div class="prtn" style="display: flex;justify-content: space-around;align-items: center;flex-direction: row;">
+                    <div class="prtn" style="display: flex;justify-content: space-around;align-items: center;flex-direction: row;"></div>
                 @endif
                     </div>
             <a href="{{url('partners')}}" class="btn-partners btn-linkk  btn-mgimo"><span class="text-btn"><?= trans('messages.more__partners') ?></span><span class="arrow-btn"></span></a>

@@ -107,7 +107,7 @@
                 e.preventDefault();
                 let data = $('.item-congratulations').length;
                 $.ajax({
-                    url: "{{ url('congratulations/add_congratulations') }}/" + data,
+                    url: "<?= App::getLocale() == 'en' ? url('congratulations/en/add_congratulations') : url('congratulations/add_congratulations') ?>/" + data,
                     dataType: 'json',
                     type: 'get',
                     success: function(d) {

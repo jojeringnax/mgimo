@@ -6,6 +6,29 @@
     background-color: white !important;
 @endsection
 @section('content')
+    <script>
+        const Mounth = {
+            0: "Января",
+            1: "Февраля",
+            2: "Марта",
+            3: "Апреля",
+            4: "Мая",
+            5: "Июня",
+            6: "Июля",
+            7: "Августа",
+            8: "Сентября",
+            9: "Октября",
+            10: "Ноября",
+            11: "Декабря"
+        }
+        function createDate(date, id) {
+            let dateJs = new Date(date);
+            let  result = dateJs.getDate() +' '+  Mounth[dateJs.getMonth()] +' '+ dateJs.getFullYear();
+            console.log(result);
+            idd = "date-" + id;
+            document.getElementById(idd).innerHTML = result;
+        }
+    </script>
     <div class="container container-content" style="margin-top: 120px; padding-bottom: 120px">
         <a class="button-smis-page btn-linkk btn-mgimo" href="https://mgimo.ru/about/structure/press/" target="_blank"><span class="text-btn"><?= trans('messages.smis__press__service') ?></span><span class="arrow-btn"></span></a>
         <div class="row">
@@ -17,7 +40,7 @@
                                 <a href="{{ $smi->link }}" target="_blank">
                                     <span class="source-media-news">{{ $smi->link_view }}</span>
                                     <span class="title-media-news">{{ $smi->title }}</span>
-                                    <span class="date-media-news">{{ implode(' ', [date('d', strtotime($smi->created_at)), \App\News::nameMonth[date('n', strtotime($smi->created_at))], date('Y', strtotime($smi->created_at))]) }}</span>
+                                    <span id="date-{{$smi->id}}" class="date-media-news"><script>createDate("{{$smi->created_at == null ? '' : $smi->created_at}}", "{{$smi->id == null ? '' : $smi->id}}")</script></span>
                                 </a>
                                 @if (($loop->index + 1)%4) <hr> @endif
                             </div>
@@ -43,7 +66,7 @@
                 let data = $('.item-media-news').length;
                 let text = '';
                 $.ajax({
-                    url: "{{url('add_smis')}}/" + data,
+                    url: "<?= App::getLocale() == 'en' ?url('add_smis/en') : url('add_smis') ?>/" + data,
                     dataType: 'json',
                     data: {data:data},
                     type: 'get',
@@ -55,7 +78,7 @@
                                 '<a href="'+el.link+'" target="_blank">' +
                                 '<span class="source-media-news">'+el.link_view+'</span>' +
                                 '<span class="title-media-news">'+el.title+'</span>' +
-                                '<span class="date-media-news">{{ implode(' ', [date('d', strtotime($smi->created_at)), \App\News::nameMonth[date('n', strtotime($smi->created_at))], date('Y', strtotime($smi->created_at))]) }}</span>' +
+                                '<span id="date-"' + el.id + 'class="date-media-news">'+ createDate(el.created_at, el.id)+'</span>' +
                                 '</a>';
                             if (i % 4 !== 0 && i !== response.length) {
                                 text += '<hr>'+ '</div>';

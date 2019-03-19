@@ -22,7 +22,7 @@ class MainEnCreateTablePhotos extends Migration
             $table->unsignedInteger('album_id')->nullable();
             $table->boolean('video')->default(false);
         });
-        Schema::table('photos', function (Blueprint $table) {
+        Schema::connection('mysql_en')->table('photos', function (Blueprint $table) {
             $table->foreign('album_id')->references('id')->on('albums');
         });
     }

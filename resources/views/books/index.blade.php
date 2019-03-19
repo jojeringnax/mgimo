@@ -8,6 +8,7 @@
 @section('color')
     background-color: white !important;
 @endsection
+
 @section('content')
     <div class="container container-content" style="margin-top: 120px; padding-bottom: 100px">
         <div class="row" id="books_wrapper">
@@ -49,7 +50,7 @@
                 e.preventDefault();
                 let data = $('.item-book-page').length;
                 $.ajax({
-                    url: "{{ url('books/add_books') }}/" + data,
+                    url: "<?= App::getLocale() == 'en' ? url('books/en/add_books') : url('books/add_books') ?>/" + data,
                     dataType: 'json',
                     data: data,
                     type: 'get',

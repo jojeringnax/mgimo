@@ -15,7 +15,7 @@
             <div class="event-page d-flex flex-column col-12">
                 <div class="title-event-page d-flex flex-row align-items-center">
                     {{--<span>Мероприятия</span>--}}
-                    <a href="{{ \App\Event::getMainFilePhotoModel()->path }}" class="modal-button button-event-page btn-linkk" style="margin-left: 58px;" download><span class="text-btn">Скачать график мероприятий</span><span class="arrow-btn"></span></a>
+                    <a href="{{ \App\Event::getMainFilePhotoModel() == null ? '#' : \App\Event::getMainFilePhotoModel()->path}}" class="modal-button button-event-page btn-linkk" style="margin-left: 58px;" download><span class="text-btn">Скачать график мероприятий</span><span class="arrow-btn"></span></a>
                 </div>
                 <div class="banner-event-page d-flex flex-wrap">
                     <div class="layout-banner-event-page">
@@ -123,7 +123,7 @@
             $('.event-form').submit( function(e) {
                 e.preventDefault();
                 $.ajax({
-                    url: "{{ url('admin/events/create') }}",
+                    url: "<?= App::getLocale() == 'en' ? url('admin/events/en/create') :url('admin/events/create') ?>",
                     dataType: 'json',
                     data: new FormData($(this)[0]),
                     type: 'POST',
@@ -142,7 +142,7 @@
             });
             $('#select-location').change(function(){
                $.ajax({
-                   url: '{{url('events/get_by_location/')}}' + '/' + $(this).val(),
+                   url: '<?= App::getLocale() == 'en' ? url('events/en/get_by_location/') : url('events/get_by_location/') ?>' + '/' + $(this).val(),
                    dataType: 'json',
                    success: function (response) {
                        console.log(response);
@@ -188,7 +188,7 @@
                 e.preventDefault();
                 let data = $('.items-event-page > a').length;
                 $.ajax({
-                    url: "{{ url('events/add_events') }}/" + data,
+                    url: " <?= App::getLocale() == 'en' ? url('events/en/add_events') :url('events/add_events') ?>/" + data,
                     dataType: 'json',
                     type: 'get',
                     success: function(d) {
