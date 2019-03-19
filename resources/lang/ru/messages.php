@@ -33,7 +33,7 @@ return [
     //-----Congrat from WELCOME ------//
     'books' => 'Издательская программа',
     'gallery' => 'Галерея',
-    'partners__nav' => 'Партенры',
+    'partners__nav' => 'Партнеры',
     'media__nav' => 'СМИ',
     'contacts__nav' => 'Контакты',
     'sub__to__news' => 'Подписаться на новости',
