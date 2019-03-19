@@ -20,7 +20,7 @@ Route::get('anniversary', function() {
 });
 
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], function(){
-    Route::get('/', 'SiteController@index');
+    Route::get('/', App::getLocale() == 'ru' ? 'SiteController@index' : App::getLocale().'\SiteController@index');
 
     Route::get('news', App::getLocale() == 'ru' ? 'NewsController@index' : App::getLocale().'\NewsController@index');
     Route::get('news/show/{id}', App::getLocale() == 'ru' ? 'NewsController@show' : App::getLocale().'\NewsController@show');
