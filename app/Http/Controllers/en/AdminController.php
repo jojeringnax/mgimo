@@ -421,7 +421,7 @@ class AdminController extends Controller
             $smi->save();
             return redirect()->route('smis_index_en');
         } elseif ($request->isMethod('get')) {
-            return view('admin.smis.form');
+            return view('admin.en.smis.form');
         }
         return 0;
     }
