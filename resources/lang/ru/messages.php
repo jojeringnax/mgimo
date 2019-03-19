@@ -2,6 +2,7 @@
 return [
 //Welcome.blade.php
     'Добро пожаловать' => 'Добро пожаловать',
+    'watch_all_news' => 'Смотреть все новости',
     'btn__participant' => 'заявка на участие',
     'before_anniversary_day' => 'До юбилея осталось',
     'up_events' => 'БЛИЖАЙШИЕ МЕРОПРИЯТИЯ',
