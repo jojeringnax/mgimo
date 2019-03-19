@@ -37,7 +37,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
     Route::get('gallery', App::getLocale() == 'ru' ? 'PhotoController@index' : App::getLocale().'\PhotoController@index');
     Route::get('gallery/show/{id}', App::getLocale() == 'ru' ? 'PhotoController@show' : App::getLocale().'\PhotoController@show');
-
+    Route::get('partners', App::getLocale() == 'ru' ? 'PartnerController@index' : App::getLocale().'\PartnerController@index');
     Route::get('smis', App::getLocale() == 'ru' ? 'SmiController@index' : App::getLocale().'\SmiController@index');*/
 
     Route::get('news', 'NewsController@index');
@@ -57,7 +57,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         return view('contacts');
     });
 
-    Route::get('partners', App::getLocale() == 'ru' ? 'PartnerController@index' : App::getLocale().'\PartnerController@index');
+
 });
 
 /**
