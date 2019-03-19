@@ -9,6 +9,29 @@
     background-color: white !important;
 @endsection
 @section('content')
+    <script>
+        const Mounth = {
+            0: "Января",
+            1: "Февраля",
+            2: "Марта",
+            3: "Апреля",
+            4: "Мая",
+            5: "Июня",
+            6: "Июля",
+            7: "Августа",
+            8: "Сентября",
+            9: "Октября",
+            10: "Ноября",
+            11: "Декабря"
+        }
+        function createDate(date, id) {
+            let dateJs = new Date(date);
+            let  result = dateJs.getDate() +' '+  Mounth[dateJs.getMonth()] +' '+ dateJs.getFullYear();
+            console.log(result);
+            idd = "date-" + id;
+            document.getElementById(idd).innerHTML = result;
+        }
+    </script>
     <div class="container container-content" style="margin-top: 120px; padding-bottom: 120px">
         <div class="row d-flex flex-column">
             <div class="news-page">
@@ -23,15 +46,18 @@
                         <div data-col="1" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
                             @foreach($news as $article)
                                 @if($loop->index%3 == 0 )
-                                    <a href="{{ url('news/show', ['id' => $article->id]) }}" class="item-card-news card" style="display:block;width: 100%">
-                                        <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
-                                        <div class="card-body d-flex flex-column align-items-start">
-                                        <span class="tags-news-page">
-                                            <span class="tag"><i></i><span>{{ $article->getTag() }}</span></span>
-                                        </span>
-                                            <span class="title-card-news">{{ $article->title }}</span>
-                                            <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                    <a href="{{ url('news/show', ['id' => $article->id]) }}"  style="display:block;width: 100%">
+                                        <div class="item-card-news card" style="width: 100%">
+                                            <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <span class="tags-news-page">
+                                                    <span class="tag"><i></i><span>{{ $article->getTag() }}</span></span>
+                                                </span>
+                                                <span class="title-card-news">{{ $article->title }}</span>
+                                                <span id="date-{{$article->id}}" class="date-news-page"><script>createDate("{{$article->created_at}}", "{{$article->id}}")</script></span>
+                                            </div>
                                         </div>
+
                                     </a>
                                 @endif
                             @endforeach
@@ -39,7 +65,7 @@
                         <div data-col="2" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
                             @foreach($news as $article)
                                 @if($loop->index%3 == 1 )
-                                    <a href={{url('news/show/'.$article->id)}}>
+                                    <a href="{{url('news/show/'.$article->id)}}" style="display:block; width :100%;">
                                         <div class="item-card-news card" style="width: 100%">
                                             <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
                                             <div class="card-body d-flex flex-column align-items-start">
@@ -47,7 +73,7 @@
                                                 <span class="tag"><i></i><span>{{ $article->getTag() }}</span></span>
                                             </span>
                                                 <span class="title-card-news">{{ $article->title }}</span>
-                                                <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                                <span id="date-{{$article->id}}" class="date-news-page"><script>createDate("{{$article->created_at}}", "{{$article->id}}")</script></span>
                                                 {{--<p class="card-text">{!! mb_strimwidth(strip_tags($article->content), 0, 200, '...')!!}</p>--}}
                                             </div>
                                             {{--{{ link_to('news/show/'.$article->id, 'Читать', ['class' => 'card-link news-show-link']) }}--}}
@@ -59,7 +85,7 @@
                         <div data-col="3" class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 d-flex flex-column flex-wrap">
                             @foreach($news as $article)
                                 @if($loop->index%3 == 2 )
-                                    <a href={{url('news/show/'.$article->id)}}>
+                                    <a href="{{url('news/show/'.$article->id)}}" style="display:block;width: 100%">
                                         <div class="item-card-news card" style="width: 100%">
                                             <img class="card-img-top" src="{{ $article->mainPhoto->path }}" alt="Card image cap">
                                             <div class="card-body d-flex flex-column align-items-start">
@@ -67,7 +93,7 @@
                                                 <span class="tag"><i></i><span>{{ $article->getTag() }}</span></span>
                                             </span>
                                                 <span class="title-card-news">{{ $article->title }}</span>
-                                                <span class="date-news-page">{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}</span>
+                                                <span id="date-{{$article->id}}" class="date-news-page"><script>createDate("{{$article->created_at}}", "{{$article->id}}")</script></span>
                                             </div>
                                         </div>
                                     </a>
@@ -79,7 +105,7 @@
 
             </div>
             @if($newsNumber > 10)
-                <div class="container" style="margin-top:20px;">
+                <div class="container" style="margin-top:120px;">
                     <div class="row d-flex justify-content-center">
                         <a id="btn-download-news-page" class="btn-download-news-page"><?= trans('messages.news__more__news') ?></a>
                     </div>
@@ -224,7 +250,7 @@
         $(document).ready( function() {
             $('.close').click(function(){
                 $('.subscribe-form').removeClass('hide');
-                $('.modal-title').html('<h4>'+ <?= trans('messages.sub__to__news') ?> + '</h4>')
+                $('.modal-title').html('<h4>'+ " <?= trans('messages.sub__to__news') ?> " + '</h4>');
             });
 
            $('.subscribe-form').submit( function(e) {
@@ -234,17 +260,17 @@
                $('#sub_news-work').attr('value',  $('#sub_news-work').val() ? '' : 0);
                $('#sub_news-post').attr('value',  $('#sub_news-post').val() ? '' : 0);
                $.ajax({
-                   url: "{{ url('admin/subscribers/create') }}",
+                   url: " <?= App::getLocale() == 'en' ? url('admin/subscribers/en/create') : url('admin/subscribers/create') ?> ",
                    dataType: 'json',
                    data: $(this).serialize(),
                    type: 'POST',
                    error: function(data) {
-                        $('.modal-title').html('<span>'+ <?= trans('messages.err__sub__news') ?> +'</span>');
+                        $('.modal-title').html('<span>'+ "<?= trans('messages.err__sub__news') ?>" +'</span>');
                         $('.subscribe-form').addClass('hide');
                        document.querySelector('.subscribe-form').reset();
                    },
                    success: function(data) {
-                       $('.modal-title').html('<span>'+ <?= trans('messages.submit__sub__news') ?> +'</span>');
+                       $('.modal-title').html('<span>'+ "<?= trans('messages.submit__sub__news') ?>" +'</span>');
                        $('.subscribe-form').addClass('hide');
                        document.querySelector('.subscribe-form').reset();
                    }
@@ -257,7 +283,8 @@
             $('.news-form').submit( function(e) {
                 e.preventDefault();
                 $.ajax({
-                    url: "{{ url('api/news/create') }}",
+
+                    url: " <?= App::getLocale() == 'en' ? url('api/news/en/create') : url('api/news/create') ?> ",
                     dataType: 'json',
                     data: new FormData($(this)[0]),
                     type: 'POST',
@@ -280,12 +307,12 @@
         $(document).ready( function() {
             $('#btn-download-news-page').click(function (e) {
                 e.preventDefault();
+                console.log('---');
                 let data = $('.item-card-news').length;
                 let oldHeightWrapper = $('.news').outerHeight() + $('#btn-download-news-page').outerHeight();
                 let newHeightWrapper = 0;
-                console.log()
                 $.ajax({
-                    url: "{{ url('news/add_news') }}/" + data,
+                    url: " <?= App::getLocale() == 'en' ? url('news/en/add_news') : url('news/add_news') ?>/" + data,
                     dataType: 'json',
                     type: 'get',
                     success: function (d) {
@@ -293,8 +320,11 @@
                         if (d === 0) {
                             return false;
                         }
+
                         $('#wrapper_news').css({"height":oldHeightWrapper, "overflow":"hidden"});
                         d.forEach(function (el) {
+                            let date = new Date(el.created_at.date);
+                            console.log('---date', date.getFullYear(), date.getMonth(), date.getDay(), date.getDate());
                             $('div[data-col=' + i + ']').append(
                                 '<a class="item-card-news card" href="' + el.link + '" class="" style="display:block;width: 100%; opacity:0">' +
                                 '<div  style="width: 100%">' +
@@ -302,7 +332,7 @@
                                 '<div class="card-body d-flex flex-column align-items-start">' +
                                 '<span class="tags-news-page"><span class="tag"><i></i><span>' + el.tag + '</span></span></span>' +
                                 '<span class="title-card-news">' + el.title + '</span>' +
-                                '<span class="date-news-page">'+'{{ implode(' ', [date('d', strtotime($article->created_at)), \App\News::nameMonth[date('n', strtotime($article->created_at))], date('Y', strtotime($article->created_at))]) }}' +'</span>' +
+                                    '<span class="date-news-page">'+ date.getDate() +' '+  Mounth[date.getMonth()] +' '+ date.getFullYear() +'</span>' +
                                 '</div>' +
                                 '</div>' +
                                 '</a>'
@@ -315,12 +345,11 @@
                         $("#wrapper_news").stop().animate({height:newHeightWrapper+100},600);
                         data = $('.item-card-news').length;
                         $.ajax({
-                            url: "{{ url('news/add_news') }}/" + data,
+                            url: "<?= App::getLocale() == 'en' ? url('news/en/add_news') : url('news/add_news') ?>/" + data,
                             type: 'get',
                             success: function (d) {
 
                                 if (d == 0) {
-                                    console.log('sss', d);
                                     $('#btn-download-news-page').css({'opacity': "0.3", "hover": ""});
                                     $('#btn-download-news-page').removeAttr('id');
                                 }

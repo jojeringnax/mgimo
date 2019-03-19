@@ -10,38 +10,51 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('en/anniversary', function(){
+    return view('anniversary_en');
+});
+
+Route::get('anniversary', function() {
+    return view('anniversary');
+});
+
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], function(){
     Route::get('/', 'SiteController@index');
 
-    Route::get('news', 'NewsController@index');
-    Route::get('news/show/{id}', 'NewsController@show');
+    Route::get('news', App::getLocale() == 'ru' ? 'NewsController@index' : App::getLocale().'\NewsController@index');
+    Route::get('news/show/{id}', App::getLocale() == 'ru' ? 'NewsController@show' : App::getLocale().'\NewsController@show');
 
+    Route::get('media', App::getLocale() == 'ru' ? 'SmiController@index' : App::getLocale().'\SmiController@index');
+    Route::get('books', App::getLocale() == 'ru' ? 'BookController@index' : App::getLocale().'\BookController@index');
+    Route::get('books/show/{id}', App::getLocale() == 'ru' ? 'BookController@show' : App::getLocale().'\BookController@show');
 
-    Route::get('media', 'SmiController@index');
+    Route::get('events', App::getLocale() == 'ru' ? 'EventsController@index' : App::getLocale().'\EventsController@index');
+    Route::get('events/show/{id}', App::getLocale() == 'ru' ? 'EventsController@show' : App::getLocale().'\EventsController@show');
 
-    Route::get('books', 'BookController@index');
-    Route::get('books/show/{id}', 'BookController@show');
+    Route::get('congratulations', App::getLocale() == 'ru' ? 'CongratulationController@index' : App::getLocale().'\CongratulationController@index');
 
-    Route::get('events', 'EventsController@index');
-    Route::get('events/show/{id}', 'EventsController@show');
+    Route::get('gallery', App::getLocale() == 'ru' ? 'PhotoController@index' : App::getLocale().'\PhotoController@index');
+    Route::get('gallery/show/{id}', App::getLocale() == 'ru' ? 'PhotoController@show' : App::getLocale().'\PhotoController@show');
 
-    Route::get('congratulations', 'CongratulationController@index');
+    Route::get('smis', App::getLocale() == 'ru' ? 'SmiController@index' : App::getLocale().'\SmiController@index');
 
-    Route::get('gallery', 'PhotoController@index');
-    Route::get('gallery/show/{id}', 'PhotoController@show');
-
-    Route::get('smis', 'SmiController@index');
-
-    Route::get('anniversary', function() {
-        return view('anniversary');
-    });
+    //Route::get('media', 'SmiController@index');
+    //Route::get('books', 'BookController@index');
+    //Route::get('books/show/{id}', 'BookController@show');
+    //Route::get('events', 'EventsController@index');
+    //Route::get('events/show/{id}', 'EventsController@show');
+    //Route::get('congratulations', 'CongratulationController@index');
+    //Route::get('gallery', 'PhotoController@index');
+    //Route::get('gallery/show/{id}', 'PhotoController@show');
+    //Route::get('smis', 'SmiController@index');
+    //Route::get('partners', 'PartnerController@index');
 
     Route::get('contacts', function() {
         return view('contacts');
     });
 
-    Route::get('partners', 'PartnerController@index');
-
+    Route::get('partners', App::getLocale() == 'ru' ? 'PartnerController@index' : App::getLocale().'\PartnerController@index');
 });
 
 /**

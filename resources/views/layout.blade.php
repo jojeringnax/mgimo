@@ -45,16 +45,16 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="container navbar-nav d-flex justify-content-between" style="padding: 0">
-                            <li class="nav-item"><a class="nav-link" id="main" href="{{url('/')}}"><?= trans('messages.home') ?></a></li>
-                            <li class="nav-item"><a class="nav-link" id="anniversary" href="{{url('anniversary')}}"><?= trans('messages.anniversary') ?></a></li>
-                            <li class="nav-item"><a class="nav-link" id="news" href={{url('news')}}><?= trans('messages.news__nav') ?></a></li>
-                            <li class="nav-item"><a class="nav-link" id="events" href="{{url('events')}}"><?= trans('messages.events') ?></a></li>
-                            <li class="nav-item"><a class="nav-link" id="congratulations" href="{{url('congratulations')}}"><?= trans('messages.congratulations') ?></a></li>
-                            <li class="nav-item"><a class="nav-link" id="books" href="{{url('books')}}"><?= trans('messages.books') ?></a></li>
-                            <li class="nav-item"><a class="nav-link" id="gallery" href="{{url('gallery')}}"><?= trans('messages.gallery') ?></a></li>
-                            <li class="nav-item"><a class="nav-link" id="partners" href="{{url('partners')}}"><?= trans('messages.partners__nav') ?></a></li>
-                            <li class="nav-item"><a class="nav-link" id="smis" href="{{url('smis')}}"><?= trans('messages.media__nav') ?></a></li>
-                            <li class="nav-item"><a class="nav-link" id="contacts" href="{{url('contacts')}}"><?= trans('messages.contacts__nav') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="main" href="<?= App::getLocale() == 'ru' ? url('/') : url('/en') ?>"><?= trans('messages.home') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="anniversary" href="<?= App::getLocale() == 'ru' ? url('/anniversary') : url('/en/anniversary') ?>"><?= trans('messages.anniversary') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="news" href="<?= App::getLocale() == 'ru' ? url('/news') : url('/en/news') ?>"><?= trans('messages.news__nav') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="events" href="<?= App::getLocale() == 'ru' ? url('/events') : url('/en/events') ?>"><?= trans('messages.events') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="congratulations" href="<?= App::getLocale() == 'ru' ? url('/congratulations') : url('/en/congratulations') ?>"><?= trans('messages.congratulations') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="books" href="<?= App::getLocale() == 'ru' ? url('/books') : url('/en/books') ?>"><?= trans('messages.books') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="gallery" href="<?= App::getLocale() == 'ru' ? url('/gallery') : url('/en/gallery') ?>"><?= trans('messages.gallery') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="partners" href="<?= App::getLocale() == 'ru' ? url('/partners') : url('/en/partners') ?>"><?= trans('messages.partners__nav') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="smis" href="<?= App::getLocale() == 'ru' ? url('/smis') : url('/en/smis') ?>"><?= trans('messages.media__nav') ?></a></li>
+                            <li class="nav-item"><a class="nav-link" id="contacts" href="<?= App::getLocale() == 'ru' ? url('/contacts') : url('/en/contacts') ?>"><?= trans('messages.contacts__nav') ?></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -70,7 +70,7 @@
         $(document).ready( function() {
             $('.close').click(function(){
                 $('.subscribe-form').removeClass('hide');
-                $('.modal-title').html('<h4>'+ <?= trans('messages.sub__to__news') ?>+ '</h4>')
+                $('.modal-title').html('<h4>'+ " <?= trans('messages.sub__to__news') ?> "+ '</h4>')
             });
 
             $('.subscribe-form').submit( function(e) {
@@ -80,17 +80,17 @@
                 $('#sub_news-work').attr('value',  $('#sub_news-work').val() ? '' : 0);
                 $('#sub_news-post').attr('value',  $('#sub_news-post').val() ? '' : 0);
                 $.ajax({
-                    url: "{{ url('api/subscribers/create') }}",
+                    url: "<?= App::getLocale() == 'en' ? url('api/subscribers/en/create') : url('api/subscribers/create') ?>",
                     dataType: 'json',
                     data: $(this).serialize(),
                     type: 'POST',
                     error: function(data) {
-                        $('.modal-title').html('<span>'+ <?= trans('messages.err__sub__news') ?>+'</span>');
+                        $('.modal-title').html('<span>'+ "<?= trans('messages.err__sub__news') ?>" +'</span>');
                         $('.subscribe-form').addClass('hide');
                         document.querySelector('.subscribe-form').reset();
                     },
                     success: function(data) {
-                        $('.modal-title').html('<span>'+ <?= trans('messages.submit__sub__news') ?>+ '</span>');
+                        $('.modal-title').html('<span>'+ '<?= trans('messages.submit__sub__news') ?>' + '</span>');
                         $('.subscribe-form').addClass('hide');
                         document.querySelector('.subscribe-form').reset();
                     }
@@ -107,18 +107,18 @@
                     <div class="nav-bot col-xl-4 col-lg-4 col-md-6 col-12 align-items-stretch">
                         <nav class="d-flex" style="height: 100%">
                             <ul class="d-flex flex-column justify-content-between" style="padding: 0">
-                                <li><a href="{{url('/')}}"><?= trans('messages.home') ?></a></li>
-                                <li><a href="{{url('anniversary')}}"><?= trans('messages.anniversary') ?></a></li>
-                                <li><a href="{{url('news')}}"><?= trans('messages.news__nav') ?></a></li>
-                                <li><a href="{{url('events')}}"><?= trans('messages.events') ?></a></li>
-                                <li><a href="{{url('congratulations')}}"><?= trans('messages.congratulations') ?></a></li>
+                                <li><a href=" <?= App::getLocale() == 'ru' ? url('/') : url('/en') ?> "><?= trans('messages.home') ?></a></li>
+                                <li><a href="<?= App::getLocale() == 'ru' ? url('/anniversary') : url('/en/anniversary') ?>"><?= trans('messages.anniversary') ?></a></li>
+                                <li><a href="<?= App::getLocale() == 'ru' ? url('/news') : url('/en/news') ?>"><?= trans('messages.news__nav') ?></a></li>
+                                <li><a href="<?= App::getLocale() == 'ru' ? url('/events') : url('/en/events') ?>"><?= trans('messages.events') ?></a></li>
+                                <li><a href="<?= App::getLocale() == 'ru' ? url('/congratulations') : url('/en/congratulations') ?>"><?= trans('messages.congratulations') ?></a></li>
                             </ul>
                             <ul class="d-flex flex-column justify-content-between">
-                                <li><a href="{{url('books')}}"><?= trans('messages.books') ?></a></li>
-                                <li><a href="{{url('gallery')}}"><?= trans('messages.gallery') ?></a></li>
-                                <li><a href="{{url('partners')}}"><?= trans('messages.partners__nav') ?></a></li>
-                                <li><a href="{{url('smis')}}"><?= trans('messages.media__nav') ?></a></li>
-                                <li><a href=""><?= trans('messages.contacts__nav') ?></a></li>
+                                <li><a href="<?= App::getLocale() == 'ru' ? url('/books') : url('/en/books') ?>"><?= trans('messages.books') ?></a></li>
+                                <li><a href="<?= App::getLocale() == 'ru' ? url('/gallery') : url('/en/gallery') ?>"><?= trans('messages.gallery') ?></a></li>
+                                <li><a href="<?= App::getLocale() == 'ru' ? url('/partners') : url('/en/partners') ?>"><?= trans('messages.partners__nav') ?></a></li>
+                                <li><a href="<?= App::getLocale() == 'ru' ? url('/smis') : url('/en/smis') ?>"><?= trans('messages.media__nav') ?></a></li>
+                                <li><a href="<?= App::getLocale() == 'ru' ? url('/contacts') : url('/en/contacts') ?>">"><?= trans('messages.contacts__nav') ?></a></li>
                             </ul>
                         </nav>
                     </div>

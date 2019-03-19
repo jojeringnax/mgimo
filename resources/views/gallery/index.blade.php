@@ -21,22 +21,86 @@
                     {{  Form::select('tags', \App\Congratulation::getDatesArray(),  null, ['class' => '', 'id' => 'filter-album']) }}
                 </div>
                 <div id="albums_wrapper" class="d-flex col-12 flex-wrap">
-                    @foreach($albums as $album)
-                        @php
-                            $photos = $album->photos;
-                        @endphp
-                        @foreach($photos as $photo)
-                            <a class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
-                                <div class="item-card-album card" style="width: 100%">
-                                    <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
-                                    <div class="card-body d-flex flex-column align-items-start">
-                                        <span class="title-card-album">{{ $album->name }}</span>
-                                    </div>
-                                </div>
-                            </a>
-                            @php break; @endphp
+                    <div data-col="1" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 d-flex flex-column flex-wrap flex-start">
+                        @foreach($albums as $album)
+                            @if($loop->index%4 == 0 )
+                                @php
+                                    $photos = $album->photos;
+                                @endphp
+                                @foreach($photos as $photo)
+                                    <a class="" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
+                                        <div class="item-card-album card" style="width: 100%">
+                                            <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <span class="title-card-album">{{ $album->name }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    @php break; @endphp
+                                @endforeach
+                            @endif
                         @endforeach
-                    @endforeach
+                    </div>
+                    <div data-col="2" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 d-flex flex-column flex-wrap flex-start">
+                        @foreach($albums as $album)
+                            @if($loop->index%4 == 1 )
+                                @php
+                                    $photos = $album->photos;
+                                @endphp
+                                @foreach($photos as $photo)
+                                    <a class="" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
+                                        <div class="item-card-album card" style="width: 100%">
+                                            <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <span class="title-card-album">{{ $album->name }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    @php break; @endphp
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </div>
+                    <div data-col="3" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 d-flex flex-column flex-wrap flex-start">
+                        @foreach($albums as $album)
+                            @if($loop->index%4 == 2 )
+                                @php
+                                    $photos = $album->photos;
+                                @endphp
+                                @foreach($photos as $photo)
+                                    <a class="" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
+                                        <div class="item-card-album card" style="width: 100%">
+                                            <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <span class="title-card-album">{{ $album->name }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    @php break; @endphp
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </div>
+                    <div data-col="4" class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 d-flex flex-column flex-wrap flex-start">
+                        @foreach($albums as $album)
+                            @if($loop->index%4 == 3)
+                                @php
+                                    $photos = $album->photos;
+                                @endphp
+                                @foreach($photos as $photo)
+                                    <a class="" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
+                                        <div class="item-card-album card" style="width: 100%">
+                                            <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <span class="title-card-album">{{ $album->name }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    @php break; @endphp
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </div>
                 </div>
                 @if($albumsNumber > 12)
                     <div class="d-flex justify-content-center" style="width: 100%; margin-top: 100px;">
@@ -76,7 +140,7 @@
 
                     data = $('.item-album').length;
                     $.ajax({
-                        url: "{{ url('gallery/add_albums') }}/" + data,
+                        url: "<?= App::getLocale() == 'en' ? url('gallery/en/add_albums') : url('gallery/add_albums') ?>/" + data,
                         type: 'get',
                         success: function (d) {
                             if (d === 0) {
@@ -92,7 +156,7 @@
 
         $('#filter-album').change(function(){
             //console.log($(this).val());
-            let url = "{{url('gallery/albums/')}}" + '/' + $(this).val();
+            let url = "<?= App::getLocale() == 'en' ? url('gallery/en/albums/') : url('gallery/albums/') ?> " + '/' + $(this).val();
             $.ajax({
                 url: url,
                 type: 'get',
