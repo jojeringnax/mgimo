@@ -125,7 +125,7 @@
                         @endif
                     @endforeach
                     <div class="buttons-news">
-                        <a class="btn-linkk  btn-mgimo" href={{url('news')}}><span class="text-btn">{{ trans('watch_all_news') }}</span><span class="arrow-btn"></span></a>
+                        <a class="btn-linkk  btn-mgimo" href={{url('news')}}><span class="text-btn">{{ trans('messages.watch_all_news') }}</span><span class="arrow-btn"></span></a>
                     </div>
                 </div>
                 <div class="item-contents events col-xl-4 col-lg-4 col-md-12 d-flex flex-column">
