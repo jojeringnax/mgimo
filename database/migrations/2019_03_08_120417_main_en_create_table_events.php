@@ -20,7 +20,6 @@ class MainEnCreateTableEvents extends Migration
             $table->string('date');
             $table->boolean('main');
             $table->text('title');
-            $table->text('content');
             $table->string('location');
             $table->date('finish_date')->nullable();
             $table->unsignedInteger('main_photo_id');
