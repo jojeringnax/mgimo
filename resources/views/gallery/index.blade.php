@@ -28,7 +28,7 @@
                                     $photos = $album->photos;
                                 @endphp
                                 @foreach($photos as $photo)
-                                    <a class="" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
+                                    <a class="item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
                                         <div class="item-card-album card" style="width: 100%">
                                             <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
                                             <div class="card-body d-flex flex-column align-items-start">
@@ -48,7 +48,7 @@
                                     $photos = $album->photos;
                                 @endphp
                                 @foreach($photos as $photo)
-                                    <a class="" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
+                                    <a class="item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
                                         <div class="item-card-album card" style="width: 100%">
                                             <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
                                             <div class="card-body d-flex flex-column align-items-start">
@@ -68,7 +68,7 @@
                                     $photos = $album->photos;
                                 @endphp
                                 @foreach($photos as $photo)
-                                    <a class="" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
+                                    <a class="item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
                                         <div class="item-card-album card" style="width: 100%">
                                             <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
                                             <div class="card-body d-flex flex-column align-items-start">
@@ -88,7 +88,7 @@
                                     $photos = $album->photos;
                                 @endphp
                                 @foreach($photos as $photo)
-                                    <a class="" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
+                                    <a class="item-album" href="{{ url('gallery/show', ['id' => $album->id]) }}" style="padding-left: 0; padding-right: 30px">
                                         <div class="item-card-album card" style="width: 100%">
                                             <img class="card-img-top" src="{{ $photo->path }}" alt="Card image cap">
                                             <div class="card-body d-flex flex-column align-items-start">
@@ -116,7 +116,7 @@
     $(document).ready( function() {
         $('#btn-download-galley-page').click( function(e) {
             e.preventDefault();
-            let data = $('.item-album').length;
+            let data = $('a.item-album').length;
             $.ajax({
                 url: "{{ url('gallery/add_albums') }}/" + data,
                 dataType: 'json',

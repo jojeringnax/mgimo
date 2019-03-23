@@ -59,7 +59,7 @@ class PhotoController extends Controller
         if (!$request->ajax()) {
             return redirect('/');
         }
-        $albums = Album::limit(4)->skip($data)->get();
+        $albums = Album::limit(4)->offset($data)->get();
         foreach ($albums as $album) {
             $resultArray[] = [
                 'id' => $album->id,
