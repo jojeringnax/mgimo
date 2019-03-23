@@ -223,6 +223,9 @@ Route::match(['get','post'], 'admin/en/gallery/album_fill/{id}', 'en\AdminContro
 
 Auth::routes();
 
+
+Route::get('en/gallery/albums/{date}', 'en\PhotoController@getFiltred');
+
 Route::get('/admin/en', 'en\AdminController@index')->name('admin_en');
 
 

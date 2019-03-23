@@ -156,7 +156,7 @@
 
         $('#filter-album').change(function(){
             //console.log($(this).val());
-            let url = "<?= App::getLocale() == 'en' ? url('gallery/en/albums/') : url('gallery/albums/') ?> " + '/' + $(this).val();
+            let url = "{{ App::getLocale() === 'ru' ? url('gallery/albums') : url('en/gallery/albums') }}/" + $(this).val();
             $.ajax({
                 url: url,
                 type: 'get',
