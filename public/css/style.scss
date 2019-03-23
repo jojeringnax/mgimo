@@ -1463,7 +1463,7 @@ a#btn-download-news-page{
     }
 }
 
-#btn-download-galley-page {
+.btn-download-galley-page {
     display: flex;
     align-items: center;
     text-align: center;
@@ -1481,11 +1481,15 @@ a#btn-download-news-page{
     -ms-transition: $transition;
     -o-transition: $transition;
     transition: $transition;
+
+}
+a#btn-download-galley-page {
     &:hover {
         background-color: $mainColor;
         color: white;
     }
 }
+
 
 #btn-download-congratulations-page {
     display: flex;
@@ -2619,7 +2623,7 @@ footer {
         border: 1px solid white !important;
     }
     img {
-        min-height: 180px;
+        //min-height: 180px;
     }
     a {
         margin: 0 0 10px 25px;
