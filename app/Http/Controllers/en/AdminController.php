@@ -793,7 +793,19 @@ class AdminController extends Controller
             $album = new Album();
             $album->name = $request->post('name');
             $album->save();
-            if ($tags = $request->post('tags')) {
+            $tag = Tag::where('word', $request->post('tags'))->first();
+            if ($tag == null) {
+                $tag = new Tag;
+                $tag->word = $request->post('tags');
+                $tag->count_photos = 1;
+                $tag->save();
+            }
+            $tagConnect = new TagConnect();
+            $tagConnect->id = $tag->id;
+            $tagConnect->connect_id = $album->id;
+            $tagConnect->type = TagConnect::GALLERY;
+            $tagConnect->save();
+            /*if ($tags = $request->post('tags')) {
                 $tagConnects = TagConnect::select('id')->where('connect_id', $album->id)->where('type', TagConnect::GALLERY);
                 $tagsModels = Tag::whereIn('id', $tagConnects->get())->get();
                 foreach ($tagsModels as $tag) {
@@ -817,12 +829,12 @@ class AdminController extends Controller
                     $tagConnect->type = TagConnect::GALLERY;
                     $tagConnect->save();
                 }
-            }
-            return redirect()->route('album_fill_en', ['id' => $album->id]);
+            }*/
+            return redirect()->route('album_fill', ['id' => $album->id]);
         } elseif ($request->isMethod('get')) {
             return view('admin.gallery.form');
         };
-        return redirect()->route('album_index_en');
+        return redirect()->route('album_index');
     }
 
     /**
@@ -837,6 +849,26 @@ class AdminController extends Controller
         if ($request->isMethod('post')) {
 
             $album->name = $request->post('name');
+            $tag = Tag::where('word', $request->post('tags'))->first();
+            if ($tag == null) {
+                $tag = new Tag;
+                $tag->word = $request->post('tags');
+                $tag->count_photos = 1;
+                $tag->save();
+            }
+            $tagConnect = TagConnect::where('id', $tag->id)->where('connect_id', $id)->where('type', TagConnect::GALLERY)->first();
+            if($tagConnect === null) {
+                if($deleted = TagConnect::where('connect_id', $id)->where('type', TagConnect::GALLERY)->first() !== null) {
+                    $deleted->delete();
+                };
+                $tagConnect = new TagConnect();
+                $tagConnect->id = $tag->id;
+                $tagConnect->connect_id = $id;
+                $tagConnect->type = TagConnect::GALLERY;
+                $tagConnect->save();
+            }
+
+            /*
             if ($tags = $request->post('tags')) {
                 $tags = preg_split('/,/', $tags);
                 if(!(($tagConnects = TagConnect::photo($album->id))->isEmpty())) {
@@ -862,7 +894,7 @@ class AdminController extends Controller
                     $tagConnect->type = TagConnect::GALLERY;
                     $tagConnect->save();
                 }
-            }
+            }*/
             if (isset($request->allFiles()['photos'])) {
                 $files = $request->allFiles()['photos'];
                 foreach ($files as $file) {
@@ -873,7 +905,7 @@ class AdminController extends Controller
                     $photo->sizeY = getimagesize($file->getPathname())[1];
                     $photo->album_id = $id;
                     $photo->save();
-                    $path = 'gallery_en/album_' . $id . '/' . $photo->id . '.' . $file->getClientOriginalExtension();
+                    $path = 'gallery/album_' . $id . '/' . $photo->id . '.' . $file->getClientOriginalExtension();
                     Storage::put($path, file_get_contents($file->getPathname()));
                     $path = '/storage/photo/' . $path;
                     $photo->path = $path;
@@ -881,14 +913,14 @@ class AdminController extends Controller
                 }
             }
             $album->save();
-            return redirect()->route('album_fill_en', ['id' => $id]);
+            return redirect()->route('album_fill', ['id' => $id]);
 
         } elseif ($request->isMethod('get')) {
             return view('admin.gallery.album_fill', [
                 'album' => $album
             ]);
         }
-    return redirect()->route('album_index_en');
+        return redirect()->route('album_index');
     }
 
     /**
