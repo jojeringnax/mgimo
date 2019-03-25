@@ -152,7 +152,7 @@
                         console.log(oldHeightWrapper, albumsHeightWrapper);
                         $('.item-album').animate({opacity:'1'},500);
                         $("#albums_wrapper").stop().animate({height:albumsHeightWrapper+100},600);
-                    },500);
+                    },100);
 
                     data = $('.item-album').length;
                     //console.log($('.albums').outerHeight());
