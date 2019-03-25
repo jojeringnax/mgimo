@@ -128,13 +128,13 @@
                 url: "{{ url('gallery/add_albums') }}/" + data,
                 dataType: 'json',
                 type: 'get',
-                success: function(d) {
+                success: async function(d) {
                     let i = 1;
                     if(d === 0) {
                         return false;
                     }
-                    d.forEach(async function(el) {
-                        await $('div[data-col=' + i + ']').append(
+                    await d.forEach(function(el) {
+                        $('div[data-col=' + i + ']').append(
                             '<a class="item-album" href="{{url('gallery/show')}}' +'/'+el.id + '"style="padding-left: 0; padding-right: 30px; opacity:0">' +
                                 '<div class="item-card-album card" style="width: 100%">' +
                                     '<img class="card-img-top" src="'+ el.photo +'" alt="Card image cap">' +
@@ -144,7 +144,7 @@
                                 '</div>' +
                             '</a>'
                         );
-                        await i++;
+                        i++;
                     });
 
                     data = $('.item-album').length;
