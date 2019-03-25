@@ -147,12 +147,16 @@
                         i++;
                     });
 
+                    setTimeout(function () {
+                        albumsHeightWrapper = $('.albums').outerHeight();
+                        console.log(oldHeightWrapper, albumsHeightWrapper);
+                        $('.item-album').animate({opacity:'1'},500);
+                        $("#albums_wrapper").stop().animate({height:albumsHeightWrapper+100},600);
+                    },500);
+
                     data = $('.item-album').length;
                     //console.log($('.albums').outerHeight());
-                    albumsHeightWrapper = $('.albums').outerHeight();
-                    console.log(oldHeightWrapper, albumsHeightWrapper);
-                    $('.item-album').animate({opacity:'1'},500);
-                    $("#albums_wrapper").stop().animate({height:albumsHeightWrapper+100},600);
+
 
                     $.ajax({
                         url: "<?= App::getLocale() == 'en' ? url('gallery/en/add_albums') : url('gallery/add_albums') ?>/" + data,
