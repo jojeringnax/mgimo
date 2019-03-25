@@ -133,8 +133,8 @@
                     if(d === 0) {
                         return false;
                     }
-                    d.forEach(function(el) {
-                        $('div[data-col=' + i + ']').append(
+                    d.forEach(async function(el) {
+                        await $('div[data-col=' + i + ']').append(
                             '<a class="item-album" href="{{url('gallery/show')}}' +'/'+el.id + '"style="padding-left: 0; padding-right: 30px; opacity:0">' +
                                 '<div class="item-card-album card" style="width: 100%">' +
                                     '<img class="card-img-top" src="'+ el.photo +'" alt="Card image cap">' +
@@ -148,11 +148,11 @@
                     });
 
                     data = $('.item-album').length;
-
+                    console.log($('.albums').outerHeight());
                     albumsHeightWrapper = $('.albums').outerHeight();
                     console.log(oldHeightWrapper, albumsHeightWrapper);
                     $('.item-album').animate({opacity:'1'},500);
-                    $("#albums_wrapper").stop().animate({height:albumsHeightWrapper+100},600);
+                    //$("#albums_wrapper").stop().animate({height:albumsHeightWrapper+100},600);
 
                     $.ajax({
                         url: "<?= App::getLocale() == 'en' ? url('gallery/en/add_albums') : url('gallery/add_albums') ?>/" + data,
