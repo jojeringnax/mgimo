@@ -855,6 +855,10 @@ nav {
         margin-top: 40px;
         align-items: center;
         justify-content: center; }
+        .content-partners .partners .item .item-partner a {
+          width: 100%; }
+          .content-partners .partners .item .item-partner a img {
+            width: 100%; }
 
 .prtn .item .item-partner a img {
   max-height: 70px; }
