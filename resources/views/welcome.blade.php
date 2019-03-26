@@ -219,7 +219,7 @@
                                 @foreach($partners as $partner)
                                     <div class="item-partner">
                                         <a href="{{ $partner->link }}">
-                                            <div style="height: 100%">
+                                            <div>
                                                 <img src="{{ $partner->photo !== null ? $partner->photo->path : 'img/no-image.png'}}" alt="" />
                                             </div>
                                         </a>

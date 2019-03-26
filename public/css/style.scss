@@ -1093,17 +1093,17 @@ nav {
 
             .item-partner {
                 width: 167px;
-                height: 135px;
+                height: 167px;
                 //border: 1px solid $mainColor;
                 display: flex;
                 flex-direction: column;
-                margin-top: 60px;
+                margin-top: 40px;
                 align-items: center;
                 justify-content: center;
                 a {
-                    width: 100%;
+                   // width: 100%;
                     img {
-                        width: 100%;
+                       // width: 100%;
                     }
                 }
             }
