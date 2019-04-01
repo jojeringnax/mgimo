@@ -43,7 +43,13 @@ class News extends Model
     /**
      * @var array
      */
-    public $fillable = ['main_photo_id'];
+    public $fillable = [
+        'id',
+        'title',
+        'content',
+        'moderated',
+        'main_photo_id'
+    ];
 
 
     /**
@@ -53,24 +59,19 @@ class News extends Model
      */
     public function delete()
     {
-        $tagConnects = TagConnect::select('id')->where('connect_id', $this->id)->where('type', TagConnect::NEWS);
+        $tagConnect = TagConnect::where('connect_id', $this->id)->where('type', TagConnect::NEWS)->first();
         $photos = $this->getPhotos();
         $photo = $this->mainPhoto;
-        $tags = Tag::whereIn('id', $tagConnects->get())->get();
-        foreach ($tags as $tag) {
-            $tag->update(['count_news' => $tag->count_news - 1]);
-        }
+        $tag = Tag::where('id', $tagConnect->id)->first();
+        $tag->update(['count_news' => $tag->count_news - 1]);
+        $tagConnect->delete();
         parent::delete();
         if ($photos !== null) {
             foreach ($photos as $ph) {
-                if ($ph !== null)
-                    $ph->delete();
+                if ($ph !== null) $ph->delete();
             }
         }
-        if ($photo !== null)
-            $photo->delete();
-        if ($tagConnects !== null)
-            $tagConnects->delete();
+        if ($photo !== null) $photo->delete();
         return true;
     }
 

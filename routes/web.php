@@ -178,7 +178,7 @@ Route::get('admin/subscribers', function() {
  */
 
 
-Route::get('photo/delete/{id}', 'en\PhotoController@delete');
+Route::get('en/photo/delete/{id}', 'en\PhotoController@delete');
 
 
 Route::match(['get','post'], 'admin/en/smis/create', 'en\AdminController@createSmi');

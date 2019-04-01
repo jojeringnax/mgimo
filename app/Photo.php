@@ -2,6 +2,7 @@
 
 namespace App;
 
+use http\Env\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,27 +38,24 @@ class Photo extends Model
      * @var array
      */
     public $fillable = [
-      'album_id'
+        'id',
+        'sizeX',
+        'sizeY',
+        'path',
+        'type',
+        'album_id',
+        'video'
     ];
 
     /**
-     * Delete file of photo.
-     * Delete all TagConnects and decrease count_photos of Tag.
-     * Delete Model from database.
-     *
      * @return bool|null
+     * @throws \Exception
      */
     public function delete()
     {
         $array = preg_split('/\//', $this->path);
         $path = implode('\/', array($array[3], $array[4]));
         Storage::disk('local')->delete($path);
-        $tagConnects = TagConnect::select('id')->where('connect_id', $this->id)->where('type', TagConnect::GALLERY);
-        $tags = Tag::whereIn('id', $tagConnects->get())->get();
-        foreach ($tags as $tag) {
-            $tag->update(['count_photos' => $tag->count_photos - 1]);
-        }
-        if (!$tagConnects->get()->isEmpty()) {$tagConnects->delete();};
         return parent::delete();
     }
 
@@ -137,6 +135,21 @@ class Photo extends Model
             $resultArray[] = $tag->word;
         }
         return $resultArray;
+    }
+
+    public static function savePhotoFromRequestFile($file, $type, $path, $video=0, $albumID = null)
+    {
+        $photo = new self;
+        Storage::put($path, file_get_contents($file->getPathname()));
+        $path = '/storage/photo' . $path;
+        $photo->type = $type;
+        $photo->sizeX = getimagesize($file->getPathname())[0];
+        $photo->sizeY = getimagesize($file->getPathname())[1];
+        $photo->path = $path;
+        $photo->album_id = $albumID;
+        $photo->video = $video;
+        $photo->save();
+        return $photo->id;
     }
 
 }

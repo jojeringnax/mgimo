@@ -35,7 +35,15 @@ class Congratulation extends Model
     /**
      * @var array
      */
-    public $fillable = ['main_photo_id'];
+    public $fillable = [
+        'id',
+        'title',
+        'content',
+        'date',
+        'main_photo_id',
+        'priority',
+        'moderated'
+    ];
 
     /**
      * Delete main photo for evade a relative exception.

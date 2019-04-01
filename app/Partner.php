@@ -39,14 +39,28 @@ class Partner extends Model
      * @var array
      */
     public $fillable = [
-      'photo_id'
+        'id',
+        'link',
+        'position',
+        'priority',
+        'photo_id',
+        'category',
+        'title',
+        'type'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne|Photo
+     */
     public function photo()
     {
         return $this->hasOne(Photo::class, 'id','photo_id');
     }
 
+    /**
+     * @param int $type
+     * @return self[]
+     */
     public static function getInPriority($type=0)
     {
         return self::where('type', $type)->get()->sortBy('priority');

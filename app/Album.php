@@ -20,12 +20,17 @@ class Album extends Model
      */
     public $table = 'albums';
 
+    /**
+     * @var array
+     */
+    public $fillable = [
+        'id',
+        'name'
+    ];
 
     /**
-     * Delete all connected photos.
-     * Delete the model from the database.
-     *
      * @return bool|null
+     * @throws \Exception
      */
     public function delete()
     {
@@ -38,7 +43,7 @@ class Album extends Model
     /**
      * Return all photos in album as array of Photo models.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany|Photo[]|Photo
      */
     public function photos()
     {

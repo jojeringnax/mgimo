@@ -30,7 +30,12 @@ class Tag extends Model
     /**
      * @var array
      */
-    public $fillable = ['count_news', 'count_events', 'count_photos'];
+    public $fillable = [
+        'word',
+        'count_news',
+        'count_events',
+        'count_photos'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany | TagConnect[]

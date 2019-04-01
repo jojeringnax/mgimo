@@ -30,24 +30,25 @@ class Event extends Model
     /**
      * @var array
      */
-    public $fillable = ['main_photo_id'];
+    public $fillable = [
+        'id',
+        'title',
+        'content',
+        'date',
+        'main',
+        'location',
+        'main_photo_id',
+        'date',
+        'finish_date'
+    ];
 
     /**
-     * Delete all TagConnects and decrease count_events in Tag model.
-     * Delete Model from database.
-     *
      * @return bool|null
+     * @throws \Exception
      */
     public function delete()
     {
-        $tagConnects = TagConnect::select('id')->where('connect_id', $this->id)->where('type', TagConnect::EVENTS);
         $photos = $this->getPhotos();
-        $tags = Tag::whereIn('id', $tagConnects->get())->get();
-        foreach ($tags as $tag) {
-            $tag->count_events = $tag->count_events - 1;
-            $tag->save();
-        }
-        $tagConnects->delete();
         parent::delete();
         foreach($photos as $ph) {
             $ph->delete();
