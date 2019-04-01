@@ -21,25 +21,27 @@ Route::get('anniversary', function() {
 });
 
 Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], function(){
-    Route::get('/','SiteController@index');
+    Route::get('/',App\Http\Middleware\LocaleMiddleware::getLocale() == null
+        ? 'SiteController@index' :
+        App\Http\Middleware\LocaleMiddleware::getLocale().'\SiteController@index');
 
-/*    Route::get('news', App::getLocale() == 'ru' ? 'NewsController@index' : App::getLocale().'\NewsController@index');
-    Route::get('news/show/{id}', App::getLocale() == 'ru' ? 'NewsController@show' : App::getLocale().'\NewsController@show');
+Route::get('news', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'NewsController@index' : App\Http\Middleware\LocaleMiddleware::getLocale().'\NewsController@index');
+    Route::get('news/show/{id}', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'NewsController@show' : App\Http\Middleware\LocaleMiddleware::getLocale().'\NewsController@show');
 
-    Route::get('media', App::getLocale() == 'ru' ? 'SmiController@index' : App::getLocale().'\SmiController@index');
-    Route::get('books', App::getLocale() == 'ru' ? 'BookController@index' : App::getLocale().'\BookController@index');
-    Route::get('books/show/{id}', App::getLocale() == 'ru' ? 'BookController@show' : App::getLocale().'\BookController@show');
+    Route::get('media', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'SmiController@index' : App\Http\Middleware\LocaleMiddleware::getLocale().'\SmiController@index');
+    Route::get('books', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'BookController@index' : App\Http\Middleware\LocaleMiddleware::getLocale().'\BookController@index');
+    Route::get('books/show/{id}', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'BookController@show' : App\Http\Middleware\LocaleMiddleware::getLocale().'\BookController@show');
 
-    Route::get('events', App::getLocale() == 'ru' ? 'EventsController@index' : App::getLocale().'\EventsController@index');
-    Route::get('events/show/{id}', App::getLocale() == 'ru' ? 'EventsController@show' : App::getLocale().'\EventsController@show');
+    Route::get('events', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'EventsController@index' : App\Http\Middleware\LocaleMiddleware::getLocale().'\EventsController@index');
+    Route::get('events/show/{id}', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'EventsController@show' : App\Http\Middleware\LocaleMiddleware::getLocale().'\EventsController@show');
 
-    Route::get('congratulations', App::getLocale() == 'ru' ? 'CongratulationController@index' : App::getLocale().'\CongratulationController@index');
+    Route::get('congratulations', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'CongratulationController@index' : App\Http\Middleware\LocaleMiddleware::getLocale().'\CongratulationController@index');
 
-    Route::get('gallery', App::getLocale() == 'ru' ? 'PhotoController@index' : App::getLocale().'\PhotoController@index');
-    Route::get('gallery/show/{id}', App::getLocale() == 'ru' ? 'PhotoController@show' : App::getLocale().'\PhotoController@show');
-    Route::get('partners', App::getLocale() == 'ru' ? 'PartnerController@index' : App::getLocale().'\PartnerController@index');
-    Route::get('smis', App::getLocale() == 'ru' ? 'SmiController@index' : App::getLocale().'\SmiController@index');*/
-
+    Route::get('gallery', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'PhotoController@index' : App\Http\Middleware\LocaleMiddleware::getLocale().'\PhotoController@index');
+    Route::get('gallery/show/{id}', App\Http\Middleware\LocaleMiddleware::getLocale() == 'ru' ? 'PhotoController@show' : App\Http\Middleware\LocaleMiddleware::getLocale().'\PhotoController@show');
+    Route::get('partners', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'PartnerController@index' : App\Http\Middleware\LocaleMiddleware::getLocale().'\PartnerController@index');
+    Route::get('smis', App\Http\Middleware\LocaleMiddleware::getLocale() == null ? 'SmiController@index' : App\Http\Middleware\LocaleMiddleware::getLocale().'\SmiController@index');
+/*
     Route::get('news', 'NewsController@index');
     Route::get('news/show/{id}', 'NewsController@show');
     Route::get('media', 'SmiController@index');
@@ -51,7 +53,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::get('gallery', 'PhotoController@index');
     Route::get('gallery/show/{id}', 'PhotoController@show');
     Route::get('smis', 'SmiController@index');
-    Route::get('partners', 'PartnerController@index');
+    Route::get('partners', 'PartnerController@index');*/
 
     Route::get('contacts', function() {
         return view('contacts');
