@@ -48,7 +48,11 @@ class Book extends Model
    public function delete()
    {
        $coverPhoto = $this->coverPhoto;
-       parent::delete();
+       try {
+           parent::delete();
+       } catch (\Exception $exception) {
+           //
+       }
        return $coverPhoto->delete();
    }
 

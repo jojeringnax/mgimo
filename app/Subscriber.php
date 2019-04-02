@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subscriber extends Model
 {
+    /**
+     * @var string
+     */
     protected $table = 'subscribers';
 
     /**
@@ -20,7 +23,7 @@ class Subscriber extends Model
         'faculty',
         'work',
         'post',
-        'aactive'
+        'active'
     ];
 
     /**

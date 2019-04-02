@@ -218,7 +218,7 @@ class AdminController extends Controller
     /**
      * @param $eventId
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|int
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
      */
     public function updateEvent($eventId, Request $request)
     {
@@ -243,7 +243,7 @@ class AdminController extends Controller
                 'event' => $event,
             ]);
         }
-        return 0;
+        return '0';
     }
 
 
@@ -548,7 +548,7 @@ class AdminController extends Controller
     {
         $partner->fill($request->post());
         if ($file = $request->file('photo')) {
-            $path = 'partners/' . $partner->id . '.' . $file->getClientOriginalExtension();
+            $path = '/partners/' . $partner->id . '.' . $file->getClientOriginalExtension();
             $photoId = Photo::savePhotoFromRequestFile($file, PhotoConnect::PARTNER, $path);
             $partner->photo_id = $photoId;
         }
@@ -673,10 +673,10 @@ class AdminController extends Controller
             /**
              * @var $tagConnect TagConnect
              */
-            $tagConnect = TagConnect::where('id', $tag->id)->where('connect_id', $id)->where('type', TagConnect::GALLERY)->first();
+            $tagConnect = TagConnect::where('id', $tagNew->id)->where('connect_id', $id)->where('type', TagConnect::GALLERY)->first();
             if($tagConnect === null) {
                 $tagConnect = new TagConnect();
-                $tagConnect->id = $tag->id;
+                $tagConnect->id = $tagNew->id;
                 $tagConnect->connect_id = $id;
                 $tagConnect->type = TagConnect::GALLERY;
                 $tagConnect->save();
@@ -693,8 +693,10 @@ class AdminController extends Controller
             }
             if (isset($request->allFiles()['photos'])) {
                 $files = $request->allFiles()['photos'];
+                $i = 0;
                 foreach ($files as $file) {
-                    $path = '/gallery/album_' . $id . '/' . $photo->id . '.' . $file->getClientOriginalExtension();
+                    $i++;
+                    $path = '/gallery/album_' . $id . '/' . $i . '.' . $file->getClientOriginalExtension();
                     Photo::savePhotoFromRequestFile($file, PhotoConnect::GALLERY, $path,0,$id);
                 }
             }

@@ -17,7 +17,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Tag extends Model
 {
-
+    /**
+     * @var string
+     */
     public $connection = 'mysql_en';
 
     /**
@@ -33,7 +35,12 @@ class Tag extends Model
     /**
      * @var array
      */
-    public $fillable = ['count_news', 'count_events', 'count_photos'];
+    public $fillable = [
+        'word',
+        'count_news',
+        'count_events',
+        'count_photos'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany | TagConnect[]
@@ -43,6 +50,9 @@ class Tag extends Model
         return $this->hasMany(TagConnect::class, 'id', 'id');
     }
 
+    /**
+     * @return Album[]|null
+     */
     public function albums()
     {
         $tagConnects = TagConnect::where('id', $this->id)->where('type', TagConnect::GALLERY)->select('connect_id')->get()->toArray();

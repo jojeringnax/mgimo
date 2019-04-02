@@ -41,20 +41,30 @@ class Congratulation extends Model
     /**
      * @var array
      */
-    public $fillable = ['main_photo_id'];
+    public $fillable = [
+        'id',
+        'title',
+        'content',
+        'date',
+        'main_photo_id',
+        'priority',
+        'moderated'
+    ];
 
     /**
-     * Delete main photo for evade a relative exception.
-     * Delete the model from database.
-     *
      * @return bool|null
+     * @throws \Exception
      */
     public function delete()
     {
         $photo = $this->mainPhoto;
         $this->update(['main_photo_id' => null]);
         if ($photo !== null) {
-            $photo->delete();
+            try {
+                $photo->delete();
+            } catch (\Exception $exception) {
+                //
+            }
         }
         return parent::delete();
     }
@@ -70,6 +80,9 @@ class Congratulation extends Model
         return $this->hasOne(Photo::class, 'id','main_photo_id');
     }
 
+    /**
+     * @return array
+     */
     public static function getDatesArray()
     {
         $dateFrom = \DateTime::createFromFormat('Y', '1951');
@@ -91,6 +104,8 @@ class Congratulation extends Model
     }
 
     /**
+     * @param int $limit
+     * @param int $offset
      * @return mixed
      */
     public static function getModerated($limit=4,$offset=0)

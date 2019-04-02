@@ -55,23 +55,46 @@ class News extends Model
     /**
      * Delete all TagConnects decrease count_news of Tags, delete all Photos (main Photo included).
      * Delete Model from database.
-     * return bool|null
+     * @return bool|null
      */
     public function delete()
     {
-        $tagConnect = TagConnect::where('connect_id', $this->id)->where('type', TagConnect::NEWS)->first();
+        /**
+         * @var $tags Tag[]
+         * @var $tagConnects Builder
+         */
+        $tagConnects = TagConnect::select('id')->where('connect_id', $this->id)->where('type', TagConnect::NEWS);
         $photos = $this->getPhotos();
         $photo = $this->mainPhoto;
-        $tag = Tag::where('id', $tagConnect->id)->first();
-        $tag->update(['count_news' => $tag->count_news - 1]);
-        $tagConnect->delete();
-        parent::delete();
+        $tags = Tag::whereIn('id', $tagConnects->get())->get();
+        foreach ($tags as $tag) {
+            $tag->update(['count_news' => $tag->count_news - 1]);
+        }
+        try {
+            parent::delete();
+        } catch (\Exception $exception) {
+            //
+        }
         if ($photos !== null) {
             foreach ($photos as $ph) {
-                if ($ph !== null) $ph->delete();
+                if ($ph !== null) {
+                    try {
+                        $ph->delete();
+                    } catch (\Exception $exception) {
+                        //
+                    }
+                }
             }
         }
-        if ($photo !== null) $photo->delete();
+        if ($photo !== null) {
+            try {
+                $photo->delete();
+            } catch (\Exception $exception) {
+                //
+            }
+        }
+        if ($tagConnects !== null)
+            $tagConnects->delete();
         return true;
     }
 

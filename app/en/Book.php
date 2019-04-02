@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $cover_photo_id
  * @property Photo $coverPhoto
  * @property int $price
+ * @property int $status
+ * @property string $link
  *
  */
 class Book extends Model
@@ -29,20 +31,28 @@ class Book extends Model
     /**
      * @var array
      */
-   protected $fillable = [
-     'cover_photo_id'
-   ];
+    protected $fillable = [
+        'id',
+        'title',
+        'description',
+        'cover_photo_id',
+        'link',
+        'status',
+        'price'
+    ];
 
     /**
-     * Delete cover photo for evade a relative exception.
-     * Delete the model from database.
-     *
      * @return bool|null
+     * @throws \Exception
      */
    public function delete()
    {
        $coverPhoto = $this->coverPhoto;
-       parent::delete();
+       try {
+           parent::delete();
+       } catch (\Exception $exception) {
+           //
+       }
        return $coverPhoto->delete();
    }
 

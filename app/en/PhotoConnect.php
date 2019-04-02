@@ -15,7 +15,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PhotoConnect extends Model
 {
-
+    /**
+     * @var string
+     */
     public $connection = 'mysql_en';
 
     /**
@@ -33,8 +35,9 @@ class PhotoConnect extends Model
     const CONGRATULATION = 3;
     const GALLERY = 4;
     const EVENT = 5;
+    const PARTNER = 6;
 
-    const MAIN_PHOTO_EVENTS = 6;
+    const MAIN_PHOTO_EVENTS = 99;
 
     /**
      * Return Photo of this Model.

@@ -25,4 +25,14 @@ class Smi extends Model
      */
     protected $table = 'smis';
 
+    /**
+     * @var array
+     */
+    public $fillable = [
+        'id',
+        'link',
+        'link_view',
+        'title',
+        'date'
+    ];
 }

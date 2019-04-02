@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,8 +15,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TagConnect extends Model
 {
+    /**
+     * @var string
+     */
     protected $table = 'tag_connects';
 
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 
     const NEWS = 1;
@@ -32,7 +39,7 @@ class TagConnect extends Model
 
     /**
      * @param $id
-     * @return Model
+     * @return Builder
      */
     public static function article($id)
     {

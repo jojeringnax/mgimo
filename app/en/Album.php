@@ -15,26 +15,43 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Album extends Model
 {
-
+    /**
+     * @var string
+     */
     public $connection = 'mysql_en';
+
     /**
      * @var string
      */
     public $table = 'albums';
 
+    /**
+     * @var array
+     */
+    public $fillable = [
+        'id',
+        'name'
+    ];
+
 
     /**
-     * Delete all connected photos.
-     * Delete the model from the database.
-     *
      * @return bool|null
+     * @throws \Exception
      */
     public function delete()
     {
         foreach ($this->photos as $photo) {
-            $photo->delete();
+            try {
+                $photo->delete();
+            } catch (\Exception $exception) {
+                continue;
+            }
         }
-        return parent::delete();
+        try {
+            return parent::delete();
+        } catch (\Exception $exception) {
+            return 'Not deleted';
+        }
     }
 
     /**
@@ -47,7 +64,9 @@ class Album extends Model
         return $this->hasMany(Photo::class, 'album_id', 'id');
     }
 
-
+    /**
+     * @return Photo|null
+     */
     public function lastPhoto()
     {
         return Photo::where('album_id', $this->id)->orderBy('id', 'asc')->first();

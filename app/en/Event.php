@@ -32,50 +32,37 @@ class Event extends Model
     /**
      * @var array
      */
-    public $fillable = ['main_photo_id'];
+    public $fillable = [
+        'id',
+        'title',
+        'content',
+        'date',
+        'main',
+        'location',
+        'main_photo_id',
+        'date',
+        'finish_date'
+    ];
 
     /**
-     * Delete all TagConnects and decrease count_events in Tag model.
-     * Delete Model from database.
-     *
-     * @return bool|null
+     * @return bool
      */
     public function delete()
     {
-        $tagConnects = TagConnect::select('id')->where('connect_id', $this->id)->where('type', TagConnect::EVENTS);
         $photos = $this->getPhotos();
-        $tags = Tag::whereIn('id', $tagConnects->get())->get();
-        foreach ($tags as $tag) {
-            $tag->count_events = $tag->count_events - 1;
-            $tag->save();
+        try {
+            parent::delete();
+        } catch (\Exception $exception) {
+            return false;
         }
-        $tagConnects->delete();
-        parent::delete();
         foreach($photos as $ph) {
-            $ph->delete();
+            try {
+                $ph->delete();
+            } catch (\Exception $exception) {
+                return false;
+            }
         }
         return true;
-    }
-
-    /**
-     * Return Tags in array.
-     *
-     * @return array
-     */
-    public function getTags()
-    {
-        $tagConnects = TagConnect::event($this->id);
-        if($tagConnects === null) {return [];}
-        foreach($tagConnects as $tagConnect) {
-            $idsArray[] = $tagConnect->id;
-        }
-        if(!isset($idsArray))
-            return [];
-        $tags = Tag::whereIn('id', $idsArray)->get();
-        foreach($tags as $tag) {
-            $resultArray[] = $tag->word;
-        }
-        return $resultArray;
     }
 
     /**

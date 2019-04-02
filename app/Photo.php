@@ -4,6 +4,7 @@ namespace App;
 
 use http\Env\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 /**
@@ -74,7 +75,7 @@ class Photo extends Model
     /**
      * Return Album in which this photo save.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne|Album
      */
     public function album()
     {
@@ -84,7 +85,7 @@ class Photo extends Model
     /**
      * Return all photo Models for an article by id.
      *
-     * @param $articleId
+     * @param $articleId integer
      * @return self[]
      */
     public static function getAllPhotosForArticle($articleId)
@@ -94,9 +95,7 @@ class Photo extends Model
     }
 
     /**
-     * Return all photo Models for an congratulation by id.
-     *
-     * @param $articleId
+     * @param $congId integer
      * @return self[]
      */
     public static function getAllPhotosForCongratulation($congId)
@@ -108,7 +107,7 @@ class Photo extends Model
     /**
      * Return all photo Models for an event by id.
      *
-     * @param $eventId
+     * @param $eventId integer
      * @return self[]
      */
     public static function getAllPhotosForEvent($eventId)
@@ -118,25 +117,13 @@ class Photo extends Model
     }
 
     /**
-     * return all tags as array.
-     *
-     * @return array
+     * @param $file UploadedFile
+     * @param $type
+     * @param $path
+     * @param int $video
+     * @param null $albumID
+     * @return int
      */
-    public function getTags()
-    {
-        $resultArray = [];
-        $tagConnects = TagConnect::article($this->id);
-        if($tagConnects->isEmpty()) {return [];}
-        foreach($tagConnects as $tagConnect) {
-            $idsArray[] = $tagConnect->id;
-        }
-        $tags = Tag::whereIn('id', $idsArray)->get();
-        foreach($tags as $tag) {
-            $resultArray[] = $tag->word;
-        }
-        return $resultArray;
-    }
-
     public static function savePhotoFromRequestFile($file, $type, $path, $video=0, $albumID = null)
     {
         $photo = new self;

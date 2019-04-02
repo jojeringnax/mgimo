@@ -3,6 +3,7 @@
 namespace App\en;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 /**
@@ -40,15 +41,18 @@ class Photo extends Model
      * @var array
      */
     public $fillable = [
-      'album_id'
+        'id',
+        'sizeX',
+        'sizeY',
+        'path',
+        'type',
+        'album_id',
+        'video'
     ];
 
     /**
-     * Delete file of photo.
-     * Delete all TagConnects and decrease count_photos of Tag.
-     * Delete Model from database.
-     *
      * @return bool|null
+     * @throws \Exception
      */
     public function delete()
     {
@@ -79,7 +83,7 @@ class Photo extends Model
     /**
      * Return Album in which this photo save.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne|Album
      */
     public function album()
     {
@@ -89,7 +93,7 @@ class Photo extends Model
     /**
      * Return all photo Models for an article by id.
      *
-     * @param $articleId
+     * @param $articleId integer
      * @return self[]
      */
     public static function getAllPhotosForArticle($articleId)
@@ -99,9 +103,7 @@ class Photo extends Model
     }
 
     /**
-     * Return all photo Models for an congratulation by id.
-     *
-     * @param $articleId
+     * @param $congId integer
      * @return self[]
      */
     public static function getAllPhotosForCongratulation($congId)
@@ -113,7 +115,7 @@ class Photo extends Model
     /**
      * Return all photo Models for an event by id.
      *
-     * @param $eventId
+     * @param $eventId integer
      * @return self[]
      */
     public static function getAllPhotosForEvent($eventId)
@@ -123,23 +125,26 @@ class Photo extends Model
     }
 
     /**
-     * return all tags as array.
-     *
-     * @return array
+     * @param $file UploadedFile
+     * @param $type
+     * @param $path
+     * @param int $video
+     * @param null $albumID
+     * @return int
      */
-    public function getTags()
+    public static function savePhotoFromRequestFile($file, $type, $path, $video=0, $albumID = null)
     {
-        $resultArray = [];
-        $tagConnects = TagConnect::article($this->id);
-        if($tagConnects->isEmpty()) {return [];}
-        foreach($tagConnects as $tagConnect) {
-            $idsArray[] = $tagConnect->id;
-        }
-        $tags = Tag::whereIn('id', $idsArray)->get();
-        foreach($tags as $tag) {
-            $resultArray[] = $tag->word;
-        }
-        return $resultArray;
+        $photo = new self;
+        Storage::put($path, file_get_contents($file->getPathname()));
+        $path = '/storage/photo' . $path;
+        $photo->type = $type;
+        $photo->sizeX = getimagesize($file->getPathname())[0];
+        $photo->sizeY = getimagesize($file->getPathname())[1];
+        $photo->path = $path;
+        $photo->album_id = $albumID;
+        $photo->video = $video;
+        $photo->save();
+        return $photo->id;
     }
 
 }

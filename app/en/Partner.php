@@ -20,9 +20,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Partner extends Model
 {
-
-    public $connection = 'mysql_en';
-
     const ORGANIZATORS = 0;
     const GENERAL_SPONSORS = 1;
     const SPONSORS = 2;
@@ -31,6 +28,10 @@ class Partner extends Model
     const TYPE_COMPANY = 0;
     const TYPE_INDIVIDUAL = 1;
 
+    /**
+     * @var string
+     */
+    public $connection = 'mysql_en';
 
     /**
      * @var string
@@ -41,14 +42,28 @@ class Partner extends Model
      * @var array
      */
     public $fillable = [
-      'photo_id'
+        'id',
+        'link',
+        'position',
+        'priority',
+        'photo_id',
+        'category',
+        'title',
+        'type'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne|Photo
+     */
     public function photo()
     {
         return $this->hasOne(Photo::class, 'id','photo_id');
     }
 
+    /**
+     * @param int $type
+     * @return self[]
+     */
     public static function getInPriority($type=0)
     {
         return self::where('type', $type)->get()->sortBy('priority');

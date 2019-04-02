@@ -45,6 +45,9 @@ class Tag extends Model
         return $this->hasMany(TagConnect::class, 'id', 'id');
     }
 
+    /**
+     * @return Album[]|null
+     */
     public function albums()
     {
         $tagConnects = TagConnect::where('id', $this->id)->where('type', TagConnect::GALLERY)->select('connect_id')->get()->toArray();
